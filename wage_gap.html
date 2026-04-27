@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30% 격차는 진짜인데 — F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #0a0c0f;
+  --slate:   #111418;
+  --panel:   #161b22;
+  --teal:    #0d7377;
+  --teal-d:  #085055;
+  --teal-l:  #14a8ae;
+  --ice:     #c8dde0;
+  --steel:   #7a9aa0;
+  --text:    #b0c4c8;
+  --light:   #ddeaec;
+  --border:  rgba(13,115,119,0.2);
+  --warn:    #c87830;
+  --muted:   #506870;
+}
+
+body { background: var(--black); color: var(--text); font-family: 'Noto Sans KR', sans-serif; }
+
+body::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal-d), var(--teal-l), var(--teal-d));
+}
+
+/* HEADER */
+header {
+  background: rgba(10,12,15,0.96);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(8px);
+}
+.logo { font-family:'Space Mono',monospace; font-size:13px; color:var(--teal-l); letter-spacing:2px; text-decoration:none; }
+.logo span { color:rgba(200,200,200,0.2); }
+.header-right { display:flex; align-items:center; gap:20px; }
+.header-cat { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:3px; color:var(--teal); text-transform:uppercase; border:1px solid var(--border); padding:4px 10px; }
+.header-home { font-size:10px; letter-spacing:1.5px; color:var(--muted); text-decoration:none; text-transform:uppercase; }
+.header-home:hover { color:var(--teal-l); }
+
+/* ── HERO ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  min-height: 80vh;
+  border-bottom: 1px solid var(--border);
+}
+.hero-left {
+  padding: 80px 60px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  background: var(--slate);
+  position: relative; overflow: hidden;
+  border-right: 1px solid var(--border);
+}
+.hero-left::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 0% 100%, rgba(13,115,119,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 0%, rgba(13,115,119,0.06) 0%, transparent 40%);
+}
+.hl-content { position: relative; z-index: 1; }
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 3px;
+  color: var(--teal); text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-tag::before { content:''; display:inline-block; width:24px; height:1px; background:var(--teal); }
+.hero-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 900; line-height: 1.2;
+  color: var(--light); letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+.hero-subtitle {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px; font-weight: 300;
+  color: rgba(200,218,220,0.5);
+  margin-bottom: 32px; letter-spacing: 0.3px;
+}
+.hero-lead {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px; line-height: 2;
+  color: rgba(176,196,200,0.8);
+  border-left: 2px solid var(--teal);
+  padding-left: 18px; max-width: 480px;
+}
+
+/* RIGHT - BIG NUMBER */
+.hero-right {
+  background: var(--black);
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 48px;
+  gap: 0;
+}
+.big-num-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 3px;
+  color: var(--muted); text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.big-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 120px; font-weight: 700;
+  color: var(--teal-l); line-height: 1;
+  letter-spacing: -4px;
+  margin-bottom: 4px;
+}
+.big-num-unit {
+  font-family: 'Space Mono', monospace;
+  font-size: 14px; color: var(--teal);
+  letter-spacing: 2px; margin-bottom: 28px;
+}
+.num-context {
+  width: 100%;
+  border: 1px solid var(--border); padding: 16px;
+  background: rgba(13,115,119,0.05);
+}
+.nc-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px; letter-spacing: 2px;
+  color: var(--teal); text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.nc-row {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 8px;
+  font-size: 11.5px;
+}
+.nc-row:last-child { margin-bottom: 0; }
+.nc-type { color: var(--steel); }
+.nc-val { font-family:'Space Mono',monospace; font-size:12px; }
+.nc-val.raw { color: var(--teal-l); }
+.nc-val.adjusted { color: var(--warn); }
+.nc-divider { height:1px; background:var(--border); margin: 10px 0; }
+
+/* ── BODY ── */
+.body-wrap { max-width: 880px; margin: 0 auto; padding: 80px 48px; }
+
+/* SECTION */
+.sec { margin-bottom: 60px; }
+.sec-head {
+  display: flex; align-items: baseline; gap: 16px;
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.sec-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--teal); padding: 3px 8px;
+  border: 1px solid var(--border);
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--light); line-height: 1.3;
+}
+.sec-body {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px; line-height: 2.05;
+  color: rgba(176,196,200,0.8);
+}
+.sec-body p { margin-bottom: 16px; }
+.sec-body p:last-child { margin-bottom: 0; }
+.sec-body strong { color: var(--ice); font-weight: 600; }
+
+/* DATA BAR CHART */
+.bar-chart { margin: 24px 0; }
+.bar-row {
+  display: grid; grid-template-columns: 100px 1fr 56px;
+  gap: 12px; align-items: center; margin-bottom: 10px;
+}
+.bar-label { font-size: 11.5px; color: var(--steel); text-align: right; }
+.bar-track { background: rgba(13,115,119,0.1); border-radius: 0; height: 28px; position: relative; }
+.bar-fill {
+  height: 100%; position: absolute; left: 0; top: 0;
+  display: flex; align-items: center; padding-left: 10px;
+  font-family: 'Space Mono', monospace; font-size: 10px; color: var(--black);
+  font-weight: 700;
+}
+.bar-fill.male { background: var(--teal); }
+.bar-fill.female { background: var(--teal-d); }
+.bar-val { font-family:'Space Mono',monospace; font-size:11px; color:var(--teal-l); }
+.bar-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 2px;
+  color: var(--muted); text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* THREE VARIABLES */
+.var-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin: 24px 0; background: var(--border); }
+.var-card {
+  background: var(--panel); padding: 20px;
+  border-top: 2px solid var(--teal-d);
+}
+.var-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; color: var(--teal);
+  letter-spacing: 2px; margin-bottom: 8px;
+}
+.var-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px; font-weight: 700;
+  color: var(--ice); margin-bottom: 8px;
+}
+.var-desc { font-size: 12px; line-height: 1.75; color: var(--steel); }
+
+/* PULLQUOTE */
+.pq {
+  margin: 24px 0; padding: 20px 24px;
+  border-left: 2px solid var(--teal-l);
+  background: rgba(13,115,119,0.06);
+}
+.pq p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 17px; line-height: 1.75;
+  color: var(--ice); margin: 0 !important;
+}
+
+/* HIGHLIGHT */
+.hl {
+  margin: 20px 0; padding: 16px 20px;
+  background: rgba(200,120,48,0.07);
+  border: 1px solid rgba(200,120,48,0.2);
+  border-left: 2px solid var(--warn);
+}
+.hl p {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px; line-height: 1.9;
+  color: rgba(200,180,160,0.85); margin: 0 !important;
+}
+.hl strong { color: var(--warn); }
+
+/* ECONOMIST BOX */
+.econ-box {
+  margin: 28px 0;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+.eb-head {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px;
+}
+.eb-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px; letter-spacing: 2px;
+  color: var(--teal); text-transform: uppercase;
+  border: 1px solid var(--border); padding: 3px 8px;
+}
+.eb-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px; font-weight: 700;
+  color: var(--ice);
+}
+.eb-body {
+  padding: 18px 20px;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13.5px; line-height: 1.9;
+  color: rgba(176,196,200,0.75);
+}
+.eb-body strong { color: var(--teal-l); }
+
+/* DIVIDER */
+.sec-div {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 60px; opacity: 0.2;
+}
+.sec-div::before,.sec-div::after { content:''; flex:1; height:1px; background:var(--teal); }
+.sec-div span { font-family:'Space Mono',monospace; font-size:9px; color:var(--teal); letter-spacing:2px; }
+
+/* CONCLUSION */
+.conclusion {
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--teal-l);
+  background: rgba(13,21,34,0.5);
+  padding: 44px; margin-bottom: 48px;
+}
+.conc-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 3px;
+  color: var(--teal); text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.conc-flow {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: var(--border); margin-bottom: 32px;
+}
+.cf-item { background: var(--panel); padding: 16px; }
+.cf-q { font-size: 11px; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.5px; }
+.cf-a {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--ice); line-height: 1.5;
+}
+.conc-final {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px; line-height: 2;
+  color: rgba(200,220,224,0.8);
+}
+.conc-final strong { color: var(--teal-l); }
+
+.closing { text-align:center; padding:0 0 60px; }
+.closing p { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; color:rgba(176,196,200,0.2); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo { font-family:'Space Mono',monospace; font-size:12px; color:var(--teal-l); letter-spacing:2px; }
+.footer-meta { font-size:10px; color:var(--muted); letter-spacing:1px; }
+.footer-cat { font-family:'Space Mono',monospace; font-size:9px; color:var(--teal); letter-spacing:2px; text-transform:uppercase; }
+
+/* ── RELATED ARTICLES ── */
+.related-section {
+  padding: 48px;
+  border-top: 1px solid var(--border);
+}
+.related-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.related-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  display: block;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.related-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+}
+.related-card:hover { background: rgba(200,150,62,.04); }
+.related-card-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.related-card-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--off-white);
+  margin-bottom: 16px;
+}
+.related-card-arrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .related-section { padding: 32px 20px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span>.mag</span></a>
+  <div class="header-right">
+    <span class="header-cat">사회 분석</span>
+    <a href="index.html" class="header-home">← 홈으로</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hl-content">
+      <div class="hero-tag">사회 분석 · Data Essay</div>
+      <h1 class="hero-title">30% 격차는 진짜인데,<br>우리가 잘못 읽고<br>있을 수 있습니다</h1>
+      <p class="hero-subtitle">2024 성별 임금 격차 데이터 다시 읽기</p>
+      <p class="hero-lead">숫자 자체가 문제가 아니라, 읽는 법이 문제예요. 양쪽 다 같은 숫자를 보면서 완전히 다른 걸 읽고 있거든요.</p>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="big-num-label">2024 공시 대상 기업 평균 임금 격차</div>
+    <div class="big-num">30</div>
+    <div class="big-num-unit">% — 사실입니다</div>
+    <div class="num-context">
+      <div class="nc-label">그런데 이 수치는</div>
+      <div class="nc-row">
+        <span class="nc-type">단순 평균 비교</span>
+        <span class="nc-val raw">~30%</span>
+      </div>
+      <div class="nc-divider"></div>
+      <div class="nc-row">
+        <span class="nc-type">직종 통제 후</span>
+        <span class="nc-val adjusted">↓ 상당폭 감소</span>
+      </div>
+      <div class="nc-row">
+        <span class="nc-type">근속 통제 후</span>
+        <span class="nc-val adjusted">↓ 추가 감소</span>
+      </div>
+      <div class="nc-row">
+        <span class="nc-type">설명되지 않는 잔여</span>
+        <span class="nc-val adjusted">일부 존재</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- INTRO -->
+  <div class="sec" style="margin-bottom:48px">
+    <div class="sec-body">
+      <p>이 주제 관련 글 올라올 때마다 댓글창 보면 패턴이 똑같아요. 한쪽은 "30% 차별이다", 다른 쪽은 "그건 아니다"로 시작해서 결국 감정싸움으로 끝나요. 논쟁은 길어지고 아무것도 안 바뀌고, 보는 사람만 피곤해지죠.</p>
+      <p><strong>30%는 직무도, 경력도, 근무 조건도 통제하지 않은 숫자예요.</strong> "한국 직장인 남성 평균 월급"과 "한국 직장인 여성 평균 월급"을 그냥 빼준 거예요. 두 집단이 서로 다른 직종에, 서로 다른 조건으로, 서로 다른 기간 동안 일하고 있다는 걸 전혀 반영하지 못한 숫자예요.</p>
+    </div>
+  </div>
+
+  <!-- THREE VARIABLES -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">VARS</span>
+      <div class="sec-title">격차를 설명하는 세 가지 핵심 변수</div>
+    </div>
+    <div class="var-grid">
+      <div class="var-card">
+        <div class="var-num">VAR 01</div>
+        <div class="var-name">근속연수</div>
+        <p class="var-desc">남성 11.8년 vs 여성 9.4년 — 약 20% 차이. 임금은 경력이 쌓일수록 올라가는 구조. 특히 관리직·임원급 보상은 장기 경력 축적을 전제로 설계됨.</p>
+      </div>
+      <div class="var-card">
+        <div class="var-num">VAR 02</div>
+        <div class="var-name">산업 분리</div>
+        <p class="var-desc">IT·금융·반도체는 남성 비중 높고, 교육·보건·판매는 여성 비중 높은 경향. 같은 시간을 일해도 어느 산업이냐에 따라 임금이 다름. 평균 비교엔 반영 안 됨.</p>
+      </div>
+      <div class="var-card">
+        <div class="var-num">VAR 03</div>
+        <div class="var-name">위험 프리미엄</div>
+        <p class="var-desc">보상적 임금 격차(Compensating Wage Differential) — 건설·제조·운송은 산업재해 사망 대부분. 위험 수당·연장·야간 수당이 임금을 끌어올리고, 이 산업엔 남성이 압도적.</p>
+      </div>
+    </div>
+
+    <div class="bar-title">2024 평균 근속연수 비교</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">남성</div>
+        <div class="bar-track">
+          <div class="bar-fill male" style="width:78%">11.8년</div>
+        </div>
+        <div class="bar-val">11.8yr</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">여성</div>
+        <div class="bar-track">
+          <div class="bar-fill female" style="width:62%">9.4년</div>
+        </div>
+        <div class="bar-val">9.4yr</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-div"><span>— —</span></div>
+
+  <!-- STRUCTURAL PRESSURE -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">NOTE</span>
+      <div class="sec-title">근데 남성이 그 위험한 일을 "원해서" 하는 걸까요</div>
+    </div>
+    <div class="sec-body">
+      <p>산업재해 사망자의 90% 이상이 남성이에요. 자살률도 남성이 여성의 두 배가 넘습니다. 근데 이 숫자들은 임금 격차 논쟁에서 거의 언급이 안 돼요.</p>
+      <div class="hl">
+        <p>여성이 경력 단절을 선택하거나 워라벨을 우선시하는 게 순수한 자유의지가 아니라 사회적 역할 기대의 압력이라는 건 이제 많이 알려진 얘기예요. <strong>근데 남성이 위험한 직종에서 장시간 일하는 것도 똑같은 구조예요.</strong></p>
+      </div>
+      <p>"남자는 가족을 부양해야 한다", "남자는 힘든 일을 해야 한다"는 사회적 기대가 직종 선택과 노동 방식에 영향을 미거든요. <strong>한쪽의 제약은 보이고 다른 쪽의 제약은 안 보이는 구조 — 그게 이 논쟁이 자꾸 평행선을 달리는 이유 중 하나예요.</strong></p>
+    </div>
+  </div>
+
+  <div class="sec-div"><span>— —</span></div>
+
+  <!-- BECKER -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">ECON</span>
+      <div class="sec-title">자본주의 논리로만 봐도 이상한 얘기예요</div>
+    </div>
+    <div class="sec-body">
+      <div class="pq">
+        <p>만약 진짜로 동일한 일을 여성에게 30% 싸게 시킬 수 있다면 합리적인 기업은 여성만 고용해야 해요. 비용이 30% 절감되는데 안 할 이유가 없잖아요.</p>
+      </div>
+      <div class="econ-box">
+        <div class="eb-head">
+          <span class="eb-tag">경제학</span>
+          <span class="eb-name">게리 베커 — 차별의 경제학</span>
+        </div>
+        <div class="eb-body">
+          경쟁 시장에서 <strong>차별하는 기업은 비용 열위에 놓이고 장기적으로 도태된다.</strong> 완벽한 이론은 아니지만, 적어도 "사무직에서 동일 노동 30% 차별이 구조적으로 지속된다"는 주장이 얼마나 설득력 있는지는 한 번쯤 따져볼 필요가 있어요. 30%를 덜 주고 똑같은 일을 시킬 수 있으면 진작에 그렇게 했겠죠.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-div"><span>— —</span></div>
+
+  <!-- GOLDIN -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">2023</span>
+      <div class="sec-title">왜 이 구조가 유지되는가 — 여기서 노벨상 얘기가 나옵니다</div>
+    </div>
+    <div class="sec-body">
+      <div class="econ-box">
+        <div class="eb-head">
+          <span class="eb-tag">노벨 경제학상 2023</span>
+          <span class="eb-name">클로디아 골딘</span>
+        </div>
+        <div class="eb-body">
+          현대 고소득 직종의 보상 구조 분석. 핵심은 단순히 더 오래 일할수록 임금이 비례해서 오르는 게 아니라, <strong>상시 대응 가능성과 장시간 가용성에 대해 임금이 비선형적으로 증가한다</strong>는 것. "언제든 연락되고, 언제든 투입될 수 있는 사람"에게 훨씬 더 많이 주는 구조가 고소득 직종에 존재한다. 이 구조 안에서 육아·가사 분담 불균형이 경력 단절과 직종 선택에 영향을 미치고, 그게 다시 임금 격차로 이어진다.
+        </div>
+      </div>
+      <div class="hl">
+        <p>골딘 본인이 페미니스트 경제학자예요. 이 연구의 결론이 "차별 없다"가 아니라 <strong>"육아·가사 분담의 불균형이 구조적으로 임금 격차를 만든다, 거기를 고쳐야 한다"</strong>거든요.</p>
+      </div>
+      <p>앞의 세 변수가 "뭐가 다른가"를 보여줬다면, 골딘의 연구는 "왜 그 차이가 유지되는가"를 설명해요.</p>
+    </div>
+  </div>
+
+  <div class="sec-div"><span>— —</span></div>
+
+  <!-- WHO USES THE NUMBER -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">META</span>
+      <div class="sec-title">그럼 누가 이 숫자를 그대로 쓰고 있는 걸까요</div>
+    </div>
+    <div class="sec-body">
+      <p>이 구조를 몰라서 30%를 차별의 증거로 쓰는 거랑, 알면서 쓰는 거랑은 완전히 다른 얘기예요.</p>
+      <div class="pq">
+        <p>숫자를 도구로 쓰는 사람들이 정작 그 숫자가 가리키는 구조적 문제 해결엔 관심이 없다면, 그건 여성을 위한 게 아니에요. 논쟁을 유지하는 게 목적인 거죠.</p>
+      </div>
+      <p>그리고 그 논쟁이 길어질수록 정작 바뀌어야 할 구조 — 경력 단절, 육아 분담 불균형, 장시간 노동 구조 — 는 그대로예요.</p>
+      <p>그렇다고 <strong>잔여 격차가 0이라는 말은 아닙니다.</strong> 변수들을 다 통제하고 나서도 설명되지 않는 격차가 일부 남아요. 조직 내 네트워크 구조, 승진 평가 방식, 협상 전략 차이 같은 것들이 복합적으로 작용하는 것으로 연구들은 보고 있어요. 이게 0이라고 단언하는 것도 틀린 얘기예요.</p>
+    </div>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="conclusion">
+    <div class="conc-label">결론 · Conclusion</div>
+    <div class="conc-flow">
+      <div class="cf-item">
+        <div class="cf-q">30%는?</div>
+        <div class="cf-a">사실. 부정할 이유 없음.</div>
+      </div>
+      <div class="cf-item">
+        <div class="cf-q">= 동일 노동 30% 차별?</div>
+        <div class="cf-a">틀린 읽기. 진단이 틀리면 처방도 틀림.</div>
+      </div>
+      <div class="cf-item">
+        <div class="cf-q">그럼 차별 없다?</div>
+        <div class="cf-a">그것도 틀림. 잔여 격차는 존재함.</div>
+      </div>
+    </div>
+    <div class="conc-final">
+      경력 단절 문제인지, 산업 진입 장벽 문제인지, 장시간 노동 구조 문제인지, 육아 분담 문제인지 — 원인이 다르면 해결책도 달라야 하거든요.<br><br>
+      남녀 양쪽 다 사회적 구조 안에서 각자의 방식으로 압력을 받고 있어요. 그걸 인정하는 게 출발점이에요.<br><br>
+      <strong>숫자를 제대로 읽는 것, 그게 싸움이 아니라 해결로 가는 첫걸음입니다.</strong>
+    </div>
+  </div>
+
+  <div class="closing">
+    <p>F3YNM4N · 사회 분석 · Vol.01</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">F3YNM4N</div>
+  <div class="footer-meta">30% 격차는 진짜인데 · 성별 임금 격차 다시 읽기</div>
+  <div class="footer-cat">사회 분석</div>
+</footer>
+
+</body>
+</html>

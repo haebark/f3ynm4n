@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0d0d0b;
+  --off-white: #f2ede6;
+  --gold: #c8963e;
+  --gold-dim: #8a6428;
+  --mid: #6a6560;
+  --border: rgba(200,150,62,0.18);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  cursor: none;
+}
+body::before {
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:100;opacity:.4;
+}
+.cursor { position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
+.cursor-ring { position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%); }
+
+/* HEADER */
+header {
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:16px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:rgba(13,13,11,.9);
+  backdrop-filter:blur(12px);
+}
+.logo { font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none; }
+.logo span { color:var(--off-white);opacity:.4; }
+.header-home { font-size:11px;letter-spacing:2px;color:var(--mid);text-decoration:none;text-transform:uppercase;transition:color .2s; }
+.header-home:hover { color:var(--gold); }
+
+/* LOADING */
+#loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+.loading-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+
+/* HERO */
+.article-hero {
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px 48px 60px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.article-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(200,150,62,.06) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(13,13,11,0) 0%, rgba(13,13,11,.95) 100%);
+}
+.article-hero-inner { position: relative; z-index: 2; max-width: 720px; }
+.article-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeUp .7s ease forwards .2s;
+}
+.article-tag::before { content:''; display:inline-block; width:20px; height:1px; background:var(--gold); }
+.article-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  color: var(--off-white);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp .7s ease forwards .4s;
+}
+.article-subtitle {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(242,237,230,.6);
+  max-width: 560px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp .7s ease forwards .6s;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  animation: fadeUp .7s ease forwards .8s;
+}
+.meta-item {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--mid);
+}
+.meta-item strong { color: var(--gold-dim); display: block; margin-bottom: 3px; font-size: 8px; text-transform: uppercase; }
+.meta-sep { width: 1px; height: 24px; background: var(--border); }
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+/* ARTICLE BODY */
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+.article-content {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 2.1;
+  color: rgba(242,237,230,.82);
+}
+.article-content p { margin-bottom: 22px; }
+.article-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--off-white);
+  margin: 40px 0 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.article-content h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--off-white);
+  margin: 28px 0 12px;
+}
+.article-content strong { color: var(--off-white); font-weight: 600; }
+.article-content em { color: var(--gold); font-style: normal; }
+.article-content blockquote {
+  border-left: 3px solid var(--gold);
+  padding: 16px 20px;
+  margin: 28px 0;
+  background: rgba(200,150,62,.04);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(242,237,230,.85);
+}
+.article-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+.article-content a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(200,150,62,.3); }
+.article-content a:hover { border-color: var(--gold); }
+
+/* 창작 전용 스타일 */
+.fiction .article-content {
+  font-size: 15.5px;
+  line-height: 2.3;
+}
+.fiction .article-content p { margin-bottom: 18px; }
+
+/* SERIES NAV */
+.series-nav {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.series-nav-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.series-ep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  text-decoration: none;
+  color: var(--mid);
+  font-size: 13px;
+  transition: color .2s;
+  border-left: 2px solid transparent;
+  padding-left: 10px;
+}
+.series-ep:hover, .series-ep.current { color: var(--off-white); border-left-color: var(--gold); }
+.series-ep.current { color: var(--gold); }
+.series-ep-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+}
+
+/* RELATED */
+.related-section {
+  padding: 48px;
+  border-top: 1px solid var(--border);
+}
+.related-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.related-label::after { content:''; flex:1; height:1px; background:var(--border); display:block; }
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.related-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+}
+.related-card:hover { background: rgba(200,150,62,.04); }
+.related-card-tag { font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px; }
+.related-card-title { font-family:'Noto Serif KR',serif;font-size:15px;font-weight:700;line-height:1.5;color:var(--off-white);margin-bottom:16px; }
+.related-card-arrow { font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:1px; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13,13,11,.8);
+}
+footer .pub { font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold); }
+footer .nav-links { display:flex;gap:24px; }
+footer .nav-links a { font-size:11px;color:var(--mid);text-decoration:none;letter-spacing:1px; }
+footer .nav-links a:hover { color:var(--gold); }
+
+/* NOT FOUND */
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  display: none;
+}
+.not-found-num { font-family:'Space Mono',monospace;font-size:80px;font-weight:700;color:rgba(200,150,62,.15);line-height:1; }
+.not-found-msg { font-family:'Noto Serif KR',serif;font-size:16px;color:var(--mid); }
+
+@media (max-width: 768px) {
+  header { padding: 14px 20px; }
+  .article-hero { padding: 100px 20px 48px; }
+  .article-body { padding: 40px 20px; }
+  .related-section { padding: 32px 20px; }
+  .related-grid { grid-template-columns: 1fr; }
+  footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+  .article-meta { flex-wrap: wrap; gap: 12px; }
+}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="f3ynm4n.html" class="logo">F3YNM4N<span>.mag</span></a>
+  <a href="f3ynm4n.html" class="header-home">← 홈으로</a>
+</header>
+
+<!-- 로딩 -->
+<div id="loading">
+  <div class="loading-logo">F3YNM4N</div>
+</div>
+
+<!-- 글 없음 -->
+<div class="not-found" id="not-found">
+  <div class="not-found-num">404</div>
+  <div class="not-found-msg">글을 찾을 수 없습니다.</div>
+  <a href="f3ynm4n.html" style="font-family:'Space Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:2px;text-decoration:none;margin-top:8px;">← 홈으로</a>
+</div>
+
+<!-- 글 본문 -->
+<div id="article-wrap" style="display:none;">
+  <div class="article-hero" id="article-hero">
+    <div class="article-hero-inner">
+      <div class="article-tag" id="article-tag"></div>
+      <h1 class="article-title" id="article-title"></h1>
+      <p class="article-subtitle" id="article-subtitle"></p>
+      <div class="article-meta" id="article-meta"></div>
+    </div>
+  </div>
+
+  <div class="article-body" id="article-body">
+    <!-- 시리즈 네비 -->
+    <div id="series-nav-wrap"></div>
+    <!-- 본문 -->
+    <div class="article-content" id="article-content"></div>
+  </div>
+
+  <!-- 연관 글 -->
+  <div class="related-section" id="related-wrap" style="display:none;">
+    <div class="related-label">다음으로 읽기</div>
+    <div class="related-grid" id="related-grid"></div>
+  </div>
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 2026</span>
+  <div class="nav-links">
+    <a href="f3ynm4n.html">← 홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 위로</a>
+  </div>
+</footer>
+
+<script>
+const SUPABASE_URL = 'https://zbjurkhbumuqeusceknb.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_NCDATxds6xSoM7ecxuZxpQ_GLLYq0hF';
+
+const CAT_NAMES = {
+  food:'미식', science:'팝사이언스', film:'영화비평',
+  history:'대체역사', culture:'문화칼럼', fiction:'창작'
+};
+
+async function fetchArticle(slug) {
+  const res = await fetch(
+    `${SUPABASE_URL}/rest/v1/articles?slug=eq.${encodeURIComponent(slug)}&published=eq.true&limit=1`,
+    { headers: { 'apikey': SUPABASE_KEY } }
+  );
+  const data = await res.json();
+  return data[0] || null;
+}
+
+async function fetchRelated(category, currentSlug) {
+  const res = await fetch(
+    `${SUPABASE_URL}/rest/v1/articles?category=eq.${category}&published=eq.true&slug=neq.${encodeURIComponent(currentSlug)}&order=created_at.desc&limit=2`,
+    { headers: { 'apikey': SUPABASE_KEY } }
+  );
+  return await res.json();
+}
+
+async function fetchSeries(seriesName) {
+  const res = await fetch(
+    `${SUPABASE_URL}/rest/v1/articles?series_name=eq.${encodeURIComponent(seriesName)}&published=eq.true&order=series_order.asc`,
+    { headers: { 'apikey': SUPABASE_KEY } }
+  );
+  return await res.json();
+}
+
+function nl2html(text) {
+  // 줄바꿈을 <p>로 변환 (HTML이 없는 텍스트일 때)
+  if (text.includes('<p>') || text.includes('<h2>')) return text;
+  return text.split(/\n\n+/).map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+}
+
+const CAT_LABELS = {
+  food:'미식', science:'팝사이언스', film:'영화비평',
+  history:'대체역사', culture:'문화칼럼', fiction:'창작'
+};
+
+async function fetchCategory(cat) {
+  const res = await fetch(
+    `${SUPABASE_URL}/rest/v1/articles?category=eq.${cat}&published=eq.true&order=created_at.desc`,
+    { headers: { 'apikey': SUPABASE_KEY } }
+  );
+  return await res.json();
+}
+
+async function showCategoryList(cat) {
+  const label = CAT_LABELS[cat] || cat;
+  document.title = `${label} · F3YNM4N`;
+
+  const articles = await fetchCategory(cat);
+
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('article-wrap').style.display = 'block';
+
+  // 히어로를 카테고리 헤더로
+  document.getElementById('article-tag').textContent = 'Category';
+  document.getElementById('article-title').textContent = label;
+  document.getElementById('article-subtitle').textContent = `${articles.length}개의 글`;
+  document.getElementById('article-meta').innerHTML = '';
+  document.getElementById('series-nav-wrap').innerHTML = '';
+
+  if (articles.length === 0) {
+    document.getElementById('article-content').innerHTML =
+      '<p style="color:var(--mid);padding:20px 0;">아직 글이 없습니다.</p>';
+    return;
+  }
+
+  const html = articles.map(a => `
+    <a href="article.html?slug=${a.slug}"
+       style="display:block;padding:28px;border:1px solid var(--border);text-decoration:none;color:inherit;margin-bottom:2px;transition:background .2s;"
+       onmouseover="this.style.background='rgba(200,150,62,0.04)'"
+       onmouseout="this.style.background='transparent'">
+      <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">${a.tag}</div>
+      <div style="font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;line-height:1.3;color:var(--off-white);margin-bottom:8px;">${a.title}</div>
+      <p style="font-size:13px;line-height:1.7;color:var(--mid);margin-bottom:12px;">${a.subtitle || ''}</p>
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);">읽기 →</div>
+    </a>`).join('');
+
+  document.getElementById('article-content').innerHTML = html;
+}
+
+async function init() {
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('slug');
+  const cat  = params.get('cat');
+
+  // 카테고리 목록 모드
+  if (cat) { await showCategoryList(cat); return; }
+
+  if (!slug) { showNotFound(); return; }
+
+  const article = await fetchArticle(slug);
+  if (!article) { showNotFound(); return; }
+
+  // href가 있으면 해당 HTML 파일로 바로 이동
+  if (article.href) {
+    location.href = article.href;
+    return;
+  }
+
+  // 페이지 타이틀
+  document.title = `${article.title} · F3YNM4N`;
+
+  // 커버 배경색
+  if (article.cover_color) {
+    document.querySelector('.article-hero').style.background = article.cover_color;
+  }
+
+  // 창작이면 fiction 클래스 추가
+  if (article.category === 'fiction') {
+    document.getElementById('article-body').classList.add('fiction');
+  }
+
+  // 헤더 채우기
+  document.getElementById('article-tag').textContent = article.tag || CAT_NAMES[article.category] || '';
+  document.getElementById('article-title').textContent = article.title;
+  document.getElementById('article-subtitle').textContent = article.subtitle || '';
+
+  const date = new Date(article.created_at).toLocaleDateString('ko-KR', { year:'numeric', month:'long', day:'numeric' });
+  document.getElementById('article-meta').innerHTML = `
+    <div class="meta-item"><strong>카테고리</strong>${CAT_NAMES[article.category] || article.category}</div>
+    <div class="meta-sep"></div>
+    <div class="meta-item"><strong>작성일</strong>${date}</div>
+    ${article.is_series ? `<div class="meta-sep"></div><div class="meta-item"><strong>시리즈</strong>${article.series_name} ${article.series_order}화</div>` : ''}
+  `;
+
+  // 시리즈 네비
+  if (article.is_series && article.series_name) {
+    const series = await fetchSeries(article.series_name);
+    if (series.length > 1) {
+      const epHtml = series.map(ep => `
+        <a href="article.html?slug=${ep.slug}" class="series-ep ${ep.slug === slug ? 'current' : ''}">
+          <span class="series-ep-num">${String(ep.series_order).padStart(2,'0')}</span>
+          ${ep.title}
+        </a>`).join('');
+      document.getElementById('series-nav-wrap').innerHTML = `
+        <div class="series-nav">
+          <div class="series-nav-label">${article.series_name}</div>
+          ${epHtml}
+        </div>`;
+    }
+  }
+
+  // 본문
+  document.getElementById('article-content').innerHTML = nl2html(article.content);
+
+  // 연관 글
+  const related = await fetchRelated(article.category, slug);
+  if (related.length > 0) {
+    const relHtml = related.map(r => `
+      <a href="article.html?slug=${r.slug}" class="related-card">
+        <div class="related-card-tag">${r.tag}</div>
+        <div class="related-card-title">${r.title}</div>
+        <div class="related-card-arrow">읽기 →</div>
+      </a>`).join('');
+    document.getElementById('related-grid').innerHTML = relHtml;
+    document.getElementById('related-wrap').style.display = 'block';
+  }
+
+  // 표시
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('article-wrap').style.display = 'block';
+}
+
+function showNotFound() {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('not-found').style.display = 'flex';
+}
+
+// 커스텀 커서
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+(function loop() { rx += (mx-rx)*.12; ry += (my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+
+init();
+</script>
+</body>
+</html>

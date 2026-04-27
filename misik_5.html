@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미식의 나라 5 — 변주의 나라</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C8963E;
+    --dark: #1a1612;
+    --mid: #3a3530;
+    --warm: #f5f0ea;
+    --cream: #faf7f3;
+    --text: #2c2822;
+    --muted: #7a7068;
+    --border: #d8cfc4;
+  }
+
+  body {
+    background: #e8e2da;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: var(--text);
+  }
+
+  .page {
+    width: 820px;
+    background: var(--cream);
+    box-shadow: 0 8px 60px rgba(0,0,0,0.25), 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-strip {
+    background: var(--dark);
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section-tag {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #aaa;
+    text-transform: uppercase;
+  }
+  .issue-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* NAV */
+  .nav-bar{padding:10px 40px;background:var(--warm);border-bottom:1px solid var(--border);display:flex;gap:6px}
+  .nav-bar a{font-size:10.5px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);text-decoration:none}
+  .nav-bar a.active{background:var(--dark);color:var(--gold);border-color:var(--dark)}
+
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 0;
+    padding: 36px 40px 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+  }
+  .hero-text { padding-right: 32px; }
+  .series-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .series-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 2px;
+    background: var(--gold);
+  }
+  .hero-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--dark);
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+  }
+  .hero-subtitle {
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: var(--mid);
+    font-weight: 400;
+    border-left: 3px solid var(--gold);
+    padding-left: 14px;
+  }
+  .hero-image { position: relative; align-self: end; }
+  .hero-image img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+  }
+  .hero-image .img-ph {
+    width: 100%; height: 210px;
+    background: linear-gradient(135deg, #c8d8e8, #8090a0);
+    display: none; align-items: center; justify-content: center;
+    font-size: 40px; border-radius: 2px;
+  }
+  .hero-image-caption {
+    position: absolute; bottom: 8px; left: 8px;
+    background: rgba(26,22,18,0.75); color: #e8ddd0;
+    font-size: 9.5px; letter-spacing: 1px;
+    padding: 3px 7px; border-radius: 1px;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+    margin: 0 40px;
+    opacity: 0.5;
+  }
+
+  /* BODY */
+  .body-section {
+    padding: 26px 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 30px;
+    border-bottom: 1px solid var(--border);
+  }
+  .body-col-full { grid-column: 1 / -1; }
+
+  .dropcap-para {
+    font-size: 13.5px; line-height: 1.95; color: var(--text); margin-bottom: 12px;
+  }
+  .dropcap-para::first-letter {
+    font-family: 'Noto Serif KR', serif; font-size: 56px; font-weight: 900;
+    float: left; line-height: 0.8; margin: 6px 8px 0 0; color: var(--dark);
+  }
+  .body-para { font-size: 13px; line-height: 1.9; color: var(--text); margin-bottom: 10px; }
+  .body-para.indent { text-indent: 1em; }
+
+  /* SUMMARY BOX */
+  .summary-box {
+    background: var(--warm); border: 1px solid var(--border);
+    border-top: 3px solid var(--gold); padding: 18px 20px;
+    margin: 16px 0 0; grid-column: 1 / -1;
+  }
+  .summary-box-title {
+    font-family: 'Noto Serif KR', serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; margin-bottom: 12px;
+  }
+  .summary-item {
+    display: grid; grid-template-columns: 80px 10px 1fr;
+    gap: 0 8px; align-items: baseline; margin-bottom: 7px; font-size: 12.5px;
+  }
+  .summary-item .food-name {
+    font-family: 'Noto Serif KR', serif; font-weight: 700; color: var(--dark);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .food-icon { font-size: 14px; }
+  .summary-item .dash { color: var(--gold); font-weight: 700; }
+  .summary-item .desc { color: var(--mid); line-height: 1.5; }
+
+  .conclusion-para {
+    font-size: 13.5px; line-height: 1.95; color: var(--text);
+    margin-top: 14px; grid-column: 1 / -1;
+  }
+
+  /* MAIN CONTENT GRID */
+  .content-grid {
+    display: grid; grid-template-columns: 1fr 260px;
+    gap: 0; padding: 28px 40px; border-bottom: 1px solid var(--border);
+  }
+  .content-left { padding-right: 28px; border-right: 1px solid var(--border); }
+  .content-right { padding-left: 24px; }
+
+  .food-card { margin-bottom: 30px; }
+  .food-card:last-child { margin-bottom: 0; }
+  .food-card-header {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 8px; padding-bottom: 7px; border-bottom: 1px solid var(--border);
+  }
+  .food-card-name { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 700; color: var(--dark); }
+  .food-card-dash { color: var(--gold); font-size: 14px; }
+  .food-card-tag { font-size: 12px; color: var(--muted); font-weight: 500; line-height: 1.4; }
+  .food-card-body { font-size: 12.5px; line-height: 1.9; color: var(--text); }
+
+  .right-food-item { margin-bottom: 24px; }
+  .right-food-item:last-child { margin-bottom: 0; }
+  .right-food-img {
+    width: 100%; height: 140px; object-fit: cover;
+    border-radius: 2px; margin-bottom: 10px; display: block;
+  }
+  .right-food-ph {
+    width: 100%; height: 140px; border-radius: 2px; margin-bottom: 10px;
+    display: none; align-items: center; justify-content: center; font-size: 28px;
+  }
+  .right-food-name { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+  .right-food-subtitle { font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 7px; }
+  .right-food-body { font-size: 11.5px; line-height: 1.8; color: var(--mid); }
+
+  /* BOTTOM GRID */
+  .bottom-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+  .bottom-col { padding: 22px 24px; border-right: 1px solid var(--border); }
+  .bottom-col:last-child { border-right: none; }
+  .bottom-col-title {
+    font-family: 'Noto Serif KR', serif; font-size: 13px; font-weight: 700;
+    color: var(--dark); margin-bottom: 10px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold); line-height: 1.5;
+  }
+  .bottom-col-body { font-size: 11.5px; line-height: 1.85; color: var(--mid); }
+
+  /* CLOSING */
+  .closing-quote {
+    text-align: center; padding: 24px 60px 20px; background: var(--warm); border-top: 1px solid var(--border);
+  }
+  .closing-quote p { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 600; line-height: 1.85; color: var(--dark); }
+  .closing-quote p em { color: var(--gold); font-style: normal; }
+
+  .page-footer {
+    background: var(--dark); padding: 12px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .page-num { font-size: 12px; color: #888; font-family: 'Playfair Display', serif; }
+  .pub-name { font-size: 11px; letter-spacing: 2.5px; color: var(--gold); text-transform: uppercase; }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+</head>
+<body>
+<article class="page">
+
+  <div class="header-strip">
+    <span class="section-tag">Food &amp; Culture</span>
+    <span class="issue-tag">F3YNM4N · 2026</span>
+  </div>
+
+  <div class="nav-bar">
+    <a href="misik_1.html">1편</a>
+    <a href="misik_2.html">2편</a>
+    <a href="misik_3.html">3편</a>
+    <a href="misik_4.html">4편</a>
+    <a class="active" href="misik_5.html">5편</a>
+    <a href="misik_index.html">◀ 목차</a>
+  </div>
+
+  <div class="hero">
+    <div class="hero-text">
+      <div class="series-label">미식의 나라 5</div>
+      <h1 class="hero-title">변주의 나라,<br>한국이 음식을<br>대하는 방식</h1>
+      <p class="hero-subtitle">
+        원형을 지키는 데서 전통이 완성되지 않는다.<br>
+        변주를 통해 더 강해지고, 더 넓어지며,<br>
+        마침내 새로운 원형이 탄생한다.<br>
+        한국 음식이 그 살아 있는 증거다.
+      </p>
+    </div>
+    <div class="hero-image">
+      <img src="naengmyeon.jpg" alt="냉면"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="img-ph">🍜</div>
+      <div class="hero-image-caption">평양냉면 · Naengmyeon</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="body-section">
+    <div class="body-col-full">
+      <p class="dropcap-para">
+        원형을 철저히 지키는 나라가 있고, 원형을 과감히 비트는 나라가 있습니다. 겉으로는 전자가 더 '전통적'으로 보이지만, 사실 그 반대일 수 있습니다. 받아들인 것일수록 더 엄격하게 보존하려 하는 경우가 많기 때문입니다.
+      </p>
+    </div>
+    <div>
+      <p class="body-para indent">자기 것이 아니라는 불안 때문에 형식이 엄격해지고, 의례가 생기고, '장인정신'이라는 이름이 붙습니다. 원형 집착은 때로 체급의 증거가 아니라, 체급 부재에 대한 방어 반응일 수 있습니다.</p>
+      <p class="body-para indent">반면 원형을 자유롭게 비트는 것은 자신감에서 나옵니다. 이것이 본래 자기 것이라는 확신이 있기에, 해체하고 재조립할 여유가 생기는 것입니다. 문화 체급이 뒷받침되어야만 진정한 변주가 가능합니다.</p>
+    </div>
+    <div>
+      <p class="body-para indent">한국은 후자입니다. 그리고 그 태도가 음식에서 가장 선명하게 드러납니다. 네 가지 사례는 각기 다른 방향에서 같은 결론에 도달합니다.</p>
+    </div>
+
+    <div class="summary-box">
+      <div class="summary-box-title">네 가지 사례 요약</div>
+      <div class="summary-item">
+        <span class="food-name"><span class="food-icon">🍜</span>냉면</span>
+        <span class="dash">—</span>
+        <span class="desc">원형 있음, 변주에 상대적으로 보수적</span>
+      </div>
+      <div class="summary-item">
+        <span class="food-name"><span class="food-icon">🍝</span>밀면</span>
+        <span class="dash">—</span>
+        <span class="desc">원형 없음, 제약 속에서 자유롭게 진화해 새로운 원형 창조</span>
+      </div>
+      <div class="summary-item">
+        <span class="food-name"><span class="food-icon">🌶️</span>떡볶이</span>
+        <span class="dash">—</span>
+        <span class="desc">원형 있음, 변주를 적극 흡수하며 더 강력해짐</span>
+      </div>
+      <div class="summary-item">
+        <span class="food-name"><span class="food-icon">🧀</span>콘치즈</span>
+        <span class="dash">—</span>
+        <span class="desc">원형도 재료도 남의 것, 완전 흡수해 한국 음식으로 재탄생</span>
+      </div>
+    </div>
+
+    <p class="conclusion-para">결국 변주의 힘은 체급에서 나옵니다. 체급이 있으면 원형을 지키면서도 변주를 품을 수 있고, 원형이 없어도 새로운 원형을 만들어내며, 남의 재료조차 자기 것으로 만들어버립니다.</p>
+  </div>
+
+  <div class="content-grid">
+    <div class="content-left">
+      <div class="food-card">
+        <div class="food-card-header">
+          <span class="food-card-name">냉면</span>
+          <span class="food-card-dash">—</span>
+          <span class="food-card-tag">원형 있음, 변주에 보수적</span>
+        </div>
+        <p class="food-card-body">평양냉면, 함흥냉면처럼 뚜렷한 원형이 있고, 육수 비율·면의 질감·고명 배치까지 세세한 규칙이 존재합니다. 원형에서 조금만 벗어나도 "그건 냉면이 아니다"라는 비판이 나올 정도로 변주에 보수적입니다.</p>
+      </div>
+      <div class="food-card">
+        <div class="food-card-header">
+          <span class="food-card-name">밀면</span>
+          <span class="food-card-dash">—</span>
+          <span class="food-card-tag">원형 없음, 제약 속 새로운 원형 창조</span>
+        </div>
+        <p class="food-card-body">6.25 전쟁 당시 부산으로 피난 온 실향민들이 메밀 대신 밀가루로 면을 뽑으면서 탄생했습니다. 없는 것에서 시작했는데, 더 자유롭게 진화한 역설적인 사례입니다. 원형 타이틀이 없었기에 오히려 자유로웠고, 부산만의 독자적인 원형으로 자리 잡았습니다.</p>
+      </div>
+      <div class="food-card">
+        <div class="food-card-header">
+          <span class="food-card-name">떡볶이</span>
+          <span class="food-card-dash">—</span>
+          <span class="food-card-tag">변주를 흡수해 더 강력해짐</span>
+        </div>
+        <p class="food-card-body">궁중 간장 떡볶이라는 뿌리가 있지만, 로제, 마라, 크림, 치즈 등 무수한 변주가 등장했습니다. 그런데도 여전히 '떡볶이'로 불립니다. 정체성이 워낙 강력하기에 어떤 변주도 자신의 카테고리 안으로 끌어들이는 힘을 발휘합니다.</p>
+      </div>
+      <div class="food-card">
+        <div class="food-card-header">
+          <span class="food-card-name">콘치즈</span>
+          <span class="food-card-dash">—</span>
+          <span class="food-card-tag">남의 재료, 완전 흡수해 재탄생</span>
+        </div>
+        <p class="food-card-body">옥수수는 아메리카 원산, 치즈는 유럽 유래입니다. 90년대 부산·경남 지역 횟집 스끼다시에서 시작해 "Korean Corn Cheese"로 불릴 정도로 완전히 한국 음식이 되었습니다. 변주의 궁극적 형태입니다.</p>
+      </div>
+    </div>
+
+    <div class="content-right">
+      <div class="right-food-item">
+        <img src="naengmyeon.jpg" alt="냉면" class="right-food-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="right-food-ph" style="background:linear-gradient(135deg,#c8d8e8,#8090a0)">🍜</div>
+        <div class="right-food-name">냉면 冷麵</div>
+        <div class="right-food-subtitle">원형의 수호자</div>
+        <p class="right-food-body">규칙이 곧 정체성인 음식. 엄격한 형식이 오히려 그 가치를 지탱합니다.</p>
+      </div>
+      <div class="right-food-item">
+        <img src="milmyeon.jpg" alt="밀면" class="right-food-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="right-food-ph" style="background:linear-gradient(135deg,#d8c890,#a89060)">🍝</div>
+        <div class="right-food-name">밀면 밀麵</div>
+        <div class="right-food-subtitle">부재에서 탄생한 원형</div>
+        <p class="right-food-body">없음에서 시작해 새로운 정체성을 만든 부산의 음식.</p>
+      </div>
+      <div class="right-food-item">
+        <img src="tteokbokki.webp" alt="떡볶이" class="right-food-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="right-food-ph" style="background:linear-gradient(135deg,#e84020,#a82808)">🌶️</div>
+        <div class="right-food-name">떡볶이 —</div>
+        <div class="right-food-subtitle">블랙홀형 변주</div>
+        <p class="right-food-body">모든 변주를 흡수하고도 여전히 떡볶이.</p>
+      </div>
+      <div class="right-food-item">
+        <img src="cornchi.jpg" alt="콘치즈" class="right-food-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="right-food-ph" style="background:linear-gradient(135deg,#f0d060,#c09828)">🧀</div>
+        <div class="right-food-name">콘치즈 —</div>
+        <div class="right-food-subtitle">완전 귀화한 이방인</div>
+        <p class="right-food-body">원재료는 외국산, 정체성은 완벽한 한국 음식.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-grid">
+    <div class="bottom-col">
+      <div class="bottom-col-title">모든 이야기는 결국 '변주'로 귀결된다</div>
+      <p class="bottom-col-body">발효는 같은 재료를 완전히 다른 맛으로 바꾸는 변주이고, 시장은 외국 음식을 흡수해 역전시키는 변주이며, 떡볶이는 로제와 마라를 삼키고도 여전히 떡볶이입니다. 밀면이 냉면의 그림자를 안고 새로운 길을 연 것도, 콘치즈가 서구 재료를 안주 문화로 재해석한 것도 모두 변주입니다.</p>
+    </div>
+    <div class="bottom-col">
+      <div class="bottom-col-title">변주의 힘은 쌓인 자신감에서 나온다</div>
+      <p class="bottom-col-body">한국이 변주를 잘하는 것은 우연이 아닙니다. 수천 년 문명적 축적을 통해 쌓은 자신감이 있기에, 흔들리지 않고 해체하고 재조립할 수 있는 것입니다. 형식에 대한 집착이 아닌 내용에 대한 확신. 그것이 진짜 원동력입니다.</p>
+    </div>
+    <div class="bottom-col">
+      <div class="bottom-col-title">한국을 진정한 '변주의 나라'로 만든 원동력</div>
+      <p class="bottom-col-body">냉면이 있으면 밀면을 만들고, 치즈가 들어오면 치즈 떡볶이를 만들어내는 그 본능이 — 한국을 진정한 변주의 나라로 만든 원동력입니다. 오히려 과거에 단점으로 지적되던 '빠른 흡수와 따라하기'가 음식에서는 강렬한 동력이 되었습니다.</p>
+    </div>
+  </div>
+
+  <div class="closing-quote">
+    <p>이 변주의 자신감이야말로 한국 미식의 가장 한국적인 힘입니다.<br>
+    그리고 앞으로도 한식이 <em>SS급으로 완전히 복귀하는,</em> 가장 강력한 엔진이 될 것입니다.</p>
+  </div>
+
+  <div class="page-footer">
+    <span class="page-num">86</span>
+    <span class="pub-name">F3YNM4N</span>
+    <span class="page-num">2026</span>
+  </div>
+
+</article>
+</body>
+</html>

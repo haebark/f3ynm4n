@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미식의 나라 1 — 3강에 근접한다</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C8963E;--dark:#1a1612;--mid:#3a3530;--warm:#f5f0ea;--cream:#faf7f3;--text:#2c2822;--muted:#7a7068;--border:#d8cfc4;--accent:#8B1A1A}
+body{background:#ddd7ce;font-family:'Noto Sans KR',sans-serif;display:flex;justify-content:center;padding:40px 20px;color:var(--text)}
+.page{width:820px;background:var(--cream);box-shadow:0 8px 60px rgba(0,0,0,.25)}
+
+.header-strip{background:var(--dark);padding:10px 40px;display:flex;justify-content:space-between;align-items:center}
+.section-tag{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:3px;color:#aaa;text-transform:uppercase}
+.issue-tag{font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+
+/* HERO */
+.hero{padding:36px 40px 28px;border-bottom:1px solid var(--border);position:relative}
+.hero-inner{display:grid;grid-template-columns:1fr 260px;gap:32px}
+.series-label{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.series-label::before{content:'';display:inline-block;width:28px;height:2px;background:var(--gold)}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:38px;font-weight:900;line-height:1.2;color:var(--dark);letter-spacing:-1px;margin-bottom:16px}
+.hero-subtitle{font-size:13.5px;line-height:1.9;color:var(--mid);border-left:3px solid var(--gold);padding-left:14px}
+.hero-image{position:relative}
+.hero-image img,.hero-image .img-ph{width:100%;height:220px;object-fit:cover;border-radius:2px;display:block}
+.img-ph{display:flex;align-items:center;justify-content:center;font-size:40px}
+.img-caption{position:absolute;bottom:8px;left:8px;background:rgba(26,22,18,.75);color:#e8ddd0;font-size:9.5px;letter-spacing:1px;padding:3px 7px;border-radius:1px}
+
+/* TIER BOX */
+.tier-section{padding:28px 40px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.tier-box{background:var(--warm);border:1px solid var(--border);padding:18px 20px}
+.tier-box.ss{border-top:3px solid var(--gold)}
+.tier-box.s{border-top:3px solid var(--accent)}
+.tier-label{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.tier-label.ss{color:var(--gold)}
+.tier-label.s{color:var(--accent)}
+.tier-subtitle{font-size:10px;letter-spacing:1.5px;color:var(--muted);margin-bottom:12px;text-transform:uppercase}
+.tier-countries{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.country-tag{font-family:'Noto Serif KR',serif;font-weight:700;font-size:13px;padding:4px 10px;border-radius:1px}
+.country-tag.ss{background:var(--dark);color:var(--gold)}
+.country-tag.s{background:var(--accent);color:#fff}
+.country-tag.s-kr{background:var(--dark);color:#fff;position:relative}
+.tier-desc{font-size:12px;line-height:1.8;color:var(--mid)}
+
+/* BODY */
+.body-section{padding:26px 40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;border-bottom:1px solid var(--border)}
+.body-full{grid-column:1/-1}
+.drop-para{font-size:13.5px;line-height:1.95;color:var(--text);margin-bottom:12px}
+.drop-para::first-letter{font-family:'Noto Serif KR',serif;font-size:56px;font-weight:900;float:left;line-height:.8;margin:6px 8px 0 0;color:var(--dark)}
+.body-para{font-size:13px;line-height:1.9;color:var(--text);margin-bottom:10px}
+.body-para.indent{text-indent:1em}
+
+/* EVIDENCE GRID */
+.evidence-section{padding:24px 40px;border-bottom:1px solid var(--border)}
+.evidence-title{font-family:'Noto Serif KR',serif;font-size:14px;font-weight:700;color:var(--dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--gold)}
+.evidence-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.ev-card{background:var(--warm);border:1px solid var(--border);padding:14px 16px}
+.ev-card-icon{font-size:22px;margin-bottom:8px}
+.ev-card-title{font-family:'Noto Serif KR',serif;font-size:13px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.ev-card-body{font-size:11.5px;line-height:1.8;color:var(--mid)}
+
+/* CLOSING */
+.closing-section{padding:24px 40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;border-bottom:1px solid var(--border)}
+.closing-quote-box{background:var(--dark);padding:22px 24px;grid-column:1/-1}
+.closing-quote-box p{font-family:'Noto Serif KR',serif;font-size:14px;font-weight:600;line-height:1.85;color:#e8ddd0;text-align:center}
+.closing-quote-box em{color:var(--gold);font-style:normal}
+
+/* FOOTER */
+.page-footer{background:var(--dark);padding:12px 40px;display:flex;align-items:center;justify-content:space-between}
+.page-num{font-size:12px;color:#888;font-family:'Playfair Display',serif}
+.pub-name{font-size:11px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase}
+
+/* nav */
+.nav-bar{padding:10px 40px;background:var(--warm);border-bottom:1px solid var(--border);display:flex;gap:6px;flex-wrap:wrap}
+.nav-bar a{font-size:10.5px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);text-decoration:none;letter-spacing:.5px}
+.nav-bar a.active{background:var(--dark);color:var(--gold);border-color:var(--dark)}
+.nav-bar a:hover{background:var(--warm)}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+</head>
+<body>
+<article class="page">
+<div class="header-strip">
+  <span class="section-tag">Food &amp; Culture</span>
+  <span class="issue-tag">F3YNM4N · 2026</span>
+</div>
+<div class="nav-bar">
+  <a class="active" href="misik_1.html">1편</a>
+  <a href="misik_2.html">2편</a>
+  <a href="misik_3.html">3편</a>
+  <a href="misik_4.html">4편</a>
+  <a href="misik_5.html">5편</a>
+  <a href="misik_index.html">◀ 목차</a>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="series-label">미식의 나라 1</div>
+      <h1 class="hero-title">한국이 미식의 나라<br>3강에 근접한다</h1>
+      <p class="hero-subtitle">미식 랭킹을 짜다 보니 결국 문명 체급 랭킹이랑 똑같더라.<br>SS급은 프랑스, 이탈리아, 중국이다. 이견 달기 어렵다.<br>그리고 한국은, 그 바로 아래에 있다.</p>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=520&q=85&fit=crop" alt="한식"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="img-ph" style="display:none;background:linear-gradient(135deg,#c8963e33,#8B1A1A22);height:220px">🍱</div>
+      <div class="img-caption">한식 · Korean Cuisine</div>
+    </div>
+  </div>
+</div>
+
+<!-- TIER BOX -->
+<div class="tier-section">
+  <div class="tier-box ss">
+    <div class="tier-label ss">SS급</div>
+    <div class="tier-subtitle">문명의 정점을 찍어본 나라들</div>
+    <div class="tier-countries">
+      <span class="country-tag ss">🇫🇷 프랑스</span>
+      <span class="country-tag ss">🇮🇹 이탈리아</span>
+      <span class="country-tag ss">🇨🇳 중국</span>
+    </div>
+    <p class="tier-desc">인류 역사에서 한 번씩 문명의 정점을 찍은 나라들. 그 체급이 음식에도 그대로 박혀있다. 미식 수준은 그 나라의 문명적 축적과 비례한다.</p>
+  </div>
+  <div class="tier-box s">
+    <div class="tier-label s">S급</div>
+    <div class="tier-subtitle">실력은 있되, 아직 이미지가 따라오는 중</div>
+    <div class="tier-countries">
+      <span class="country-tag s">🇪🇸 스페인</span>
+      <span class="country-tag s">🇹🇭 태국</span>
+      <span class="country-tag s-kr">🇰🇷 한국 ★</span>
+      <span class="country-tag s">🇲🇽 멕시코</span>
+      <span class="country-tag s">🇮🇳 인도</span>
+    </div>
+    <p class="tier-desc">S급 안에서 한국은 상위권. 약 100년의 암흑기가 오해를 만들었을 뿐, 한식이 가진 시스템은 원래부터 SS급 체급이었다.</p>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body-section">
+  <div class="body-full">
+    <p class="drop-para">미식 랭킹을 짜다 보니 결국 문명 체급 랭킹이랑 똑같더라. 중국은 아편전쟁 이전까지 세계 GDP의 3분의 1을 차지하던 나라입니다. 사천, 광동, 상해, 북경만 해도 각각 독립적인 미식 문화인데, 이건 운 좋게 맛있는 요리가 많은 게 아니라 수천 년간 천하를 통치하며 각 지역의 식재료와 조리법을 집대성해온 문명적 체급의 결과입니다.</p>
+  </div>
+  <div>
+    <p class="body-para indent">프랑스는 유럽 외교의 표준을 수백 년간 지배하던 나라고, 요리를 시스템으로 만든 것도 모든 걸 문서화하고 행정화하던 습성이 음식에 투영된 겁니다. 이탈리아는 로마와 르네상스 위에 선 나라고, 단순한 재료로 최대 효율을 뽑는 철학은 수천 년 미감의 산물입니다.</p>
+    <p class="body-para indent">반면 일본은 대륙의 문화를 흡수하고 정제해온 나라입니다. 장인정신과 편집의 미학 — 이건 진짜 강점이지만, SS급 미식 문명의 독자적 창조인가 하면 얘기가 달라집니다. 문명적 축적이 미식 수준과 비례한다는 프레임을 일관되게 적용하면, 일본은 A급이 맞습니다.</p>
+  </div>
+  <div>
+    <p class="body-para indent">한식이 저평가된 건 실력 문제가 아닙니다. 조선 말기부터 일제강점기, 6.25까지 이어지는 약 100년의 암흑기가 문제였습니다. 그 이전 수천 년간 한국은 세계 최초 금속활자, 한글, 고려청자를 만들어낸 나라입니다. 그 100년이 우리 스스로 한식을 가난의 상징으로 오해하게 만들었을 뿐입니다.</p>
+    <p class="body-para indent">요즘 K문화로 한식이 재발견되는 것도 같은 맥락입니다. 지금 한국의 부상은 돌연변이가 아니라 잠시 꺼져있던 원래 세팅값으로 복귀하는 과정입니다.</p>
+  </div>
+</div>
+
+<!-- EVIDENCE -->
+<div class="evidence-section">
+  <div class="evidence-title">SS급 체급의 근거들</div>
+  <div class="evidence-grid">
+    <div class="ev-card">
+      <div class="ev-card-icon">🫙</div>
+      <div class="ev-card-title">발효 문화의 스펙트럼</div>
+      <p class="ev-card-body">김치만 있는 게 아닙니다. 된장, 간장, 고추장, 젓갈까지 발효 스펙트럼이 넓고 요리 베이스 전체를 받치는 구조. 미생물을 다루는 고차원적 생물학적 공정을 수천 년간 국가 단위로 유지했다는 것 자체가 증거입니다.</p>
+    </div>
+    <div class="ev-card">
+      <div class="ev-card-icon">🥬</div>
+      <div class="ev-card-title">나물 문화의 독보성</div>
+      <p class="ev-card-body">같은 채소를 삶고 무치고 볶고 발효시키면서 완전히 다른 음식을 만듭니다. 사찰음식은 고기 없이 이 정도 맛 스펙트럼이 나온다는 게 외국인들이 충격받는 포인트.</p>
+    </div>
+    <div class="ev-card">
+      <div class="ev-card-icon">🫕</div>
+      <div class="ev-card-title">쌈장의 우마미 레이어</div>
+      <p class="ev-card-body">된장 발효에서 한 번, 고추장에서 한 번, 참기름에서 또 한 번 — 우마미가 몇 겹으로 쌓입니다. 우마미를 발견한 나라보다 우마미를 더 잘 쓰는 나라가 한국입니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing-section">
+  <div class="closing-quote-box">
+    <p>결국 고추장이랑 쌈장이 타바스코처럼 전 세계 냉장고에 꽂히는 날이 오면<br>그게 <em>SS급 완성</em>입니다. 실체는 이미 있으니까요. 나머지는 시간문제입니다.</p>
+  </div>
+</div>
+
+<div class="page-footer">
+  <span class="page-num">78</span>
+  <span class="pub-name">F3YNM4N</span>
+  <span class="page-num">2026</span>
+</div>
+</article>
+</body>
+</html>

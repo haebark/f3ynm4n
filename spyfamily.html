@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스파이 패밀리 비평 — 저 두 사람, 진짜 같이 사는 거 맞나요? · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0d0d0b;
+  --off-white: #f2ede6;
+  --gold: #c8963e;
+  --gold-dim: #8a6428;
+  --mid: #6a6560;
+  --border: rgba(200,150,62,0.18);
+  --accent: #1a2a1a;
+  --accent2: #4a7a4a;
+  --accent3: #8aaa6a;
+  --red: #c0503a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+.cursor { position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
+.cursor-ring { position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%); }
+
+body::before {
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:100;opacity:.4;
+}
+
+/* HEADER */
+header {
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:16px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:rgba(13,13,11,.9);
+  backdrop-filter:blur(12px);
+}
+.logo { font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none; }
+.logo span { color:var(--off-white);opacity:.4; }
+.header-home { font-size:11px;letter-spacing:2px;color:var(--mid);text-decoration:none;text-transform:uppercase;transition:color .2s; }
+.header-home:hover { color:var(--gold); }
+
+/* HERO — 첩보물 느낌, 녹색 계열 */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: var(--accent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 80px 52px;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid rgba(74,122,74,.3);
+}
+
+/* 감시망 그리드 패턴 */
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(74,122,74,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,122,74,.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* 스파이 감시 원 */
+.hero-left::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(74,122,74,.08);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 0 80px rgba(74,122,74,.03),
+    0 0 0 160px rgba(74,122,74,.02);
+}
+
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--accent3);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .3s;
+}
+.hero-tag::before { content:''; display:inline-block; width:20px; height:1px; background:var(--accent3); }
+
+.hero-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  color: var(--off-white);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .5s;
+}
+.hero-title .question {
+  color: var(--accent3);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.95;
+  color: rgba(242,237,230,.55);
+  max-width: 380px;
+  border-left: 2px solid var(--accent2);
+  padding-left: 16px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .7s;
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+  background: #080d08;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+}
+
+/* 타깃 조준 SVG */
+.target-visual {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  opacity: .15;
+  animation: targetSpin 20s linear infinite;
+}
+@keyframes targetSpin { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+.hero-quote {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.hero-quote-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(16px, 2.5vw, 24px);
+  line-height: 1.8;
+  color: rgba(242,237,230,.7);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .9s;
+}
+.hero-quote-text em { color: var(--accent3); font-style: normal; }
+.hero-quote-source {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--mid);
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards 1.1s;
+}
+
+.hero-meta {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards 1.2s;
+}
+.meta-row {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--mid);
+  margin-bottom: 4px;
+}
+.meta-row strong { color: var(--accent3); margin-right: 8px; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+/* VERDICT STRIP */
+.verdict-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+.verdict-item {
+  padding: 18px 24px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.verdict-item:last-child { border-right: none; }
+.verdict-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--mid);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.verdict-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--off-white);
+}
+.v-green { color: var(--accent3); }
+.v-gold { color: var(--gold); }
+.v-red { color: var(--red); }
+
+/* ARTICLE */
+.article-wrap { max-width: 860px; margin: 0 auto; padding: 80px 48px; }
+
+.section { margin-bottom: 60px; }
+
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.section-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold-dim);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--off-white);
+  line-height: 1.4;
+}
+
+.body-text {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 2.1;
+  color: rgba(242,237,230,.78);
+}
+.body-text p { margin-bottom: 18px; }
+.body-text strong { color: var(--off-white); font-weight: 600; }
+.body-text em { color: var(--accent3); font-style: normal; }
+
+/* PULL QUOTE */
+.pull-quote {
+  margin: 32px 0;
+  padding: 24px 28px;
+  border-left: 3px solid var(--accent2);
+  background: rgba(74,122,74,.06);
+}
+.pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(242,237,230,.85);
+}
+
+/* COMPARISON BOX */
+.compare-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 28px 0;
+}
+.compare-card {
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+.compare-card.good { border-top: 2px solid var(--accent2); }
+.compare-card.bad { border-top: 2px solid var(--red); }
+.compare-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.compare-label.good { color: var(--accent3); }
+.compare-label.bad { color: var(--red); }
+.compare-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--off-white);
+  margin-bottom: 10px;
+}
+.compare-desc { font-size: 12.5px; line-height: 1.85; color: var(--mid); }
+
+/* KEYWORD */
+.keyword-strip {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.keyword {
+  padding: 6px 14px;
+  border: 1px solid rgba(74,122,74,.4);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--accent3);
+}
+
+/* CONCLUSION */
+.conclusion {
+  margin-top: 60px;
+  padding: 48px;
+  background: linear-gradient(135deg, rgba(26,42,26,.8), rgba(13,13,11,.95));
+  border: 1px solid rgba(74,122,74,.2);
+  border-top: 2px solid var(--accent2);
+  text-align: center;
+}
+.conclusion-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--accent3);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.conclusion-main {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 2;
+  color: var(--off-white);
+  margin-bottom: 16px;
+}
+.conclusion-main em { color: var(--accent3); font-style: normal; }
+.conclusion-sub {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(242,237,230,.45);
+}
+
+/* RELATED */
+.related-section { padding: 48px; border-top: 1px solid var(--border); }
+.related-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.related-label::after { content:''; flex:1; height:1px; background:var(--border); display:block; }
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.related-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+}
+.related-card:hover { background: rgba(200,150,62,.04); }
+.related-card-tag { font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px; }
+.related-card-title { font-family:'Noto Serif KR',serif;font-size:15px;font-weight:700;line-height:1.5;color:var(--off-white);margin-bottom:14px; }
+.related-card-arrow { font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:1px; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13,13,11,.8);
+}
+footer .pub { font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold); }
+footer .nav-links { display:flex;gap:24px; }
+footer .nav-links a { font-size:11px;color:var(--mid);text-decoration:none;letter-spacing:1px; }
+footer .nav-links a:hover { color:var(--gold); }
+
+@media (max-width: 768px) {
+  header { padding: 14px 20px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { display: none; }
+  .hero-left { padding: 100px 20px 48px; min-height: 60vh; }
+  .verdict-strip { grid-template-columns: repeat(2, 1fr); }
+  .article-wrap { padding: 48px 20px; }
+  .compare-box { grid-template-columns: 1fr; }
+  .related-section { padding: 32px 20px; }
+  .related-grid { grid-template-columns: 1fr; }
+  footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span>.mag</span></a>
+  <a href="index.html" class="header-home">← 홈으로</a>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">만화 비평 · 스파이 패밀리</div>
+    <h1 class="hero-title">
+      저 두 사람,<br>진짜 같이<br>사는 거 <span class="question">맞나요?</span>
+    </h1>
+    <p class="hero-subtitle">
+      위장의 본질은 서류가 아니라 공기다. 로이드와 요르 사이에 흐르는 것은 수년의 생활이 아니라 — 여전히 첫 만남의 긴장이다.
+    </p>
+  </div>
+
+  <div class="hero-right">
+    <!-- 타깃 조준 원 -->
+    <svg class="target-visual" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="160" cy="160" r="150" fill="none" stroke="rgba(138,170,106,1)" stroke-width="1"/>
+      <circle cx="160" cy="160" r="110" fill="none" stroke="rgba(138,170,106,1)" stroke-width="1" stroke-dasharray="8,8"/>
+      <circle cx="160" cy="160" r="70" fill="none" stroke="rgba(138,170,106,1)" stroke-width="1"/>
+      <circle cx="160" cy="160" r="30" fill="none" stroke="rgba(138,170,106,1)" stroke-width="2"/>
+      <circle cx="160" cy="160" r="4" fill="rgba(138,170,106,1)"/>
+      <line x1="160" y1="10" x2="160" y2="130" stroke="rgba(138,170,106,1)" stroke-width="1"/>
+      <line x1="160" y1="190" x2="160" y2="310" stroke="rgba(138,170,106,1)" stroke-width="1"/>
+      <line x1="10" y1="160" x2="130" y2="160" stroke="rgba(138,170,106,1)" stroke-width="1"/>
+      <line x1="190" y1="160" x2="310" y2="160" stroke="rgba(138,170,106,1)" stroke-width="1"/>
+    </svg>
+
+    <div class="hero-quote">
+      <p class="hero-quote-text">
+        수년을 함께 살며 아이까지 키우는 부부가<br>
+        가벼운 접촉에도 반사적으로 굳는 모습 —<br>
+        그게 바로 <em>방첩 기관의 레이더</em>에<br>
+        가장 먼저 걸릴 행동입니다.
+      </p>
+      <div class="hero-quote-source">본문 중에서</div>
+    </div>
+
+    <div class="hero-meta">
+      <div class="meta-row"><strong>작품</strong>SPY×FAMILY (엔도 타츠야)</div>
+      <div class="meta-row"><strong>분류</strong>만화 비평</div>
+    </div>
+  </div>
+</div>
+
+<!-- VERDICT STRIP -->
+<div class="verdict-strip">
+  <div class="verdict-item">
+    <div class="verdict-label">세계관 설정</div>
+    <div class="verdict-val v-gold">A</div>
+  </div>
+  <div class="verdict-item">
+    <div class="verdict-label">장르 논리</div>
+    <div class="verdict-val v-red">C</div>
+  </div>
+  <div class="verdict-item">
+    <div class="verdict-label">부부 케미</div>
+    <div class="verdict-val v-red">룸메이트</div>
+  </div>
+  <div class="verdict-item">
+    <div class="verdict-label">잠재력</div>
+    <div class="verdict-val v-green">높음</div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-wrap">
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">// 01</div>
+      <div class="section-title">위장의 본질은 '서류'가 아니라 '공기'다</div>
+    </div>
+    <div class="body-text">
+      <p>첩보물에서 가장 강력한 위장은 완벽한 신분증이 아닙니다. 함께 오래 산 사람들 사이에서만 형성되는, 언어화되지 않는 밀도 — 서로의 동선을 무의식적으로 알고, 같은 공간에서 긴장하지 않으며, 말 없이도 역할이 분배되는 그 무언가입니다.</p>
+
+      <div class="keyword-strip">
+        <span class="keyword">동선의 무의식</span>
+        <span class="keyword">언어화되지 않는 밀도</span>
+        <span class="keyword">접촉의 질감</span>
+        <span class="keyword">공기의 체화</span>
+      </div>
+
+      <p>《스파이 패밀리》의 로이드와 요르는 개개인의 무력은 초인적이죠. 그런데 부부로서 자아내는 '공기'는 다릅니다. 수년을 함께 살며 아이까지 키우는 부부가 가벼운 접촉에도 반사적으로 굳는 모습 — 그게 바로 방첩 기관의 '이상 감지 레이더'에 가장 먼저 걸릴 행동입니다.</p>
+
+      <div class="pull-quote">
+        <p>연애 초기, 손끝이 스치는 것만으로도 굳어버리는 긴장감이 있잖아요. 그런데 일정한 관계를 지나고 나면 그 접촉의 질감이 달라집니다. 긴장이 아니라 익숙함으로. 로이드와 요르는 몇 년째 같이 살고 있지만, 둘 사이에 흐르는 건 여전히 전자입니다.</p>
+      </div>
+
+      <p>섹스리스 부부에게도 수년의 생활이 만들어낸 공기는 있습니다. 로이드와 요르에게 없는 건 스킨십이 아니라, <em>그 공기 자체</em>입니다. 저 두 사람은 부부가 아니라 룸메이트입니다. 그게 이 작품의 가장 큰 허점이라고 생각합니다.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">// 02</div>
+      <div class="section-title">정통 첩보물과의 거리</div>
+    </div>
+    <div class="body-text">
+      <div class="compare-box">
+        <div class="compare-card good">
+          <div class="compare-label good">《더 아메리칸즈》</div>
+          <div class="compare-title">생활이 쌓인 위장</div>
+          <p class="compare-desc">위장 부부인 주인공들이 '부부의 공기'를 철저하게 체화합니다. 설득력의 원천은 감정이 아니라 <em>생활의 축적</em>입니다.</p>
+        </div>
+        <div class="compare-card bad">
+          <div class="compare-label bad">《스파이 패밀리》</div>
+          <div class="compare-title">쑥스러움이 장르를 이김</div>
+          <p class="compare-desc">'쑥스럽다'는 캐릭터성이 장르 논리를 이겨버립니다. 어색함이 귀여운 설정이 아니라 <em>치명적 보안 허점</em>으로 보이기 시작합니다.</p>
+        </div>
+      </div>
+
+      <p>실제 소련의 불법 요원(이른바 일리걸스)들 역시 수십 년에 걸쳐 진짜보다 더 진짜 같은 부부가 되어갔습니다 — 그게 임무였으니까요. 스파이 패밀리를 그 기준으로 읽는 순간, 두 사람의 어색함은 귀여운 설정이 아니라 <em>치명적인 보안 허점</em>으로 보이기 시작합니다.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">// 03</div>
+      <div class="section-title">서사가 깊어지려면</div>
+    </div>
+    <div class="body-text">
+      <p>이 작품이 단순한 가족 코미디로 끝나지 않으려면, 두 사람 사이의 <em>공기가 달라지는 순간</em>이 필요합니다. 서로를 의식하지 않게 되는 것, 같은 공간에서 자연스러워지는 것 — 이것이 관계 진전의 증거이자, 위장의 완성이라고 생각합니다.</p>
+
+      <div class="pull-quote">
+        <p>직접적인 묘사가 아니더라도 좋습니다. 독자가 "아, 저 둘은 뭔가 달라졌다"고 느낄 수 있으면 충분합니다. 그 변화가 전제될 때, 훗날 조직보다 가족을 택하는 로이드의 선택에도 비로소 설득력이 실릴 것입니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">// 04</div>
+      <div class="section-title">반박을 예상하며</div>
+    </div>
+    <div class="body-text">
+      <p>물론 반론도 충분히 예상됩니다. 스파이 패밀리가 첩보물의 외피를 두른 가족 힐링 코미디라는 건 많은 분들이 이미 알고 계시죠. 작가 엔도 타츠야 본인도 "밝고 따뜻한 이야기"를 의도했다고 밝혔고, 그 의도는 충분히 성공했습니다.</p>
+      <p>그러나 제목은 여전히 '스파이 패밀리'입니다. 그리고 중간중간, 주변 인물들이 두 사람의 어색함을 눈치채는 장면들이 등장합니다. 작가가 장르의 논리를 아예 외면한 것이 아니라, <em>의식하면서도 코미디를 위해 유보하고 있다</em>는 뜻입니다.</p>
+      <p>일본 만화 특유의 감정선 미루기 문법이라고 넘어갈 수도 있습니다. 근데 다른 장르라면 그러려니 하겠는데 하필 스파이물에서 그러고 있으니, 유보가 쌓일수록 기대도 함께 쌓입니다. 이 글은 그 기대를 진지하게 품고 있는 한 명의 독자로서 적어본 관찰입니다.</p>
+    </div>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="conclusion">
+    <div class="conclusion-label">결론</div>
+    <p class="conclusion-main">
+      로이드와 요르 사이에 없는 건 스킨십이 아닙니다.<br>
+      <em>수년의 생활이 만들어낸 공기</em>입니다.
+    </p>
+    <p class="conclusion-sub">
+      그 공기가 생기는 날, 이 작품은 가족 코미디에서<br>
+      진짜 첩보물로 한 발 더 나아갈 것입니다.
+    </p>
+  </div>
+
+</div>
+
+<!-- RELATED -->
+<div class="related-section">
+  <div class="related-label">다음으로 읽기</div>
+  <div class="related-grid">
+    <a href="tenet.html" class="related-card">
+      <div class="related-card-tag">영화비평</div>
+      <div class="related-card-title">TENET — 놀란의 창조적 딜레마</div>
+      <div class="related-card-arrow">읽기 →</div>
+    </a>
+    <a href="alienoid.html" class="related-card">
+      <div class="related-card-tag">영화비평</div>
+      <div class="related-card-title">외계+인 완결판 총평</div>
+      <div class="related-card-arrow">읽기 →</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 만화 비평 · 2026</span>
+  <div class="nav-links">
+    <a href="index.html">← 홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 위로</a>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+(function loop() { rx += (mx-rx)*.12; ry += (my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+</script>
+</body>
+</html>

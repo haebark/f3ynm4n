@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미식의 나라 2 — 무서운 시장이 만든 미식 강국</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C8963E;--dark:#1a1612;--mid:#3a3530;--warm:#f5f0ea;--cream:#faf7f3;--text:#2c2822;--muted:#7a7068;--border:#d8cfc4;--accent:#2a4a6b}
+body{background:#d4d8dd;font-family:'Noto Sans KR',sans-serif;display:flex;justify-content:center;padding:40px 20px;color:var(--text)}
+.page{width:820px;background:var(--cream);box-shadow:0 8px 60px rgba(0,0,0,.25)}
+.header-strip{background:var(--dark);padding:10px 40px;display:flex;justify-content:space-between;align-items:center}
+.section-tag{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:3px;color:#aaa;text-transform:uppercase}
+.issue-tag{font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.nav-bar{padding:10px 40px;background:var(--warm);border-bottom:1px solid var(--border);display:flex;gap:6px}
+.nav-bar a{font-size:10.5px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);text-decoration:none}
+.nav-bar a.active{background:var(--dark);color:var(--gold);border-color:var(--dark)}
+
+/* HERO - full width image style */
+.hero{position:relative;height:280px;overflow:hidden;border-bottom:3px solid var(--gold)}
+.hero-bg{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.5)}
+.hero-bg-ph{width:100%;height:100%;background:linear-gradient(135deg,var(--accent),#0d1f35);display:flex;align-items:center;justify-content:center;font-size:60px}
+.hero-overlay{position:absolute;inset:0;padding:36px 40px;display:flex;flex-direction:column;justify-content:flex-end}
+.series-label{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.series-label::before{content:'';display:inline-block;width:28px;height:2px;background:var(--gold)}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:40px;font-weight:900;line-height:1.2;color:#fff;letter-spacing:-1px;margin-bottom:10px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.hero-subtitle{font-size:13px;line-height:1.8;color:rgba(255,255,255,.85);max-width:500px}
+
+/* STAT BAR */
+.stat-bar{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border)}
+.stat-item{padding:18px 24px;border-right:1px solid var(--border);text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--accent);line-height:1}
+.stat-unit{font-size:11px;color:var(--muted);margin-left:2px}
+.stat-label{font-size:11px;color:var(--mid);margin-top:4px}
+
+/* BODY */
+.body-section{padding:26px 40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;border-bottom:1px solid var(--border)}
+.body-full{grid-column:1/-1}
+.drop-para{font-size:13.5px;line-height:1.95;color:var(--text);margin-bottom:12px}
+.drop-para::first-letter{font-family:'Noto Serif KR',serif;font-size:56px;font-weight:900;float:left;line-height:.8;margin:6px 8px 0 0;color:var(--dark)}
+.body-para{font-size:13px;line-height:1.9;color:var(--text);margin-bottom:10px}
+.body-para.indent{text-indent:1em}
+
+/* CASE STUDY */
+.case-study{margin:16px 0 0;background:var(--accent);padding:20px 24px;grid-column:1/-1}
+.case-title{font-family:'Noto Serif KR',serif;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.5px;margin-bottom:10px;text-transform:uppercase}
+.case-body{font-size:13px;line-height:1.85;color:rgba(255,255,255,.9)}
+.case-body strong{color:var(--gold)}
+
+/* REBUTTAL */
+.rebuttal-section{padding:24px 40px;border-bottom:1px solid var(--border)}
+.rebuttal-title{font-family:'Noto Serif KR',serif;font-size:14px;font-weight:700;color:var(--dark);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--gold)}
+.rebuttal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rb-card{background:var(--warm);border:1px solid var(--border);padding:16px}
+.rb-q{font-family:'Noto Serif KR',serif;font-size:12.5px;font-weight:700;color:var(--accent);margin-bottom:6px;line-height:1.4}
+.rb-a{font-size:12px;line-height:1.8;color:var(--mid)}
+
+/* CLOSING */
+.closing-box{background:var(--warm);border-top:3px solid var(--gold);padding:24px 40px;text-align:center}
+.closing-box p{font-family:'Noto Serif KR',serif;font-size:14px;font-weight:600;line-height:1.85;color:var(--dark)}
+.closing-box em{color:var(--accent);font-style:normal}
+
+.page-footer{background:var(--dark);padding:12px 40px;display:flex;align-items:center;justify-content:space-between}
+.page-num{font-size:12px;color:#888;font-family:'Playfair Display',serif}
+.pub-name{font-size:11px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+</head>
+<body>
+<article class="page">
+<div class="header-strip">
+  <span class="section-tag">Food &amp; Culture</span>
+  <span class="issue-tag">F3YNM4N · 2026</span>
+</div>
+<div class="nav-bar">
+  <a href="misik_1.html">1편</a>
+  <a class="active" href="misik_2.html">2편</a>
+  <a href="misik_3.html">3편</a>
+  <a href="misik_4.html">4편</a>
+  <a href="misik_5.html">5편</a>
+  <a href="misik_index.html">◀ 목차</a>
+</div>
+
+<!-- FULL-WIDTH HERO IMAGE -->
+<div class="hero">
+  <img class="hero-bg" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=820&q=85&fit=crop" alt="시장"
+    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+  <div class="hero-bg-ph" style="display:none">🏪</div>
+  <div class="hero-overlay">
+    <div class="series-label">미식의 나라 2</div>
+    <h1 class="hero-title">무서운 시장이<br>만든 미식 강국</h1>
+    <p class="hero-subtitle">한국이 미식 강국이 된 건 한식 유산 때문만이 아닙니다. 시장이 만든 겁니다.</p>
+  </div>
+</div>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-item">
+    <div class="stat-num">1<span class="stat-unit">위권</span></div>
+    <div class="stat-label">OECD 자영업자 비율</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">5<span class="stat-unit">년</span></div>
+    <div class="stat-label">잇푸도 한국 생존 기간</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">↑</div>
+    <div class="stat-label">공급자·소비자 동시 상향</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body-section">
+  <div class="body-full">
+    <p class="drop-para">한국 자영업자 비율은 OECD 최상위권입니다. 이 숫자가 뜻하는 건 간단합니다. 그만큼 많은 사람이 식당을 열고, 그만큼 많은 식당이 망한다는 겁니다. 살아남은 집들은 운이 아닙니다. 한국 소비자를 통과했다는 것 자체가 검증이죠.</p>
+  </div>
+  <div>
+    <p class="body-para indent">그 소비자가 언제부터 이렇게 무서워졌냐. 선진국화가 되면서 해외여행 경험이 쌓였습니다. 일본 가서 라멘 먹어봤고, 이탈리아 가서 파스타 먹어봤고, 대만 가서 우육면 먹어봤습니다. 비교 기준이 생긴 소비자는 무섭습니다.</p>
+    <p class="body-para indent">"그냥 맛있다"가 아니라 "현지보다 낫냐 못하냐"로 평가하기 시작한 거죠. 공급자는 살아남기 위해 수준을 올려야 하고, 소비자는 경험치가 쌓이면서 눈높이가 올라갑니다. 이 두 개가 동시에 올라가는 구조입니다.</p>
+  </div>
+  <div>
+    <p class="body-para indent">그 결과가 뭐냐. 일식보다 잘하는 일식집, 중식보다 잘하는 중식집, 현지보다 나은 커피. 원산지를 역전하는 한국식 재해석이 반복됩니다.</p>
+    <p class="body-para indent">솔직히 말하면 중식이랑 일식이 잘 안착한 데는 지리적 이점도 있습니다. 동북아 3국이라 식재료가 겹치고 입맛 베이스가 비슷합니다. 근데 장벽이 낮다고 수준이 저절로 올라가진 않습니다. 그 안에서 경쟁으로 끌어올린 건 결국 시장의 힘입니다.</p>
+  </div>
+
+  <!-- CASE STUDY -->
+  <div class="case-study">
+    <div class="case-title">📌 잇푸도 케이스 스터디</div>
+    <p class="case-body">일본 라멘 양대 산맥 중 하나인 <strong>잇푸도</strong>가 2011년 강남에 직접 들어왔다가 <strong>2016년에 철수</strong>했습니다. 일본에서 줄 서던 집이 한국 소비자 앞에서 5년 만에 무너진 거죠. 흡수하고 경쟁하고 역전하는 구조가 시장 안에 내장된 겁니다.</p>
+  </div>
+</div>
+
+<!-- REBUTTAL -->
+<div class="rebuttal-section">
+  <div class="rebuttal-title">예상 반박 & 답변</div>
+  <div class="rebuttal-grid">
+    <div class="rb-card">
+      <p class="rb-q">"잘하는 집은 잘하지만 평균은 현지만 못하지 않나?"</p>
+      <p class="rb-a">맞는 말입니다. 근데 핵심은 평균 자체가 올라가고 있다는 겁니다. 10년 전 한국 라멘집이랑 지금 한국 라멘집은 다릅니다. 베이스가 올라가는 중이라는 게 포인트입니다.</p>
+    </div>
+    <div class="rb-card">
+      <p class="rb-q">"커피는 매니아 문화 아닌가? 스페셜티 잘한다고 일부 얘기 아닌가?"</p>
+      <p class="rb-a">예전엔 스페셜티 카페는 매니아들만 찾았습니다. 지금은 일반 소비자도 자연스럽게 원두 종류 고르고 추출 방식 고릅니다. 매니아 문화가 대중화된 겁니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing-box">
+  <p>강국을 만든 시스템이 개인한테는 <em>생존 게임</em>인 거죠.<br>무서운 시장이 강국을 만들고, 그 강국의 시장이 또 누군가를 무섭게 만드는 겁니다.</p>
+</div>
+
+<div class="page-footer">
+  <span class="page-num">80</span>
+  <span class="pub-name">F3YNM4N</span>
+  <span class="page-num">2026</span>
+</div>
+</article>
+</body>
+</html>

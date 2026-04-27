@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강한 놈은 다 먹혔다, 맛없는 놈이 살아남았다 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0d0d0b;
+  --off-white: #f2ede6;
+  --gold: #c8963e;
+  --gold-dim: #8a6428;
+  --mid: #6a6560;
+  --border: rgba(200,150,62,0.18);
+  --accent: #1a1408;
+  --accent2: #8a6428;
+  --accent3: #c8a050;
+  --green: #4a6a2a;
+  --green2: #8aaa5a;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+}
+.cursor { position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
+.cursor-ring { position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%); }
+body::before {
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:100;opacity:.4;
+}
+header {
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:16px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:rgba(13,13,11,.9);
+  backdrop-filter:blur(12px);
+}
+.logo { font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none; }
+.logo span { color:var(--off-white);opacity:.4; }
+.header-home { font-size:11px;letter-spacing:2px;color:var(--mid);text-decoration:none;text-transform:uppercase;transition:color .2s; }
+.header-home:hover { color:var(--gold); }
+
+/* HERO — 자연사 박물관 느낌 */
+.hero {
+  min-height: 100vh;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 먹이사슬 배경 */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 60%, rgba(74,106,42,.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(200,150,62,.08) 0%, transparent 50%),
+    linear-gradient(180deg, #080d04 0%, #0d0d0b 100%);
+}
+
+/* 연도 타임라인 세로선 */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 48px;
+  top: 80px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(200,150,62,.3) 30%, rgba(200,150,62,.3) 70%, transparent);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 0 48px 80px 96px;
+  max-width: 820px;
+}
+
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--green2);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .2s;
+}
+.hero-tag::before { content:''; display:inline-block; width:20px; height:1px; background:var(--green2); }
+
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--mid);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .3s;
+}
+
+.hero-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(36px, 6vw, 76px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: var(--off-white);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .5s;
+}
+.hero-title .ate { color: var(--gold); }
+.hero-title .survived { color: var(--green2); }
+
+.hero-subtitle {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(242,237,230,.55);
+  max-width: 560px;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .7s;
+}
+
+/* 생존 공식 배지들 */
+.formula-strip {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .9s;
+}
+.formula-badge {
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--mid);
+  text-transform: uppercase;
+}
+.formula-badge.win { border-color: rgba(138,170,90,.5); color: var(--green2); }
+.formula-badge.lose { border-color: rgba(192,80,58,.4); color: #c0503a; }
+.formula-badge.cat { border-color: var(--gold-dim); color: var(--gold); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+/* CASE CARDS — 각 동물별 */
+.cases-section { padding: 0 48px 80px; max-width: 960px; margin: 0 auto; }
+.cases-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.cases-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+
+.case-card {
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.case-card::before {
+  content: attr(data-emoji);
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 32px;
+  opacity: .15;
+}
+.case-status {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.status-win { color: var(--green2); }
+.status-lose { color: #c0503a; }
+.status-wild { color: var(--mid); }
+.status-immune { color: var(--gold); }
+.status-cat { color: var(--gold); }
+
+.case-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--off-white);
+  margin-bottom: 10px;
+}
+.case-desc {
+  font-size: 12.5px;
+  line-height: 1.85;
+  color: var(--mid);
+}
+.case-desc em { color: var(--off-white); font-style: normal; }
+.case-verdict {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--gold-dim);
+}
+
+/* 실러캔스 - 풀 와이드 */
+.case-card.full { grid-column: 1 / -1; }
+.case-card.highlight { border-color: rgba(200,150,62,.4); background: rgba(200,150,62,.03); }
+.case-card.cat-card { border-color: rgba(200,150,62,.5); background: rgba(200,150,62,.05); }
+
+/* ARTICLE BODY */
+.article-wrap { max-width: 860px; margin: 0 auto; padding: 0 48px 80px; }
+
+.body-text {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 2.1;
+  color: rgba(242,237,230,.78);
+}
+.body-text p { margin-bottom: 20px; }
+.body-text strong { color: var(--off-white); font-weight: 600; }
+.body-text em { color: var(--gold); font-style: normal; }
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 48px 0 32px;
+}
+.divider-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+
+/* CONCLUSION */
+.conclusion {
+  margin-top: 60px;
+  padding: 48px;
+  background: var(--accent);
+  border: 1px solid rgba(200,150,62,.2);
+  border-top: 2px solid var(--gold);
+}
+.conclusion-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.formula-table { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+.formula-table th {
+  background: rgba(200,150,62,.1);
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  padding: 10px 14px;
+  text-align: left;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+.formula-table td {
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: rgba(242,237,230,.7);
+  border-bottom: 1px solid rgba(200,150,62,.06);
+}
+.formula-table td:first-child { font-weight: 600; color: var(--off-white); }
+.td-win { color: var(--green2) !important; }
+.td-lose { color: #c0503a !important; }
+.td-gold { color: var(--gold) !important; }
+
+.conclusion-quote {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 2;
+  color: var(--off-white);
+  text-align: center;
+}
+.conclusion-quote em { color: var(--gold); font-style: normal; }
+
+/* RELATED */
+.related-section { padding: 48px; border-top: 1px solid var(--border); }
+.related-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.related-label::after { content:''; flex:1; height:1px; background:var(--border); display:block; }
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.related-card {
+  display: block; padding: 28px;
+  border: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  transition: background .2s;
+}
+.related-card:hover { background: rgba(200,150,62,.04); }
+.related-card-tag { font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px; }
+.related-card-title { font-family:'Noto Serif KR',serif;font-size:15px;font-weight:700;line-height:1.5;color:var(--off-white);margin-bottom:14px; }
+.related-card-arrow { font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:1px; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(13,13,11,.8);
+}
+footer .pub { font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold); }
+footer .nav-links { display:flex;gap:24px; }
+footer .nav-links a { font-size:11px;color:var(--mid);text-decoration:none;letter-spacing:1px; }
+footer .nav-links a:hover { color:var(--gold); }
+
+@media (max-width: 768px) {
+  header { padding: 14px 20px; }
+  .hero::after { display: none; }
+  .hero-inner { padding: 0 20px 60px 20px; }
+  .cases-section { padding: 0 20px 60px; }
+  .cases-grid { grid-template-columns: 1fr; }
+  .cases-grid-2 { grid-template-columns: 1fr; }
+  .article-wrap { padding: 0 20px 60px; }
+  .related-section { padding: 32px 20px; }
+  .related-grid { grid-template-columns: 1fr; }
+  footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span>.mag</span></a>
+  <a href="index.html" class="header-home">← 홈으로</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">오늘의 잡생각 · 자연과학</div>
+    <div class="hero-eyebrow">인류 등장 이후의 생존 공식</div>
+    <h1 class="hero-title">
+      강한 놈은<br>
+      다 <span class="ate">먹혔다</span>,<br>
+      맛없는 놈이<br>
+      <span class="survived">살아남았다</span>
+    </h1>
+    <p class="hero-subtitle">
+      흔히 진화를 "강한 자가 살아남는다"고 하는데, 인류가 등장한 이후부터는 그 공식이 좀 달라진다.
+    </p>
+    <div class="formula-strip">
+      <span class="formula-badge win">서열 복종 → 생존</span>
+      <span class="formula-badge win">맛없음 → 생존</span>
+      <span class="formula-badge lose">친절 + 맛있음 → 땔감</span>
+      <span class="formula-badge cat">고양이 → 룰이 달랐음</span>
+    </div>
+  </div>
+</section>
+
+<!-- CASE CARDS -->
+<div class="cases-section">
+
+  <div class="cases-grid">
+    <div class="case-card" data-emoji="🐺">
+      <div class="case-status status-win">✓ 생존 성공</div>
+      <div class="case-name">늑대 → 개</div>
+      <p class="case-desc">육식의 자존심을 반납하고 인간 뒤를 쫄래쫄래 따라다니기 시작했다. 뼈다귀 하나로 소프트웨어 업데이트 완료. <em>잡식성 하이브리드</em>로 진화하며 인간의 서열 문화를 통째로 받아들였다.</p>
+      <div class="case-verdict">리더만 잘 만나면 멸종위기 → 지구 정복 파트너</div>
+    </div>
+    <div class="case-card" data-emoji="🐧">
+      <div class="case-status status-lose">✗ 멸종 + 이름까지 반납</div>
+      <div class="case-name">큰바다오리</div>
+      <p class="case-desc">인간을 보면 반갑다고 다가왔고, 몸엔 기름이 가득했고, 고기 맛도 훌륭했다. 선원들이 살아있는 채로 불 속에 던졌는데 <em>몸에 기름이 많아서 불이 잘 붙었다</em>. 실화다.</p>
+      <div class="case-verdict">고기 뜯기고 → 불쏘시개 되고 → 이름도 남극 펭귄한테 넘어감</div>
+    </div>
+    <div class="case-card" data-emoji="🐴">
+      <div class="case-status status-lose">✗ 타이밍 미스</div>
+      <div class="case-name">아메리카 말</div>
+      <p class="case-desc">원래 말의 고향은 아메리카인데, 베링 해협을 건너온 인류가 탈것이 아니라 <em>스테이크</em>로 인식해버렸다. 도망갈 줄을 몰랐고, 미래 가치를 깨닫기 전에 싹 다 파먹혔다.</p>
+      <div class="case-verdict">조상의 식탐이 후손 인디언에게 1만 년 도보 배달로 청구됨</div>
+    </div>
+  </div>
+
+  <div class="cases-grid-2">
+    <div class="case-card" data-emoji="🐕">
+      <div class="case-status status-wild">△ 가출 실패</div>
+      <div class="case-name">호주 딩고</div>
+      <p class="case-desc">가축화된 개였다가 야생으로 튀어서 5천 년간 늑대 코스프레. 나름 야성을 쌓았는데, 들개들과 교배되면서 수천 년 쌓은 야성이 <em>단 한 세대 만에 '개'로 리셋</em>되는 중이다.</p>
+      <div class="case-verdict">뇌 회로 밑바닥엔 여전히 "등 긁어주던 백업 데이터"가 남아있는 거다</div>
+    </div>
+    <div class="case-card highlight" data-emoji="🐟">
+      <div class="case-status status-immune">★ 4억 년 생존</div>
+      <div class="case-name">실러캔스 — 끝판왕</div>
+      <p class="case-desc">4억 년 동안 멸종 안 당한 비결: 인간이 먹어보고 <em>"우웩, 고무 씹는 맛이야"</em>라고 소문을 낸 것. 아미노산 구조 자체가 인간 소화 기관이랑 안 맞게 되어있어서 맛집 리스트에서 영구 제명됐다.</p>
+      <div class="case-verdict">맛없게 태어난 것이 곧 갑옷이었다. 심해에서 4억 년째 평화 유지 중</div>
+    </div>
+  </div>
+
+  <div class="cases-grid-2">
+    <div class="case-card cat-card" data-emoji="🐱">
+      <div class="case-status status-cat">◈ 룰이 달랐음</div>
+      <div class="case-name">고양이 — 모든 공식의 예외</div>
+      <p class="case-desc">복종한 것도 아니고, 진화한 것도 아니다. 인간이 농사를 짓자 쥐가 꼬였고, 쥐를 따라 고양이가 왔고, 그냥 눌러앉았다. <em>인간이 가축화한 게 아니라 고양이가 인간을 선택</em>한 거다.</p>
+      <div class="case-verdict">지금도 주종관계는 불명확하다</div>
+    </div>
+    <div class="case-card" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:rgba(200,150,62,.02);" data-emoji="">
+      <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:rgba(242,237,230,.4);line-height:1.8;">
+        "친절한데 맛있으면<br>그냥 땔감이다"
+      </div>
+      <div style="margin-top:16px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold-dim);">본문 중에서</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONCLUSION -->
+<div class="article-wrap">
+  <div class="conclusion">
+    <div class="conclusion-label">인류 등장 이후의 생존 공식</div>
+    <table class="formula-table">
+      <tr>
+        <th>전략</th><th>케이스</th><th>결과</th>
+      </tr>
+      <tr>
+        <td>서열에 복종</td>
+        <td>늑대 → 개</td>
+        <td class="td-win">지구 정복 파트너</td>
+      </tr>
+      <tr>
+        <td>맛없게 진화</td>
+        <td>실러캔스</td>
+        <td class="td-win">4억 년 생존</td>
+      </tr>
+      <tr>
+        <td>친절 + 맛있음</td>
+        <td>큰바다오리</td>
+        <td class="td-lose">불쏘시개 + 이름 반납</td>
+      </tr>
+      <tr>
+        <td>타이밍 미스</td>
+        <td>아메리카 말</td>
+        <td class="td-lose">스테이크</td>
+      </tr>
+      <tr>
+        <td>가출 시도</td>
+        <td>딩고</td>
+        <td style="color:var(--mid)">한 세대 만에 리셋</td>
+      </tr>
+      <tr>
+        <td>룰이 달랐음</td>
+        <td>고양이</td>
+        <td class="td-gold">주종관계 불명확 (현재 진행형)</td>
+      </tr>
+    </table>
+    <p class="conclusion-quote">
+      결국 인류 등장 이후의 생존 공식은 이렇다.<br>
+      <em>서열에 복종하거나, 맛없게 진화하거나.</em><br>
+      친절한데 맛있으면 그냥 땔감이다.<br>
+      단 고양이는 예외다. 걔넨 그냥 처음부터 룰이 달랐다.
+    </p>
+  </div>
+</div>
+
+<!-- RELATED -->
+<div class="related-section">
+  <div class="related-label">다음으로 읽기</div>
+  <div class="related-grid">
+    <a href="pbgc.html" class="related-card">
+      <div class="related-card-tag">팝사이언스</div>
+      <div class="related-card-title">PBGC — 평행 경계 기하학 우주론</div>
+      <div class="related-card-arrow">읽기 →</div>
+    </a>
+    <a href="civilization.html" class="related-card">
+      <div class="related-card-tag">문화칼럼</div>
+      <div class="related-card-title">연결이 사라질 때 문명도 사라진다</div>
+      <div class="related-card-arrow">읽기 →</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 잡생각 · 2026</span>
+  <div class="nav-links">
+    <a href="index.html">← 홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 위로</a>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+</script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>페르시아 — F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --deep:    #0d0a0f;
+  --plum:    #1a1020;
+  --lapis:   #1a1f3a;
+  --crimson: #6b1a28;
+  --gold:    #c8963e;
+  --gold2:   #e8c060;
+  --ruby:    #9b2335;
+  --parch:   #d4c49a;
+  --smoke:   #8a8090;
+  --text:    #bab0c0;
+  --light:   #e8e0d0;
+  --border:  rgba(200,150,62,0.18);
+  --bordR:   rgba(155,35,53,0.25);
+}
+
+body { background: var(--deep); color: var(--text); font-family: 'Noto Sans KR', sans-serif; }
+
+/* ornament border top */
+body::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--crimson), var(--gold), var(--ruby), var(--gold2), var(--crimson));
+}
+
+/* HEADER */
+header {
+  background: rgba(13,10,15,0.95);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(8px);
+}
+.logo { font-family:'Space Mono',monospace; font-size:13px; color:var(--gold); letter-spacing:2px; text-decoration:none; }
+.logo span { color:rgba(200,200,200,0.25); }
+.header-right { display:flex; align-items:center; gap:20px; }
+.header-cat { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:3px; color:var(--ruby); text-transform:uppercase; border:1px solid var(--bordR); padding:4px 10px; }
+.header-home { font-size:10px; letter-spacing:1.5px; color:var(--smoke); text-decoration:none; text-transform:uppercase; }
+.header-home:hover { color:var(--gold); }
+
+/* ── SERIES COVER ── */
+.series-cover {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 60px 72px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 15% 70%, rgba(107,26,40,0.45) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 30%, rgba(26,31,58,0.4) 0%, transparent 50%),
+    var(--deep);
+}
+
+/* persian tile pattern */
+.series-cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(200,150,62,0.03) 0px, rgba(200,150,62,0.03) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(-45deg, rgba(155,35,53,0.03) 0px, rgba(155,35,53,0.03) 1px, transparent 1px, transparent 40px);
+}
+
+.series-bg-text {
+  position: absolute;
+  top: 50%; right: 48px;
+  transform: translateY(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 260px;
+  font-weight: 700;
+  color: rgba(107,26,40,0.08);
+  line-height: 1;
+  letter-spacing: -12px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.cover-content { position: relative; z-index: 2; max-width: 620px; }
+.cover-series-tag {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 24px;
+}
+.cover-tag-box {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 3px;
+  color: var(--ruby); text-transform: uppercase;
+  border: 1px solid var(--bordR); padding: 4px 12px;
+}
+.cover-tag-line { width: 48px; height: 1px; background: var(--bordR); }
+
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(44px, 7vw, 88px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--light);
+  letter-spacing: -2px;
+  margin-bottom: 8px;
+}
+.cover-title .gold { color: var(--gold); }
+
+.cover-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: rgba(212,196,154,0.55);
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+.cover-desc {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  line-height: 1.95;
+  color: rgba(186,176,192,0.8);
+  border-left: 2px solid var(--ruby);
+  padding-left: 20px;
+  max-width: 500px;
+}
+
+/* issue pills */
+.issue-pills {
+  position: absolute;
+  bottom: 72px; right: 60px;
+  display: flex; flex-direction: column; gap: 10px;
+  align-items: flex-end;
+  z-index: 2;
+}
+.pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; letter-spacing: 1.5px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  color: var(--gold);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: block;
+}
+.pill:hover, .pill.active { background: var(--gold); color: var(--deep); border-color: var(--gold); }
+
+/* ── DIVIDER ── */
+.series-divider {
+  padding: 32px 60px;
+  display: flex; align-items: center; gap: 20px;
+  border-top: 1px solid var(--border);
+}
+.sdiv-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+.sdiv-ornament { font-size: 14px; color: var(--gold); opacity: 0.5; letter-spacing: 8px; }
+.sdiv-line2 { flex: 1; height: 1px; background: linear-gradient(to left, var(--border), transparent); }
+
+/* ── ARTICLE WRAPPER ── */
+.article-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ARTICLE HEADER */
+.article-head {
+  padding: 60px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+  position: relative;
+}
+.article-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 3px;
+  color: var(--ruby); text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.article-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--light);
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.article-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(212,196,154,0.5);
+  margin-bottom: 24px;
+}
+.article-lead {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: rgba(186,176,192,0.75);
+  max-width: 640px;
+}
+
+/* SECTION */
+.sec { margin-bottom: 52px; }
+.sec-head {
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 16px; align-items: start;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.sec-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 700;
+  color: rgba(155,35,53,0.35); line-height: 1;
+}
+.sec-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 19px; font-weight: 700;
+  color: var(--parch); line-height: 1.35;
+  padding-top: 6px;
+}
+.sec-body {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px; line-height: 2.05;
+  color: rgba(186,176,192,0.8);
+  padding-left: 64px;
+}
+.sec-body p { margin-bottom: 18px; }
+.sec-body p:last-child { margin-bottom: 0; }
+.sec-body strong { color: var(--parch); font-weight: 600; }
+
+/* PULLQUOTE */
+.pq {
+  margin: 24px 0;
+  padding: 20px 24px;
+  border-left: 2px solid var(--ruby);
+  background: rgba(107,26,40,0.08);
+}
+.pq p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px; line-height: 1.75;
+  color: var(--parch); margin: 0 !important;
+}
+
+/* HIGHLIGHT */
+.hl {
+  margin: 22px 0; padding: 18px 22px;
+  background: rgba(200,150,62,0.07);
+  border: 1px solid rgba(200,150,62,0.2);
+}
+.hl p {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px; line-height: 1.9;
+  color: rgba(212,196,154,0.85); margin: 0 !important;
+}
+.hl strong { color: var(--gold2); }
+
+/* CLOSING BOX */
+.article-close {
+  margin: 40px 0 0;
+  padding: 24px 28px;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+  background: rgba(26,16,32,0.4);
+  text-align: center;
+}
+.article-close p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px; line-height: 1.8;
+  color: var(--parch);
+}
+.article-close strong { color: var(--gold); font-style: normal; }
+
+/* ── BETWEEN ARTICLES ── */
+.between-articles {
+  padding: 60px 48px;
+  display: grid; grid-template-columns: 1fr 280px; gap: 48px;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 60px 0;
+  background: rgba(26,16,32,0.3);
+}
+.ba-left {}
+.ba-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 3px;
+  color: var(--ruby); text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.ba-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700;
+  line-height: 1.5; color: var(--light);
+  margin-bottom: 12px;
+}
+.ba-sub {
+  font-size: 13px; line-height: 1.8;
+  color: rgba(186,176,192,0.6);
+}
+.ba-right { border-left: 1px solid var(--border); padding-left: 36px; }
+.ba-stat { margin-bottom: 20px; }
+.ba-stat:last-child { margin-bottom: 0; }
+.ba-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 700;
+  color: var(--gold); line-height: 1; margin-bottom: 4px;
+}
+.ba-stat-label { font-size: 12px; color: var(--smoke); letter-spacing: 0.5px; }
+
+/* ARTICLE 2 SPECIFIC */
+.brand-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  margin: 24px 0; background: var(--bordR);
+}
+.bc-item { padding: 24px; background: var(--plum); }
+.bc-item.persia { border-top: 2px solid var(--gold); }
+.bc-item.iran { border-top: 2px solid rgba(100,100,120,0.4); }
+.bc-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--smoke); text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.bc-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700;
+  margin-bottom: 10px; line-height: 1;
+}
+.bc-item.persia .bc-name { color: var(--gold); }
+.bc-item.iran .bc-name { color: rgba(186,176,192,0.4); }
+.bc-assoc {
+  font-size: 12px; line-height: 1.8;
+  color: rgba(186,176,192,0.55);
+}
+.bc-item.persia .bc-assoc { color: rgba(212,196,154,0.7); }
+
+.heritage-list {
+  margin: 22px 0; padding: 0;
+  list-style: none;
+}
+.heritage-list li {
+  display: grid; grid-template-columns: 120px 1fr;
+  gap: 0; border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.heritage-list li:last-child { border-bottom: none; }
+.hl-cat {
+  padding: 12px 16px 12px 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 1.5px;
+  color: var(--ruby); text-transform: uppercase;
+  border-right: 1px solid var(--border);
+}
+.hl-item {
+  padding: 12px 0 12px 16px;
+  font-family: 'Noto Serif KR', serif;
+  color: rgba(186,176,192,0.75); line-height: 1.6;
+}
+
+/* ── SERIES CLOSE ── */
+.series-close {
+  padding: 60px 48px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.sc-ornament { font-size: 20px; letter-spacing: 12px; color: var(--gold); opacity: 0.4; margin-bottom: 28px; }
+.sc-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px; line-height: 1.8;
+  color: var(--parch); max-width: 560px;
+  margin: 0 auto 20px;
+}
+.sc-caption {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--smoke);
+}
+
+/* FOOTER */
+footer {
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--crimson), var(--gold), var(--ruby)) 1;
+  padding: 24px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(13,10,15,0.8);
+}
+.footer-logo { font-family:'Space Mono',monospace; font-size:12px; color:var(--gold); letter-spacing:2px; }
+.footer-meta { font-size:10px; color:var(--smoke); letter-spacing:1px; }
+.footer-cat { font-family:'Space Mono',monospace; font-size:9px; color:var(--ruby); letter-spacing:2px; text-transform:uppercase; }
+
+/* ── RELATED ARTICLES ── */
+.related-section {
+  padding: 48px;
+  border-top: 1px solid var(--border);
+}
+.related-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.related-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  display: block;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.related-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+}
+.related-card:hover { background: rgba(200,150,62,.04); }
+.related-card-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.related-card-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--off-white);
+  margin-bottom: 16px;
+}
+.related-card-arrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .related-section { padding: 32px 20px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span>.mag</span></a>
+  <div class="header-right">
+    <span class="header-cat">문화 칼럼</span>
+    <a href="index.html" class="header-home">← 홈으로</a>
+  </div>
+</header>
+
+<!-- SERIES COVER -->
+<section class="series-cover">
+  <div class="series-bg-text">ایران</div>
+  <div class="cover-content">
+    <div class="cover-series-tag">
+      <span class="cover-tag-box">문화 칼럼 · 2부작</span>
+      <div class="cover-tag-line"></div>
+    </div>
+    <h1 class="cover-title">잠든 거인,<br><span class="gold">페르시아</span></h1>
+    <p class="cover-subtitle">칼로 정복당하고, 문화로 정복하고, 이름으로 지워진 문명</p>
+    <p class="cover-desc">수천 년간 쌓아온 학문적 깊이와 예술적 저력이 있다. 그런데 지금 그 이름은 어디로 갔는가. 두 편의 칼럼이 하나의 질문으로 만난다.</p>
+  </div>
+  <div class="issue-pills">
+    <a href="#article1" class="pill active">1부 · 정복은 칼로 하나</a>
+    <a href="#article2" class="pill">2부 · 페르시아는 어디로</a>
+  </div>
+</section>
+
+<div class="series-divider">
+  <div class="sdiv-line"></div>
+  <div class="sdiv-ornament">✦ ✦ ✦</div>
+  <div class="sdiv-line2"></div>
+</div>
+
+<!-- ── ARTICLE 1 ── -->
+<div class="article-wrap" id="article1">
+  <div class="article-head">
+    <div class="article-num">칼럼 1 of 2</div>
+    <h2 class="article-title">정복은 칼로 하나,<br>지배는 문화로 한다</h2>
+    <p class="article-sub">페르시아가 증명한 '저력'의 본질</p>
+    <p class="article-lead">오늘날 뉴스 속 이란의 모습은 거칠고 투박하다. 하지만 이 '거친 껍데기' 안에 인류 문명의 기초를 닦았던 '페르시아'라는 거대한 거인이 잠들어 있다.</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-num">1</div>
+      <div class="sec-title">몽골의 말발굽도 멈추게 한 '문화의 블랙홀'</div>
+    </div>
+    <div class="sec-body">
+      <p>13세기, 칭기즈칸의 후예들이 유라시아 대륙을 피로 물들였을 때, 그들의 압도적인 무력 앞에 모든 문명이 무릎을 꿇었다. 중동의 심장 바그다드 역시 예외는 아니었다. 그러나 역사의 반전은 여기서 시작된다.</p>
+      <div class="pq">
+        <p>몽골은 땅을 정복했지만, 정작 그 땅의 주인인 페르시아의 우아함에 정복당해버린 것이다.</p>
+      </div>
+      <p>몽골의 정복자들은 페르시아의 화려한 건축, 섬세한 시(詩), 치밀한 행정 시스템을 보며 경외감을 느꼈다. 결국 그들은 스스로 이슬람으로 개종하고, 페르시아어를 쓰며, 페르시아식 정원을 가꾸는 '페르시아 덕후'가 되었다. <strong>정복자가 피정복자에게 동화되는 이 기묘한 현상이야말로 한 민족이 가진 가장 무서운 저력이다.</strong></p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-num">2</div>
+      <div class="sec-title">'페르시아 DNA'를 품고 인도로 간 몽골의 후예</div>
+    </div>
+    <div class="sec-body">
+      <p>이 동화의 역사는 멈추지 않고 확장되었다. 페르시아에 매료된 몽골의 후예들은 그 '문화적 자부심'을 챙겨 인도라는 더 넓은 땅으로 내려갔다. 이것이 바로 인류 역사상 가장 화려한 제국 중 하나인 '무굴(Mughal) 제국'이다.</p>
+      <div class="hl">
+        <p>무굴 제국은 족보상으로는 몽골이었지만, <strong>영혼은 페르시아였다.</strong> 우리가 인도의 상징이라 믿는 '타지마할'은 사실 페르시아식 대칭미와 정원 양식이 인도의 보석과 만나 탄생한 결정체다.</p>
+      </div>
+      <p>결국 페르시아는 몽골이라는 '택배 기사'를 통해 자신의 문화를 인도라는 대륙 전체에 이식하는 데 성공한 셈이다. 몽골 → 무굴 → 타지마할. 이 연결고리의 원점에 페르시아가 있다.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-num">3</div>
+      <div class="sec-title">"아무것도 아니지만, 모든 것"</div>
+    </div>
+    <div class="sec-body">
+      <p>살라딘은 페르시아인이 아니었다. 그러나 그가 숨 쉰 이슬람 문명 자체가 이미 페르시아의 언어와 미학으로 빚어진 세계였다. 페르시아는 정복당한 이후에도 자신을 짓밟은 자들의 문명 속에 조용히 스며들어, 그들이 만들어낸 역사의 곳곳에 자신의 이름을 새겨넣었다.</p>
+      <div class="pq">
+        <p>지금의 이란은 국제 정세 속에서 고립된 '아무것도 아닌' 존재처럼 보일지 모른다. 그러나 수천 년간 쌓아온 학문적 깊이와 예술적 저력은 여전히 그들의 핏줄 속에 '모든 것'으로 살아 숨 쉬고 있다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-close">
+    <p><strong>칼은 유통기한이 있지만, 문화는 영속하기 때문이다.</strong><br><br>
+    진정한 저력이란, 가장 비참하게 짓밟혔을 때조차<br>적의 머릿속에 자신의 아름다움을 심어놓는 힘이다.</p>
+  </div>
+</div>
+
+<!-- BETWEEN ARTICLES -->
+<div class="between-articles">
+  <div class="ba-left">
+    <div class="ba-label">1부 → 2부 · 연결</div>
+    <div class="ba-quote">문화로 모든 걸 이겼는데,<br>왜 이름 하나에 졌는가</div>
+    <p class="ba-sub">정복자를 동화시키고 타지마할을 만들어낸 페르시아가, 1935년 레자 샤의 선언 하나로 세계의 기억에서 희미해지기 시작한다. 2부는 그 아이러니를 들여다본다.</p>
+  </div>
+  <div class="ba-right">
+    <div class="ba-stat">
+      <div class="ba-stat-num">1935</div>
+      <div class="ba-stat-label">이란으로 공식 개명한 해</div>
+    </div>
+    <div class="ba-stat">
+      <div class="ba-stat-num">2,500</div>
+      <div class="ba-stat-label">년 전 세워진 페르세폴리스</div>
+    </div>
+    <div class="ba-stat">
+      <div class="ba-stat-num">∞</div>
+      <div class="ba-stat-label">페르시아 카펫의 브랜드 가치</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ARTICLE 2 ── -->
+<div class="article-wrap" id="article2">
+  <div class="article-head">
+    <div class="article-num">칼럼 2 of 2</div>
+    <h2 class="article-title">페르시아는<br>어디로 갔는가</h2>
+    <p class="article-sub">스스로 지운 이름, 스스로 잃은 브랜드</p>
+    <p class="article-lead">우리는 '페르시아 카펫'이라고 하면 고급스럽고 오래된 문명의 향기를 떠올리면서, '이란 카펫'이라고 하면 그 느낌이 싹 사라진다. 같은 땅에서 만들어진 같은 물건인데.</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-num">1</div>
+      <div class="sec-title">1935년, 페르시아는 스스로 이름을 지웠다</div>
+    </div>
+    <div class="sec-body">
+      <p>많은 사람들이 이란이 원래부터 이란이었다고 생각한다. 그러나 사실이 아니다. 1935년, 레자 샤 팔라비는 국제사회에 공식 요청을 보낸다. 앞으로 우리나라를 '페르시아'가 아닌 '이란'이라고 불러달라고.</p>
+      <div class="brand-compare">
+        <div class="bc-item persia">
+          <div class="bc-label">세계의 인식</div>
+          <div class="bc-name">Persia</div>
+          <div class="bc-assoc">고대 문명 · 실크로드 · 화려한 궁정 문화 · 수학 · 시(詩) · 철학</div>
+        </div>
+        <div class="bc-item iran">
+          <div class="bc-label">1935년 이후</div>
+          <div class="bc-name">Iran</div>
+          <div class="bc-assoc">낯선 중동의 어느 나라 · 제재 · 갈등 · 근본주의</div>
+        </div>
+      </div>
+      <div class="pq">
+        <p>스스로의 자부심으로 내린 결정이, 스스로의 브랜드를 지워버린 결과가 됐다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-num">2</div>
+      <div class="sec-title">이름 뒤에 숨어버린 문명의 유산들</div>
+    </div>
+    <div class="sec-body">
+      <p>우리 일상 속에 페르시아의 흔적은 생각보다 훨씬 깊숙이 박혀 있다. 그런데 지금 이것들을 '이란의 유산'이라고 말하면 어딘가 어색하다.</p>
+      <ul class="heritage-list">
+        <li><span class="hl-cat">시간 체계</span><span class="hl-item">하루 24시간, 60분 체계 — 고대 메소포타미아·페르시아 문명권의 60진법 산물</span></li>
+        <li><span class="hl-cat">커피 문화</span><span class="hl-item">커피 문화를 꽃피우고 증류 기술을 체계화한 것이 이 문명권</span></li>
+        <li><span class="hl-cat">대수학</span><span class="hl-item">Algebra(al-jabr) — 아랍어지만 학문적 토양을 일군 건 페르시아 학자들</span></li>
+        <li><span class="hl-cat">숫자 체계</span><span class="hl-item">지금 우리가 쓰는 숫자를 전 세계에 퍼뜨린 루트에 페르시아가 있다</span></li>
+      </ul>
+      <div class="hl">
+        <p>이름이 바뀌면서 <strong>문명의 계보가 인식 속에서 단절돼버린 것이다.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-num">3</div>
+      <div class="sec-title">이집트는 팔고, 이란은 닫았다</div>
+    </div>
+    <div class="sec-body">
+      <p>이집트는 파라오와 피라미드를 전면에 내세워 관광 산업으로 연결했다. 고대 문명의 이미지를 현재의 자원으로 적극 환전한 것이다.</p>
+      <p>반면 이란은 페르세폴리스를 가지고 있다. 2500년 전 다리우스 대왕이 세운 이 도시는 당시 세계에서 가장 거대한 제국의 수도였다. 그러나 지금 페르세폴리스를 아는 사람은 많지 않다.</p>
+      <div class="pq">
+        <p>문을 닫아놓은 나라의 유산은 세계의 기억에서도 서서히 닫혀간다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-close">
+    <p>레자 샤의 결정을 비판하려는 게 아니다.<br>그것은 그 시대의 민족주의적 맥락에서 나온 진지한 선택이었다.<br><br>
+    다만 역사는 아이러니를 즐긴다.<br>자신의 정체성을 더 강하게 표현하려던 선택이,<br>수천 년간 쌓아온 문명의 이미지를 희석시켜버렸다.<br><br>
+    <strong>페르시아 카펫은 오늘도 팔린다. 이란 카펫이라는 이름으로.</strong><br>
+    그 간극 속에, 잠든 거인의 이야기가 있다.</p>
+  </div>
+</div>
+
+<!-- SERIES CLOSE -->
+<div class="series-close">
+  <div class="sc-ornament">✦ ✦ ✦</div>
+  <p class="sc-quote">칼은 유통기한이 있지만 문화는 영속한다.<br>그러나 이름이 사라지면 문화도 희미해진다.<br>페르시아는 두 가지를 모두 증명했다.</p>
+  <p class="sc-caption">— F3YNM4N · 문화 칼럼 2부작 · Vol.01</p>
+</div>
+
+<footer>
+  <div class="footer-logo">F3YNM4N</div>
+  <div class="footer-meta">잠든 거인, 페르시아 · 2부작</div>
+  <div class="footer-cat">문화 칼럼</div>
+</footer>
+
+</body>
+</html>

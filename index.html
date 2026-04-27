@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F3YNM4N — 독립 매거진</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0d0d0b;
+  --off-white: #f2ede6;
+  --gold: #c8963e;
+  --gold-dim: #8a6428;
+  --mid: #6a6560;
+  --border: rgba(200,150,62,0.25);
+  --cream: #faf7f2;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  position: fixed;
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease;
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  position: fixed;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(200,150,62,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.25s ease;
+  transform: translate(-50%, -50%);
+}
+a:hover ~ .cursor-ring, a:hover .cursor-ring { transform: translate(-50%,-50%) scale(2); }
+
+/* GRAIN OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.4;
+}
+
+/* ── HEADER ── */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: rgba(13,13,11,0.85);
+  backdrop-filter: blur(12px);
+}
+.logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+.logo span { color: var(--off-white); opacity: 0.4; }
+nav { display: flex; gap: 32px; }
+nav a {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--mid);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--gold); }
+
+/* ── HERO / MAGAZINE COVER ── */
+.hero {
+  height: 100vh;
+  min-height: 700px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 200px 1fr 200px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 우주 배경 */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(200,150,62,0.07) 0%, transparent 55%),
+    radial-gradient(1px 1px at 12% 18%, rgba(200,150,62,.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 12%, rgba(255,255,255,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 34% 72%, rgba(200,150,62,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 81%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 35%, rgba(200,150,62,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 22% 55%, rgba(255,255,255,.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 91% 60%, rgba(200,150,62,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 28%, rgba(255,255,255,.35) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* MASTHEAD BAR — 맨 위 */
+.cover-masthead {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 48px 20px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn .6s ease forwards .1s;
+}
+.masthead-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.masthead-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.masthead-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--mid);
+  text-transform: uppercase;
+}
+.masthead-issue {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--gold-dim);
+}
+
+/* LEFT COLUMN — 커버라인 */
+.cover-left {
+  grid-column: 1;
+  grid-row: 2;
+  padding: 40px 24px 40px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  border-right: 1px solid var(--border);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .4s;
+}
+.coverline {
+  border-left: 2px solid var(--border);
+  padding-left: 12px;
+  transition: border-color .2s;
+}
+.coverline:hover { border-color: var(--gold); }
+.coverline-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.coverline-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--off-white);
+  line-height: 1.5;
+  margin-bottom: 4px;
+  text-decoration: none;
+  display: block;
+}
+.coverline-title:hover { color: var(--gold); }
+.coverline-desc {
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: var(--mid);
+}
+
+/* CENTER — 메인 비주얼 */
+.cover-center {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  opacity: 0;
+  animation: fadeIn .8s ease forwards .3s;
+}
+
+.cover-main-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(72px, 10vw, 140px);
+  font-weight: 900;
+  line-height: .9;
+  letter-spacing: -5px;
+  color: var(--off-white);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+.cover-main-title .num {
+  font-family: 'Space Mono', monospace;
+  font-size: .38em;
+  letter-spacing: 4px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 8px;
+}
+.cover-main-title .accent { color: var(--gold); }
+
+/* 중앙 원형 장식 */
+.cover-orb {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,150,62,.12);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbPulse 6s ease-in-out infinite;
+}
+.cover-orb::before {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,150,62,.08);
+}
+.cover-orb::after {
+  content: '';
+  position: absolute;
+  inset: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,150,62,.05);
+}
+@keyframes orbPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: .7; }
+  50% { transform: translate(-50%, -50%) scale(1.04); opacity: 1; }
+}
+
+.cover-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(242,237,230,.4);
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* RIGHT COLUMN — 커버라인 */
+.cover-right {
+  grid-column: 3;
+  grid-row: 2;
+  padding: 40px 48px 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  border-left: 1px solid var(--border);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .5s;
+}
+
+/* BOTTOM BAR */
+.cover-bottom {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn .8s ease forwards .8s;
+}
+.cover-bottom-left {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--mid);
+}
+.cover-bottom-cta {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(200,150,62,.3);
+  padding-bottom: 2px;
+  transition: border-color .2s;
+}
+.cover-bottom-cta:hover { border-color: var(--gold); }
+.cover-bottom-right {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--mid);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── FEATURED ── */
+.featured {
+  padding: 100px 48px;
+  border-top: 1px solid var(--border);
+}
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.featured-main {
+  background: rgba(200,150,62,0.04);
+  border: 1px solid var(--border);
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: background 0.3s;
+  grid-row: span 2;
+}
+.featured-main:hover { background: rgba(200,150,62,0.08); }
+.featured-main::before {
+  content: 'FEATURED';
+  position: absolute;
+  top: 20px; right: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+}
+.feat-series {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.feat-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--off-white);
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+.feat-desc {
+  font-size: 13px;
+  line-height: 1.85;
+  color: rgba(242,237,230,0.55);
+  margin-bottom: 32px;
+}
+.feat-episodes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.feat-ep {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 12px;
+  color: rgba(242,237,230,0.4);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.feat-ep:hover { color: var(--gold); }
+.feat-ep-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold-dim);
+  min-width: 20px;
+}
+.feat-arrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--gold);
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+.featured-main:hover .feat-arrow { gap: 16px; }
+
+/* side cards */
+.feat-side {
+  border: 1px solid var(--border);
+  padding: 32px;
+  background: rgba(255,255,255,0.01);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.feat-side:hover { background: rgba(200,150,62,0.05); }
+.side-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.side-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--off-white);
+  margin-bottom: 10px;
+}
+.side-desc {
+  font-size: 11.5px;
+  line-height: 1.75;
+  color: rgba(242,237,230,0.4);
+  flex: 1;
+  margin-bottom: 16px;
+}
+.side-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--border);
+  text-transform: uppercase;
+}
+
+/* ── CATEGORIES ── */
+.categories {
+  padding: 80px 48px;
+  border-top: 1px solid var(--border);
+}
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+.cat-item {
+  background: var(--black);
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.25s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.cat-item:hover { background: rgba(200,150,62,0.06); }
+.cat-icon { font-size: 24px; margin-bottom: 12px; display: block; }
+.cat-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--off-white);
+  margin-bottom: 6px;
+}
+.cat-count {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--gold-dim);
+}
+
+/* ── MANIFESTO ── */
+.manifesto {
+  padding: 100px 48px;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.manifesto-left { }
+.manifesto-quote {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--off-white);
+  margin-bottom: 32px;
+}
+.manifesto-quote strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+.manifesto-sig {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--mid);
+}
+.manifesto-right {
+  border-left: 1px solid var(--border);
+  padding-left: 48px;
+}
+.manifesto-item {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.manifesto-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.manifesto-item-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.manifesto-item-text {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(242,237,230,0.7);
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+.footer-copy {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--mid);
+}
+.footer-right {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--mid);
+  letter-spacing: 1px;
+}
+
+/* scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.5s;
+}
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+.scroll-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: var(--mid);
+  text-transform: uppercase;
+  writing-mode: horizontal-tb;
+}
+
+/* ═══════════════════════════════════════
+   MOBILE RESPONSIVE — 768px 이하
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* 헤더 */
+  header {
+    padding: 14px 20px;
+  }
+  nav { gap: 16px; }
+  nav a { font-size: 10px; letter-spacing: 1px; }
+  .logo { font-size: 12px; }
+
+  /* ── 커버 ── */
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-columns: 1fr;
+  }
+
+  /* 마스트헤드 */
+  .cover-masthead {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .cover-masthead > *:last-child { display: none; }
+
+  /* 커버라인 좌우 컬럼 — 모바일에서 숨기고 하단에 재배치 */
+  .cover-left, .cover-right {
+    grid-column: 1;
+    grid-row: auto;
+    border: none;
+    border-top: 1px solid var(--border);
+    padding: 24px 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .cover-left { display: none; }
+  .cover-right { display: none; }
+
+  /* 센터 */
+  .cover-center {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 40px 20px;
+    min-height: 60vh;
+  }
+  .cover-main-title {
+    font-size: clamp(52px, 14vw, 80px);
+    letter-spacing: -3px;
+  }
+  .cover-orb {
+    width: 260px;
+    height: 260px;
+  }
+
+  /* 모바일용 커버라인 — 세로 스택으로 하단에 */
+  .cover-mobile-lines {
+    grid-column: 1;
+    grid-row: 3;
+    border-top: 1px solid var(--border);
+    padding: 0 20px;
+  }
+  .cover-mobile-lines .coverline {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    border-left: none;
+    padding-left: 0;
+    border-left: 2px solid var(--border);
+    padding-left: 12px;
+  }
+  .cover-mobile-lines .coverline:last-child { border-bottom: none; }
+
+  /* 하단 바 */
+  .cover-bottom {
+    grid-column: 1;
+    grid-row: 4;
+    padding: 12px 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .cover-bottom-left, .cover-bottom-right { display: none; }
+  .cover-bottom-cta { font-size: 11px; }
+
+  /* ── Featured ── */
+  .featured { padding: 48px 20px; }
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+  .featured-main {
+    grid-row: span 1;
+    padding: 28px 20px;
+  }
+  .feat-title { font-size: 28px; }
+  .feat-side { padding: 20px; }
+
+  /* ── Recent ── */
+  #recent { padding: 48px 20px !important; }
+  #recent-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Categories ── */
+  .categories { padding: 48px 20px; }
+  .cat-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .cat-item { padding: 20px 12px; }
+  .cat-name { font-size: 11px; }
+  .cat-count { font-size: 9px; }
+
+  /* ── Manifesto ── */
+  .manifesto {
+    padding: 48px 20px;
+    grid-template-columns: 1fr;
+  }
+  .manifesto-right {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+    margin-top: 32px;
+  }
+  .manifesto-quote { font-size: 20px; }
+
+  /* ── Footer ── */
+  footer {
+    padding: 24px 20px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  /* 섹션 라벨 */
+  .section-label { margin-left: 20px; }
+}
+
+/* 태블릿 — 900px 이하 */
+@media (max-width: 900px) and (min-width: 769px) {
+  .hero {
+    grid-template-columns: 160px 1fr 160px;
+  }
+  .cover-main-title {
+    font-size: clamp(52px, 8vw, 90px);
+  }
+  .coverline-title { font-size: 11px; }
+  .coverline-desc { display: none; }
+  header { padding: 16px 24px; }
+  .featured { padding: 60px 24px; }
+  .manifesto { padding: 60px 24px; }
+  #recent { padding: 60px 24px !important; }
+  .categories { padding: 60px 24px; }
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">F3YNM4N<span>.mag</span></a>
+  <nav>
+    <a href="#featured">피처드</a>
+    <a href="#recent">최근 글</a>
+    <a href="#categories">카테고리</a>
+    <a href="#manifesto">소개</a>
+  </nav>
+</header>
+
+<!-- HERO / MAGAZINE COVER -->
+<section class="hero">
+  <div class="cover-masthead">
+    <div class="masthead-logo">F3YNM4N</div>
+    <div class="masthead-info">
+      <span class="masthead-tag">독립 매거진 · Independent</span>
+      <span class="masthead-issue">Vol.01 · 2026</span>
+    </div>
+    <div class="masthead-tag">구조를 보고 이면을 바라봅니다</div>
+  </div>
+  <div class="cover-left" id="cover-left"><!-- JS --></div>
+  <div class="cover-center">
+    <div class="cover-orb"></div>
+    <h1 class="cover-main-title">
+      <span class="num">F3YNM4N</span>
+      겉을<br>보면서<br><span class="accent">속을</span><br>읽습니다
+    </h1>
+    <p class="cover-tagline">구조 · 이면 · 본질</p>
+  </div>
+  <div class="cover-right" id="cover-right"><!-- JS --></div>
+  <div class="cover-mobile-lines" id="cover-mobile-lines"><!-- JS --></div>
+  <div class="cover-bottom">
+    <div class="cover-bottom-left">BUSAN, KR · INDEPENDENT PRESS · 2026</div>
+    <a href="#featured" class="cover-bottom-cta">이번 호 읽기 ↓</a>
+    <div class="cover-bottom-right" id="cover-genres"><!-- JS --></div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured" id="featured">
+  <div class="section-label">Featured Series</div>
+  <div class="featured-grid" id="featured-grid"><!-- JS --></div>
+</section>
+
+<!-- RECENT ARTICLES -->
+<section id="recent" style="padding:80px 48px;border-top:1px solid var(--border);">
+  <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:40px;display:flex;align-items:center;gap:16px;">
+    Recent Articles
+    <span style="flex:1;height:1px;background:var(--border);display:block"></span>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;" id="recent-grid"><!-- JS --></div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-label">Categories</div>
+  <div class="cat-grid" id="cat-grid"><!-- JS --></div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-left">
+    <div class="section-label">Manifesto</div>
+    <p class="manifesto-quote">
+      구조를 보고 <strong>이면을 바라봅니다.</strong><br>
+      외면의 아름다움을 볼 때<br>
+      <strong>내면의 복잡함</strong>을 들여다 봅니다.
+    </p>
+    <div class="manifesto-sig">— F3YNM4N · 편집장</div>
+  </div>
+  <div class="manifesto-right">
+    <div class="manifesto-item">
+      <div class="manifesto-item-num">// 01</div>
+      <p class="manifesto-item-text">장르는 경계가 아닙니다. 미식을 보면서 문명을 읽고, 음식을 보면서 철학을 꺼냅니다.</p>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-item-num">// 02</div>
+      <p class="manifesto-item-text">직관이 먼저입니다. 파인만이 수식보다 이미지로 먼저 이해했듯, 구조보다 느낌이 앞섭니다.</p>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-item-num">// 03</div>
+      <p class="manifesto-item-text">1인 매거진입니다. 혼자 북치고 장구치는 게 아니라, 하나의 시선이 일관되게 흐르는 겁니다.</p>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-item-num">// 04</div>
+      <p class="manifesto-item-text">재밌으면 합니다. 그것으로 충분합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">F3YNM4N</div>
+  <div class="footer-copy">독립 매거진 · 1인 편집장 · 뇌전 · Merslin</div>
+  <div class="footer-right">Vol.01 · 2026</div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// F3YNM4N — Supabase 연결
+// ═══════════════════════════════════════════════════════════════
+
+const SUPABASE_URL = 'https://zbjurkhbumuqeusceknb.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_NCDATxds6xSoM7ecxuZxpQ_GLLYq0hF';
+
+// FEATURED 설정 — 메인 피처드 섹션
+// type: "series" → 에피소드 목록 표시
+// type: "article" → DB에서 slug로 단일 글 강조
+const FEATURED = {
+  type: "series",
+  seriesTag: "미식의 나라 · 전 5편 완결",
+  title: "변주의 나라,\n한국이 음식을\n대하는 방식",
+  desc: "문명의 체급은 음식에 박힌다. SS급과 S급 사이에서 한국 미식의 진짜 위치를 짚고, 무서운 시장이 만든 강국의 구조를 해부한다. 기대치의 심리학, 떡볶이 플랫폼, 그리고 변주의 철학까지.",
+  href: "misik_1.html",
+  episodes: [
+    { num: "01", title: "한국이 미식의 나라 3강에 근접한다",     href: "misik_1.html" },
+    { num: "02", title: "무서운 시장이 만든 미식 강국",           href: "misik_2.html" },
+    { num: "03", title: "기대치가 맛을 만든다",                   href: "misik_3.html" },
+    { num: "04", title: "불멸의 떡볶이 플랫폼",                   href: "misik_4.html" },
+    { num: "05", title: "변주의 나라, 한국이 음식을 대하는 방식", href: "misik_5.html" },
+  ],
+};
+
+// 카테고리 설정
+const CATEGORIES = [
+  { key: "food",    name: "미식",      icon: "🍜", href: "misik_index.html", baseCount: 5 },
+  { key: "science", name: "팝사이언스", icon: "🌌", href: "article.html?cat=science" },
+  { key: "film",    name: "영화비평",   icon: "🎬", href: "article.html?cat=film" },
+  { key: "history", name: "대체역사",   icon: "🗺️", href: "article.html?cat=history" },
+  { key: "culture", name: "문화칼럼",   icon: "✍️", href: "article.html?cat=culture" },
+  { key: "fiction", name: "창작",       icon: "✒️", href: "article.html?cat=fiction" },
+];
+
+// ═══════════════════════════════════════════════════════════════
+// 렌더링 함수들
+// ═══════════════════════════════════════════════════════════════
+
+// 글 slug → href 변환 (slug가 있으면 article.html?slug=xxx 방식)
+function articleHref(a) {
+  return a.slug ? `article.html?slug=${a.slug}` : '#';
+}
+
+function renderCoverlines(articles) {
+  const leftArticles  = articles.filter(a => a.cover_col === 'left').slice(0, 3);
+  const rightArticles = articles.filter(a => a.cover_col === 'right').slice(0, 3);
+
+  function makeCoverline(a) {
+    const title = (a.cover_title || a.title).replace(/\n/g, '<br>');
+    return `<div class="coverline">
+      <div class="coverline-tag">${a.tag}</div>
+      <a href="${articleHref(a)}" class="coverline-title">${title}</a>
+      <p class="coverline-desc">${a.subtitle || ''}</p>
+    </div>`;
+  }
+
+  document.getElementById('cover-left').innerHTML  = leftArticles.map(makeCoverline).join('') || '';
+  document.getElementById('cover-right').innerHTML = rightArticles.map(makeCoverline).join('') || '';
+}
+
+function renderRecent(articles) {
+  const html = articles.map(a => `
+    <a href="${articleHref(a)}"
+       style="display:block;padding:32px;border:1px solid var(--border);text-decoration:none;color:inherit;"
+       onmouseover="this.style.background='rgba(200,150,62,0.04)'"
+       onmouseout="this.style.background='transparent'">
+      <div style="font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">${a.tag}</div>
+      <div style="font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;line-height:1.35;color:var(--off-white);margin-bottom:10px;">${a.title.replace(/\\n/g,'<br>').replace(/\n/g,'<br>')}</div>
+      <p style="font-size:12px;line-height:1.75;color:var(--mid);">${a.subtitle || ''}</p>
+      <div style="margin-top:16px;font-size:10px;letter-spacing:1px;color:var(--gold);font-family:'Space Mono',monospace;display:flex;justify-content:space-between;">
+        <span>읽기 →</span>
+        <span style="color:var(--mid);">${new Date(a.created_at).toLocaleDateString('ko-KR')}</span>
+      </div>
+    </a>`).join('');
+
+  document.getElementById('recent-grid').innerHTML = html || '<p style="color:var(--mid);padding:32px;">아직 글이 없습니다.</p>';
+}
+
+function renderCategories(articles) {
+  const counts = {};
+  articles.forEach(a => { counts[a.category] = (counts[a.category] || 0) + 1; });
+
+  const html = CATEGORIES.map(cat => {
+    const total = (counts[cat.key] || 0) + (cat.baseCount || 0);
+    const count = total === 0 ? 'Coming Soon' : `${total} ARTICLE${total > 1 ? 'S' : ''}`;
+    const firstHref = cat.href || (articles.find(a => a.category === cat.key) ? `article.html?cat=${cat.key}` : '#');
+    return `<a href="${firstHref}" class="cat-item">
+      <span class="cat-icon">${cat.icon}</span>
+      <div class="cat-name">${cat.name}</div>
+      <div class="cat-count">${count}</div>
+    </a>`;
+  }).join('');
+
+  document.getElementById('cat-grid').innerHTML = html;
+}
+
+function renderFeatured(articles) {
+  const titleHtml = FEATURED.title.replace(/\n/g, '<br>');
+  const sidePicks = articles.filter(a => a.cover_col).slice(0, 2);
+  const sideHtml = sidePicks.map(a => `
+    <a href="${articleHref(a)}" class="feat-side">
+      <div>
+        <div class="side-tag">${a.tag}</div>
+        <div class="side-title">${a.title.replace(/\\n/g,'<br>').replace(/\n/g,'<br>')}</div>
+        <p class="side-desc">${a.subtitle || ''}</p>
+      </div>
+      <div class="side-meta">읽기 →</div>
+    </a>`).join('');
+
+  let mainHtml = '';
+  if (FEATURED.type === 'series') {
+    const epHtml = FEATURED.episodes.map(ep =>
+      `<a href="${ep.href}" class="feat-ep">
+        <span class="feat-ep-num">${ep.num}</span>
+        <span>${ep.title}</span>
+      </a>`).join('');
+    mainHtml = `
+      <a href="${FEATURED.href}" class="featured-main">
+        <div class="feat-series">${FEATURED.seriesTag}</div>
+        <h2 class="feat-title">${titleHtml}</h2>
+        <p class="feat-desc">${FEATURED.desc}</p>
+        <div class="feat-episodes">${epHtml}</div>
+        <div class="feat-arrow">전체 시리즈 읽기 ——</div>
+      </a>`;
+  } else {
+    mainHtml = `
+      <a href="${FEATURED.href}" class="featured-main">
+        <div class="feat-series">${FEATURED.tag}</div>
+        <h2 class="feat-title">${titleHtml}</h2>
+        <p class="feat-desc">${FEATURED.desc}</p>
+        <div class="feat-arrow">읽기 ——</div>
+      </a>`;
+  }
+
+  document.getElementById('featured-grid').innerHTML = mainHtml + sideHtml;
+}
+
+function renderCoverGenres() {
+  const names = CATEGORIES.map(c => c.name).join(' · ');
+  document.getElementById('cover-genres').textContent = names;
+}
+
+function renderMobileCoverlines(articles) {
+  const picks = articles.filter(a => a.cover_col).slice(0, 4);
+  const html = picks.map(a => {
+    const title = (a.cover_title || a.title).replace(/\n/g, '<br>');
+    return `<div class="coverline">
+      <div class="coverline-tag">${a.tag}</div>
+      <a href="${articleHref(a)}" class="coverline-title">${title}</a>
+    </div>`;
+  }).join('');
+  document.getElementById('cover-mobile-lines').innerHTML = html;
+}
+
+// ── 메인 로드 ──
+async function loadAndRender() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/articles?published=eq.true&order=created_at.desc`,
+      { headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' } }
+    );
+    const articles = await res.json();
+
+    renderCoverlines(articles);
+    renderRecent(articles);
+    renderCategories(articles);
+    renderFeatured(articles);
+    renderCoverGenres();
+    renderMobileCoverlines(articles);
+  } catch (e) {
+    console.error('Supabase 로드 실패:', e);
+    // 실패해도 카테고리/featured는 표시
+    renderCategories([]);
+    renderFeatured([]);
+    renderCoverGenres();
+    document.getElementById('recent-grid').innerHTML = '<p style="color:var(--mid);padding:32px;">글을 불러오는 중 오류가 발생했습니다.</p>';
+  }
+}
+
+loadAndRender();
+
+// ─── 커스텀 커서 ───
+const cursor = document.getElementById("cursor");
+const ring   = document.getElementById("cursorRing");
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener("mousemove", e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.left = mouseX + "px";
+  cursor.style.top  = mouseY + "px";
+});
+(function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  ring.style.left = ringX + "px";
+  ring.style.top  = ringY + "px";
+  requestAnimationFrame(animateRing);
+})();
+document.querySelectorAll("a, button").forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    cursor.style.transform = "translate(-50%,-50%) scale(2)";
+    ring.style.transform   = "translate(-50%,-50%) scale(1.5)";
+    ring.style.borderColor = "rgba(200,150,62,0.8)";
+  });
+  el.addEventListener("mouseleave", () => {
+    cursor.style.transform = "translate(-50%,-50%) scale(1)";
+    ring.style.transform   = "translate(-50%,-50%) scale(1)";
+    ring.style.borderColor = "rgba(200,150,62,0.5)";
+  });
+});
+</script>
+</body>
+</html>

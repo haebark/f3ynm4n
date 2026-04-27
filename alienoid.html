@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>외계+인 완결판 리뷰 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0d0d0b;
+  --off-white: #f2ede6;
+  --gold: #c8963e;
+  --gold-dim: #8a6428;
+  --mid: #6a6560;
+  --border: rgba(200,150,62,0.18);
+  --accent: #1a0d2e;
+  --accent2: #9b4dca;
+  --accent3: #3a6b8a;
+  --red: #c0503a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+.cursor { position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
+.cursor-ring { position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%); }
+
+body::before {
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:100;opacity:.4;
+}
+
+/* HEADER */
+header {
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:16px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:rgba(13,13,11,.9);
+  backdrop-filter:blur(12px);
+}
+.logo { font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none; }
+.logo span { color:var(--off-white);opacity:.4; }
+.header-home { font-size:11px;letter-spacing:2px;color:var(--mid);text-decoration:none;text-transform:uppercase;transition:color .2s; }
+.header-home:hover { color:var(--gold); }
+
+/* HERO — 세로 분할, SF+무협 충돌 느낌 */
+.hero {
+  min-height: 100vh;
+  padding-top: 60px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* 우주 배경 */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(155,77,202,.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 60%, rgba(58,107,138,.25) 0%, transparent 50%),
+    radial-gradient(1px 1px at 15% 20%, rgba(200,150,62,.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 70%, rgba(200,150,62,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 85%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 40%, rgba(155,77,202,.6) 0%, transparent 100%),
+    linear-gradient(180deg, #0d0820 0%, #0d0d0b 100%);
+}
+
+/* 균열선 — SF와 무협의 충돌 */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(155,77,202,.4) 20%,
+    rgba(200,150,62,.6) 50%,
+    rgba(58,107,138,.4) 80%,
+    transparent 100%);
+  box-shadow: 0 0 20px rgba(155,77,202,.3);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  padding: 0 48px 80px;
+  gap: 60px;
+}
+
+.hero-left {
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .3s;
+}
+
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-tag::before { content:''; display:inline-block; width:20px; height:1px; background:var(--gold); }
+
+.hero-title-ko {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--off-white);
+  margin-bottom: 6px;
+}
+.hero-title-ko .plus {
+  color: var(--accent2);
+  font-family: 'Space Mono', monospace;
+  font-size: .6em;
+}
+
+.hero-sub-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(14px, 2vw, 18px);
+  color: rgba(242,237,230,.5);
+  margin-bottom: 28px;
+  letter-spacing: 1px;
+}
+
+.verdict-pill {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid var(--red);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--red);
+  text-transform: uppercase;
+}
+
+.hero-right {
+  opacity: 0;
+  animation: fadeUp .8s ease forwards .6s;
+}
+
+.hero-summary {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2;
+  color: rgba(242,237,230,.65);
+  border-left: 2px solid var(--accent2);
+  padding-left: 20px;
+  margin-bottom: 28px;
+}
+.hero-summary strong { color: var(--off-white); font-weight: 600; }
+
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.meta-row {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--mid);
+}
+.meta-row strong { color: var(--gold-dim); margin-right: 8px; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+/* SCORE STRIP */
+.score-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+}
+.score-item {
+  padding: 18px 20px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.score-item:last-child { border-right: none; }
+.score-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: var(--mid);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.score-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+.s-red { color: var(--red); }
+.s-orange { color: #c8783e; }
+.s-gold { color: var(--gold); }
+.s-mid { color: var(--mid); }
+
+/* ARTICLE */
+.article-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.section { margin-bottom: 60px; }
+
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.section-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold-dim);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--off-white);
+  line-height: 1.4;
+}
+
+.body-text {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14.5px;
+  font-weight: 300;
+  line-height: 2.1;
+  color: rgba(242,237,230,.78);
+}
+.body-text p { margin-bottom: 18px; }
+.body-text strong { color: var(--off-white); font-weight: 600; }
+.body-text em { color: var(--gold); font-style: normal; }
+
+/* PULL QUOTE */
+.pull-quote {
+  margin: 32px 0;
+  padding: 24px 28px;
+  border-left: 3px solid var(--accent2);
+  background: rgba(155,77,202,.06);
+}
+.pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(242,237,230,.85);
+}
+
+/* STRUCTURE DIAGRAM — 병렬구조 실패 */
+.diagram-block {
+  margin: 32px 0;
+  border: 1px solid var(--border);
+  padding: 28px;
+  background: rgba(13,13,11,.5);
+}
+.diagram-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--mid);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* PROBLEM CARDS */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 28px 0;
+}
+.prob-card {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--red);
+  background: rgba(192,80,58,.03);
+}
+.prob-icon { font-size: 20px; margin-bottom: 10px; }
+.prob-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--off-white);
+  margin-bottom: 8px;
+}
+.prob-desc { font-size: 12px; line-height: 1.85; color: var(--mid); }
+
+/* CHEKHOV */
+.chekhov-list {
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.chekhov-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  border: 1px solid var(--border);
+}
+.ch-device {
+  padding: 14px 16px;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+.ch-promise {
+  padding: 14px 16px;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--mid);
+  border-right: 1px solid var(--border);
+}
+.ch-result {
+  padding: 14px 16px;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--red);
+}
+
+/* CONCLUSION */
+.conclusion {
+  margin-top: 60px;
+  padding: 48px;
+  background: linear-gradient(135deg, rgba(26,13,46,.8), rgba(13,13,11,.95));
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent2);
+  text-align: center;
+}
+.conclusion-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.conclusion-main {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 2;
+  color: var(--off-white);
+  margin-bottom: 20px;
+}
+.conclusion-main em { color: var(--accent2); font-style: normal; }
+.conclusion-sub {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(242,237,230,.45);
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13,13,11,.8);
+}
+footer .pub { font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold); }
+footer .nav-links { display:flex;gap:24px; }
+footer .nav-links a { font-size:11px;color:var(--mid);text-decoration:none;letter-spacing:1px; }
+footer .nav-links a:hover { color:var(--gold); }
+
+/* ── RELATED ARTICLES ── */
+.related-section {
+  padding: 48px;
+  border-top: 1px solid var(--border);
+}
+.related-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.related-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  display: block;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.related-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+}
+.related-card:hover { background: rgba(200,150,62,.04); }
+.related-card-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.related-card-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--off-white);
+  margin-bottom: 16px;
+}
+.related-card-arrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .related-section { padding: 32px 20px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span>.mag</span></a>
+  <a href="index.html" class="header-home">← 홈으로</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">영화비평 · 완결판 총평</div>
+      <div class="hero-title-ko">외계<span class="plus">+</span>인</div>
+      <div class="hero-sub-title">Alienoid 1·2부 완결판 리뷰</div>
+      <div class="verdict-pill">야심은 컸지만, 구조는 무너졌다</div>
+    </div>
+    <div class="hero-right">
+      <p class="hero-summary">
+        두 편 모두 보고 난 뒤의 총평입니다.<br>
+        결론부터 말하면, 이 시리즈는 <strong>야심은 컸지만<br>편의주의와 구조적 실패로 무너진 작품</strong>입니다.<br>
+        감독의 역량 부족이라기보다 — 욕심의 문제였습니다.
+      </p>
+      <div class="hero-meta">
+        <div class="meta-row"><strong>감독</strong>최동훈</div>
+        <div class="meta-row"><strong>개봉</strong>2022 (1부) · 2024 (2부)</div>
+        <div class="meta-row"><strong>장르</strong>SF · 무협 · 판타지</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCORE STRIP -->
+<div class="score-strip">
+  <div class="score-item">
+    <div class="score-label">세계관 야심</div>
+    <div class="score-val s-gold">B+</div>
+  </div>
+  <div class="score-item">
+    <div class="score-label">서사 구조</div>
+    <div class="score-val s-red">D</div>
+  </div>
+  <div class="score-item">
+    <div class="score-label">캐릭터 활용</div>
+    <div class="score-val s-red">D+</div>
+  </div>
+  <div class="score-item">
+    <div class="score-label">볼거리</div>
+    <div class="score-val s-orange">B</div>
+  </div>
+  <div class="score-item">
+    <div class="score-label">종합</div>
+    <div class="score-val s-red">C-</div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-wrap">
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">// 01</div>
+      <div class="section-title">병렬식 구조의 실패</div>
+    </div>
+    <div class="body-text">
+      <p>1부는 현대의 하바 폭발 위기와 고려시대의 코믹 무협극을 병렬로 배치했지만, <em>두 축의 톤이 지나치게 달라</em> 몰입이 끊겼고, 서로 만나서 긴장감을 터뜨리는 시점이 너무 늦었습니다.</p>
+
+      <!-- 구조 다이어그램 -->
+      <div class="diagram-block">
+        <div class="diagram-label">Fig.1 — 의도한 구조 vs 실제 구조</div>
+        <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <!-- 의도 -->
+          <text x="160" y="20" fill="var(--mid)" font-family="Space Mono" font-size="9" text-anchor="middle" letter-spacing="2">의도 (놀란식)</text>
+          <rect x="20" y="32" width="100" height="36" fill="none" stroke="rgba(58,107,138,.6)" stroke-width="1"/>
+          <text x="70" y="55" fill="rgba(58,107,138,.9)" font-family="Noto Serif KR" font-size="11" text-anchor="middle">현대 SF</text>
+          <rect x="140" y="32" width="100" height="36" fill="none" stroke="rgba(155,77,202,.6)" stroke-width="1"/>
+          <text x="190" y="55" fill="rgba(155,77,202,.9)" font-family="Noto Serif KR" font-size="11" text-anchor="middle">고려 무협</text>
+          <text x="260" y="52" fill="var(--gold)" font-family="Space Mono" font-size="14" text-anchor="middle">→</text>
+          <rect x="270" y="32" width="80" height="36" fill="rgba(200,150,62,.1)" stroke="var(--gold)" stroke-width="1"/>
+          <text x="310" y="55" fill="var(--gold)" font-family="Noto Serif KR" font-size="11" text-anchor="middle">충돌·카타르시스</text>
+
+          <!-- 실제 -->
+          <text x="160" y="115" fill="var(--mid)" font-family="Space Mono" font-size="9" text-anchor="middle" letter-spacing="2">실제</text>
+          <rect x="20" y="127" width="100" height="36" fill="none" stroke="rgba(58,107,138,.3)" stroke-width="1"/>
+          <text x="70" y="150" fill="rgba(58,107,138,.6)" font-family="Noto Serif KR" font-size="11" text-anchor="middle">현대 SF</text>
+          <rect x="140" y="127" width="100" height="36" fill="none" stroke="rgba(155,77,202,.3)" stroke-width="1"/>
+          <text x="190" y="150" fill="rgba(155,77,202,.6)" font-family="Noto Serif KR" font-size="11" text-anchor="middle">고려 무협</text>
+          <text x="260" y="147" fill="var(--red)" font-family="Space Mono" font-size="11" text-anchor="middle">→</text>
+          <rect x="270" y="127" width="80" height="36" fill="rgba(192,80,58,.08)" stroke="var(--red)" stroke-width="1"/>
+          <text x="310" y="148" fill="var(--red)" font-family="Noto Serif KR" font-size="11" text-anchor="middle">톤 충돌</text>
+          <text x="310" y="162" fill="var(--red)" font-family="Noto Serif KR" font-size="9" text-anchor="middle">→ 몰입 차단</text>
+
+          <text x="370" y="55" fill="var(--mid)" font-family="Noto Serif KR" font-size="11">긴장·해소·감동</text>
+          <text x="370" y="150" fill="var(--red)" font-family="Noto Serif KR" font-size="11">긴장 지연 → 싱거운 해소</text>
+        </svg>
+      </div>
+
+      <p>감독이 의도한 놀란식 구조(메멘토·덩케르크)와는 달리, <strong>긴장 축적과 카타르시스가 어긋났습니다.</strong> 놀란의 병렬 구조는 각 축이 독립적으로도 긴장감을 유지하면서 교차 시점에 배가됩니다. 〈외계+인〉은 두 축 중 어느 쪽도 독립적인 긴장을 쌓지 못했습니다.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">// 02</div>
+      <div class="section-title">하바와 빌런의 매력 부재</div>
+    </div>
+    <div class="body-text">
+      <p>하바는 수많은 인명을 위협하는 <em>대형 재난 장치</em>였지만, 초반에 제대로 활용되지 않아 긴장이 지연되었고, 마지막엔 싱겁게 해소되었습니다.</p>
+
+      <div class="pull-quote">
+        <p>설계자는 지능형 빌런을 기대했지만, 실제로는 초반부터 럭키하게 탈출하는 괴물에 가까웠습니다. 이야기의 메인 위협과 빌런이 분리되어 — 둘 다 힘을 잃은 게 가장 큰 문제입니다.</p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="prob-card">
+          <div class="prob-icon">💥</div>
+          <div class="prob-name">하바 — 위협의 공백화</div>
+          <p class="prob-desc">초반 방치 → 중반 존재감 희미 → 후반 싱거운 해소. 관객이 하바를 진지하게 두려워할 타이밍이 없었습니다.</p>
+        </div>
+        <div class="prob-card">
+          <div class="prob-icon">🤖</div>
+          <div class="prob-name">설계자 — 빌런의 공허화</div>
+          <p class="prob-desc">2부의 설계자-썬더 반전은 흥미로운 카드였으나, 1부에 복선이 없어 관객에겐 뜬금포. 이름값과 설정 대비 매력 미달.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">// 03</div>
+      <div class="section-title">편의주의적 전개 — 체홉의 총 남용</div>
+    </div>
+    <div class="body-text">
+      <p>신선 도구, 거울, 능파 전설 같은 장치들은 <em>필요할 때만 갑툭튀하는</em> '체홉의 총 남용'처럼 쓰였습니다. 시간여행 규칙은 상황에 따라 바뀌어, 하드 SF는 아니더라도 최소한의 설득력이 부족했습니다.</p>
+
+      <div class="chekhov-list">
+        <div class="chekhov-item">
+          <div class="ch-device">신선 도구</div>
+          <div class="ch-promise">초반 제시 → 규칙 있는 도구로 기대</div>
+          <div class="ch-result">필요 시점에만 능력치 변동</div>
+        </div>
+        <div class="chekhov-item">
+          <div class="ch-device">거울</div>
+          <div class="ch-promise">복선 없이 등장 → 핵심 장치로 돌변</div>
+          <div class="ch-result">관객 입장에서 인과 불명</div>
+        </div>
+        <div class="chekhov-item">
+          <div class="ch-device">시간여행 규칙</div>
+          <div class="ch-promise">SF적 설득력 기대</div>
+          <div class="ch-result">상황마다 규칙이 달라짐</div>
+        </div>
+        <div class="chekhov-item">
+          <div class="ch-device">설계자 반전</div>
+          <div class="ch-promise">2부의 핵심 반전 카드</div>
+          <div class="ch-result">1부 복선 전무 → 뜬금포</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">// 04</div>
+      <div class="section-title">캐릭터 활용 문제 — 죽이지도, 살리지도 않았다</div>
+    </div>
+    <div class="body-text">
+      <p>감독은 이안, 무륵, 신선들까지 끝까지 무대 위에 세워두는 선택을 했습니다. 그러나 <em>캐릭터성(능력·서사적 비중)은 살리지 못했습니다.</em></p>
+
+      <div class="problem-grid">
+        <div class="prob-card">
+          <div class="prob-icon">👤</div>
+          <div class="prob-name">이안</div>
+          <p class="prob-desc">설계자 반전에 묻혀 존재감이 약해졌습니다. 1부에서 쌓은 서사가 2부에서 희석되는 구조.</p>
+        </div>
+        <div class="prob-card">
+          <div class="prob-icon">⚔️</div>
+          <div class="prob-name">무륵</div>
+          <p class="prob-desc">클라이맥스에서 한 번 활약했을 뿐, 대부분 개그 보조에 머물렀습니다. 류준열의 존재감이 아까웠습니다.</p>
+        </div>
+        <div class="prob-card">
+          <div class="prob-icon">🌟</div>
+          <div class="prob-name">신선들</div>
+          <p class="prob-desc">세계관을 살리는 대신 아이템 셔틀처럼 쓰였습니다. 김의성·염정아가 낭비된 자리.</p>
+        </div>
+        <div class="prob-card">
+          <div class="prob-icon">🎬</div>
+          <div class="prob-name">결론</div>
+          <p class="prob-desc">"죽이진 않았지만 살리지도 않았다." 모두를 살리려다 아무도 살리지 못한 전형적인 앙상블 실패.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">// 05</div>
+      <div class="section-title">총평 — 포맷 선택의 실수</div>
+    </div>
+    <div class="body-text">
+      <p>〈외계+인〉은 감독의 역량 부족이라기보다 <strong>욕심과 편의주의의 산물</strong>에 가깝습니다. OTT 시리즈 4부작처럼 풀어냈다면 세계관과 캐릭터성이 살아났을 텐데, <em>극장용 2부작으로 압축되면서 균형이 무너졌습니다.</em></p>
+
+      <div class="pull-quote">
+        <p>하바라는 위협도, 설계자라는 빌런도 — 끝내 관객의 도파민을 터뜨리지 못한 채 마무리되었습니다. 볼거리는 많지만, 구조적으로 실패한 야심작.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="conclusion">
+    <div class="conclusion-label">최종 평가</div>
+    <p class="conclusion-main">
+      볼거리는 많지만, <em>구조적으로 실패한 야심작</em>이라는<br>
+      평가를 피하기 어렵습니다.
+    </p>
+    <p class="conclusion-sub">
+      OTT 4부작이었다면 세계관과 캐릭터성이 살아났을 것입니다.<br>
+      극장용 2부작으로의 압축이 스스로 발목을 잡은 선택이었습니다.<br>
+      최동훈 감독의 다음 작품은, 더 좁은 그릇에서 시작하길 바랍니다.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 영화비평 · 2026</span>
+  <div class="nav-links">
+    <a href="tenet.html">← 테넷 리뷰</a>
+    <a href="index.html">홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 위로</a>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, 80);
+});
+</script>
+</body>
+</html>

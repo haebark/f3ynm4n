@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F3YNM4N Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0d0d0b;
+  --off-white: #f2ede6;
+  --gold: #c8963e;
+  --gold-dim: #8a6428;
+  --mid: #6a6560;
+  --border: rgba(200,150,62,0.2);
+  --bg: #111110;
+  --panel: #1a1a18;
+  --red: #c0503a;
+  --green: #4a9a6a;
+}
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--off-white);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+/* ── LOGIN ── */
+#login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-box {
+  width: 360px;
+  border: 1px solid var(--border);
+  padding: 40px;
+  background: var(--panel);
+}
+.login-logo {
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+.login-sub {
+  font-size: 11px;
+  color: var(--mid);
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--mid);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--off-white);
+  padding: 10px 12px;
+  font-size: 13px;
+  outline: none;
+  font-family: inherit;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--gold);
+}
+.field textarea { resize: vertical; min-height: 120px; }
+.btn {
+  padding: 10px 20px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  font-family: monospace;
+  transition: all .2s;
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--black);
+  width: 100%;
+}
+.btn-gold:hover { background: #e0a844; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--mid);
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.btn-red {
+  background: transparent;
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+.btn-red:hover { background: var(--red); color: #fff; }
+.btn-green {
+  background: var(--green);
+  color: #fff;
+}
+.btn-sm { padding: 6px 12px; font-size: 10px; }
+.error-msg {
+  color: var(--red);
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ── ADMIN LAYOUT ── */
+#admin-screen { display: none; min-height: 100vh; }
+.admin-header {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.admin-logo {
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+.admin-logo span { color: var(--off-white); opacity: .4; }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.user-badge {
+  font-size: 11px;
+  color: var(--mid);
+  letter-spacing: 1px;
+}
+.admin-body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 53px);
+}
+.admin-sidebar {
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  padding: 24px 0;
+}
+.sidebar-section {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--mid);
+  text-transform: uppercase;
+  padding: 0 24px;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+.sidebar-section:first-child { margin-top: 0; }
+.sidebar-link {
+  display: block;
+  padding: 10px 24px;
+  font-size: 13px;
+  color: var(--mid);
+  cursor: pointer;
+  transition: all .15s;
+  border-left: 2px solid transparent;
+}
+.sidebar-link:hover { color: var(--off-white); background: rgba(200,150,62,.05); }
+.sidebar-link.active { color: var(--gold); border-left-color: var(--gold); background: rgba(200,150,62,.05); }
+.sidebar-count {
+  float: right;
+  font-size: 10px;
+  background: rgba(200,150,62,.15);
+  color: var(--gold);
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
+/* ── MAIN CONTENT ── */
+.admin-main { padding: 32px; overflow-y: auto; }
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.page-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--off-white);
+}
+.page-sub {
+  font-size: 12px;
+  color: var(--mid);
+  margin-top: 4px;
+}
+
+/* ── ARTICLE LIST ── */
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.article-table th {
+  text-align: left;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--mid);
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.article-table td {
+  padding: 14px;
+  border-bottom: 1px solid rgba(200,150,62,.08);
+  vertical-align: middle;
+}
+.article-table tr:hover td { background: rgba(200,150,62,.03); }
+.article-title-cell {
+  font-weight: 600;
+  color: var(--off-white);
+  font-size: 13px;
+  max-width: 280px;
+}
+.article-title-cell small {
+  display: block;
+  font-size: 11px;
+  color: var(--mid);
+  font-weight: 400;
+  margin-top: 2px;
+}
+.tag-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  border: 1px solid var(--border);
+  color: var(--mid);
+}
+.status-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.status-published { color: var(--green); border: 1px solid var(--green); }
+.status-draft { color: var(--mid); border: 1px solid var(--border); }
+.actions { display: flex; gap: 6px; }
+
+/* ── EDITOR ── */
+#editor-panel { display: none; }
+.editor-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
+  align-items: start;
+}
+.editor-main { }
+.editor-side {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+.editor-side-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.content-textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--off-white);
+  padding: 16px;
+  font-size: 13px;
+  line-height: 1.9;
+  outline: none;
+  resize: vertical;
+  min-height: 500px;
+  font-family: 'Nanum Gothic', 'Malgun Gothic', sans-serif;
+}
+.content-textarea:focus { border-color: var(--gold); }
+.editor-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 14px 20px;
+  font-size: 13px;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all .3s;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.success { border-color: var(--green); color: var(--green); }
+.toast.error { border-color: var(--red); color: var(--red); }
+
+/* ── STATS ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 32px;
+}
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+.stat-num {
+  font-family: monospace;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--mid);
+  text-transform: uppercase;
+}
+
+/* ── EMPTY STATE ── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--mid);
+}
+.empty-state .empty-icon { font-size: 40px; margin-bottom: 16px; }
+.empty-state p { font-size: 13px; line-height: 1.8; }
+
+/* ── CONFIRM MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal-box {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 32px;
+  width: 360px;
+}
+.modal-title { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+.modal-desc { font-size: 13px; color: var(--mid); margin-bottom: 24px; line-height: 1.7; }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">F3YNM4N</div>
+    <div class="login-sub">Admin Panel</div>
+    <div class="field">
+      <label>이메일</label>
+      <input type="email" id="email" placeholder="admin@email.com">
+    </div>
+    <div class="field">
+      <label>비밀번호</label>
+      <input type="password" id="password" placeholder="••••••••">
+    </div>
+    <button class="btn btn-gold" onclick="login()">로그인</button>
+    <div id="login-error" class="error-msg"></div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin-screen">
+  <header class="admin-header">
+    <div class="admin-logo">F3YNM4N<span>.admin</span></div>
+    <div class="header-right">
+      <span class="user-badge" id="user-email"></span>
+      <button class="btn btn-outline btn-sm" onclick="logout()">로그아웃</button>
+    </div>
+  </header>
+
+  <div class="admin-body">
+    <!-- SIDEBAR -->
+    <nav class="admin-sidebar">
+      <div class="sidebar-section">메뉴</div>
+      <div class="sidebar-link active" onclick="showSection('dashboard')">📊 대시보드</div>
+      <div class="sidebar-link" onclick="showSection('articles')">📝 글 관리 <span class="sidebar-count" id="count-all">0</span></div>
+      <div class="sidebar-link" onclick="showSection('new')">✏️ 새 글 작성</div>
+      <div class="sidebar-section">카테고리</div>
+      <div class="sidebar-link" onclick="filterCategory('food')">🍜 미식 <span class="sidebar-count" id="count-food">0</span></div>
+      <div class="sidebar-link" onclick="filterCategory('science')">🌌 팝사이언스 <span class="sidebar-count" id="count-science">0</span></div>
+      <div class="sidebar-link" onclick="filterCategory('film')">🎬 영화비평 <span class="sidebar-count" id="count-film">0</span></div>
+      <div class="sidebar-link" onclick="filterCategory('history')">🗺️ 대체역사 <span class="sidebar-count" id="count-history">0</span></div>
+      <div class="sidebar-link" onclick="filterCategory('culture')">✍️ 문화칼럼 <span class="sidebar-count" id="count-culture">0</span></div>
+      <div class="sidebar-link" onclick="filterCategory('fiction')">✒️ 창작 <span class="sidebar-count" id="count-fiction">0</span></div>
+      <div class="sidebar-section">사이트</div>
+      <div class="sidebar-link" onclick="window.open('index.html')">🌐 사이트 보기</div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="admin-main">
+
+      <!-- DASHBOARD -->
+      <div id="section-dashboard">
+        <div class="page-header">
+          <div>
+            <div class="page-title">대시보드</div>
+            <div class="page-sub">F3YNM4N 현황</div>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num" id="stat-total">0</div>
+            <div class="stat-label">전체 글</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-published">0</div>
+            <div class="stat-label">발행됨</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-draft">0</div>
+            <div class="stat-label">임시저장</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-categories">0</div>
+            <div class="stat-label">카테고리</div>
+          </div>
+        </div>
+        <div class="page-header" style="margin-bottom:16px;">
+          <div class="page-title" style="font-size:15px;">최근 글</div>
+          <button class="btn btn-gold btn-sm" onclick="showSection('new')">+ 새 글</button>
+        </div>
+        <table class="article-table" id="dashboard-recent"></table>
+      </div>
+
+      <!-- ARTICLE LIST -->
+      <div id="section-articles" style="display:none;">
+        <div class="page-header">
+          <div>
+            <div class="page-title" id="list-title">글 관리</div>
+            <div class="page-sub" id="list-sub">전체 글</div>
+          </div>
+          <button class="btn btn-gold btn-sm" onclick="showSection('new')">+ 새 글</button>
+        </div>
+        <table class="article-table" id="article-list-table"></table>
+      </div>
+
+      <!-- EDITOR -->
+      <div id="section-new" style="display:none;">
+        <div class="page-header">
+          <div>
+            <div class="page-title" id="editor-title">새 글 작성</div>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="showSection('articles')">← 목록으로</button>
+        </div>
+        <div class="editor-grid">
+          <div class="editor-main">
+            <div class="field">
+              <label>제목</label>
+              <input type="text" id="f-title" placeholder="글 제목을 입력하세요">
+            </div>
+            <div class="field">
+              <label>부제목 (선택)</label>
+              <input type="text" id="f-subtitle" placeholder="한 줄 설명">
+            </div>
+            <div class="field">
+              <label>본문 (HTML 또는 텍스트)</label>
+              <textarea class="content-textarea" id="f-content" placeholder="글 내용을 입력하세요...&#10;&#10;HTML 태그 사용 가능:&#10;&lt;p&gt;문단&lt;/p&gt;&#10;&lt;strong&gt;굵게&lt;/strong&gt;&#10;&lt;em&gt;강조&lt;/em&gt;&#10;&lt;h2&gt;소제목&lt;/h2&gt;"></textarea>
+            </div>
+            <div class="editor-actions">
+              <button class="btn btn-gold" onclick="saveArticle(true)">발행</button>
+              <button class="btn btn-outline" onclick="saveArticle(false)">임시저장</button>
+              <button class="btn btn-red" id="delete-btn" style="display:none;" onclick="confirmDelete()">삭제</button>
+            </div>
+          </div>
+          <div>
+            <div class="editor-side">
+              <div class="editor-side-title">글 설정</div>
+              <div class="field">
+                <label>카테고리</label>
+                <select id="f-category">
+                  <option value="food">🍜 미식</option>
+                  <option value="science">🌌 팝사이언스</option>
+                  <option value="film">🎬 영화비평</option>
+                  <option value="history">🗺️ 대체역사</option>
+                  <option value="culture">✍️ 문화칼럼</option>
+                  <option value="fiction">✒️ 창작</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>태그 (표시용)</label>
+                <input type="text" id="f-tag" placeholder="예: 영화비평">
+              </div>
+              <div class="field">
+                <label>슬러그 (파일명용)</label>
+                <input type="text" id="f-slug" placeholder="예: tenet-review">
+              </div>
+              <div class="field">
+                <label>커버 배경색 (선택)</label>
+                <input type="text" id="f-cover-color" placeholder="#0d0d0b">
+              </div>
+            </div>
+            <div class="editor-side" style="margin-top:12px;">
+              <div class="editor-side-title">시리즈 설정</div>
+              <div class="field">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                  <input type="checkbox" id="f-is-series" onchange="toggleSeries()">
+                  시리즈 글
+                </label>
+              </div>
+              <div id="series-fields" style="display:none;">
+                <div class="field">
+                  <label>시리즈 이름</label>
+                  <input type="text" id="f-series-name" placeholder="예: 미식의 나라">
+                </div>
+                <div class="field">
+                  <label>회차</label>
+                  <input type="number" id="f-series-order" placeholder="1">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="confirm-modal">
+  <div class="modal-box">
+    <div class="modal-title">글을 삭제할까요?</div>
+    <div class="modal-desc">삭제된 글은 복구할 수 없습니다.</div>
+    <div class="modal-actions">
+      <button class="btn btn-outline btn-sm" onclick="closeModal()">취소</button>
+      <button class="btn btn-red btn-sm" onclick="deleteArticle()">삭제</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const SUPABASE_URL = 'https://zbjurkhbumuqeusceknb.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_NCDATxds6xSoM7ecxuZxpQ_GLLYq0hF';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let allArticles = [];
+let editingId = null;
+let currentFilter = null;
+
+// ── AUTH ──
+async function login() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const { error } = await sb.auth.signInWithPassword({ email, password });
+  if (error) {
+    document.getElementById('login-error').textContent = '이메일 또는 비밀번호가 틀렸습니다.';
+  } else {
+    initAdmin();
+  }
+}
+
+async function logout() {
+  await sb.auth.signOut();
+  document.getElementById('admin-screen').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+}
+
+document.getElementById('password').addEventListener('keydown', e => {
+  if (e.key === 'Enter') login();
+});
+
+// ── INIT ──
+async function initAdmin() {
+  const { data: { user } } = await sb.auth.getUser();
+  if (!user) return;
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('admin-screen').style.display = 'block';
+  document.getElementById('user-email').textContent = user.email;
+  await loadArticles();
+}
+
+async function loadArticles() {
+  const { data, error } = await sb
+    .from('articles')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) { showToast('불러오기 실패: ' + error.message, 'error'); return; }
+
+  allArticles = data || [];
+  updateStats();
+  renderDashboard();
+  renderList(allArticles);
+}
+
+// ── STATS ──
+function updateStats() {
+  const total = allArticles.length;
+  const published = allArticles.filter(a => a.published).length;
+  const draft = total - published;
+  const categories = [...new Set(allArticles.map(a => a.category))].length;
+
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-published').textContent = published;
+  document.getElementById('stat-draft').textContent = draft;
+  document.getElementById('stat-categories').textContent = categories;
+  document.getElementById('count-all').textContent = total;
+
+  ['food','science','film','history','culture','fiction'].forEach(cat => {
+    const n = allArticles.filter(a => a.category === cat).length;
+    document.getElementById('count-' + cat).textContent = n;
+  });
+}
+
+// ── RENDER ──
+function articleRow(a) {
+  const status = a.published
+    ? '<span class="status-pill status-published">발행</span>'
+    : '<span class="status-pill status-draft">임시저장</span>';
+  const date = new Date(a.created_at).toLocaleDateString('ko-KR');
+  return `<tr>
+    <td class="article-title-cell">
+      ${a.title}
+      <small>${a.series_name ? a.series_name + ' · ' + a.series_order + '화' : ''}</small>
+    </td>
+    <td><span class="tag-pill">${a.tag}</span></td>
+    <td>${status}</td>
+    <td style="color:var(--mid);font-size:12px;">${date}</td>
+    <td>
+      <div class="actions">
+        <button class="btn btn-outline btn-sm" onclick="editArticle('${a.id}')">수정</button>
+        <button class="btn btn-outline btn-sm" onclick="togglePublish('${a.id}', ${a.published})">
+          ${a.published ? '내리기' : '발행'}
+        </button>
+      </div>
+    </td>
+  </tr>`;
+}
+
+function tableHeader() {
+  return `<thead><tr>
+    <th>제목</th><th>태그</th><th>상태</th><th>작성일</th><th>액션</th>
+  </tr></thead>`;
+}
+
+function renderDashboard() {
+  const recent = allArticles.slice(0, 5);
+  const el = document.getElementById('dashboard-recent');
+  if (recent.length === 0) {
+    el.innerHTML = `<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">📝</div><p>아직 글이 없습니다.<br>첫 번째 글을 작성해보세요.</p></div></td></tr>`;
+    return;
+  }
+  el.innerHTML = tableHeader() + '<tbody>' + recent.map(articleRow).join('') + '</tbody>';
+}
+
+function renderList(articles, title = '글 관리', sub = '전체 글') {
+  document.getElementById('list-title').textContent = title;
+  document.getElementById('list-sub').textContent = sub;
+  const el = document.getElementById('article-list-table');
+  if (articles.length === 0) {
+    el.innerHTML = `<tr><td colspan="5"><div class="empty-state"><div class="empty-icon">📂</div><p>글이 없습니다.</p></div></td></tr>`;
+    return;
+  }
+  el.innerHTML = tableHeader() + '<tbody>' + articles.map(articleRow).join('') + '</tbody>';
+}
+
+// ── SECTIONS ──
+function showSection(name) {
+  ['dashboard','articles','new'].forEach(s => {
+    document.getElementById('section-' + s).style.display = s === name ? 'block' : 'none';
+  });
+  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+
+  if (name === 'new') {
+    resetEditor();
+    document.querySelectorAll('.sidebar-link')[2].classList.add('active');
+  } else if (name === 'articles') {
+    renderList(allArticles);
+    document.querySelectorAll('.sidebar-link')[1].classList.add('active');
+  } else {
+    document.querySelectorAll('.sidebar-link')[0].classList.add('active');
+  }
+}
+
+function filterCategory(cat) {
+  const catNames = { food:'미식', science:'팝사이언스', film:'영화비평', history:'대체역사', culture:'문화칼럼', fiction:'창작' };
+  const filtered = allArticles.filter(a => a.category === cat);
+  showSection('articles');
+  renderList(filtered, catNames[cat], `${filtered.length}개`);
+}
+
+// ── EDITOR ──
+function resetEditor() {
+  editingId = null;
+  document.getElementById('editor-title').textContent = '새 글 작성';
+  document.getElementById('delete-btn').style.display = 'none';
+  ['f-title','f-subtitle','f-content','f-tag','f-slug','f-cover-color','f-series-name','f-series-order'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('f-category').value = 'culture';
+  document.getElementById('f-is-series').checked = false;
+  document.getElementById('series-fields').style.display = 'none';
+}
+
+function editArticle(id) {
+  const a = allArticles.find(x => x.id === id);
+  if (!a) return;
+  editingId = id;
+  showSection('new');
+  document.getElementById('editor-title').textContent = '글 수정';
+  document.getElementById('delete-btn').style.display = 'block';
+  document.getElementById('f-title').value = a.title || '';
+  document.getElementById('f-subtitle').value = a.subtitle || '';
+  document.getElementById('f-content').value = a.content || '';
+  document.getElementById('f-category').value = a.category || 'culture';
+  document.getElementById('f-tag').value = a.tag || '';
+  document.getElementById('f-slug').value = a.slug || '';
+  document.getElementById('f-cover-color').value = a.cover_color || '#0d0d0b';
+  document.getElementById('f-is-series').checked = a.is_series || false;
+  document.getElementById('f-series-name').value = a.series_name || '';
+  document.getElementById('f-series-order').value = a.series_order || '';
+  toggleSeries();
+}
+
+function toggleSeries() {
+  const checked = document.getElementById('f-is-series').checked;
+  document.getElementById('series-fields').style.display = checked ? 'block' : 'none';
+}
+
+function autoSlug() {
+  const title = document.getElementById('f-title').value;
+  if (!document.getElementById('f-slug').value) {
+    document.getElementById('f-slug').value = title
+      .toLowerCase()
+      .replace(/[^a-z0-9가-힣\s]/g, '')
+      .replace(/\s+/g, '-')
+      .substring(0, 60);
+  }
+}
+document.getElementById('f-title').addEventListener('blur', autoSlug);
+
+async function saveArticle(publish) {
+  const title = document.getElementById('f-title').value.trim();
+  const content = document.getElementById('f-content').value.trim();
+  if (!title) { showToast('제목을 입력하세요', 'error'); return; }
+  if (!content) { showToast('내용을 입력하세요', 'error'); return; }
+
+  autoSlug();
+  const slug = document.getElementById('f-slug').value.trim() || Date.now().toString();
+
+  const payload = {
+    title,
+    subtitle: document.getElementById('f-subtitle').value.trim(),
+    content,
+    category: document.getElementById('f-category').value,
+    tag: document.getElementById('f-tag').value.trim(),
+    slug,
+    cover_color: document.getElementById('f-cover-color').value.trim() || '#0d0d0b',
+    is_series: document.getElementById('f-is-series').checked,
+    series_name: document.getElementById('f-series-name').value.trim() || null,
+    series_order: parseInt(document.getElementById('f-series-order').value) || null,
+    published: publish,
+    updated_at: new Date().toISOString(),
+  };
+
+  let error;
+  if (editingId) {
+    ({ error } = await sb.from('articles').update(payload).eq('id', editingId));
+  } else {
+    ({ error } = await sb.from('articles').insert(payload));
+  }
+
+  if (error) { showToast('저장 실패: ' + error.message, 'error'); return; }
+
+  showToast(publish ? '발행되었습니다 ✓' : '임시저장되었습니다 ✓', 'success');
+  await loadArticles();
+  showSection('articles');
+}
+
+async function togglePublish(id, current) {
+  const { error } = await sb.from('articles').update({ published: !current, updated_at: new Date().toISOString() }).eq('id', id);
+  if (error) { showToast('변경 실패', 'error'); return; }
+  showToast(!current ? '발행되었습니다 ✓' : '내렸습니다', 'success');
+  await loadArticles();
+}
+
+// ── DELETE ──
+function confirmDelete() {
+  document.getElementById('confirm-modal').classList.add('show');
+}
+function closeModal() {
+  document.getElementById('confirm-modal').classList.remove('show');
+}
+async function deleteArticle() {
+  closeModal();
+  if (!editingId) return;
+  const { error } = await sb.from('articles').delete().eq('id', editingId);
+  if (error) { showToast('삭제 실패', 'error'); return; }
+  showToast('삭제되었습니다', 'success');
+  await loadArticles();
+  showSection('articles');
+}
+
+// ── TOAST ──
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(() => t.className = 'toast', 2800);
+}
+
+// ── AUTO LOGIN CHECK ──
+(async () => {
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) {
+    initAdmin();
+  }
+})();
+</script>
+</body>
+</html>
