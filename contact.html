@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="F3YNM4N 문의 및 연락처">
+<meta property="og:title" content="Contact · F3YNM4N">
+<meta property="og:description" content="F3YNM4N 문의 및 연락처">
+<meta property="og:url" content="https://f3ynm4n.com/contact.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;--border:rgba(200,150,62,0.18);--border2:rgba(200,150,62,0.3);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+.hero{min-height:50vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%, rgba(200,150,62,.1) 0%, transparent 52%),linear-gradient(180deg,#0d0d0b 0%,#111008 100%);}
+.hero-inner{position:relative;z-index:2;padding:0 48px 72px;max-width:760px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--gold);}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(36px,5vw,60px);font-weight:700;line-height:1.25;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:24px;opacity:0;animation:fadeUp .8s ease forwards .4s;}
+.hero-sub{font-size:16px;font-weight:300;color:#6a6560;line-height:1.9;max-width:480px;opacity:0;animation:fadeUp .8s ease forwards .6s;}
+
+.body-wrap{max-width:640px;margin:0 auto;padding:80px 48px 120px;}
+
+.contact-block{padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;margin-bottom:32px;}
+.contact-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),rgba(200,150,62,.3),transparent);}
+.contact-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.contact-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.contact-desc{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:300;color:var(--text-mid);line-height:2;margin-bottom:32px;}
+.contact-email{display:inline-flex;align-items:center;gap:12px;font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--gold);text-decoration:none;padding:16px 24px;border:1px solid var(--border2);background:var(--bg);transition:all .2s;}
+.contact-email:hover{background:var(--bg2);border-color:var(--gold);}
+.contact-email span{font-size:18px;}
+
+.note{font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);line-height:1.8;letter-spacing:.5px;}
+
+footer{border-top:1px solid var(--border2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){header{padding:14px 20px;},.hero-inner{padding:0 20px 56px;}.body-wrap{padding:56px 20px 80px;}footer{padding:24px 20px;flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Contact</div>
+    <h1 class="hero-title">문의</h1>
+    <p class="hero-sub">협업 제안, 기고 문의, 피드백 모두 환영합니다.</p>
+  </div>
+</section>
+<div class="body-wrap">
+  <div class="contact-block">
+    <div class="contact-label">Email</div>
+    <p class="contact-desc">글에 대한 의견, 협업 제안, 기고 문의는 아래 이메일로 보내주세요. 가능한 한 빠르게 답변드리겠습니다.</p>
+    <a href="mailto:haebark@gmail.com" class="contact-email">
+      <span>✉</span> haebark@gmail.com
+    </a>
+  </div>
+  <p class="note">※ 광고·스팸·무관한 홍보성 메일은 별도 안내 없이 삭제될 수 있습니다.</p>
+</div>
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Independent Magazine · 2026</span>
+</footer>
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+</script>
+</body>
+</html>

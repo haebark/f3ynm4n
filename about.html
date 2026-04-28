@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+  <!-- OG / SEO -->
+  <meta name="description" content="낮에는 공장, 밤에는 매거진. 제조업 종사자이자 독립 창작자·웹소설 작가가 운영하는 독립 매거진 F3YNM4N.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="F3YNM4N">
+  <meta property="og:title" content="About · F3YNM4N">
+  <meta property="og:description" content="낮에는 공장, 밤에는 매거진. 제조업 종사자이자 독립 창작자·웹소설 작가가 운영하는 독립 매거진 F3YNM4N.">
+  <meta property="og:url" content="https://f3ynm4n.com/about.html">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About · F3YNM4N">
+  <meta name="twitter:description" content="낮에는 공장, 밤에는 매거진. 제조업 종사자이자 독립 창작자·웹소설 작가가 운영하는 독립 매거진 F3YNM4N.">
+  <meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;
+  --bg2:#ede8e0;
+  --bg3:#e5e0d8;
+  --text:#1a1814;
+  --text-mid:#4a4540;
+  --text-muted:#7a7468;
+  --gold:#c8963e;
+  --gold-dim:#8a6428;
+  --border:rgba(200,150,62,0.18);
+  --border2:rgba(200,150,62,0.3);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:60vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(200,150,62,.12) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 30%, rgba(200,150,62,.06) 0%, transparent 45%),
+    linear-gradient(180deg,#0d0d0b 0%,#111008 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(200,150,62,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,150,62,.025) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse at 30% 60%, black 0%, transparent 60%);
+}
+.hero-inner{position:relative;z-index:2;padding:0 48px 80px;max-width:860px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--gold);}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(36px,5vw,64px);font-weight:700;line-height:1.25;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .4s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--gold);}
+.hero-sub{font-size:16px;font-weight:300;color:#6a6560;line-height:1.9;max-width:520px;border-left:2px solid rgba(200,150,62,.35);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .6s;}
+
+/* BODY */
+.body-wrap{max-width:760px;margin:0 auto;padding:100px 48px 140px;}
+
+/* 에디터 섹션 */
+.editor-section{display:grid;grid-template-columns:1fr 2fr;gap:48px;margin-bottom:80px;padding-bottom:72px;border-bottom:1px solid var(--border2);}
+.editor-left{}
+.editor-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;}
+.editor-name{font-family:'Noto Serif KR',serif;font-size:28px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:8px;}
+.editor-role{font-size:13px;font-weight:300;color:var(--text-muted);line-height:1.8;}
+.editor-divider{width:32px;height:2px;background:var(--gold);margin:20px 0;}
+.editor-keywords{display:flex;flex-direction:column;gap:8px;}
+.keyword{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--text-mid);display:flex;align-items:center;gap:8px;}
+.keyword::before{content:'';display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+.editor-right{}
+.editor-bio{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;line-height:2.1;color:var(--text-mid);}
+.editor-bio p{margin-bottom:20px;}
+.editor-bio p:last-child{margin-bottom:0;}
+.editor-bio strong{color:var(--text);font-weight:600;}
+
+/* 매거진 소개 */
+.mag-section{margin-bottom:72px;}
+.section-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:32px;display:flex;align-items:center;gap:12px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+
+.mag-desc{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text-mid);margin-bottom:40px;}
+.mag-desc strong{color:var(--text);font-weight:600;}
+
+/* 카테고리 그리드 */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);margin-bottom:64px;}
+.cat-item{background:var(--bg2);padding:24px 20px;}
+.cat-icon{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);margin-bottom:10px;letter-spacing:1px;}
+.cat-name{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.cat-desc{font-size:12px;font-weight:300;color:var(--text-muted);line-height:1.7;}
+
+/* 작업물 */
+.works-section{margin-bottom:72px;}
+.work-list{display:flex;flex-direction:column;gap:2px;}
+.work-item{display:flex;align-items:center;gap:20px;padding:20px 24px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid transparent;transition:border-left-color .2s;text-decoration:none;}
+.work-item:hover{border-left-color:var(--gold);}
+.work-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;min-width:80px;flex-shrink:0;}
+.work-title{font-size:15px;font-weight:500;color:var(--text);line-height:1.5;}
+.work-arrow{font-family:'Space Mono',monospace;font-size:12px;color:var(--gold);margin-left:auto;opacity:.5;}
+
+/* 철학 */
+.philosophy{padding:44px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.philosophy::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),rgba(200,150,62,.3),transparent);}
+.philosophy-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.philosophy-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.philosophy-text{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;line-height:1.85;color:var(--text);}
+.philosophy-text strong{font-style:normal;color:var(--gold);}
+
+footer{border-top:1px solid var(--border2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 60px;}
+  .hero-title{font-size:32px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .editor-section{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:1fr 1fr;}
+  .philosophy{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">About · F3YNM4N</div>
+    <h1 class="hero-title">
+      낮에는 공장,<br>밤에는 <em>매거진</em>
+    </h1>
+    <p class="hero-sub">제조업 종사자이자 독립 창작자.<br>직관을 먼저 던지고 구조로 증명하는 방식으로 씁니다.</p>
+  </div>
+</section>
+
+<div class="body-wrap">
+
+  <!-- 에디터 -->
+  <div class="editor-section">
+    <div class="editor-left">
+      <div class="editor-tag">Editor</div>
+      <div class="editor-name">대장님</div>
+      <div class="editor-role">독립 매거진 F3YNM4N 편집장<br>웹소설 작가 · 독립 연구자</div>
+      <div class="editor-divider"></div>
+      <div class="editor-keywords">
+        <span class="keyword">제조업 종사</span>
+        <span class="keyword">무협·판타지·SF 웹소설 연재</span>
+        <span class="keyword">PBGC 프레임워크 개발</span>
+        <span class="keyword">현실적 비관론자</span>
+        <span class="keyword">낙관론자처럼 행동하는 사람</span>
+      </div>
+    </div>
+    <div class="editor-right">
+      <div class="editor-bio">
+        <p>낮에는 제조업 현장에 있고, 밤에는 매거진을 씁니다. 두 세계가 달라 보이지만 실제로는 하나로 연결되어 있습니다. <strong>현장에서 보이는 것과 글로 쓰이는 것 사이의 간극</strong>을 좁히는 작업이 이 매거진의 출발점입니다.</p>
+        <p>WebNovel 플랫폼에 무협·판타지·SF 장르의 시리즈를 연재해온 웹소설 작가이기도 합니다. 핵심 창작 주제는 <strong>운명 대 자유의지</strong>. 대표작 『운명을 거역하는 자: 강자의 법칙』은 시뮬레이션 세계관 속 개인의 정체성과 주체성 회복을 다룬 3부작입니다.</p>
+        <p>Zenodo에 게재된 <strong>PBGC(Parallel Boundary-Geometry Cosmology)</strong> 프레임워크를 독립적으로 개발하고 있습니다. 직관을 먼저 제시하고 수학적 형식화를 협력자에게 연결하는 방식 — 스스로를 "패러데이"로, 미래의 협력자를 "맥스웰"로 비유합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 매거진 소개 -->
+  <div class="mag-section">
+    <div class="section-label">Magazine</div>
+    <p class="mag-desc">
+      F3YNM4N은 <strong>파인만(Feynman)</strong>에서 이름을 따왔습니다. "알고 있다고 생각하는 것을 실제로 설명할 수 있는가" — 그 질문을 매 글에서 던집니다. 팝사이언스, 영화 비평, 경제 칼럼, 대체역사, 잡생각까지. 장르는 달라도 <strong>구조를 뒤집는 시선</strong>은 일관됩니다.
+    </p>
+
+    <div class="cat-grid">
+      <div class="cat-item">
+        <div class="cat-icon">SCI</div>
+        <div class="cat-name">팝사이언스</div>
+        <div class="cat-desc">교과서 밖의 질문. 밥 먹다 나온 가설도 구조가 있으면 씁니다.</div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon">FILM</div>
+        <div class="cat-name">영화·만화 비평</div>
+        <div class="cat-desc">"도구의 오남용"을 핵심 비판 구조로. 텍스트 너머의 서사를 읽습니다.</div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon">HIST</div>
+        <div class="cat-name">대체역사</div>
+        <div class="cat-desc">만약 그때 다른 선택을 했다면. 역사를 실험실로 씁니다.</div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon">CULT</div>
+        <div class="cat-name">문화 칼럼</div>
+        <div class="cat-desc">시대 진단과 사회 분석. 진영 없이 구조로 접근합니다.</div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon">FOOD</div>
+        <div class="cat-name">미식</div>
+        <div class="cat-desc">음식을 통해 문화와 역사를 읽는 미식 시리즈.</div>
+      </div>
+      <div class="cat-item">
+        <div class="cat-icon">ETC</div>
+        <div class="cat-name">잡생각</div>
+        <div class="cat-desc">짧지만 구조가 있는 글들. 훅이 있으면 씁니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 주요 작업물 -->
+  <div class="works-section">
+    <div class="section-label">Selected Works</div>
+    <div class="work-list">
+      <a href="pbgc.html" class="work-item">
+        <span class="work-tag">Science</span>
+        <span class="work-title">PBGC — 평행 경계 기하학 우주론 프레임워크</span>
+        <span class="work-arrow">→</span>
+      </a>
+      <a href="tenet.html" class="work-item">
+        <span class="work-tag">Film</span>
+        <span class="work-title">테넷 — 시간의 도구화와 그 한계</span>
+        <span class="work-arrow">→</span>
+      </a>
+      <a href="evolution.html" class="work-item">
+        <span class="work-tag">Science</span>
+        <span class="work-title">강한 놈은 다 먹혔다, 맛없는 놈이 살아남았다</span>
+        <span class="work-arrow">→</span>
+      </a>
+      <a href="korea_ai.html" class="work-item">
+        <span class="work-tag">Culture</span>
+        <span class="work-title">AI 시대, 한국이 100년 만에 맞이한 기회</span>
+        <span class="work-arrow">→</span>
+      </a>
+      <a href="misik_1.html" class="work-item">
+        <span class="work-tag">Food</span>
+        <span class="work-title">미식의 나라 시리즈</span>
+        <span class="work-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 철학 -->
+  <div class="philosophy">
+    <div class="philosophy-label">편집 철학 · Philosophy</div>
+    <p class="philosophy-text">
+      직관을 먼저 던집니다. 그리고 구조로 증명합니다.<br>
+      <strong>틀릴 수 있어도, 생각하지 않는 것보다는 낫습니다.</strong>
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Independent Magazine · Since 2024</span>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.06});
+document.querySelectorAll('.editor-section,.mag-section,.works-section,.philosophy').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+</body>
+</html>

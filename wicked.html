@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>너무 일찍 전복된 마법 — 위키드 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<!-- OG -->
+<meta name="description" content="전복은 용감한 선택이지만, 그 빈자리를 채우지 못하면 아이는 기준점을 잃는다. 위키드 비평.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="너무 일찍 전복된 마법 — 위키드 · F3YNM4N">
+<meta property="og:description" content="전복은 용감한 선택이지만, 그 빈자리를 채우지 못하면 아이는 기준점을 잃는다.">
+<meta property="og:url" content="https://f3ynm4n.com/wicked.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="너무 일찍 전복된 마법 — 위키드 · F3YNM4N">
+<meta name="twitter:description" content="전복은 용감한 선택이지만, 그 빈자리를 채우지 못하면 아이는 기준점을 잃는다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;
+  --bg2:#ede8e0;
+  --bg3:#e5e0d8;
+  --text:#1a1814;
+  --text-mid:#4a4540;
+  --text-muted:#7a7468;
+  --gold:#c8963e;
+  --purple:#7c3aed;
+  --purple2:#8b5cf6;
+  --purple3:#a78bfa;
+  --border:rgba(124,58,237,0.15);
+  --border2:rgba(124,58,237,0.28);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0a0612;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 55% 50%, rgba(124,58,237,.2) 0%, transparent 52%),
+    radial-gradient(ellipse at 20% 70%, rgba(139,92,246,.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 20%, rgba(200,150,62,.05) 0%, transparent 40%),
+    linear-gradient(180deg,#0a0612 0%,#0d0818 100%);
+}
+/* 마법 파티클 */
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle, rgba(167,139,250,.15) 1px, transparent 1px),
+    radial-gradient(circle, rgba(167,139,250,.08) 1px, transparent 1px);
+  background-size: 80px 80px, 40px 40px;
+  background-position: 0 0, 20px 20px;
+  mask-image:radial-gradient(ellipse at 55% 45%, black 0%, transparent 65%);
+}
+/* 떠오르는 별 */
+.stars{position:absolute;inset:0;pointer-events:none;}
+.star{position:absolute;border-radius:50%;background:var(--purple3);animation:starFloat ease-in-out infinite;}
+.star:nth-child(1){width:3px;height:3px;left:45%;top:25%;animation-duration:6s;animation-delay:0s;}
+.star:nth-child(2){width:2px;height:2px;left:60%;top:40%;animation-duration:8s;animation-delay:1s;opacity:.7;}
+.star:nth-child(3){width:4px;height:4px;left:70%;top:20%;animation-duration:7s;animation-delay:2s;opacity:.5;}
+.star:nth-child(4){width:2px;height:2px;left:52%;top:60%;animation-duration:9s;animation-delay:.5s;opacity:.6;}
+.star:nth-child(5){width:3px;height:3px;left:75%;top:50%;animation-duration:5s;animation-delay:3s;opacity:.4;}
+@keyframes starFloat{0%,100%{transform:translateY(0) scale(1);opacity:.6}50%{transform:translateY(-12px) scale(1.3);opacity:1}}
+
+.hero-vline{position:absolute;right:110px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(124,58,237,.2) 20%,rgba(124,58,237,.2) 80%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:860px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--purple3);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--purple3);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#3a2a5a;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(30px,5vw,62px);font-weight:700;line-height:1.28;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--purple3);}
+.hero-sub{font-size:16px;font-weight:300;color:#6a5a8a;line-height:1.9;max-width:520px;border-left:2px solid rgba(124,58,237,.4);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .65s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#3a2a5a;text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,#3a2a5a,transparent);}
+
+/* BODY */
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--purple2);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--purple2);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--purple2);opacity:.15;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.point-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.point-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple2),var(--gold),transparent);}
+.point-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--purple2);text-transform:uppercase;margin-bottom:14px;}
+.point-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.point-text strong{color:var(--text);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(200,150,62,.2);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(200,150,62,.4);}
+
+.conclusion{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple2),var(--gold),transparent);}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--purple2);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.conclusion-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.conclusion-close strong{font-style:normal;color:var(--purple);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:28px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .conclusion{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-vline,.hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="stars">
+    <div class="star"></div><div class="star"></div><div class="star"></div>
+    <div class="star"></div><div class="star"></div>
+  </div>
+  <div class="hero-vline"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Film · 영화 비평</div>
+    <div class="hero-eyebrow">Wicked · 2024 · Subversion</div>
+    <h1 class="hero-title">
+      너무 일찍<br>전복된 <em>마법</em>
+    </h1>
+    <p class="hero-sub">
+      전복은 용감한 선택이다.<br>
+      하지만 빈자리를 채우지 못한 전복은 공허함을 남긴다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(200,150,62,.2);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>전복은 매력적인 장치입니다. 익숙한 이야기를 낯선 각도에서 다시 읽는 것, 선악의 경계를 흐려 관객이 스스로 판단하게 만드는 것. 위키드는 그 가능성을 처음부터 내세웁니다.</p>
+    <p>문제는 전복의 속도였습니다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">기준점을 잃는 순간</h2>
+    </div>
+    <div class="article-body">
+      <p>아이와 함께 보는 이야기에는 하나의 조건이 있습니다. 세계가 흔들리더라도 감정의 기준점이 있어야 한다는 것입니다. 선악이 뒤집히더라도, 관객이 어디에 서 있는지를 알아야 이야기를 따라갈 수 있습니다.</p>
+      <p>위키드는 그 기준점을 너무 일찍 걷어냅니다. 오즈의 마법사의 프리퀄이라고 하지만, 원작의 결을 이어받기보다 정면으로 뒤집는 방향에 더 가깝습니다. 전복 자체는 문제가 아닙니다. 전복에는 개연성과 감정적 안전장치가 필요한데, 이 작품은 그 지점을 가볍게 넘어갑니다.</p>
+    </div>
+    <div class="pq">
+      <p>불쾌한 장면 때문이 아니었습니다. 서사가 흔들리면서 아이가 이야기의 기준점을 잃는 느낌 — 그게 오히려 더 오래 남았습니다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">글린다가 도구가 될 때</h2>
+    </div>
+    <div class="article-body">
+      <p>가장 아쉬운 건 글린다의 변화입니다. 원작에서 밝고 선한 존재였던 캐릭터가 자기보전을 최우선으로 하는 인물로 등장합니다. 재해석은 창작자의 자유입니다. 하지만 그 자유가 설득력 없이 행사될 때 관객은 감정의 근거를 잃습니다.</p>
+      <p>더 큰 문제는 글린다가 엘파바의 비극을 강조하기 위한 장치로 소비된다는 점입니다. 한 캐릭터가 다른 캐릭터를 돋보이게 하기 위해 납작해질 때, 결국 두 인물 모두를 잃습니다. 엘파바의 비극은 얕아지고, 글린다는 도구가 됩니다.</p>
+    </div>
+    <div class="point-box">
+      <div class="point-label">핵심 문제</div>
+      <p class="point-text">선악의 경계를 흐리는 시도 자체는 유효합니다. 하지만 이 작품에서는 <strong>깊은 재해석이라기보다 새로움 자체가 목적이 된 선택</strong>처럼 느껴집니다. 장치의 의도가 감정의 흐름보다 먼저 드러나는 순간, 관객은 이야기가 아니라 연출을 보게 됩니다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">전복의 완성을 속편에 위임한다는 것</h2>
+    </div>
+    <div class="article-body">
+      <p>2편에서 해소된다고 합니다. 1편의 공백이 2편으로 채워진다는 구조입니다. 그런데 이건 다르게 말하면, 1편은 미완성 상태로 관객에게 전달됐다는 의미입니다.</p>
+      <p>전복의 완성을 속편에 위임하는 것은 서사적 용기가 아닙니다. 관객에게 감정의 미결 상태를 강제로 떠안기는 것입니다. 기준점을 걷어낸 채로 극장 문을 나서게 만드는 것과, 기준점을 새롭게 세워주는 것은 전혀 다른 이야기입니다.</p>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">결론 · Closing</div>
+    <p class="conclusion-body">좋은 재해석은 기존의 기준점을 걷어내는 동시에 새로운 것을 놓습니다. 위키드는 기존을 뒤집었지만, 그 자리에 무엇을 놓을지를 충분히 고민하지 않았습니다. 아이와 함께 그 공백을 느끼는 순간이 생각보다 오래 마음에 남았습니다.</p>
+    <p class="conclusion-close"><strong>전복은 용감한 선택일 수 있습니다. 하지만 그 빈자리를 속편에 맡긴다면, 그건 용기가 아니라 유예입니다.</strong></p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Film · 영화 비평 · 2026</span>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.08});
+document.querySelectorAll('.section,.point-box,.conclusion').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+</body>
+</html>
