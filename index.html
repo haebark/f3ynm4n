@@ -959,7 +959,6 @@ footer {
 
 const SUPABASE_URL = 'https://zbjurkhbumuqeusceknb.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_NCDATxds6xSoM7ecxuZxpQ_GLLYq0hF';
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // FEATURED 설정 — 메인 피처드 섹션
 // type: "series" → 에피소드 목록 표시
@@ -1051,7 +1050,7 @@ function renderCategories(articles) {
   document.getElementById('cat-grid').innerHTML = html;
 }
 
-async function renderFeatured(articles) {
+async function renderFeatured(articles, sb) {
   const sidePicks = articles.filter(a => a.cover_col).slice(0, 2);
   const sideHtml = sidePicks.map(a => `
     <a href="${articleHref(a)}" class="feat-side">
@@ -1133,6 +1132,7 @@ function renderMobileCoverlines(articles) {
 
 // ── 메인 로드 ──
 async function loadAndRender() {
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   try {
     const res = await fetch(
       `${SUPABASE_URL}/rest/v1/articles?published=eq.true&order=created_at.desc`,
@@ -1143,14 +1143,14 @@ async function loadAndRender() {
     renderCoverlines(articles);
     renderRecent(articles);
     renderCategories(articles);
-    await renderFeatured(articles);
+    await renderFeatured(articles, sb);
     renderCoverGenres();
     renderMobileCoverlines(articles);
   } catch (e) {
     console.error('Supabase 로드 실패:', e);
     // 실패해도 카테고리/featured는 표시
     renderCategories([]);
-    renderFeatured([]);
+    renderFeatured([], sb);
     renderCoverGenres();
     document.getElementById('recent-grid').innerHTML = '<p style="color:var(--mid);padding:32px;">글을 불러오는 중 오류가 발생했습니다.</p>';
   }
