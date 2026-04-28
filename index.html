@@ -1049,7 +1049,7 @@ function renderCategories(articles) {
   document.getElementById('cat-grid').innerHTML = html;
 }
 
-async function await renderFeatured(articles) {
+async function renderFeatured(articles) {
   const sidePicks = articles.filter(a => a.cover_col).slice(0, 2);
   const sideHtml = sidePicks.map(a => `
     <a href="${articleHref(a)}" class="feat-side">
