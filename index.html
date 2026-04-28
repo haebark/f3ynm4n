@@ -1049,8 +1049,7 @@ function renderCategories(articles) {
   document.getElementById('cat-grid').innerHTML = html;
 }
 
-function renderFeatured(articles) {
-  const titleHtml = FEATURED.title.replace(/\n/g, '<br>');
+async function await renderFeatured(articles) {
   const sidePicks = articles.filter(a => a.cover_col).slice(0, 2);
   const sideHtml = sidePicks.map(a => `
     <a href="${articleHref(a)}" class="feat-side">
@@ -1062,29 +1061,53 @@ function renderFeatured(articles) {
       <div class="side-meta">읽기 →</div>
     </a>`).join('');
 
+  // DB에서 is_featured 글 불러오기
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const { data: featuredArticles } = await sb.from('articles')
+    .select('*')
+    .eq('is_featured', true)
+    .eq('published', true)
+    .limit(1);
+
   let mainHtml = '';
-  if (FEATURED.type === 'series') {
-    const epHtml = FEATURED.episodes.map(ep =>
-      `<a href="${ep.href}" class="feat-ep">
-        <span class="feat-ep-num">${ep.num}</span>
-        <span>${ep.title}</span>
-      </a>`).join('');
+
+  if (featuredArticles && featuredArticles.length > 0) {
+    // DB 피처드 글 있으면 단일 글로 표시
+    const f = featuredArticles[0];
+    const titleHtml = f.title.replace(/\n/g, '<br>');
     mainHtml = `
-      <a href="${FEATURED.href}" class="featured-main">
-        <div class="feat-series">${FEATURED.seriesTag}</div>
+      <a href="${articleHref(f)}" class="featured-main">
+        <div class="feat-series">${f.tag || ''}</div>
         <h2 class="feat-title">${titleHtml}</h2>
-        <p class="feat-desc">${FEATURED.desc}</p>
-        <div class="feat-episodes">${epHtml}</div>
-        <div class="feat-arrow">전체 시리즈 읽기 ——</div>
-      </a>`;
-  } else {
-    mainHtml = `
-      <a href="${FEATURED.href}" class="featured-main">
-        <div class="feat-series">${FEATURED.tag}</div>
-        <h2 class="feat-title">${titleHtml}</h2>
-        <p class="feat-desc">${FEATURED.desc}</p>
+        <p class="feat-desc">${f.subtitle || ''}</p>
         <div class="feat-arrow">읽기 ——</div>
       </a>`;
+  } else {
+    // 없으면 하드코딩 FEATURED fallback
+    const titleHtml = FEATURED.title.replace(/\n/g, '<br>');
+    if (FEATURED.type === 'series') {
+      const epHtml = FEATURED.episodes.map(ep =>
+        `<a href="${ep.href}" class="feat-ep">
+          <span class="feat-ep-num">${ep.num}</span>
+          <span>${ep.title}</span>
+        </a>`).join('');
+      mainHtml = `
+        <a href="${FEATURED.href}" class="featured-main">
+          <div class="feat-series">${FEATURED.seriesTag}</div>
+          <h2 class="feat-title">${titleHtml}</h2>
+          <p class="feat-desc">${FEATURED.desc}</p>
+          <div class="feat-episodes">${epHtml}</div>
+          <div class="feat-arrow">전체 시리즈 읽기 ——</div>
+        </a>`;
+    } else {
+      mainHtml = `
+        <a href="${FEATURED.href}" class="featured-main">
+          <div class="feat-series">${FEATURED.tag}</div>
+          <h2 class="feat-title">${titleHtml}</h2>
+          <p class="feat-desc">${FEATURED.desc}</p>
+          <div class="feat-arrow">읽기 ——</div>
+        </a>`;
+    }
   }
 
   document.getElementById('featured-grid').innerHTML = mainHtml + sideHtml;
@@ -1119,7 +1142,7 @@ async function loadAndRender() {
     renderCoverlines(articles);
     renderRecent(articles);
     renderCategories(articles);
-    renderFeatured(articles);
+    await renderFeatured(articles);
     renderCoverGenres();
     renderMobileCoverlines(articles);
   } catch (e) {
