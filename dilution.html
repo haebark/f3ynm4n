@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+  <!-- OG / SEO -->
+  <meta name="description" content="이유는 틀렸는데 결론은 맞았던 케이스. 온더락 vs 하이볼, 총량은 같은데 결과가 다른 이유.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="F3YNM4N">
+  <meta property="og:title" content="희석하면 덜 취한다 — 바보 같은 말인데 과학적으로 맞습니다 · F3YNM4N">
+  <meta property="og:description" content="이유는 틀렸는데 결론은 맞았던 케이스. 온더락 vs 하이볼, 총량은 같은데 결과가 다른 이유.">
+  <meta property="og:url" content="https://f3ynm4n.com/dilution.html">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="희석하면 덜 취한다 — 바보 같은 말인데 과학적으로 맞습니다 · F3YNM4N">
+  <meta name="twitter:description" content="이유는 틀렸는데 결론은 맞았던 케이스. 온더락 vs 하이볼, 총량은 같은데 결과가 다른 이유.">
+  <meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>희석하면 덜 취한다 — 바보 같은 말인데 과학적으로 맞습니다 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;
+  --bg2:#ede8e0;
+  --bg3:#e5e0d8;
+  --text:#1a1814;
+  --text-mid:#4a4540;
+  --text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#2563eb;
+  --accent2:#3b82f6;
+  --accent3:#93c5fd;
+  --border:rgba(37,99,235,0.15);
+  --border2:rgba(37,99,235,0.25);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d1117;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(37,99,235,.18) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 30%, rgba(59,130,246,.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 90%, rgba(147,197,253,.05) 0%, transparent 40%),
+    linear-gradient(180deg,#0d1117 0%,#080d18 100%);
+}
+/* 물결 라인 */
+.hero-waves{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.wave{position:absolute;left:-10%;width:120%;height:2px;background:linear-gradient(90deg,transparent,rgba(59,130,246,.15),rgba(147,197,253,.1),transparent);animation:waveFlow linear infinite;}
+.wave:nth-child(1){top:35%;animation-duration:12s;}
+.wave:nth-child(2){top:50%;animation-duration:16s;animation-delay:2s;opacity:.6;}
+.wave:nth-child(3){top:65%;animation-duration:10s;animation-delay:4s;opacity:.4;}
+.wave:nth-child(4){top:75%;animation-duration:14s;animation-delay:1s;opacity:.7;}
+@keyframes waveFlow{0%{transform:translateX(-5%) skewX(-2deg);}50%{transform:translateX(5%) skewX(2deg);}100%{transform:translateX(-5%) skewX(-2deg);}}
+
+.hero-vline{position:absolute;right:110px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(59,130,246,.2) 20%,rgba(59,130,246,.2) 80%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:860px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--accent3);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent3);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#4a5568;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.8vw,58px);font-weight:700;line-height:1.3;letter-spacing:-0.02em;color:#f2ede6;margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--accent3);}
+.hero-sub{font-size:16px;font-weight:300;color:#6b7a8d;line-height:1.9;max-width:520px;border-left:2px solid rgba(59,130,246,.35);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .65s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#4a5568;text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,#4a5568,transparent);}
+
+/* BODY */
+.body-wrap{max-width:680px;margin:0 auto;padding:100px 48px 140px;}
+
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.1;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;color:var(--text);}
+
+/* 훅 */
+.hook{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:22px;
+  line-height:1.8;
+  color:var(--text);
+  padding:32px 36px;
+  background:var(--bg2);
+  border-left:3px solid var(--accent2);
+  margin:40px 0;
+  position:relative;
+}
+.hook::before{content:'"';font-size:80px;color:var(--accent2);opacity:.15;position:absolute;top:-12px;left:20px;line-height:1;font-family:'Playfair Display',serif;}
+
+/* 핵심 박스 */
+.key-box{
+  margin:40px 0;
+  padding:32px;
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  position:relative;
+}
+.key-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.key-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;}
+.key-text{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text);line-height:1.9;}
+.key-text strong{color:var(--accent);font-weight:700;}
+
+/* 비교 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:36px 0;background:var(--border);}
+.compare-item{background:var(--bg2);padding:24px;}
+.compare-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;}
+.compare-val{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.compare-sub{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.7;}
+.compare-val.bad{color:#dc2626;}
+.compare-val.good{color:#16a34a;}
+
+/* 결론 */
+.conclusion{
+  margin-top:72px;padding:44px;
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  position:relative;overflow:hidden;
+}
+.conclusion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.conclusion-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.conclusion-text{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.conclusion-text strong{font-style:normal;color:var(--accent);}
+
+.sec-rule{border:none;border-top:1px solid rgba(200,150,62,.2);margin:56px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(200,150,62,.4);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:28px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .compare{grid-template-columns:1fr;}
+  .conclusion{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-vline,.hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-waves">
+    <div class="wave"></div><div class="wave"></div>
+    <div class="wave"></div><div class="wave"></div>
+  </div>
+  <div class="hero-vline"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">잡생각 · 팝사이언스</div>
+    <div class="hero-eyebrow">Alcohol · Absorption · Science</div>
+    <h1 class="hero-title">
+      희석하면 덜 취한다<br>
+      바보 같은 말인데<br>
+      <em>과학적으로 맞습니다</em>
+    </h1>
+    <p class="hero-sub">이유는 틀렸는데 결론은 맞았던 케이스.</p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="hook">
+    농도 낮아지는 거 아니에요?
+  </div>
+
+  <div class="article-body">
+    <p>처음 들으면 그냥 헛소리 같잖아요. 나도 처음엔 뭔 소리야 했는데 이게 완전히 틀린 얘기는 아니었습니다.</p>
+    <p>총 알코올 양이 같으면 결국 똑같이 취해야 할 것 같죠? 근데 실제로는 온더락이랑 하이볼을 비교하면 <strong>하이볼이 혈중알코올농도 피크도 더 낮고, 도달도 더 느립니다.</strong></p>
+    <p>알코올 총량은 같은데 결과가 다르게 나와요.</p>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="key-box">
+    <div class="key-label">핵심 메커니즘</div>
+    <p class="key-text">이유는 <strong>'농도'</strong> 자체라기보다 <strong>흡수 속도 차이</strong>입니다. 진하게 마실수록 흡수가 더 빨라지는 경향이 있는데, 물을 타면 위에 머무는 시간이 길어지고 소장으로 천천히 넘어가면서 흡수가 분산됩니다.</p>
+  </div>
+
+  <div class="article-body">
+    <p>몸이 한 번에 처리하는 속도보다 빨리 들어오면 혈중 농도가 확 올라가고, 천천히 들어오면 덜 튀는 거죠.</p>
+  </div>
+
+  <div class="compare">
+    <div class="compare-item">
+      <div class="compare-label">온더락</div>
+      <div class="compare-val bad">흡수 빠름</div>
+      <div class="compare-sub">위 통과 빠르게 → 소장에서 한꺼번에 흡수 → 혈중농도 스파이크</div>
+    </div>
+    <div class="compare-item">
+      <div class="compare-label">하이볼</div>
+      <div class="compare-val good">흡수 느림</div>
+      <div class="compare-sub">위에 오래 머뭄 → 소장으로 천천히 → 혈중농도 완만하게 상승</div>
+    </div>
+  </div>
+
+  <div class="article-body">
+    <p>느낌은 혈당 스파이크랑 비슷한 구조예요. 총량은 같은데 <strong>'속도'가 다르면 결과가 달라집니다.</strong></p>
+    <p>결국 물이 해주는 건 양을 줄이는 게 아니라 <strong>시간을 늘리는 역할</strong>이에요.</p>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">결론 · Punchline</div>
+    <p class="conclusion-text">
+      농도 낮아지니까 덜 취한다는 말은 <strong>이유는 틀렸는데 결과는 맞았던 케이스.</strong><br>
+      어이없는 말이었는데 결론적으로는 맞았던 거죠 ㅋㅋ
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">잡생각 · 2026</span>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.08});
+document.querySelectorAll('.key-box,.compare,.conclusion,.article-body').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+</body>
+</html>

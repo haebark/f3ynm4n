@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+  <!-- OG / SEO -->
+  <meta name="description" content="밥 먹다가 나온 생각치고는 꽤 연결이 됩니다. 지구 내부에서 수소가 올라와 석유가 만들어진다면?">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="F3YNM4N">
+  <meta property="og:title" content="석유가 재생된다고? 지구가 사실 정유공장이라는 가설 · F3YNM4N">
+  <meta property="og:description" content="밥 먹다가 나온 생각치고는 꽤 연결이 됩니다. 지구 내부에서 수소가 올라와 석유가 만들어진다면?">
+  <meta property="og:url" content="https://f3ynm4n.com/oil_refinery.html">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="석유가 재생된다고? 지구가 사실 정유공장이라는 가설 · F3YNM4N">
+  <meta name="twitter:description" content="밥 먹다가 나온 생각치고는 꽤 연결이 됩니다. 지구 내부에서 수소가 올라와 석유가 만들어진다면?">
+  <meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>석유가 재생된다고? 지구가 사실 정유공장이라는 가설 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #f5f0e8;
+  --bg2: #ede8e0;
+  --bg3: #e5e0d8;
+  --text: #1a1814;
+  --text-mid: #4a4540;
+  --text-muted: #7a7468;
+  --gold: #c8963e;
+  --amber: #b45309;
+  --amber2: #d97706;
+  --amber3: #f59e0b;
+  --border: rgba(180,83,9,0.15);
+  --border2: rgba(180,83,9,0.25);
+  --black: #0d0d0b;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+}
+.cursor { position:fixed;width:6px;height:6px;background:var(--amber);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
+.cursor-ring { position:fixed;width:32px;height:32px;border:1px solid rgba(180,83,9,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%); }
+
+/* HEADER */
+header {
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:16px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border2);
+  background:rgba(245,240,232,.95);
+  backdrop-filter:blur(12px);
+}
+.logo { font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--amber);letter-spacing:2px;text-decoration:none; }
+.logo span { color:var(--text-muted);opacity:.6; }
+.header-home { font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s; }
+.header-home:hover { color:var(--amber); }
+
+/* HERO — 어두운 지열 테마 유지 */
+.hero {
+  min-height: 100vh;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  background: #0d0d0b;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 60% 85%, rgba(217,119,6,.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 25% 60%, rgba(245,158,11,.08) 0%, transparent 45%),
+    linear-gradient(180deg, #0d0d0b 0%, #110a02 60%, #1a0e03 100%);
+}
+.hero-layers { position:absolute;inset:0;pointer-events:none; }
+.layer-line { position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(217,119,6,.12),rgba(217,119,6,.06),transparent); }
+.layer-line:nth-child(1){top:30%} .layer-line:nth-child(2){top:45%;opacity:.7} .layer-line:nth-child(3){top:58%;opacity:.5} .layer-line:nth-child(4){top:70%;opacity:.8} .layer-line:nth-child(5){top:82%;opacity:.4}
+.bubbles { position:absolute;inset:0;pointer-events:none; }
+.bubble { position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(217,119,6,.15),transparent);animation:bubbleRise linear infinite; }
+.bubble:nth-child(1){width:60px;height:60px;left:15%;bottom:-60px;animation-duration:8s}
+.bubble:nth-child(2){width:40px;height:40px;left:35%;bottom:-40px;animation-duration:11s;animation-delay:2s}
+.bubble:nth-child(3){width:80px;height:80px;left:55%;bottom:-80px;animation-duration:9s;animation-delay:1s}
+.bubble:nth-child(4){width:30px;height:30px;left:72%;bottom:-30px;animation-duration:13s;animation-delay:3s}
+.bubble:nth-child(5){width:50px;height:50px;left:85%;bottom:-50px;animation-duration:10s;animation-delay:1.5s}
+@keyframes bubbleRise { 0%{transform:translateY(0) scale(1);opacity:0} 10%{opacity:1} 90%{opacity:.3} 100%{transform:translateY(-100vh) scale(1.5);opacity:0} }
+.hero-vline { position:absolute;right:110px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(217,119,6,.2) 20%,rgba(217,119,6,.2) 80%,transparent); }
+
+.hero-inner { position:relative;z-index:2;padding:0 48px 100px;max-width:860px; }
+.hero-tag { font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:#f59e0b;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s; }
+.hero-tag::before { content:'';display:inline-block;width:20px;height:1px;background:#f59e0b; }
+.hero-eyebrow { font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#7a7468;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s; }
+.hero-title { font-family:'Noto Serif KR',serif;font-size:clamp(32px,5.2vw,64px);font-weight:700;line-height:1.28;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .5s; }
+.hero-title em { font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#f59e0b; }
+.hero-sub { font-size:16px;font-weight:300;color:#9a9490;line-height:1.9;max-width:520px;border-left:2px solid rgba(217,119,6,.4);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .65s; }
+.hero-scroll { position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s; }
+.hero-scroll span { font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#7a7468;text-transform:uppercase;writing-mode:vertical-rl; }
+.hero-scroll::after { content:'';width:1px;height:40px;background:linear-gradient(180deg,#7a7468,transparent); }
+
+/* BODY — 밝은 배경 */
+.body-wrap { max-width:760px;margin:0 auto;padding:100px 48px 140px; }
+
+.intro { font-family:'Noto Serif KR',serif;font-size:19px;font-weight:400;line-height:2.1;color:var(--text);margin-bottom:80px;padding-bottom:60px;border-bottom:1px solid var(--border2);opacity:0;animation:fadeUp .8s ease forwards .2s; }
+.intro strong { color:var(--amber);font-weight:600; }
+.intro .question { font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--text);display:block;margin:20px 0;padding:16px 24px;border-left:3px solid var(--amber2);background:rgba(180,83,9,.06); }
+
+.section { margin-bottom:72px; }
+.section-header { display:flex;align-items:baseline;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border2); }
+.section-num { font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--amber);letter-spacing:1px;flex-shrink:0; }
+.section-title { font-family:'Noto Serif KR',serif;font-size:22px;font-weight:700;color:var(--text);letter-spacing:-.01em;line-height:1.4; }
+.section p { font-size:16px;font-weight:300;color:var(--text-mid);line-height:2;margin-bottom:18px; }
+.section p:last-child { margin-bottom:0; }
+.section p strong { color:var(--text);font-weight:600; }
+
+/* 메커니즘 카드 */
+.mech-cards { display:flex;flex-direction:column;gap:2px;margin:28px 0; }
+.mech-card { display:flex;gap:0;background:var(--bg2);border:1px solid var(--border);overflow:hidden;transition:border-color .2s; }
+.mech-card:hover { border-color:var(--border2); }
+.mech-num { display:flex;align-items:center;justify-content:center;width:56px;flex-shrink:0;background:rgba(180,83,9,.08);font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--amber);border-right:1px solid var(--border); }
+.mech-body { padding:20px 24px; }
+.mech-title { font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px; }
+.mech-desc { font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.8; }
+
+/* 표 */
+.oil-table { width:100%;border-collapse:collapse;margin:28px 0;font-size:14px; }
+.oil-table thead tr { border-bottom:2px solid var(--border2); }
+.oil-table th { font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--amber);text-transform:uppercase;text-align:left;padding:10px 16px;font-weight:400; }
+.oil-table td { padding:12px 16px;color:var(--text-mid);font-weight:300;border-bottom:1px solid var(--border);line-height:1.6; }
+.oil-table tr:hover td { background:rgba(180,83,9,.04); }
+.oil-table td:first-child { color:var(--text);font-weight:500; }
+.oil-table td.light { color:var(--amber); }
+.oil-table td.heavy { color:var(--text-muted); }
+
+/* 패턴 박스 */
+.pattern-box { display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:28px 0;background:var(--border); }
+.pattern-item { background:var(--bg2);padding:22px 24px; }
+.pattern-label { font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px; }
+.pattern-val { font-size:15px;font-weight:600;color:var(--text);line-height:1.6; }
+.pattern-sub { font-size:13px;font-weight:300;color:var(--text-muted);margin-top:4px; }
+.pattern-val.amber { color:var(--amber); }
+.pattern-val.dim { color:var(--text-muted); }
+
+/* PULL QUOTE */
+.pq { margin:36px 0;padding:32px 36px;background:rgba(180,83,9,.06);border:1px solid var(--border2);position:relative; }
+.pq::before { content:'"';font-family:'Playfair Display',serif;font-size:80px;color:var(--amber2);opacity:.2;position:absolute;top:-12px;left:24px;line-height:1; }
+.pq p { font-family:'Playfair Display',serif;font-style:italic;font-size:20px !important;line-height:1.75 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1; }
+
+/* 증거 리스트 */
+.evidence-list { display:flex;flex-direction:column;gap:2px;margin:28px 0; }
+.evidence-item { padding:24px 28px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--amber2);transition:border-left-color .2s; }
+.evidence-item:hover { border-left-color:var(--amber); }
+.evidence-title { font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px; }
+.evidence-body { font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.9; }
+
+/* 취약점 */
+.weak-list { display:flex;flex-direction:column;gap:2px;margin:28px 0; }
+.weak-item { padding:20px 24px;background:var(--bg2);border:1px solid var(--border);display:flex;gap:16px;align-items:flex-start; }
+.weak-icon { font-family:'Space Mono',monospace;font-size:12px;color:var(--amber2);flex-shrink:0;padding-top:2px; }
+.weak-title { font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px; }
+.weak-desc { font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.8; }
+
+.sec-rule { border:none;border-top:1px solid var(--border2);margin:72px 0;position:relative; }
+.sec-rule::after { content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:var(--amber2); }
+
+/* CONCLUSION */
+.conclusion { margin-top:80px;padding:52px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden; }
+.conclusion::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),var(--gold),transparent); }
+.conclusion-label { font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px; }
+.conclusion-label::after { content:'';flex:1;height:1px;background:var(--border2); }
+.conclusion-body { font-family:'Noto Serif KR',serif;font-size:17px;font-weight:300;color:var(--text-mid);line-height:2;margin-bottom:28px; }
+.conclusion-close { font-family:'Playfair Display',serif;font-style:italic;font-size:18px;line-height:1.8;color:var(--text); }
+.conclusion-close strong { color:var(--amber);font-style:normal; }
+
+footer { border-top:1px solid var(--border2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg); }
+.footer-logo { font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--amber);letter-spacing:2px;text-decoration:none; }
+.footer-meta { font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+
+@media(max-width:640px){
+  header{padding:14px 20px}
+  .hero-inner{padding:0 20px 80px}
+  .hero-title{font-size:30px}
+  .body-wrap{padding:60px 20px 100px}
+  .pattern-box{grid-template-columns:1fr}
+  .conclusion{padding:32px 24px}
+  footer{padding:24px 20px;flex-direction:column;gap:8px}
+  .hero-vline,.hero-scroll{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-layers">
+    <div class="layer-line"></div><div class="layer-line"></div>
+    <div class="layer-line"></div><div class="layer-line"></div><div class="layer-line"></div>
+  </div>
+  <div class="bubbles">
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div>
+  </div>
+  <div class="hero-vline"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">팝사이언스 · 독립 가설</div>
+    <div class="hero-eyebrow">Petroleum · Earth · Hypothesis</div>
+    <h1 class="hero-title">
+      석유가 재생된다고?<br>
+      지구가 사실<br>
+      <em>정유공장</em>이라는 가설
+    </h1>
+    <p class="hero-sub">밥 먹다가 나온 생각치고는 꽤 연결이 됩니다.<br>반박과 의견 환영합니다.</p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="intro">
+    <p>밥을 먹다가 중동 뉴스를 듣다가 문득 이런 생각이 들었습니다.</p>
+    <span class="question">"공룡이랑 플랑크톤만으로는 경질유랑 중질유의 차이가 설명이 안 되는데?"</span>
+    <p>기존 교과서 설명은 이렇습니다. 유기물이 땅속에서 오랜 시간 열과 압력을 받으면 석유가 된다. 그렇다면 지각 활동이 활발한 북해나 북미는 왜 경질유이고, 안정된 지괴인 중동이나 베네수엘라는 왜 중질유일까요? "매몰 깊이와 온도가 달랐다"는 답이 돌아오는데, 어딘가 <strong>결과를 보고 원인을 끼워 맞추는 느낌</strong>이 듭니다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">지구를 정유공장으로 보면?</h2>
+    </div>
+    <p>공장에서 쓰는 수소첨가분해(hydrocracking)라는 공정이 있습니다. 중질유에 수소를 주입하면 탄소 사슬이 잘려 경질유가 됩니다. 이건 인간이 발명한 게 아니라 자연에 이미 있는 반응을 발견한 것입니다.</p>
+    <div class="pq"><p>지구가 화학공장이 아닌 적이 없었던 셈입니다.</p></div>
+    <p>대기 중 산소는 광합성 공정의 산물이고, 석회암은 탄소포집 공정의 산물이며, 다이아몬드는 고온고압 압축 공정의 산물입니다. 이미 화학공장인 지구가 석유도 만들고 있다면 어떨까요?</p>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">가설의 핵심: 세 가지 메커니즘</h2>
+    </div>
+    <p>쉽게 말하면 이렇습니다 — 지구 내부에서 수소가 올라오고, 그 수소가 땅속 유기물과 만나 석유로 변환되며, 단층이 그 에너지를 특정 지점에 집중시킨다.</p>
+    <div class="mech-cards">
+      <div class="mech-card">
+        <div class="mech-num">①</div>
+        <div class="mech-body">
+          <div class="mech-title">심부 수소 공급</div>
+          <div class="mech-desc">외핵·맨틀 경계의 고온고압 환경에서 수소가 분리되어 지각 하부로 상승합니다. 기존 이론은 유기물 안에 포함된 수소만 씁니다. 이 가설은 지구 내부에서 지속적으로 올라오는 수소를 반응 엔진으로 삼습니다.</div>
+        </div>
+      </div>
+      <div class="mech-card">
+        <div class="mech-num">②</div>
+        <div class="mech-body">
+          <div class="mech-title">탄소 트랩 (반응 베드)</div>
+          <div class="mech-desc">퇴적층의 유기 탄소가 석유의 원료가 아니라, 올라오는 수소를 포착해 탄화수소로 변환하는 반응 베드 역할을 합니다. 유기물은 원료가 아니라 촉매적 기질이라는 것입니다.</div>
+        </div>
+      </div>
+      <div class="mech-card">
+        <div class="mech-num">③</div>
+        <div class="mech-body">
+          <div class="mech-title">단층이 빨대 역할</div>
+          <div class="mech-desc">지각의 균열이 수소와 에너지를 특정 지점에 집중시킵니다. 에너지는 균일하게 퍼지지 않고 길목에 모입니다. 그 지점에 대형 유전이 형성됩니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">경질유 vs 중질유 — 이 프레임으로 보면</h2>
+    </div>
+    <p>이 메커니즘을 지도 위에 올려보면 흥미로운 패턴이 나타납니다. 먼저 사실관계부터. 흔히 중동 = 중질유로 알려져 있지만, 실제로는 나라마다 유전마다 편차가 큽니다.</p>
+    <table class="oil-table">
+      <thead><tr><th>지역</th><th>대표 유종</th><th>품질</th></tr></thead>
+      <tbody>
+        <tr><td>북해</td><td>브렌트유</td><td class="light">API 38도 — 저유황 경질유</td></tr>
+        <tr><td>미국</td><td>WTI</td><td class="light">API 40도 — 초경질유</td></tr>
+        <tr><td>아프리카</td><td>나이지리아·리비아</td><td class="light">경질유</td></tr>
+        <tr><td>중동</td><td>두바이유</td><td class="heavy">API 31도 — 고유황 중질유</td></tr>
+        <tr><td>베네수엘라</td><td>오리노코 벨트</td><td class="heavy">초중질유</td></tr>
+        <tr><td>캐나다</td><td>오일샌드</td><td class="heavy">비튜멘 — 초중질유</td></tr>
+      </tbody>
+    </table>
+    <p>이걸 지각 구조와 겹쳐보면 패턴이 선명해집니다.</p>
+    <div class="pattern-box">
+      <div class="pattern-item">
+        <div class="pattern-label">경질유 지역</div>
+        <div class="pattern-val amber">단층 밀집 → 수소 공급 풍부</div>
+        <div class="pattern-sub">북해(판 경계부), 미국 텍사스(단층 밀집)</div>
+      </div>
+      <div class="pattern-item">
+        <div class="pattern-label">중질유 지역</div>
+        <div class="pattern-val dim">안정 지괴 → 수소 공급 부족</div>
+        <div class="pattern-sub">중동 아라비아 플레이트, 베네수엘라, 캐나다 순상지</div>
+      </div>
+    </div>
+    <p>기존 이론도 같은 지리적 결과를 예측하지만 이유가 다릅니다. 두 이론을 구분할 열쇠는 <strong>탄화수소의 탄소 동위원소 비율 분석</strong>입니다. 수소 출처가 다르면 동위원소 신호도 달라야 하니까요.</p>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">실제로 존재하는 증거들</h2>
+    </div>
+    <p>이 가설이 단순한 공상이 아닌 이유입니다.</p>
+    <div class="evidence-list">
+      <div class="evidence-item">
+        <div class="evidence-title">말리 부라케부구 마을 (1987~현재)</div>
+        <div class="evidence-body">1987년 우물 작업 중 우연히 천연 수소가 새어나오는 것이 발견됐고, 현재까지도 그 마을 주민들이 천연 수소로 전기를 생산하고 있습니다. 세계 유일의 운영 중인 천연수소 우물입니다.</div>
+      </div>
+      <div class="evidence-item">
+        <div class="evidence-title">프랑스 로렌 탄광 분지 (2023)</div>
+        <div class="evidence-body">메탄 탐사 중 우연히 천연 수소 대형 매장지가 발견됐습니다. 깊이 내려갈수록 수소 농도가 증가하며(1,100m에서 14%, 1,250m에서 20%), 심부에서 공급된다는 방향성을 직접 지지합니다.</div>
+      </div>
+      <div class="evidence-item">
+        <div class="evidence-title">USGS 추산</div>
+        <div class="evidence-body">지구 지하 천연수소 총량이 최대 5.6×10⁶ Mt에 달할 수 있다고 추정됩니다. 그 중 일부만 회수 가능해도 수백 년치 수요를 충당할 수 있는 수준입니다.</div>
+      </div>
+      <div class="evidence-item">
+        <div class="evidence-title">일부 유전의 자발적 재충전 보고</div>
+        <div class="evidence-body">다 채굴했다고 판단한 유전이 다시 차오른 사례들이 보고됐습니다. 현재진행형 공정의 정황 증거로 볼 수 있습니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">솔직히 취약한 부분도 있습니다</h2>
+    </div>
+    <div class="weak-list">
+      <div class="weak-item">
+        <span class="weak-icon">△</span>
+        <div>
+          <div class="weak-title">수소 생존율 문제</div>
+          <div class="weak-desc">수소는 반응성이 극도로 높아 상승 과정에서 철 산화물 등과 반응해 소비될 수 있습니다. 충분한 양이 탄소 트랩까지 도달할 수 있는지 정량적 근거가 아직 부족합니다.</div>
+        </div>
+      </div>
+      <div class="weak-item">
+        <span class="weak-icon">△</span>
+        <div>
+          <div class="weak-title">재생 속도 문제</div>
+          <div class="weak-desc">재생 가능하더라도 속도가 인간의 소비 속도에 훨씬 못 미친다면 실질적 의미가 없습니다. 유전 재충전 보고들도 그 속도까지 확인된 것은 아닙니다.</div>
+        </div>
+      </div>
+      <div class="weak-item">
+        <span class="weak-icon">△</span>
+        <div>
+          <div class="weak-title">지진 촉매 논리의 간극</div>
+          <div class="weak-desc">지진은 수초~수분짜리 사건이지만 탄화수소 합성은 지질학적 시간을 요구합니다. 이 간극을 메울 메커니즘 설명이 추가로 필요합니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">마치며 · Closing</div>
+    <p class="conclusion-body">이 가설이 맞든 틀리든, 지구를 '유물 창고'가 아니라 '현재진행형 공장'으로 보는 프레임 자체가 에너지 탐사의 방향을 바꿀 수 있습니다. 지금은 퇴적층을 찾지만, 이 관점에서는 수소가 올라오는 에너지 길목 — 단층과 지각 경계부 — 을 찾아야 합니다.</p>
+    <p class="conclusion-body">실제로 화이트 수소 탐사 기업이 2020년 10개에서 2024년 40개로 급증하면서 그 방향으로 움직이고 있기도 합니다.</p>
+    <p class="conclusion-close"><strong>밥 먹다가 나온 생각치고는 꽤 연결이 되는 것 같아 정리해봤습니다.</strong> 반박과 의견 환영합니다.</p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">팝사이언스 · 독립 가설 · 2026</span>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.08});
+document.querySelectorAll('.section,.conclusion').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+</body>
+</html>
