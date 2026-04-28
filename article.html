@@ -398,9 +398,22 @@ async function fetchSeries(seriesName) {
 }
 
 function nl2html(text) {
-  // 줄바꿈을 <p>로 변환 (HTML이 없는 텍스트일 때)
+  // HTML 태그가 이미 있으면 그대로
   if (text.includes('<p>') || text.includes('<h2>')) return text;
-  return text.split(/\n\n+/).map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+
+  // 줄바꿈 정규화: 
+ → 
+
+  text = text.replace(/\r\n/g, '\n');
+
+  // 빈 줄(\n\n 이상) → 단락 구분
+  // 단일 줄바꿈 → <br>
+  const paragraphs = text.split(/\n{2,}/);
+  return paragraphs
+    .map(p => p.trim())
+    .filter(p => p.length > 0)
+    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+    .join('\n');
 }
 
 const CAT_LABELS = {
