@@ -1062,7 +1062,6 @@ async function renderFeatured(articles) {
     </a>`).join('');
 
   // DB에서 is_featured 글 불러오기
-  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   const { data: featuredArticles } = await sb.from('articles')
     .select('*')
     .eq('is_featured', true)
