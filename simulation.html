@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시뮬레이션 가설에서 PBGC까지 — 한 아마추어의 우주론 여정 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<!-- OG -->
+<meta name="description" content="우리는 진짜 세계에 살고 있는가. 시뮬레이션 가설에서 홀로그램 원리를 거쳐 PBGC에 이르는 한 아마추어의 우주론 여정.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="시뮬레이션 가설에서 PBGC까지 — 한 아마추어의 우주론 여정 · F3YNM4N">
+<meta property="og:description" content="우리는 진짜 세계에 살고 있는가. 시뮬레이션 가설에서 홀로그램 원리를 거쳐 PBGC에 이르는 한 아마추어의 우주론 여정.">
+<meta property="og:url" content="https://f3ynm4n.com/simulation.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="시뮬레이션 가설에서 PBGC까지 · F3YNM4N">
+<meta name="twitter:description" content="우리는 진짜 세계에 살고 있는가.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --indigo:#4338ca;--indigo2:#6366f1;--indigo3:#a5b4fc;
+  --border:rgba(67,56,202,0.15);--border2:rgba(67,56,202,0.28);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#060610;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(67,56,202,.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 30%, rgba(99,102,241,.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 70%, rgba(200,150,62,.05) 0%, transparent 40%),
+    linear-gradient(180deg,#060610 0%,#080812 100%);
+}
+/* 우주 별 */
+.stars-bg{position:absolute;inset:0;pointer-events:none;}
+.star-dot{position:absolute;border-radius:50%;background:#fff;animation:twinkle ease-in-out infinite;}
+.star-dot:nth-child(1){width:1px;height:1px;left:15%;top:20%;animation-duration:3s;animation-delay:0s;opacity:.6;}
+.star-dot:nth-child(2){width:2px;height:2px;left:28%;top:35%;animation-duration:4s;animation-delay:.8s;opacity:.4;}
+.star-dot:nth-child(3){width:1px;height:1px;left:45%;top:15%;animation-duration:3.5s;animation-delay:1.2s;opacity:.7;}
+.star-dot:nth-child(4){width:2px;height:2px;left:62%;top:42%;animation-duration:5s;animation-delay:.4s;opacity:.3;}
+.star-dot:nth-child(5){width:1px;height:1px;left:75%;top:25%;animation-duration:4s;animation-delay:2s;opacity:.5;}
+.star-dot:nth-child(6){width:2px;height:2px;left:88%;top:55%;animation-duration:3s;animation-delay:1.5s;opacity:.4;}
+.star-dot:nth-child(7){width:1px;height:1px;left:35%;top:60%;animation-duration:6s;animation-delay:.2s;opacity:.6;}
+.star-dot:nth-child(8){width:1px;height:1px;left:55%;top:75%;animation-duration:4.5s;animation-delay:1s;opacity:.3;}
+@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
+
+/* 인디고 링 */
+.rings{position:absolute;inset:0;pointer-events:none;display:flex;align-items:center;justify-content:center;}
+.ring-item{position:absolute;border-radius:50%;border:1px solid rgba(99,102,241,.06);animation:ringExpand ease-in-out infinite;}
+.ring-item:nth-child(1){width:300px;height:300px;animation-duration:8s;animation-delay:0s;}
+.ring-item:nth-child(2){width:500px;height:500px;animation-duration:10s;animation-delay:1s;opacity:.7;}
+.ring-item:nth-child(3){width:700px;height:700px;animation-duration:12s;animation-delay:2s;opacity:.4;}
+@keyframes ringExpand{0%,100%{transform:scale(1);opacity:.06}50%{transform:scale(1.05);opacity:.14}}
+
+.hero-vline{position:absolute;right:110px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(99,102,241,.2) 20%,rgba(99,102,241,.2) 80%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:860px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--indigo3);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--indigo3);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#2a2a4a;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.8vw,58px);font-weight:700;line-height:1.3;letter-spacing:-0.02em;color:#f2ede6;margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--indigo3);}
+.hero-sub{font-size:16px;font-weight:300;color:#4a4a7a;line-height:1.9;max-width:520px;border-left:2px solid rgba(99,102,241,.4);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .65s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#2a2a4a;text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,#2a2a4a,transparent);}
+
+/* BODY */
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--indigo2);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--indigo2);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--indigo2);opacity:.15;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+/* 4가지 힘 비교 */
+.force-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:32px 0;background:var(--border);}
+.force-item{background:var(--bg2);padding:20px 24px;}
+.force-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;}
+.force-val{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.force-sub{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.7;}
+.force-val.odd{color:var(--indigo2);}
+
+/* 여정 타임라인 */
+.journey{display:flex;flex-direction:column;gap:2px;margin:32px 0;}
+.journey-item{display:flex;gap:20px;padding:20px 24px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid transparent;transition:border-left-color .2s;}
+.journey-item:hover{border-left-color:var(--indigo2);}
+.journey-step{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:var(--indigo2);flex-shrink:0;padding-top:2px;opacity:.6;}
+.journey-body{}
+.journey-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.journey-desc{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.8;}
+
+/* PBGC 링크 박스 */
+.pbgc-link{margin:36px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;text-decoration:none;display:block;transition:background .2s;}
+.pbgc-link:hover{background:var(--bg3);}
+.pbgc-link::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--indigo2),var(--gold),transparent);}
+.pbgc-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--indigo2);text-transform:uppercase;margin-bottom:12px;}
+.pbgc-title{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.pbgc-desc{font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.8;}
+.pbgc-arrow{font-family:'Space Mono',monospace;font-size:12px;color:var(--indigo2);margin-top:12px;opacity:.6;}
+
+.sec-rule{border:none;border-top:1px solid rgba(200,150,62,.2);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(200,150,62,.4);}
+
+.conclusion{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--indigo2),var(--gold),transparent);}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--indigo2);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.conclusion-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.conclusion-close strong{font-style:normal;color:var(--indigo);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:28px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .force-grid{grid-template-columns:1fr;}
+  .conclusion{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-vline,.hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="stars-bg">
+    <div class="star-dot"></div><div class="star-dot"></div><div class="star-dot"></div>
+    <div class="star-dot"></div><div class="star-dot"></div><div class="star-dot"></div>
+    <div class="star-dot"></div><div class="star-dot"></div>
+  </div>
+  <div class="rings">
+    <div class="ring-item"></div><div class="ring-item"></div><div class="ring-item"></div>
+  </div>
+  <div class="hero-vline"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">팝사이언스 · 독립 가설</div>
+    <div class="hero-eyebrow">Simulation · Hologram · PBGC</div>
+    <h1 class="hero-title">
+      시뮬레이션 가설에서<br>
+      <em>PBGC까지</em>
+    </h1>
+    <p class="hero-sub">
+      한 아마추어의 우주론 여정.<br>
+      이 글은 논문이 아닙니다. 질문이 어디까지 흘러갔는지의 기록입니다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(200,150,62,.2);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>마트를 돌다가, 밥을 먹다가, 자다 깨서 문득 드는 질문이 있습니다.</p>
+    <p><strong>"우리가 지금 살고 있는 이 세계는 진짜인가?"</strong></p>
+    <p>철학적 수사가 아닙니다. 물리학이 진지하게 묻고 있는 질문입니다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">세상의 본질은 물질이 아니라 정보다</h2>
+    </div>
+    <div class="article-body">
+      <p>양자역학적으로 보면 물질은 파동입니다. 빛은 입자이면서 파동이고, 전자도, 원자도, 심지어 물질 전체도 진동하는 확률의 패턴입니다. 눈에 보이는 고체가 결국 파동이라면, 세상의 본질은 물질이 아니라 정보에 더 가깝지 않을까요.</p>
+    </div>
+    <div class="pq">
+      <p>세상이 정보로 이루어져 있다면, 우리가 경험하는 현실은 무엇인가.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">중력만 이질적인 이유</h2>
+    </div>
+    <div class="article-body">
+      <p>네 가지 기본 힘 중 유독 중력만 이상합니다.</p>
+    </div>
+    <div class="force-grid">
+      <div class="force-item">
+        <div class="force-label">전자기력</div>
+        <div class="force-val">미시 세계 작용</div>
+        <div class="force-sub">원자보다 작은 세계에서 작동. 양자이론과 잘 맞음.</div>
+      </div>
+      <div class="force-item">
+        <div class="force-label">강력 · 약력</div>
+        <div class="force-val">미시 세계 작용</div>
+        <div class="force-sub">핵 안에서 작동. 양자이론으로 잘 설명됨.</div>
+      </div>
+      <div class="force-item" style="grid-column:span 2;">
+        <div class="force-label">중력</div>
+        <div class="force-val odd">거시 세계에서만 느껴짐 — 이질적</div>
+        <div class="force-sub">유독 약하고, 양자이론과 잘 맞지 않는다. 수십 년간 물리학의 골칫거리.</div>
+      </div>
+    </div>
+    <div class="article-body">
+      <p>왜 중력만 다른가. 혹시 중력은 다른 세 힘과 근본적으로 다른 무언가인가. 이 질문이 나중에 PBGC의 핵심 논지로 이어집니다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">홀로그램 원리 — 경계가 전부를 담는다</h2>
+    </div>
+    <div class="article-body">
+      <p>블랙홀 연구에서 흥미로운 발견이 나왔습니다. 블랙홀 안의 3차원 정보가 사건의 지평선이라는 2차원 경계면에 보존된다는 것입니다. 이것이 홀로그램 원리입니다.</p>
+      <p>여기서 질문이 확장됩니다. 블랙홀만 그런 게 아니라면? 우리가 사는 3차원 우주도 사실은 어떤 2차원 경계에 저장된 정보를 계산된 형태로 경험하고 있는 것이라면?</p>
+      <p>이게 시뮬레이션 가설의 물리학적 출발점입니다. 닉 보스트롬의 철학적 상상이 아니라, 엔트로피 경계와 정보 보존이라는 수식 위에서 나온 이야기입니다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">가설을 숫자로 내려놓으려면</h2>
+    </div>
+    <div class="article-body">
+      <p>가설이 아무리 아름다워도 반증할 수 없으면 과학이 아닙니다. 그래서 정보적 우주 프레임을 실제 관측 데이터와 연결하는 작업을 시작했습니다.</p>
+      <p>LIGO 간섭계 데이터(T1)와 Planck CMB 저-ℓ 데이터(T2)를 교차 분석해서, 이 가설이 허용되는 파라미터 영역을 좁히는 방식입니다. 말투는 가볍게, 근거는 무겁게. 그게 이 작업의 태도였습니다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">그리고 PBGC로</h2>
+    </div>
+    <div class="article-body">
+      <p>정보적 우주 프레임을 계속 다듬다 보니 한 가지 구조가 반복해서 나타났습니다. 경계가 내부를 결정한다는 것. 3차원 공간이 2차원 경계의 정보로부터 창발한다는 것.</p>
+      <p>여기서 중력의 이질성이 다시 보이기 시작했습니다. 중력이 다른 세 힘과 다른 이유는, 중력이 배경이기 때문이 아닐까. 다른 힘들이 공간 안에서 작용하는 동안, 중력은 공간 자체를 만드는 메커니즘에 더 가까운 것이 아닐까.</p>
+      <p>이 직관이 PBGC(평행 경계 기하학 우주론)의 출발점이 됐습니다.</p>
+    </div>
+
+    <a href="pbgc.html" class="pbgc-link">
+      <div class="pbgc-label">Related · 연결 읽기</div>
+      <div class="pbgc-title">PBGC — 평행 경계 기하학 우주론</div>
+      <div class="pbgc-desc">중력을 배경으로 보는 관점에서 출발한 독립 우주론 프레임워크. 이 글의 직관이 어디까지 전개됐는지 확인하세요.</div>
+      <div class="pbgc-arrow">읽기 →</div>
+    </a>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">마치며 · Closing</div>
+    <p class="conclusion-body">전문 물리학자가 아닙니다. 낮에는 제조업 현장에 있고, 밤에 이런 생각을 합니다. 패러데이가 전기와 자기의 관계를 직관으로 먼저 봤고, 맥스웰이 나중에 수식으로 정리했습니다. 스스로를 패러데이에 비유하는 건 오만일 수 있습니다. 하지만 직관을 던지지 않으면 맥스웰도 나올 수 없습니다.</p>
+    <p class="conclusion-close"><strong>틀릴 수 있습니다. 하지만 생각하지 않는 것보다는 낫습니다.</strong></p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">팝사이언스 · 독립 가설 · 2026</span>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.08});
+document.querySelectorAll('.section,.force-grid,.pbgc-link,.conclusion').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+</body>
+</html>
