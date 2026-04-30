@@ -79,6 +79,60 @@ body{background:#d4d8dd;font-family:'Noto Sans KR',sans-serif;display:flex;justi
 .page-footer{background:var(--dark);padding:12px 40px;display:flex;align-items:center;justify-content:space-between}
 .page-num{font-size:12px;color:#888;font-family:'Playfair Display',serif}
 .pub-name{font-size:11px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase}
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 860px) {
+  body { padding: 0; background: var(--cream); }
+  .page { width: 100%; box-shadow: none; }
+  .header-strip { padding: 10px 20px; }
+  .nav-bar { padding: 8px 16px; gap: 4px; flex-wrap: wrap; }
+  .nav-bar a { font-size: 11px; padding: 5px 10px; }
+  .hero { padding: 24px 20px 20px; }
+  .hero-inner { grid-template-columns: 1fr !important; gap: 20px; }
+  .hero-image { display: none; }
+  .hero-title { font-size: 28px !important; }
+  .hero-subtitle { font-size: 13px; }
+  .hero-right { min-height: 180px; }
+  .hero-left { padding: 28px 20px; }
+  .body-section { padding: 20px; grid-template-columns: 1fr !important; gap: 0; }
+  .body-full { grid-column: 1 !important; }
+  .drop-para { font-size: 14px; }
+  .body-para { font-size: 13px; }
+  .tier-section { padding: 20px; grid-template-columns: 1fr !important; gap: 16px; }
+  .evidence-section { padding: 20px; }
+  .evidence-grid { grid-template-columns: 1fr !important; gap: 10px; }
+  .closing-section { padding: 20px; grid-template-columns: 1fr !important; }
+  .closing-quote-box { grid-column: 1 !important; }
+  .rebuttal-section { padding: 20px; }
+  .rebuttal-grid { grid-template-columns: 1fr !important; gap: 10px; }
+  .stat-bar { grid-template-columns: 1fr 1fr 1fr; }
+  .stat-num { font-size: 24px; }
+  .compare-section { padding: 20px; overflow-x: auto; }
+  .compare-table { font-size: 11px; min-width: 500px; }
+  .psych-strip { grid-template-columns: 1fr !important; }
+  .psych-item { border-right: none !important; border-bottom: 1px solid var(--border); }
+  .psych-item:last-child { border-bottom: none; }
+  .timeline-section { padding: 20px; }
+  .platform-section { padding: 20px; }
+  .platform-center { margin: 0 20px; }
+  .platform-spokes { grid-template-columns: 1fr 1fr !important; gap: 8px; }
+  .closing-box { padding: 20px; }
+  .closing-box p { font-size: 13px; }
+  .page-footer { padding: 12px 20px; }
+  .toc-header { padding: 20px 20px 12px; }
+  .episode-list { padding: 0 16px 24px; }
+  .episode-item { grid-template-columns: 40px 1fr 32px; }
+  .ep-num-text { font-size: 22px; }
+  .ep-title { font-size: 16px; }
+  .ep-desc { font-size: 12px; }
+  .ep-keywords { gap: 4px; }
+  .ep-kw { font-size: 10px; }
+  .cover-hero { padding: 40px 20px 36px; }
+  .cover-title { font-size: 48px; }
+  .cover-sub { font-size: 16px; }
+  .cover-desc { font-size: 13px; }
+  .colophon { padding: 20px; }
+}
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
