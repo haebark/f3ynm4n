@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>얇아진 캔의 배신 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="얇아진 캔은 지구의 위기 신호가 아닙니다. 이윤 극대화의 신호입니다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="얇아진 캔의 배신 · F3YNM4N">
+<meta property="og:description" content="얇아진 캔은 지구의 위기 신호가 아닙니다. 이윤 극대화의 신호입니다.">
+<meta property="og:url" content="https://f3ynm4n.com/aluminum.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="얇아진 캔의 배신 · F3YNM4N">
+<meta name="twitter:description" content="얇아진 캔은 지구의 위기 신호가 아닙니다. 이윤 극대화의 신호입니다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --slate:#475569;--slate2:#64748b;--slate3:#94a3b8;
+  --silver:#e2e8f0;--silver2:#cbd5e1;
+  --border:rgba(71,85,105,0.18);--border2:rgba(71,85,105,0.3);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0f1117;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 40% 55%, rgba(71,85,105,.25) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 25%, rgba(100,116,139,.1) 0%, transparent 45%),
+    radial-gradient(ellipse at 20% 80%, rgba(200,150,62,.05) 0%, transparent 40%),
+    linear-gradient(180deg,#0f1117 0%,#111318 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(148,163,184,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.02) 1px, transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse at 40% 55%, black 0%, transparent 62%);
+}
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.vline{position:absolute;top:0;bottom:0;width:1px;}
+.vline:nth-child(1){right:18%;background:linear-gradient(180deg,transparent,rgba(148,163,184,.08) 30%,rgba(148,163,184,.08) 70%,transparent);}
+.vline:nth-child(2){right:22%;background:linear-gradient(180deg,transparent,rgba(148,163,184,.04) 20%,rgba(148,163,184,.04) 80%,transparent);}
+.vline:nth-child(3){right:14%;background:linear-gradient(180deg,transparent,rgba(148,163,184,.06) 40%,rgba(148,163,184,.06) 60%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:860px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--slate3);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--slate3);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#2a3040;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(30px,5vw,64px);font-weight:700;line-height:1.28;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--slate3);}
+.hero-sub{font-size:16px;font-weight:300;color:#4a5568;line-height:1.9;max-width:520px;border-left:2px solid rgba(71,85,105,.4);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .65s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#2a3040;text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,#2a3040,transparent);}
+
+/* BODY */
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--slate2);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--slate2);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--slate2);opacity:.15;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.cost-box{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:32px 0;background:var(--border);}
+.cost-item{background:var(--bg2);padding:24px;}
+.cost-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;}
+.cost-val{font-size:36px;font-weight:700;line-height:1;margin-bottom:6px;}
+.cost-val.high{color:#dc2626;}
+.cost-val.low{color:var(--slate2);}
+.cost-sub{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.7;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--slate2),var(--gold),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--slate2);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--text);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(200,150,62,.2);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(200,150,62,.4);}
+
+.conclusion{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--slate2),var(--gold),transparent);}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--slate2);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.conclusion-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.conclusion-close strong{font-style:normal;color:var(--slate);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:28px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .cost-box{grid-template-columns:1fr;}
+  .conclusion{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-lines,.hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-lines">
+    <div class="vline"></div><div class="vline"></div><div class="vline"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-tag">Culture · 잡생각</div>
+    <div class="hero-eyebrow">Aluminum · Greenwashing · Capitalism</div>
+    <h1 class="hero-title">
+      얇아진 캔의<br>
+      <em>배신</em>
+    </h1>
+    <p class="hero-sub">
+      지구가 가난해진 걸까, 인류가 독해진 걸까.<br>
+      얇아진 캔은 지구의 위기 신호가 아닙니다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(200,150,62,.2);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p><em>"알루미늄 자원이 고갈되고 있습니다. 그래서 우리는 재활용으로 지구를 지켜야 합니다."</em></p>
+    <p>다큐멘터리를 보며 고개를 끄덕였습니다. 캔을 분리수거하면서 뿌듯했습니다. 얇아진 캔을 보며 "지구가 많이 파먹혔구나" 생각했습니다.</p>
+    <p>전부 TV가 심어준 생각이었습니다. 그리고 TV는 결정적인 한 가지를 말하지 않았습니다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">캔은 자원이 없어서 얇아진 게 아닙니다</h2>
+    </div>
+    <div class="article-body">
+      <p>오늘 손에 들린 맥주캔을 한 번 보십시오. 손가락 힘만 살짝 줘도 찌그러지는 그 연약함. 저도 오랫동안 이게 자원 고갈의 증거라고 믿었습니다.</p>
+      <p>아닙니다. 캔이 얇아진 건 기업들이 단 1그램의 재료라도 덜 쓰면서 똑같은 가격에 팔 방법을 수십 년간 연구한 결과입니다. 캔이 가벼워지면 운반 트럭 기름값이 줄고, 수십억 개 단위로 아끼는 재료비는 천문학적 수익이 됩니다. 지구가 가난해진 게 아니라, 기업이 더 부자가 되기 위해 캔을 극한까지 다이어트시킨 것입니다.</p>
+    </div>
+    <div class="pq">
+      <p>얇아진 캔은 지구의 위기 신호가 아닙니다. 이윤 극대화의 신호입니다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">재활용이 환경을 위한 거라고 믿었습니다</h2>
+    </div>
+    <div class="article-body">
+      <p>TV는 재활용의 당위를 말할 뿐, 왜 기업들이 그토록 재활용에 열심인지는 말하지 않습니다. 이유가 있습니다.</p>
+    </div>
+    <div class="cost-box">
+      <div class="cost-item">
+        <div class="cost-label">새 알루미늄 생산 비용</div>
+        <div class="cost-val high">100</div>
+        <div class="cost-sub">광산에서 채굴 → 정제 → 생산. 막대한 전기 소모.</div>
+      </div>
+      <div class="cost-item">
+        <div class="cost-label">재생 알루미늄 생산 비용</div>
+        <div class="cost-val low">5</div>
+        <div class="cost-sub">캔을 녹여 재생산. 전기 비용 95% 절감.</div>
+      </div>
+    </div>
+    <div class="article-body">
+      <p>95%를 아끼는 장사입니다. 기업 입장에서 재생 알루미늄은 원가 절감 카드입니다. 그런데 "우리는 환경을 위해 재생재를 씁니다"라고 말하는 순간, 속내는 가려지고 착한 기업이라는 훈장이 붙습니다.</p>
+      <p>저는 분리수거를 하면서 지구를 살린다고 생각했습니다. 실제로는 누군가의 원가를 줄여준 것이었습니다. 그린워싱은 거짓말로 작동하지 않습니다. 사실을 말하되, 불편한 사실은 말하지 않는 방식으로 작동합니다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">지구는 알루미늄이 넘칩니다</h2>
+    </div>
+    <div class="fact-box">
+      <div class="fact-label">팩트</div>
+      <p class="fact-text">지각의 <strong>8%는 알루미늄 성분</strong>입니다. 철보다 흔합니다. 지구가 다 파먹어서 없다는 건 처음부터 오해였습니다. 문제는 희소성이 아니라 <strong>에너지 비용</strong>입니다.</p>
+    </div>
+    <div class="article-body">
+      <p>알루미늄은 땅에서 꺼내는 순간 막대한 전기가 필요합니다. 기업들이 재활용에 집착하는 이유가 여기 있습니다. 광산을 새로 파는 비용보다, 누군가 이미 전기를 써서 만들어둔 캔을 싸게 녹여 쓰는 쪽이 훨씬 유리합니다. 내가 분리수거한 캔이 돌아오는 곳은 지구가 아니라, 그 회사의 원가 계산서입니다.</p>
+      <p>전기차, 태양광 패널, 송전탑까지 알루미늄 수요는 폭주하는 중입니다. 광산은 캔 재활용과 별개로 지금도 조용히 돌아갑니다. TV가 말하지 않은 부분이 이쪽입니다.</p>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">마치며 · Closing</div>
+    <p class="conclusion-body">알루미늄은 금속이라기보다 고체화된 전기에 가깝습니다. 캔 하나를 만드는 데 들어간 어마어마한 전기를 누군가 이미 냈고, 기업은 그 결실을 싸게 가져다 다시 팝니다. 그 과정에 "지구를 위해"라는 문장을 붙이면, 소비자는 뿌듯해하며 캔을 씻어 버립니다.</p>
+    <p class="conclusion-body">저도 그랬습니다.</p>
+    <p class="conclusion-close"><strong>얇아진 캔은 지구가 보내는 위험 신호가 아닙니다. 한 방울의 이윤까지 쥐어짜면서, 동시에 착한 기업으로 불리는 방법을 찾아낸 인류의 지독한 영리함이 빚어낸 결과물입니다.</strong></p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Culture · 잡생각 · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+if (!isTouchDevice) {
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+} else {
+  document.getElementById('cursor').style.display='none';
+  document.getElementById('cursorRing').style.display='none';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.cost-box,.fact-box,.conclusion').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>
