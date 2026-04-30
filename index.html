@@ -1044,6 +1044,8 @@ function renderRecent(articles, page) {
   const start = (page - 1) * PAGE_SIZE;
   const pageArticles = articles.slice(start, start + PAGE_SIZE);
 
+  const grid = document.getElementById('recent-grid');
+
   const html = pageArticles.map(a => `
     <a href="${articleHref(a)}"
        style="display:block;padding:32px;border:1px solid var(--border);text-decoration:none;color:inherit;"
@@ -1058,9 +1060,17 @@ function renderRecent(articles, page) {
       </div>
     </a>`).join('');
 
-  document.getElementById('recent-grid').innerHTML = html || '<p style="color:var(--mid);padding:32px;">아직 글이 없습니다.</p>';
+  // 슬라이드 애니메이션
+  grid.style.opacity = '0';
+  grid.style.transform = 'translateX(20px)';
+  setTimeout(() => {
+    grid.innerHTML = html || '<p style="color:var(--mid);padding:32px;">아직 글이 없습니다.</p>';
+    grid.style.transition = 'opacity .35s ease, transform .35s ease';
+    grid.style.opacity = '1';
+    grid.style.transform = 'translateX(0)';
+  }, 150);
 
-  // 페이지네이션 버튼
+  // 페이지네이션
   const paginationEl = document.getElementById('pagination');
   if (totalPages <= 1) { paginationEl.innerHTML = ''; return; }
 
@@ -1071,30 +1081,70 @@ function renderRecent(articles, page) {
     color:${active ? 'var(--gold)' : 'var(--mid)'};cursor:pointer;
     text-transform:uppercase;transition:all .2s;
   `;
+  const arrowStyle = (disabled) => `
+    font-family:'Space Mono',monospace;font-size:16px;
+    padding:10px 24px;border:1px solid ${disabled ? 'rgba(200,150,62,0.15)' : 'var(--gold)'};
+    background:transparent;color:${disabled ? 'rgba(200,150,62,0.2)' : 'var(--gold)'};
+    cursor:${disabled ? 'default' : 'pointer'};pointer-events:${disabled ? 'none' : 'auto'};
+    transition:all .2s;
+  `;
 
-  let paginationHtml = `
-    <button onclick="changePage(${page - 1})"
-      style="${btnStyle(false)}opacity:${page === 1 ? 0.3 : 1};pointer-events:${page === 1 ? 'none' : 'auto'}">
-      ← Prev
-    </button>`;
-
+  let paginationHtml = `<button onclick="changePage(${page - 1})" style="${arrowStyle(page === 1)}">←</button>`;
   for (let i = 1; i <= totalPages; i++) {
     paginationHtml += `<button onclick="changePage(${i})" style="${btnStyle(i === page)}">${i}</button>`;
   }
-
-  paginationHtml += `
-    <button onclick="changePage(${page + 1})"
-      style="${btnStyle(false)}opacity:${page === totalPages ? 0.3 : 1};pointer-events:${page === totalPages ? 'none' : 'auto'}">
-      Next →
-    </button>`;
-
+  paginationHtml += `<button onclick="changePage(${page + 1})" style="${arrowStyle(page === totalPages)}">→</button>`;
   paginationEl.innerHTML = paginationHtml;
 }
 
-function changePage(page) {
-  currentPage = page;
-  renderRecent(allArticles, currentPage);
+function changePage(page, direction) {
+  const total = allArticles.length;
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+  if (page < 1 || page > totalPages) return;
+
+  const grid = document.getElementById('recent-grid');
+  const dir = direction === 'prev' ? -1 : 1;
+
+  grid.style.transition = 'opacity .2s ease, transform .2s ease';
+  grid.style.opacity = '0';
+  grid.style.transform = `translateX(${dir * -30}px)`;
+
+  setTimeout(() => {
+    currentPage = page;
+    grid.style.transition = 'none';
+    grid.style.transform = `translateX(${dir * 30}px)`;
+    renderRecent(allArticles, currentPage);
+  }, 200);
+
   document.getElementById('recent').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// 스와이프 제스처
+function initSwipe() {
+  const grid = document.getElementById('recent-grid');
+  let startX = 0, startY = 0, isDragging = false, dragStartX = 0;
+
+  // 터치
+  grid.addEventListener('touchstart', e => { startX = e.touches[0].clientX; startY = e.touches[0].clientY; }, { passive: true });
+  grid.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      dx < 0 ? changePage(currentPage + 1, 'next') : changePage(currentPage - 1, 'prev');
+    }
+  }, { passive: true });
+
+  // 마우스 드래그
+  grid.addEventListener('mousedown', e => { isDragging = true; dragStartX = e.clientX; grid.style.cursor = 'grabbing'; });
+  window.addEventListener('mouseup', e => {
+    if (!isDragging) return;
+    isDragging = false;
+    grid.style.cursor = 'default';
+    const dx = e.clientX - dragStartX;
+    if (Math.abs(dx) > 60) {
+      dx < 0 ? changePage(currentPage + 1, 'next') : changePage(currentPage - 1, 'prev');
+    }
+  });
 }
 
 function renderCategories(articles) {
@@ -1209,6 +1259,7 @@ async function loadAndRender() {
     renderCoverlines(articles);
     allArticles = articles;
     renderRecent(allArticles, currentPage);
+    initSwipe();
     renderCategories(articles);
     await renderFeatured(articles, sb);
     renderCoverGenres();
