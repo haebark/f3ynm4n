@@ -127,6 +127,7 @@ footer{border-top:1px solid var(--border2);padding:28px 48px;display:flex;align-
 .footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(hover:none),(pointer:coarse){.cursor,.cursor-ring{display:none;}body{cursor:auto;}}
 
 @media(max-width:640px){
   header{padding:14px 20px;}
@@ -166,8 +167,8 @@ footer{border-top:1px solid var(--border2);padding:28px 48px;display:flex;align-
   <div class="editor-section">
     <div class="editor-left">
       <div class="editor-tag">Editor</div>
-      <div class="editor-name">대장님</div>
-      <div class="editor-role">독립 매거진 F3YNM4N 편집장<br>웹소설 작가 · 독립 연구자</div>
+      <div class="editor-name">F3YNM4N</div>
+      <div class="editor-role">독립 매거진 F3YNM4N 편집장<br>독립 연구자 · 창작자</div>
       <div class="editor-divider"></div>
       <div class="editor-keywords">
         <span class="keyword">제조업 종사</span>
@@ -236,6 +237,11 @@ footer{border-top:1px solid var(--border2);padding:28px 48px;display:flex;align-
         <span class="work-title">PBGC — 평행 경계 기하학 우주론 프레임워크</span>
         <span class="work-arrow">→</span>
       </a>
+      <a href="https://doi.org/10.5281/zenodo.18116522" target="_blank" rel="noopener" class="work-item">
+        <span class="work-tag">Research</span>
+        <span class="work-title">PBGC Framework — Zenodo 학술 게재본</span>
+        <span class="work-arrow">↗</span>
+      </a>
       <a href="tenet.html" class="work-item">
         <span class="work-tag">Film</span>
         <span class="work-title">테넷 — 시간의 도구화와 그 한계</span>
@@ -276,12 +282,15 @@ footer{border-top:1px solid var(--border2);padding:28px 48px;display:flex;align-
 </footer>
 
 <script>
-const cursor=document.getElementById('cursor');
-const ring=document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.06});
+const isTouchDevice=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+if(!isTouchDevice){
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
 document.querySelectorAll('.editor-section,.mag-section,.works-section,.philosophy').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
 </script>
 </body>
