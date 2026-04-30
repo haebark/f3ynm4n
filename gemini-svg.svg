@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- 배경: 매거진 배경색 (#0d0d0b), 원형 -->
+  <circle cx="16" cy="16" r="16" fill="#0d0d0b"/>
+  <!-- 글자: 골드 (#c8963e), Noto Serif KR 정체 -->
+  <!-- 작은 화면 가시성을 위해 Bold를 적용하고 위치를 미세 조정했습니다. -->
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#c8963e" font-family="'Noto Serif KR', serif" font-weight="bold" font-size="24">F</text>
+</svg>
