@@ -101,7 +101,7 @@ header {
 .logo span { color: var(--off-white); opacity: 0.4; }
 nav { display: flex; gap: 32px; }
 nav a {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: var(--mid);
   text-decoration: none;
@@ -170,7 +170,7 @@ nav a:hover { color: var(--gold); }
 }
 .masthead-tag {
   font-family: 'Space Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 3px;
   color: var(--mid);
   text-transform: uppercase;
@@ -205,7 +205,7 @@ nav a:hover { color: var(--gold); }
 .coverline:hover { border-color: var(--gold); }
 .coverline-tag {
   font-family: 'Space Mono', monospace;
-  font-size: 8px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: var(--gold);
   text-transform: uppercase;
@@ -223,7 +223,7 @@ nav a:hover { color: var(--gold); }
 }
 .coverline-title:hover { color: var(--gold); }
 .coverline-desc {
-  font-size: 10.5px;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--mid);
 }
@@ -340,13 +340,13 @@ nav a:hover { color: var(--gold); }
 }
 .cover-bottom-left {
   font-family: 'Space Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: var(--mid);
 }
 .cover-bottom-cta {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: var(--gold);
   text-decoration: none;
@@ -359,7 +359,7 @@ nav a:hover { color: var(--gold); }
 .cover-bottom-right {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--mid);
 }
 
@@ -375,7 +375,7 @@ nav a:hover { color: var(--gold); }
 /* ── SECTION LABEL ── */
 .section-label {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 4px;
   color: var(--gold);
   text-transform: uppercase;
@@ -419,7 +419,7 @@ nav a:hover { color: var(--gold); }
   position: absolute;
   top: 20px; right: 20px;
   font-family: 'Space Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: var(--gold);
   border: 1px solid var(--border);
@@ -427,7 +427,7 @@ nav a:hover { color: var(--gold); }
 }
 .feat-series {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: var(--gold);
   text-transform: uppercase;
@@ -468,7 +468,7 @@ nav a:hover { color: var(--gold); }
 .feat-ep:hover { color: var(--gold); }
 .feat-ep-num {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--gold-dim);
   min-width: 20px;
 }
@@ -501,7 +501,7 @@ nav a:hover { color: var(--gold); }
 .feat-side:hover { background: rgba(200,150,62,0.05); }
 .side-tag {
   font-family: 'Space Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: var(--gold-dim);
   text-transform: uppercase;
@@ -516,7 +516,7 @@ nav a:hover { color: var(--gold); }
   margin-bottom: 10px;
 }
 .side-desc {
-  font-size: 11.5px;
+  font-size: 13px;
   line-height: 1.75;
   color: rgba(242,237,230,0.4);
   flex: 1;
@@ -524,7 +524,7 @@ nav a:hover { color: var(--gold); }
 }
 .side-meta {
   font-family: 'Space Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1px;
   color: var(--border);
   text-transform: uppercase;
@@ -562,7 +562,7 @@ nav a:hover { color: var(--gold); }
 }
 .cat-count {
   font-family: 'Space Mono', monospace;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1px;
   color: var(--gold-dim);
 }
@@ -591,7 +591,7 @@ nav a:hover { color: var(--gold); }
 }
 .manifesto-sig {
   font-family: 'Space Mono', monospace;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: var(--mid);
 }
@@ -607,7 +607,7 @@ nav a:hover { color: var(--gold); }
 .manifesto-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 .manifesto-item-num {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--gold);
   letter-spacing: 2px;
   margin-bottom: 8px;
@@ -635,13 +635,24 @@ footer {
   letter-spacing: 2px;
 }
 .footer-copy {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1px;
   color: var(--mid);
 }
+.footer-nav-link {
+  color: var(--mid);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-left: 16px;
+  transition: color .2s;
+}
+.footer-nav-link:hover { color: var(--gold); }
+
 .footer-right {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--mid);
   letter-spacing: 1px;
 }
@@ -671,7 +682,7 @@ footer {
 }
 .scroll-text {
   font-family: 'Space Mono', monospace;
-  font-size: 8px;
+  font-size: 12px;
   letter-spacing: 3px;
   color: var(--mid);
   text-transform: uppercase;
@@ -688,7 +699,7 @@ footer {
     padding: 14px 20px;
   }
   nav { gap: 16px; }
-  nav a { font-size: 10px; letter-spacing: 1px; }
+  nav a { font-size: 12px; letter-spacing: 1px; }
   .logo { font-size: 12px; }
 
   /* ── 커버 ── */
@@ -764,7 +775,7 @@ footer {
     justify-content: center;
   }
   .cover-bottom-left, .cover-bottom-right { display: none; }
-  .cover-bottom-cta { font-size: 11px; }
+  .cover-bottom-cta { font-size: 12px; }
 
   /* ── Featured ── */
   .featured { padding: 48px 20px; }
@@ -791,8 +802,8 @@ footer {
     gap: 2px;
   }
   .cat-item { padding: 20px 12px; }
-  .cat-name { font-size: 11px; }
-  .cat-count { font-size: 9px; }
+  .cat-name { font-size: 12px; }
+  .cat-count { font-size: 12px; }
 
   /* ── Manifesto ── */
   .manifesto {
@@ -828,7 +839,7 @@ footer {
   .cover-main-title {
     font-size: clamp(52px, 8vw, 90px);
   }
-  .coverline-title { font-size: 11px; }
+  .coverline-title { font-size: 12px; }
   .coverline-desc { display: none; }
   header { padding: 16px 24px; }
   .featured { padding: 60px 24px; }
@@ -949,9 +960,9 @@ footer {
   <div class="footer-logo">F3YNM4N</div>
   <div class="footer-copy">독립 매거진 · 1인 편집장 · 뇌전 · Merslin</div>
   <div class="footer-right">
-    <a href="about.html" style="color:var(--mid);text-decoration:none;font-size:11px;letter-spacing:1px;margin-right:16px;transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--mid)'">ABOUT</a>
-    <a href="contact.html" style="color:var(--mid);text-decoration:none;font-size:11px;letter-spacing:1px;margin-right:16px;transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--mid)'">CONTACT</a>
-    <a href="privacy.html" style="color:var(--mid);text-decoration:none;font-size:11px;letter-spacing:1px;transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--mid)'">PRIVACY</a>
+    <a href="about.html" class="footer-nav-link">ABOUT</a>
+    <a href="contact.html" class="footer-nav-link">CONTACT</a>
+    <a href="privacy.html" class="footer-nav-link">PRIVACY</a>
   </div>
 </footer>
 
