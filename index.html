@@ -909,6 +909,12 @@ footer {
   <div class="featured-grid" id="featured-grid"><!-- JS --></div>
 </section>
 
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-label">Categories</div>
+  <div class="cat-grid" id="cat-grid"><!-- JS --></div>
+</section>
+
 <!-- RECENT ARTICLES -->
 <section id="recent" style="padding:80px 48px;border-top:1px solid var(--border);">
   <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:40px;display:flex;align-items:center;gap:16px;">
@@ -916,12 +922,8 @@ footer {
     <span style="flex:1;height:1px;background:var(--border);display:block"></span>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;" id="recent-grid"><!-- JS --></div>
-</section>
-
-<!-- CATEGORIES -->
-<section class="categories" id="categories">
-  <div class="section-label">Categories</div>
-  <div class="cat-grid" id="cat-grid"><!-- JS --></div>
+  <!-- 페이지네이션 -->
+  <div id="pagination" style="display:flex;align-items:center;justify-content:center;gap:24px;margin-top:48px;"></div>
 </section>
 
 <!-- MANIFESTO -->
@@ -1013,8 +1015,10 @@ function articleHref(a) {
 }
 
 function renderCoverlines(articles) {
-  const leftArticles  = articles.filter(a => a.cover_col === 'left').slice(0, 3);
-  const rightArticles = articles.filter(a => a.cover_col === 'right').slice(0, 3);
+  // 전체 글을 셔플해서 랜덤 배치
+  const shuffled = [...articles].sort(() => Math.random() - 0.5);
+  const leftArticles  = shuffled.slice(0, 3);
+  const rightArticles = shuffled.slice(3, 6);
 
   function makeCoverline(a) {
     const title = (a.cover_title || a.title).replace(/\n/g, '<br>');
@@ -1029,8 +1033,18 @@ function renderCoverlines(articles) {
   document.getElementById('cover-right').innerHTML = rightArticles.map(makeCoverline).join('') || '';
 }
 
-function renderRecent(articles) {
-  const html = articles.map(a => `
+// 페이지네이션 상태
+let allArticles = [];
+let currentPage = 1;
+const PAGE_SIZE = 6;
+
+function renderRecent(articles, page) {
+  const total = articles.length;
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+  const start = (page - 1) * PAGE_SIZE;
+  const pageArticles = articles.slice(start, start + PAGE_SIZE);
+
+  const html = pageArticles.map(a => `
     <a href="${articleHref(a)}"
        style="display:block;padding:32px;border:1px solid var(--border);text-decoration:none;color:inherit;"
        onmouseover="this.style.background='rgba(200,150,62,0.04)'"
@@ -1045,6 +1059,42 @@ function renderRecent(articles) {
     </a>`).join('');
 
   document.getElementById('recent-grid').innerHTML = html || '<p style="color:var(--mid);padding:32px;">아직 글이 없습니다.</p>';
+
+  // 페이지네이션 버튼
+  const paginationEl = document.getElementById('pagination');
+  if (totalPages <= 1) { paginationEl.innerHTML = ''; return; }
+
+  const btnStyle = (active) => `
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;
+    padding:10px 20px;border:1px solid ${active ? 'var(--gold)' : 'var(--border)'};
+    background:${active ? 'rgba(200,150,62,0.1)' : 'transparent'};
+    color:${active ? 'var(--gold)' : 'var(--mid)'};cursor:pointer;
+    text-transform:uppercase;transition:all .2s;
+  `;
+
+  let paginationHtml = `
+    <button onclick="changePage(${page - 1})"
+      style="${btnStyle(false)}opacity:${page === 1 ? 0.3 : 1};pointer-events:${page === 1 ? 'none' : 'auto'}">
+      ← Prev
+    </button>`;
+
+  for (let i = 1; i <= totalPages; i++) {
+    paginationHtml += `<button onclick="changePage(${i})" style="${btnStyle(i === page)}">${i}</button>`;
+  }
+
+  paginationHtml += `
+    <button onclick="changePage(${page + 1})"
+      style="${btnStyle(false)}opacity:${page === totalPages ? 0.3 : 1};pointer-events:${page === totalPages ? 'none' : 'auto'}">
+      Next →
+    </button>`;
+
+  paginationEl.innerHTML = paginationHtml;
+}
+
+function changePage(page) {
+  currentPage = page;
+  renderRecent(allArticles, currentPage);
+  document.getElementById('recent').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function renderCategories(articles) {
@@ -1134,7 +1184,8 @@ function renderCoverGenres() {
 }
 
 function renderMobileCoverlines(articles) {
-  const picks = articles.filter(a => a.cover_col).slice(0, 4);
+  const shuffled = [...articles].sort(() => Math.random() - 0.5);
+  const picks = shuffled.slice(0, 4);
   const html = picks.map(a => {
     const title = (a.cover_title || a.title).replace(/\n/g, '<br>');
     return `<div class="coverline">
@@ -1156,7 +1207,8 @@ async function loadAndRender() {
     const articles = await res.json();
 
     renderCoverlines(articles);
-    renderRecent(articles);
+    allArticles = articles;
+    renderRecent(allArticles, currentPage);
     renderCategories(articles);
     await renderFeatured(articles, sb);
     renderCoverGenres();
