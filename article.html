@@ -31,6 +31,18 @@ body::before {
 .cursor { position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
 .cursor-ring { position:fixed;width:32px;height:32px;border:1px solid rgba(200,150,62,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%); }
 
+/* 읽기 진행 바 */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gold);
+  z-index: 9999;
+  transition: width .1s linear;
+}
+
 /* HEADER */
 header {
   position:fixed;top:0;left:0;right:0;z-index:50;
@@ -348,6 +360,8 @@ footer .nav-links a:hover { color:var(--gold); }
 </head>
 <body>
 
+<div class="reading-progress" id="readingProgress"></div>
+
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
@@ -552,11 +566,15 @@ async function init() {
   document.getElementById('article-title').textContent = article.title;
   document.getElementById('article-subtitle').textContent = article.subtitle || '';
 
+  const wordCount = (article.content || '').replace(/<[^>]*>/g, '').length;
+  const readMin = Math.max(1, Math.round(wordCount / 500));
   const date = new Date(article.created_at).toLocaleDateString('ko-KR', { year:'numeric', month:'long', day:'numeric' });
   document.getElementById('article-meta').innerHTML = `
     <div class="meta-item"><strong>카테고리</strong>${CAT_NAMES[article.category] || article.category}</div>
     <div class="meta-sep"></div>
     <div class="meta-item"><strong>작성일</strong>${date}</div>
+    <div class="meta-sep"></div>
+    <div class="meta-item"><strong>읽기</strong>약 ${readMin}분</div>
     ${article.is_series ? `<div class="meta-sep"></div><div class="meta-item"><strong>시리즈</strong>${article.series_name} ${article.series_order}화</div>` : ''}
   `;
 
@@ -634,6 +652,15 @@ if (isTouchDevice) {
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
   (function loop() { rx += (mx-rx)*.12; ry += (my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
 }
+
+// 읽기 진행 바
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop || document.body.scrollTop;
+  const total = doc.scrollHeight - doc.clientHeight;
+  const pct = total > 0 ? (scrolled / total) * 100 : 0;
+  document.getElementById('readingProgress').style.width = pct + '%';
+});
 
 init();
 </script>
