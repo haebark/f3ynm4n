@@ -1016,10 +1016,22 @@ function articleHref(a) {
 }
 
 function renderCoverlines(articles) {
-  // 전체 글을 셔플해서 랜덤 배치
-  const shuffled = [...articles].sort(() => Math.random() - 0.5);
-  const leftArticles  = shuffled.slice(0, 3);
-  const rightArticles = shuffled.slice(3, 6);
+  // is_featured 글은 풀에 3번 넣어 가중치 부여
+  const weighted = [];
+  articles.forEach(a => {
+    weighted.push(a);
+    if (a.is_featured) { weighted.push(a); weighted.push(a); }
+  });
+  const shuffled = [...weighted].sort(() => Math.random() - 0.5);
+  // 중복 제거 후 6개 추출
+  const seen = new Set();
+  const picks = [];
+  for (const a of shuffled) {
+    if (!seen.has(a.slug)) { seen.add(a.slug); picks.push(a); }
+    if (picks.length >= 6) break;
+  }
+  const leftArticles  = picks.slice(0, 3);
+  const rightArticles = picks.slice(3, 6);
 
   function makeCoverline(a) {
     const title = (a.cover_title || a.title).replace(/\n/g, '<br>');
@@ -1235,8 +1247,18 @@ function renderCoverGenres() {
 }
 
 function renderMobileCoverlines(articles) {
-  const shuffled = [...articles].sort(() => Math.random() - 0.5);
-  const picks = shuffled.slice(0, 4);
+  const weighted = [];
+  articles.forEach(a => {
+    weighted.push(a);
+    if (a.is_featured) { weighted.push(a); weighted.push(a); }
+  });
+  const shuffled = [...weighted].sort(() => Math.random() - 0.5);
+  const seen = new Set();
+  const picks = [];
+  for (const a of shuffled) {
+    if (!seen.has(a.slug)) { seen.add(a.slug); picks.push(a); }
+    if (picks.length >= 4) break;
+  }
   const html = picks.map(a => {
     const title = (a.cover_title || a.title).replace(/\n/g, '<br>');
     return `<div class="coverline">
