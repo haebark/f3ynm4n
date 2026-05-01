@@ -134,8 +134,13 @@ footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;a
 }
 </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<style id="reading-progress-style">
+.reading-progress{position:fixed;top:0;left:0;width:0%;height:2px;background:#c8963e;z-index:9999;transition:width .1s linear;}
+</style>
 </head>
 <body>
+<div class="reading-progress" id="readingProgress"></div>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -263,7 +268,17 @@ document.querySelectorAll('.section,.cost-box,.fact-box,.conclusion').forEach(el
 
 <!-- =============================================
   F3YNM4N 공유 버튼 컴포넌트
-  위치: </body> 태그 바로 앞에 붙여넣기
+  위치: 
+<script id="reading-progress-script">
+window.addEventListener('scroll',function(){
+  var doc=document.documentElement;
+  var scrolled=doc.scrollTop||document.body.scrollTop;
+  var total=doc.scrollHeight-doc.clientHeight;
+  var pct=total>0?(scrolled/total)*100:0;
+  document.getElementById('readingProgress').style.width=pct+'%';
+});
+</script>
+</body> 태그 바로 앞에 붙여넣기
   카카오 앱키: KAKAO_APP_KEY 부분을 실제 키로 교체
   카카오 앱키 없으면 그냥 써도 됨 (URL복사 + X는 바로 동작)
 ============================================= -->
@@ -449,5 +464,15 @@ document.querySelectorAll('.section,.cost-box,.fact-box,.conclusion').forEach(el
 })();
 </script>
 
+
+<script id="reading-progress-script">
+window.addEventListener('scroll',function(){
+  var doc=document.documentElement;
+  var scrolled=doc.scrollTop||document.body.scrollTop;
+  var total=doc.scrollHeight-doc.clientHeight;
+  var pct=total>0?(scrolled/total)*100:0;
+  document.getElementById('readingProgress').style.width=pct+'%';
+});
+</script>
 </body>
 </html>
