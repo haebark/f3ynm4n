@@ -918,10 +918,12 @@ footer {
 
 <!-- RECENT ARTICLES -->
 <section id="recent" style="padding:80px 48px;border-top:1px solid var(--border);">
-  <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:40px;display:flex;align-items:center;gap:16px;">
+  <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:16px;">
     Recent Articles
     <span style="flex:1;height:1px;background:var(--border);display:block"></span>
   </div>
+  <!-- 태그 필터 -->
+  <div id="tag-filter" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;"></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;" id="recent-grid"><!-- JS --></div>
   <!-- 페이지네이션 -->
   <div id="pagination" style="display:flex;align-items:center;justify-content:center;gap:24px;margin-top:48px;"></div>
@@ -1049,7 +1051,41 @@ function renderCoverlines(articles) {
 // 페이지네이션 상태
 let allArticles = [];
 let currentPage = 1;
+let activeTag = null;
 const PAGE_SIZE = 6;
+
+function getFilteredArticles() {
+  if (!activeTag) return allArticles;
+  return allArticles.filter(a => (a.tag || '').split(',').map(t => t.trim()).includes(activeTag));
+}
+
+function renderTagFilter() {
+  const tagMap = {};
+  allArticles.forEach(a => {
+    (a.tag || '').split(',').forEach(t => {
+      t = t.trim();
+      if (t) tagMap[t] = (tagMap[t] || 0) + 1;
+    });
+  });
+  const tags = Object.entries(tagMap).sort((a,b) => b[1]-a[1]).slice(0, 20).map(([t]) => t);
+
+  const activeStyle = `font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:6px 14px;border:1px solid var(--gold);background:rgba(200,150,62,0.15);color:var(--gold);cursor:pointer;text-transform:uppercase;transition:all .2s;`;
+  const inactiveStyle = `font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:6px 14px;border:1px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;text-transform:uppercase;transition:all .2s;`;
+
+  const allBtn = `<button onclick="setTag(null)" style="${!activeTag ? activeStyle : inactiveStyle}">ALL</button>`;
+  const tagBtns = tags.map(t =>
+    `<button onclick="setTag('${t}')" style="${activeTag===t ? activeStyle : inactiveStyle}">${t}</button>`
+  ).join('');
+
+  document.getElementById('tag-filter').innerHTML = allBtn + tagBtns;
+}
+
+function setTag(tag) {
+  activeTag = tag;
+  currentPage = 1;
+  renderTagFilter();
+  renderRecent(getFilteredArticles(), currentPage);
+}
 
 function renderRecent(articles, page) {
   const total = articles.length;
@@ -1111,8 +1147,8 @@ function renderRecent(articles, page) {
 }
 
 function changePage(page, direction) {
-  const total = allArticles.length;
-  const totalPages = Math.ceil(total / PAGE_SIZE);
+  const filtered = getFilteredArticles();
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   if (page < 1 || page > totalPages) return;
 
   const grid = document.getElementById('recent-grid');
@@ -1126,7 +1162,7 @@ function changePage(page, direction) {
     currentPage = page;
     grid.style.transition = 'none';
     grid.style.transform = `translateX(${dir * 30}px)`;
-    renderRecent(allArticles, currentPage);
+    renderRecent(getFilteredArticles(), currentPage);
   }, 200);
 
   document.getElementById('recent').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1281,6 +1317,7 @@ async function loadAndRender() {
 
     renderCoverlines(articles);
     allArticles = articles;
+    renderTagFilter();
     renderRecent(allArticles, currentPage);
     initSwipe();
     renderCategories(articles);
