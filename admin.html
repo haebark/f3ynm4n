@@ -563,6 +563,16 @@ body {
                 <small style="color:var(--mid);font-size:11px;margin-top:6px;display:block;">체크 시 기존 피처드는 자동 해제됩니다.</small>
               </div>
             </div>
+            <div class="editor-side" style="margin-top:12px;">
+              <div class="editor-side-title">인기글 설정</div>
+              <div class="field">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                  <input type="checkbox" id="f-is-popular">
+                  사이드바 인기글로 설정
+                </label>
+                <small style="color:var(--mid);font-size:11px;margin-top:6px;display:block;">체크 시 메인 사이드바에 더 자주 노출됩니다.</small>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -663,13 +673,14 @@ function updateStats() {
 // ── RENDER ──
 function articleRow(a) {
   const featured = a.is_featured ? '<span class="status-pill" style="background:rgba(200,150,62,.15);color:#c8963e;border:1px solid rgba(200,150,62,.3);">★ 피처드</span> ' : '';
+  const popular = a.is_popular ? '<span class="status-pill" style="background:rgba(15,118,110,.15);color:#0f766e;border:1px solid rgba(15,118,110,.3);">🔥 인기글</span> ' : '';
   const status = a.published
     ? '<span class="status-pill status-published">발행</span>'
     : '<span class="status-pill status-draft">임시저장</span>';
   const date = new Date(a.created_at).toLocaleDateString('ko-KR');
   return `<tr>
     <td class="article-title-cell">
-      ${a.title}
+      ${featured}${popular}${a.title}
       <small>${a.series_name ? a.series_name + ' · ' + a.series_order + '화' : ''}</small>
     </td>
     <td><span class="tag-pill">${a.tag}</span></td>
@@ -683,6 +694,9 @@ function articleRow(a) {
         </button>
         <button class="btn btn-outline btn-sm" style="${a.is_featured ? 'color:#c8963e;border-color:#c8963e;' : ''}" onclick="toggleFeatured('${a.id}', ${a.is_featured})">
           ${a.is_featured ? '★ 피처드 해제' : '피처드 설정'}
+        </button>
+        <button class="btn btn-outline btn-sm" style="${a.is_popular ? 'color:#0f766e;border-color:#0f766e;' : ''}" onclick="togglePopular('${a.id}', ${a.is_popular})">
+          ${a.is_popular ? '🔥 인기글 해제' : '인기글 설정'}
         </button>
       </div>
     </td>
@@ -770,6 +784,7 @@ function editArticle(id) {
   document.getElementById('f-cover-color').value = a.cover_color || '#0d0d0b';
   document.getElementById('f-is-series').checked = a.is_series || false;
   document.getElementById('f-is-featured').checked = a.is_featured || false;
+  document.getElementById('f-is-popular').checked = a.is_popular || false;
   document.getElementById('f-series-name').value = a.series_name || '';
   document.getElementById('f-series-order').value = a.series_order || '';
   toggleSeries();
@@ -814,6 +829,7 @@ async function saveArticle(publish) {
     series_order: parseInt(document.getElementById('f-series-order').value) || null,
     published: publish,
     is_featured: document.getElementById('f-is-featured').checked,
+    is_popular: document.getElementById('f-is-popular').checked,
     updated_at: new Date().toISOString(),
   };
 
@@ -844,6 +860,13 @@ async function toggleFeatured(id, current) {
   const { error } = await sb.from('articles').update({ is_featured: !current, updated_at: new Date().toISOString() }).eq('id', id);
   if (error) { showToast('변경 실패', 'error'); return; }
   showToast(!current ? '★ 피처드로 설정됐습니다' : '피처드가 해제됐습니다', 'success');
+  await loadArticles();
+}
+
+async function togglePopular(id, current) {
+  const { error } = await sb.from('articles').update({ is_popular: !current, updated_at: new Date().toISOString() }).eq('id', id);
+  if (error) { showToast('변경 실패', 'error'); return; }
+  showToast(!current ? '🔥 인기글로 설정됐습니다' : '인기글이 해제됐습니다', 'success');
   await loadArticles();
 }
 

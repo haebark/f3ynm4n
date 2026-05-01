@@ -1016,11 +1016,11 @@ function articleHref(a) {
 }
 
 function renderCoverlines(articles) {
-  // is_featured 글은 풀에 3번 넣어 가중치 부여
+  // is_popular 글은 풀에 3번 넣어 가중치 부여
   const weighted = [];
   articles.forEach(a => {
     weighted.push(a);
-    if (a.is_featured) { weighted.push(a); weighted.push(a); }
+    if (a.is_popular) { weighted.push(a); weighted.push(a); }
   });
   const shuffled = [...weighted].sort(() => Math.random() - 0.5);
   // 중복 제거 후 6개 추출
@@ -1250,7 +1250,7 @@ function renderMobileCoverlines(articles) {
   const weighted = [];
   articles.forEach(a => {
     weighted.push(a);
-    if (a.is_featured) { weighted.push(a); weighted.push(a); }
+    if (a.is_popular) { weighted.push(a); weighted.push(a); }
   });
   const shuffled = [...weighted].sort(() => Math.random() - 0.5);
   const seen = new Set();
