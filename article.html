@@ -231,7 +231,44 @@ header {
   flex-shrink: 0;
 }
 
-/* RELATED */
+/* PREV / NEXT NAV */
+.article-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  border-top: 1px solid var(--border);
+  margin-top: 0;
+}
+.article-nav-item {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+}
+.article-nav-item:hover { background: rgba(200,150,62,.04); }
+.article-nav-item.next { text-align: right; }
+.article-nav-dir {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.article-nav-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--off-white);
+}
+@media (max-width: 768px) {
+  .article-nav { grid-template-columns: 1fr; }
+}
+
+/* PREV / NEXT NAV */
 .related-section {
   padding: 48px;
   border-top: 1px solid var(--border);
@@ -248,7 +285,7 @@ header {
   gap: 16px;
 }
 .related-label::after { content:''; flex:1; height:1px; background:var(--border); display:block; }
-.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.related-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
 .related-card {
   display: block;
   padding: 28px;
@@ -349,6 +386,9 @@ footer .nav-links a:hover { color:var(--gold); }
     <div class="article-content" id="article-content"></div>
   </div>
 
+  <!-- 이전/다음 글 -->
+  <div id="article-nav" style="display:none;"></div>
+
   <!-- 연관 글 -->
   <div class="related-section" id="related-wrap" style="display:none;">
     <div class="related-label">다음으로 읽기</div>
@@ -384,10 +424,19 @@ async function fetchArticle(slug) {
 
 async function fetchRelated(category, currentSlug) {
   const res = await fetch(
-    `${SUPABASE_URL}/rest/v1/articles?category=eq.${category}&published=eq.true&slug=neq.${encodeURIComponent(currentSlug)}&order=created_at.desc&limit=2`,
+    `${SUPABASE_URL}/rest/v1/articles?category=eq.${category}&published=eq.true&slug=neq.${encodeURIComponent(currentSlug)}&order=created_at.desc&limit=3`,
     { headers: { 'apikey': SUPABASE_KEY } }
   );
   return await res.json();
+}
+
+async function fetchPrevNext(createdAt, currentSlug) {
+  const [prevRes, nextRes] = await Promise.all([
+    fetch(`${SUPABASE_URL}/rest/v1/articles?published=eq.true&created_at=lt.${encodeURIComponent(createdAt)}&slug=neq.${encodeURIComponent(currentSlug)}&order=created_at.desc&limit=1`, { headers: { 'apikey': SUPABASE_KEY } }),
+    fetch(`${SUPABASE_URL}/rest/v1/articles?published=eq.true&created_at=gt.${encodeURIComponent(createdAt)}&slug=neq.${encodeURIComponent(currentSlug)}&order=created_at.asc&limit=1`,  { headers: { 'apikey': SUPABASE_KEY } })
+  ]);
+  const [prev, next] = await Promise.all([prevRes.json(), nextRes.json()]);
+  return { prev: prev[0] || null, next: next[0] || null };
 }
 
 async function fetchSeries(seriesName) {
@@ -531,6 +580,24 @@ async function init() {
   // 본문
   document.getElementById('article-content').innerHTML = nl2html(article.content);
 
+  // 이전/다음 글
+  const { prev, next } = await fetchPrevNext(article.created_at, slug);
+  if (prev || next) {
+    const navEl = document.getElementById('article-nav');
+    navEl.className = 'article-nav';
+    navEl.innerHTML = `
+      ${prev ? `<a href="article.html?slug=${prev.slug}" class="article-nav-item prev">
+        <div class="article-nav-dir">← 이전 글</div>
+        <div class="article-nav-title">${prev.title}</div>
+      </a>` : '<div></div>'}
+      ${next ? `<a href="article.html?slug=${next.slug}" class="article-nav-item next">
+        <div class="article-nav-dir">다음 글 →</div>
+        <div class="article-nav-title">${next.title}</div>
+      </a>` : '<div></div>'}
+    `;
+    navEl.style.display = 'grid';
+  }
+
   // 연관 글
   const related = await fetchRelated(article.category, slug);
   if (related.length > 0) {
@@ -554,12 +621,19 @@ function showNotFound() {
   document.getElementById('not-found').style.display = 'flex';
 }
 
-// 커스텀 커서
+// 커스텀 커서 (터치 디바이스 비활성화)
+const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
-(function loop() { rx += (mx-rx)*.12; ry += (my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+if (isTouchDevice) {
+  cursor.style.display = 'none';
+  ring.style.display = 'none';
+  document.body.style.cursor = 'auto';
+} else {
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+  (function loop() { rx += (mx-rx)*.12; ry += (my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+}
 
 init();
 </script>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>토크나이저는 전략을 숨기지 않는다 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="어느 회사가 누구를 진짜 고객으로 생각하는지 알고 싶다면, IR 자료를 볼 필요가 없다. 토크나이저 도표 하나면 충분하다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="토크나이저는 전략을 숨기지 않는다 · F3YNM4N">
+<meta property="og:description" content="어느 회사가 누구를 진짜 고객으로 생각하는지 알고 싶다면, IR 자료를 볼 필요가 없다. 토크나이저 도표 하나면 충분하다.">
+<meta property="og:url" content="https://f3ynm4n.com/tokenizer.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="토크나이저는 전략을 숨기지 않는다 · F3YNM4N">
+<meta name="twitter:description" content="어느 회사가 누구를 진짜 고객으로 생각하는지 알고 싶다면, IR 자료를 볼 필요가 없다. 토크나이저 도표 하나면 충분하다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#0f766e;--accent2:#0d9488;--accent3:rgba(15,118,110,.12);
+  --border:rgba(15,118,110,0.15);--border2:rgba(15,118,110,0.28);
+  --border-neutral:rgba(26,24,20,0.1);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(15,118,110,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#060d0c;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 35% 60%, rgba(15,118,110,.22) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 25%, rgba(13,148,136,.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 85%, rgba(200,150,62,.04) 0%, transparent 40%),
+    linear-gradient(170deg,#060d0c 0%,#080f0e 100%);
+}
+/* 데이터 느낌 — 미세 격자 */
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(15,118,110,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,118,110,.05) 1px, transparent 1px);
+  background-size:40px 40px;
+  mask-image:radial-gradient(ellipse at 35% 60%, black 0%, transparent 65%);
+}
+
+/* 데이터 흐름 수평선 */
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.hline{position:absolute;left:0;right:0;height:1px;}
+.hline:nth-child(1){top:35%;background:linear-gradient(90deg,transparent,rgba(15,118,110,.08) 30%,rgba(15,118,110,.08) 70%,transparent);}
+.hline:nth-child(2){top:55%;background:linear-gradient(90deg,transparent,rgba(15,118,110,.05) 20%,rgba(15,118,110,.05) 80%,transparent);}
+.hline:nth-child(3){top:72%;background:linear-gradient(90deg,transparent,rgba(200,150,62,.04) 40%,rgba(200,150,62,.04) 60%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(13,148,136,.9);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(13,148,136,.8);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#4a7a74;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.5vw,60px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#eef5f4;margin-bottom:16px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-subtitle{font-family:'Noto Serif KR',serif;font-size:clamp(14px,1.8vw,19px);font-weight:300;color:rgba(180,220,216,.85);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .6s;line-height:1.7;}
+.hero-sub{font-size:15px;font-weight:300;color:rgba(180,220,216,.7);line-height:1.95;max-width:560px;border-left:2px solid rgba(13,148,136,.5);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .7s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#0d2220;text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,rgba(15,118,110,.5),transparent);}
+
+/* BODY */
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.12;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+/* 토크나이저 효율 비교표 */
+.token-table{margin:32px 0;border:1px solid var(--border2);overflow:hidden;}
+.token-table-header{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;background:var(--accent);padding:14px 20px;}
+.token-table-header span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(238,245,244,.7);text-transform:uppercase;}
+.token-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;padding:16px 20px;border-top:1px solid var(--border-neutral);background:var(--bg2);transition:background .2s;}
+.token-row:hover{background:var(--bg3);}
+.token-lang{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:600;color:var(--text);}
+.token-val{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;text-align:center;}
+.token-val.best{color:#16a34a;}
+.token-val.good{color:var(--accent);}
+.token-val.mid{color:var(--gold);}
+.token-val.bad{color:#dc2626;}
+.token-val.base{color:var(--text-muted);}
+
+/* 팩트 박스 */
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--text);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(15,118,110,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(15,118,110,.3);}
+
+.conclusion{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.conclusion-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.conclusion-close strong{font-style:normal;color:var(--accent);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:26px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .token-table-header,.token-row{grid-template-columns:2fr 1fr 1fr;}
+  .token-table-header span:nth-child(n+4),.token-row .token-val:nth-child(n+4){display:none;}
+  .conclusion{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-lines,.hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-lines">
+    <div class="hline"></div><div class="hline"></div><div class="hline"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-tag">Science · 팝사이언스</div>
+    <div class="hero-eyebrow">Tokenizer · LLM · Geopolitics · Strategy</div>
+    <h1 class="hero-title">토크나이저는<br>전략을 숨기지 않는다</h1>
+    <p class="hero-subtitle">IR 자료보다 정직한 고백이 있다.</p>
+    <p class="hero-sub">
+      어느 회사가 누구를 진짜 고객으로 생각하는지 알고 싶다면,<br>
+      토크나이저 효율 도표 하나면 충분하다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(15,118,110,.15);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>토크나이저는 LLM이 텍스트를 처리할 때 언어를 잘게 나누는 방식이다. 영어를 기준값 1로 놓았을 때, 같은 내용을 다른 언어로 입력하면 몇 배의 토큰을 소모하는지가 이 수치다.</p>
+    <p>API 과금 구조에서 토큰은 곧 비용이고, 비용은 곧 접근성이다. 힌디어 사용자는 영어 사용자보다 같은 말을 하는 데 최대 3배 가까운 비용을 낸다. 이게 단순히 데이터 부족의 문제일까. 꼭 그렇지만은 않다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">도표가 말하는 것</h2>
+    </div>
+
+    <div class="token-table">
+      <div class="token-table-header">
+        <span>언어</span>
+        <span>GPT-4o</span>
+        <span>Claude</span>
+        <span>Gemini</span>
+        <span>DeepSeek</span>
+      </div>
+      <div class="token-row">
+        <div class="token-lang">영어 (기준)</div>
+        <div class="token-val base">1.00x</div>
+        <div class="token-val base">1.00x</div>
+        <div class="token-val base">1.00x</div>
+        <div class="token-val base">1.00x</div>
+      </div>
+      <div class="token-row">
+        <div class="token-lang">중국어</div>
+        <div class="token-val mid">1.36x</div>
+        <div class="token-val mid">1.38x</div>
+        <div class="token-val good">1.10x</div>
+        <div class="token-val best">0.87x</div>
+      </div>
+      <div class="token-row">
+        <div class="token-lang">일본어</div>
+        <div class="token-val mid">1.51x</div>
+        <div class="token-val mid">1.94x</div>
+        <div class="token-val good">1.18x</div>
+        <div class="token-val mid">1.42x</div>
+      </div>
+      <div class="token-row">
+        <div class="token-lang">한국어</div>
+        <div class="token-val mid">1.56x</div>
+        <div class="token-val bad">2.59x</div>
+        <div class="token-val good">1.21x</div>
+        <div class="token-val mid">1.48x</div>
+      </div>
+      <div class="token-row">
+        <div class="token-lang">힌디어</div>
+        <div class="token-val bad">2.90x</div>
+        <div class="token-val bad">3.11x</div>
+        <div class="token-val mid">1.62x</div>
+        <div class="token-val mid">1.55x</div>
+      </div>
+      <div class="token-row">
+        <div class="token-lang">아랍어</div>
+        <div class="token-val bad">2.12x</div>
+        <div class="token-val bad">2.47x</div>
+        <div class="token-val mid">1.44x</div>
+        <div class="token-val mid">1.38x</div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>DeepSeek과 Qwen은 중국어를 영어보다 오히려 더 효율적으로 처리한다. 각각 0.87x, 0.85x 수준이다. 단순히 중국어 데이터가 많아서가 아니다. 그 언어를 중심에 두고 토크나이저를 설계했기 때문이다.</p>
+      <p>반면 Anthropic의 힌디어는 3.11x다. 힌디어 화자는 14억 명에 달한다.</p>
+    </div>
+
+    <div class="pq">
+      <p>사용자가 많다고 자동으로 우선순위가 생기지는 않는다. 데이터가 많다고 의지가 따라오는 것도 아니다.</p>
+    </div>
+
+    <div class="article-body">
+      <p>저 도표는 "우리는 누구를 중심에 두고 만드는가"에 대한 꽤 솔직한 고백에 가깝다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">수치는 사업 구조를 반영한다</h2>
+    </div>
+    <div class="article-body">
+      <p>Anthropic의 수치가 전반적으로 낮은 것은 기술력 부족으로 보기 어렵다. 오히려 현재 사업 구조의 반영에 가깝다. 주요 수익원이 미국과 서유럽 기업 API 고객이라면, 힌디어나 아랍어 최적화는 우선순위에서 밀릴 가능성이 높다.</p>
+      <p>반면 Google이 모체인 Gemini는 다르다. 전 세계 검색과 소비자 서비스를 커버해야 하는 회사에게 언어 다양성은 선택이 아니라 인프라다. Alibaba 기반의 Qwen 역시 동남아, 중동, 인도 시장 확장을 고려하면 설명이 자연스럽다.</p>
+      <p>그런데 한 층 더 들어가면 얘기가 달라진다. 토크나이저 최적화는 공짜가 아니다. 엔지니어링 시간, 훈련 데이터 구축, 설계 전면 재검토. 전부 돈이다. 그러니까 저 도표는 현재 전략의 고백이기도 하지만, 동시에 과거 투자의 영수증이기도 하다. DeepSeek이 중국어를 0.87x로 만든 건 중국과 동남아에서 돈을 벌겠다는 베팅에 이미 자원을 쐈다는 뜻이다. Gemini가 힌디어를 상대적으로 잘 처리하는 건 구글이 인도 시장에 진작 투자했다는 흔적이다. Anthropic의 한국어 2.59x는 아직 그 베팅을 하지 않았다는 의미다.</p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">도표를 거꾸로 읽으면</div>
+      <p class="fact-text">토크나이저 수치는 <strong>현재 전략의 고백</strong>인 동시에 <strong>과거 투자의 영수증</strong>이다. 어느 언어가 잘 처리되는지는, 그 회사가 어느 시장에 이미 베팅했는지를 드러낸다. 말이 아니라 돈이 먼저 움직였다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">한국과 일본의 역설</h2>
+    </div>
+    <div class="article-body">
+      <p>지정학적 관점에서 한국은 현재 글로벌 AI 공급망의 핵심 노드다. HBM, 파운드리, 데이터센터 인프라. AI가 작동하는 물리적 기반의 상당 부분이 한국을 통과한다. 반면 일본은 자국 중심 생태계를 유지하려는 성향이 강하다.</p>
+      <p>그런데 토크나이저 수치는 반대 방향을 가리킨다. Anthropic 기준 일본어 1.94x, 한국어 2.59x.</p>
+      <p>일본이 앞선 건 기술 때문이 아니다. SoftBank가 OpenAI에 수십억을 쐈고, 소니·도요타가 일찌감치 파트너십 테이블에 앉았다. 언어 최적화는 그 계약서의 부록으로 따라온 것이다. 한국은 반도체를 팔았다. 인프라를 제공했다. 그런데 그 테이블에서 언어는 협상 의제가 아니었다.</p>
+    </div>
+
+    <div class="pq">
+      <p>2.59x는 기술 격차가 아니라 협상 결과다.</p>
+    </div>
+
+    <div class="article-body">
+      <p>그런데 도표 바깥에서 움직임이 시작됐다. 최근 글로벌 AI 업체 리더들의 방한 빈도가 눈에 띄게 늘고 있다. 반도체 때문만이 아니다. 한국 시장 자체를 다음 성장 동력으로 읽기 시작했다는 신호에 가깝다. 토크나이저 도표에는 아직 반영되지 않은 움직임이다.</p>
+      <p>전략 지도는 현재를 기록한다. 하지만 그 지도가 바뀌기 전에 먼저 몸이 움직인다.</p>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">마치며 · Closing</div>
+    <p class="conclusion-body">저 도표를 단순한 기술 벤치마크로 보면 그냥 아쉬운 숫자들이다. 하지만 전략 지도로 읽으면 얘기가 달라진다. 각 회사가 향후 5년의 성장 동력을 어느 시장에서 찾고 있는지가 드러난다.</p>
+    <p class="conclusion-close">회사는 말로 전략을 설명한다.<br><strong>하지만 토크나이저는 이미 그 전략을 실행하고 있다.</strong></p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Science · 팝사이언스 · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+if (!isTouchDevice) {
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+} else {
+  document.getElementById('cursor').style.display='none';
+  document.getElementById('cursorRing').style.display='none';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.token-table,.fact-box,.conclusion').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>
