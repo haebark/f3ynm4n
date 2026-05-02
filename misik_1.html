@@ -285,7 +285,7 @@ window.addEventListener('scroll',function(){
 ============================================= -->
 
 <!-- 카카오 SDK (앱키 없으면 이 줄 삭제해도 됨) -->
-<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 
 <style>
 .f3-share-btn{
@@ -392,8 +392,12 @@ window.addEventListener('scroll',function(){
   // ── 카카오 앱키 ── 없으면 빈 문자열로 두면 됨
   var KAKAO_KEY = 'e0642d0a5c0ae01b8893422a148e9aba';
 
-  if(KAKAO_KEY && window.Kakao && !Kakao.isInitialized()){
-    Kakao.init(KAKAO_KEY);
+  function loadKakaoSDK(cb){
+    if(window.Kakao){cb();return;}
+    var s=document.createElement('script');
+    s.src='https://developers.kakao.com/sdk/js/kakao.min.js';
+    s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};
+    document.head.appendChild(s);
   }
 
   var panelOpen = false;
@@ -428,10 +432,8 @@ window.addEventListener('scroll',function(){
   }
 
   window.f3ShareKakao = function(){
-    if(!window.Kakao || !KAKAO_KEY){
-      showToast('카카오 앱키 필요');
-      return;
-    }
+    if(!KAKAO_KEY){ showToast('카카오 앱키 필요'); return; }
+    loadKakaoSDK(function(){
     var title = document.title || 'F3YNM4N';
     var desc  = document.querySelector('meta[name="description"]');
     Kakao.Share.sendDefault({
@@ -446,6 +448,7 @@ window.addEventListener('scroll',function(){
         title: '읽기',
         link: { mobileWebUrl: location.href, webUrl: location.href }
       }]
+    });
     });
   };
 
