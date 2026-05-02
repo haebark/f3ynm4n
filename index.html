@@ -1059,6 +1059,9 @@ function getFilteredArticles() {
   return allArticles.filter(a => (a.tag || '').split(',').map(t => t.trim()).includes(activeTag));
 }
 
+let tagFilterExpanded = false;
+const TAG_VISIBLE = 5;
+
 function renderTagFilter() {
   const tagMap = {};
   allArticles.forEach(a => {
@@ -1071,13 +1074,23 @@ function renderTagFilter() {
 
   const activeStyle = `font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:6px 14px;border:1px solid var(--gold);background:rgba(200,150,62,0.15);color:var(--gold);cursor:pointer;text-transform:uppercase;transition:all .2s;`;
   const inactiveStyle = `font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:6px 14px;border:1px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;text-transform:uppercase;transition:all .2s;`;
+  const moreStyle = `font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;padding:6px 14px;border:1px solid var(--border);background:transparent;color:var(--gold);cursor:pointer;text-transform:uppercase;transition:all .2s;opacity:.6;`;
 
+  const visibleTags = tagFilterExpanded ? tags : tags.slice(0, TAG_VISIBLE);
   const allBtn = `<button onclick="setTag(null)" style="${!activeTag ? activeStyle : inactiveStyle}">ALL</button>`;
-  const tagBtns = tags.map(t =>
+  const tagBtns = visibleTags.map(t =>
     `<button onclick="setTag('${t}')" style="${activeTag===t ? activeStyle : inactiveStyle}">${t}</button>`
   ).join('');
+  const moreBtn = tags.length > TAG_VISIBLE
+    ? `<button onclick="toggleTagFilter()" style="${moreStyle}">${tagFilterExpanded ? '접기 ↑' : `+${tags.length - TAG_VISIBLE} 더보기`}</button>`
+    : '';
 
-  document.getElementById('tag-filter').innerHTML = allBtn + tagBtns;
+  document.getElementById('tag-filter').innerHTML = allBtn + tagBtns + moreBtn;
+}
+
+function toggleTagFilter() {
+  tagFilterExpanded = !tagFilterExpanded;
+  renderTagFilter();
 }
 
 function setTag(tag) {
