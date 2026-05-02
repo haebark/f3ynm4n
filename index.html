@@ -1229,7 +1229,7 @@ function renderCategories(articles) {
   document.getElementById('cat-grid').innerHTML = html;
 }
 
-async function renderFeatured(articles, sb) {
+async function renderFeatured(articles) {
   const sidePicks = articles.filter(a => a.cover_col).slice(0, 2);
   const sideHtml = sidePicks.map(a => `
     <a href="${articleHref(a)}" class="feat-side">
@@ -1335,14 +1335,14 @@ async function loadAndRender() {
     renderRecent(allArticles, currentPage);
     initSwipe();
     renderCategories(articles);
-    await renderFeatured(articles, sb);
+    await renderFeatured(articles);
     renderCoverGenres();
     renderMobileCoverlines(articles);
   } catch (e) {
     console.error('Supabase 로드 실패:', e);
     // 실패해도 카테고리/featured는 표시
     renderCategories([]);
-    renderFeatured([], sb);
+    renderFeatured([]);
     renderCoverGenres();
     document.getElementById('recent-grid').innerHTML = '<p style="color:var(--mid);padding:32px;">글을 불러오는 중 오류가 발생했습니다.</p>';
   }
