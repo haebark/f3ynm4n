@@ -973,7 +973,7 @@ footer {
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Supabase SDK 제거됨 - 순수 fetch 방식 사용 -->
 <script>
 // ═══════════════════════════════════════════════════════════════
 // F3YNM4N — Supabase 연결
@@ -1242,11 +1242,11 @@ async function renderFeatured(articles, sb) {
     </a>`).join('');
 
   // DB에서 is_featured 글 불러오기
-  const { data: featuredArticles } = await sb.from('articles')
-    .select('*')
-    .eq('is_featured', true)
-    .eq('published', true)
-    .limit(1);
+  const featRes = await fetch(
+    `${SUPABASE_URL}/rest/v1/articles?select=id,title,subtitle,slug,category,tag,href,cover_col,cover_title,is_featured,is_series,series_name,series_order,created_at&is_featured=eq.true&published=eq.true&limit=1`,
+    { headers: { 'apikey': SUPABASE_KEY } }
+  );
+  const featuredArticles = await featRes.json();
 
   let mainHtml = '';
 
@@ -1322,7 +1322,6 @@ function renderMobileCoverlines(articles) {
 
 // ── 메인 로드 ──
 async function loadAndRender() {
-  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   try {
     const res = await fetch(
       `${SUPABASE_URL}/rest/v1/articles?select=id,title,subtitle,slug,category,tag,href,cover_col,cover_title,is_featured,is_popular,is_series,series_name,series_order,created_at,published&published=eq.true&order=created_at.desc`,
