@@ -669,7 +669,10 @@ window.addEventListener('scroll', () => {
   document.getElementById('readingProgress').style.width = pct + '%';
 });
 
-init();
-</script>
+// bfcache 복원 시 재실행 방지
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) return; // bfcache에서 즉시 복원 — 재실행 불필요
+  init();
+});</script>
 </body>
 </html>
