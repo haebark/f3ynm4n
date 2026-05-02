@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유통이라는 핑계 너머 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="유통 구조를 아무리 혁신해도 이 벽은 안 무너진다. 하드웨어가 다르다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="유통이라는 핑계 너머 · F3YNM4N">
+<meta property="og:description" content="유통 구조를 아무리 혁신해도 이 벽은 안 무너진다. 하드웨어가 다르다.">
+<meta property="og:url" content="https://f3ynm4n.com/food-security.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="유통이라는 핑계 너머 · F3YNM4N">
+<meta name="twitter:description" content="유통 구조를 아무리 혁신해도 이 벽은 안 무너진다. 하드웨어가 다르다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#b45309;--accent2:#d97706;--accent3:rgba(180,83,9,.12);
+  --border:rgba(180,83,9,0.18);--border2:rgba(180,83,9,0.28);
+  --border-neutral:rgba(26,24,20,0.1);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(180,83,9,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#110c06;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 35% 65%, rgba(180,83,9,.22) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 20%, rgba(217,119,6,.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 30%, rgba(200,150,62,.05) 0%, transparent 40%),
+    linear-gradient(170deg,#110c06 0%,#140e07 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(180,83,9,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180,83,9,.04) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse at 35% 65%, black 0%, transparent 62%);
+}
+
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.hline{position:absolute;left:0;right:0;height:1px;}
+.hline:nth-child(1){top:35%;background:linear-gradient(90deg,transparent,rgba(180,83,9,.08) 30%,rgba(180,83,9,.08) 70%,transparent);}
+.hline:nth-child(2){top:58%;background:linear-gradient(90deg,transparent,rgba(180,83,9,.05) 25%,rgba(180,83,9,.05) 75%,transparent);}
+.hline:nth-child(3){top:76%;background:linear-gradient(90deg,transparent,rgba(200,150,62,.04) 40%,rgba(200,150,62,.04) 60%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(180,83,9,.8);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(180,83,9,.7);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#2a1a06;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.5vw,60px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:16px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(217,119,6,.8);}
+.hero-subtitle{font-family:'Noto Serif KR',serif;font-size:clamp(14px,1.8vw,19px);font-weight:300;color:rgba(180,83,9,.6);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .6s;line-height:1.7;}
+.hero-sub{font-size:15px;font-weight:300;color:#3a2010;line-height:1.95;max-width:560px;border-left:2px solid rgba(180,83,9,.4);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .7s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#2a1a06;text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,rgba(180,83,9,.5),transparent);}
+
+/* BODY */
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+/* 면적 비교 박스 */
+.area-box{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin:32px 0;background:var(--border-neutral);}
+.area-item{background:var(--bg2);padding:24px 20px;}
+.area-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;line-height:1.5;}
+.area-val{font-family:'Space Mono',monospace;font-size:28px;font-weight:700;line-height:1;margin-bottom:8px;}
+.area-val.base{color:var(--text-muted);}
+.area-val.mid{color:var(--accent);}
+.area-val.big{color:#dc2626;}
+.area-sub{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.7;}
+
+/* 자급률 박스 */
+.stat-box{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:32px 0;background:var(--border-neutral);}
+.stat-item{background:var(--bg2);padding:24px;}
+.stat-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;}
+.stat-val{font-family:'Space Mono',monospace;font-size:36px;font-weight:700;line-height:1;margin-bottom:6px;}
+.stat-val.danger{color:#dc2626;}
+.stat-val.warn{color:var(--accent);}
+.stat-sub{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.7;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.12;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--text);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(180,83,9,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(180,83,9,.3);}
+
+/* 처방전 섹션 */
+.prescription{margin-top:64px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.prescription::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.prescription-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.prescription-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.prescription-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.prescription-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.prescription-close strong{font-style:normal;color:var(--accent);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:26px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .area-box{grid-template-columns:1fr;}
+  .stat-box{grid-template-columns:1fr;}
+  .prescription{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-lines,.hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-lines">
+    <div class="hline"></div><div class="hline"></div><div class="hline"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-tag">Culture · 경제칼럼</div>
+    <div class="hero-eyebrow">Food Security · Agriculture · CAP · Korea</div>
+    <h1 class="hero-title">
+      유통이라는 핑계 너머:<br>
+      우리 식탁이 마주한 <em>넘을 수 없는 벽</em>
+    </h1>
+    <p class="hero-subtitle">반도체는 돈을 벌지만 먹을 수는 없다</p>
+    <p class="hero-sub">
+      유통 구조를 아무리 혁신해도 이 벽은 안 무너진다.<br>
+      하드웨어가 다르다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(180,83,9,.15);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>신선식품 가격이 오를 때마다 화살은 언제나 유통 단계를 향한다. 틀린 말은 아니다. 중간 마진이 가격을 높이는 건 사실이다. 그런데 유통 구조를 완전히 걷어낸다 해도, 우리에겐 구조적으로 넘을 수 없는 벽이 있다.</p>
+    <p><strong>유통은 핑계가 아니라 면피다. 진짜 문제는 그 뒤에 있다.</strong></p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">체급이 다른 경기</h2>
+    </div>
+
+    <div class="area-box">
+      <div class="area-item">
+        <div class="area-label">한국<br>국토 면적</div>
+        <div class="area-val base">1x</div>
+        <div class="area-sub">10만 km². 국토의 70%가 산지.</div>
+      </div>
+      <div class="area-item">
+        <div class="area-label">프랑스<br>국토 면적</div>
+        <div class="area-val mid">5.5x</div>
+        <div class="area-sub">55만 km². 대부분 비옥한 평야. 유럽 최대 농업 기지.</div>
+      </div>
+      <div class="area-item">
+        <div class="area-label">EU 전체<br>면적</div>
+        <div class="area-val big">42x</div>
+        <div class="area-sub">423만 km². 국경 없는 단일 농장처럼 작동한다.</div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>단순히 크기의 문제가 아니다. 한국 농민이 산비탈을 깎아 만든 다랑논에서 고군분투하는 동안, 프랑스 농민은 트랙터 한 대가 며칠을 달려야 끝이 보이는 평야에서 기업형 농업을 펼친다. 체급이 다른 선수의 경기를 보며 왜 펀치가 약하냐고 묻는 격이다.</p>
+      <p>EU는 국경 없는 단일 시장 안에서 거대 단일 농장처럼 작동한다. 프랑스의 곡물, 네덜란드의 채소, 스페인의 과일이 한 나라 안에서 움직이듯 결합한다. 42배의 영토에서 나오는 규모의 경제는 생산 단가를 극한으로 낮춘다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">CAP — 보이지 않는 손이 가격을 짓누른다</h2>
+    </div>
+    <div class="article-body">
+      <p>유럽의 저렴한 식탁 뒤에는 CAP가 있다. EU 공동농업정책. 국가가 세금으로 농민의 적자를 메워주며 소비자 가격을 인위적으로 낮게 유지하는 구조다. 유럽과 미국의 싼 식료품 값은 한국에 비해 10~20배나 넘는 보조금 덕분이다.</p>
+    </div>
+
+    <div class="pq">
+      <p>우리가 부러워하는 유럽의 저렴한 식탁은 농민의 효율성 덕분만이 아니다. 국가 시스템이 가격을 짓눌러 놓은 결과물이다.</p>
+    </div>
+
+    <div class="article-body">
+      <p>그러니까 유통 구조를 아무리 혁신해도 이 벽은 안 무너진다. 하드웨어가 다르다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">한국의 식량 현실</h2>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-item">
+        <div class="stat-label">식량자급률 (2022)</div>
+        <div class="stat-val danger">32%</div>
+        <div class="stat-sub">쌀을 빼면 사실상 수입 의존. 정부 목표는 2027년까지 55.5%.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">곡물자급률</div>
+        <div class="stat-val warn">23%</div>
+        <div class="stat-sub">사료용 곡물 포함 수치. 쌀 제외 시 사실상 자급 불가.</div>
+      </div>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">일본의 경고</div>
+      <p class="fact-text">쌀 감산을 추진하던 일본은 2024년 레이와의 쌀 소동으로 쌀 품귀현상과 가격 폭등에 시달렸다. 비축미를 대거 방출하고도 가격이 안정되지 않아 <strong>한국산 쌀을 700% 관세를 내고 수입</strong>했다. 한국도 2025년부터 유사한 상황이 나타나고 있다. 이웃 나라의 이야기가 아니다.</p>
+    </div>
+  </div>
+
+  <div class="prescription">
+    <div class="prescription-label">처방 · Prescription</div>
+    <p class="prescription-body">유통을 고치는 건 소프트웨어 패치다. 패치로는 하드웨어 한계를 못 넘는다. 필요한 건 시스템 재설계다.</p>
+    <p class="prescription-body">농지 집적과 기업형 경영으로 생산 효율을 끌어올리고, 그 위에 국가가 보조금으로 가격을 방어하는 구조. 유럽이 이미 증명한 모델이다. 농업 보조금은 농민에게 주는 복지가 아니라 국민 전체의 식량 주권을 사는 보험료다. 네덜란드는 작은 국토를 스마트팜 기술로 극복해 세계 2위 농업 수출국이 됐다. 땅이 좁다는 건 핑계가 될 수 없다는 증거이기도 하다.</p>
+    <p class="prescription-body">한국은 반도체로 세계를 먹여 살린다. 그런데 반도체는 먹을 수 없다. 식량 안보가 흔들리는 순간, 아무리 강한 수출 경쟁력도 협상 테이블에서 무기가 되지 못한다.</p>
+    <p class="prescription-close"><strong>유통 탓만 하는 동안, 그 테이블은 조용히 기울고 있다.</strong></p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Culture · 경제칼럼 · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+if (!isTouchDevice) {
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+} else {
+  document.getElementById('cursor').style.display='none';
+  document.getElementById('cursorRing').style.display='none';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.area-box,.stat-box,.fact-box,.prescription').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>

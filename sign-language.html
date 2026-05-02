@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>약속된 기호인가, 흐르는 생명인가 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="수어가 나라마다 다른 건 설계의 실패가 아니다. 설계된 적이 없기 때문이다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="약속된 기호인가, 흐르는 생명인가 · F3YNM4N">
+<meta property="og:description" content="수어가 나라마다 다른 건 설계의 실패가 아니다. 설계된 적이 없기 때문이다.">
+<meta property="og:url" content="https://f3ynm4n.com/sign-language.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="약속된 기호인가, 흐르는 생명인가 · F3YNM4N">
+<meta name="twitter:description" content="수어가 나라마다 다른 건 설계의 실패가 아니다. 설계된 적이 없기 때문이다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#65a30d;--accent2:#84cc16;--accent3:rgba(101,163,13,.12);
+  --border:rgba(101,163,13,0.18);--border2:rgba(101,163,13,0.28);
+  --border-neutral:rgba(26,24,20,0.1);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(101,163,13,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#090c07;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 35% 65%, rgba(101,163,13,.18) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 20%, rgba(132,204,22,.06) 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 30%, rgba(200,150,62,.04) 0%, transparent 40%),
+    linear-gradient(170deg,#090c07 0%,#0b0f09 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(101,163,13,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101,163,13,.03) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse at 35% 65%, black 0%, transparent 62%);
+}
+
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.hline{position:absolute;left:0;right:0;height:1px;}
+.hline:nth-child(1){top:38%;background:linear-gradient(90deg,transparent,rgba(101,163,13,.07) 35%,rgba(101,163,13,.07) 65%,transparent);}
+.hline:nth-child(2){top:62%;background:linear-gradient(90deg,transparent,rgba(101,163,13,.04) 25%,rgba(101,163,13,.04) 75%,transparent);}
+.hline:nth-child(3){top:78%;background:linear-gradient(90deg,transparent,rgba(200,150,62,.04) 40%,rgba(200,150,62,.04) 60%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(101,163,13,.8);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(101,163,13,.7);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#1a2410;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(26px,4vw,56px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#eef3e8;margin-bottom:16px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(101,163,13,.8);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(13px,1.6vw,18px);font-weight:400;color:rgba(101,163,13,.5);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .6s;line-height:1.7;}
+.hero-sub{font-size:15px;font-weight:300;color:#2a3820;line-height:1.95;max-width:560px;border-left:2px solid rgba(101,163,13,.4);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .7s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#1a2410;text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,rgba(101,163,13,.5),transparent);}
+
+/* BODY */
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+/* 연도 타임라인 박스 */
+.year-box{margin:32px 0;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border-neutral);}
+.year-item{background:var(--bg2);padding:24px;}
+.year-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;}
+.year-val{font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:8px;}
+.year-sub{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.7;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.12;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--text);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(101,163,13,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(101,163,13,.3);}
+
+.conclusion{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.conclusion-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.conclusion-close strong{font-style:normal;color:var(--accent);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:24px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .year-box{grid-template-columns:1fr;}
+  .conclusion{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-lines,.hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-lines">
+    <div class="hline"></div><div class="hline"></div><div class="hline"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-tag">History · 인류학</div>
+    <div class="hero-eyebrow">Sign Language · Civilization · Protocol</div>
+    <h1 class="hero-title">
+      약속된 기호인가,<br><em>흐르는 생명인가</em>
+    </h1>
+    <p class="hero-subtitle">수어에서 발견한 문명의 프로토콜</p>
+    <p class="hero-sub">
+      수어가 나라마다 다른 건 설계의 실패가 아니다.<br>
+      설계된 적이 없기 때문이다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(101,163,13,.15);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>수어는 전 세계 공통 표준이 없다. 처음엔 이게 아쉬웠다. 손짓 하나로 막힘없이 통한다면 인류의 소통은 비약적으로 도약했을 것이다. 그런데 파고들수록 아쉬움이 경이로움으로 바뀌었다. 수어가 나라마다 다른 건 설계의 실패가 아니다. <strong>설계된 적이 없기 때문이다.</strong></p>
+    <p>수어는 누군가 책상에 앉아 만든 국제 표준 규격이 아니다. 어떻게든 연결되려 했던 인류의 생존 본능이 저절로 굳어진 것이다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">운동장에서 언어가 태어났다</h2>
+    </div>
+    <div class="article-body">
+      <p>우리는 언어를 소리의 그릇으로 오해한다. 수어는 그 고정관념을 정면으로 깨부순다. 음성 언어가 닿지 않는 곳에서 농인들은 스스로 문법을 창조하고 체계를 세웠다.</p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">니카라과 수어의 탄생</div>
+      <p class="fact-text"><strong>1980년대 초</strong>, 산디니스타 정부가 처음으로 농인 학교를 설립했다. 각자의 집에서 써온 조잡한 몸짓을 들고 모인 아이들은, 교사들이 음성 언어를 가르치는 동안 운동장에서 다른 일을 벌였다. 몸짓을 섞고 다듬으며 불과 몇 년 만에 완전한 문법 체계를 가진 언어를 만들어냈다. <strong>1986년</strong> 언어학자 주디 킬리마가 이를 연구하기 시작했을 때, 그것은 이미 독립적인 언어였다. 누가 설계하지 않았다. 그냥 생겨났다.</p>
+    </div>
+
+    <div class="article-body">
+      <p>이 사건이 증명한 건 하나다. 인간의 뇌 안에는 소통의 설계도가 이미 내장되어 있다. 언어는 배우는 것이 아니라 조건이 갖춰지면 터져 나오는 것이다. 수어가 나라마다 다른 이유가 여기 있다. 그 땅의 햇살과 관습을 먹고 자란 살아있는 유기체이기 때문이다.</p>
+    </div>
+
+    <div class="pq">
+      <p>언어는 배우는 것이 아니라 조건이 갖춰지면 터져 나오는 것이다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">소통이 문명을 낳았다</h2>
+    </div>
+    <div class="article-body">
+      <p>이 소통의 본능은 인류를 다른 동물들과 완전히 갈라놓았다. 사피엔스의 승리는 머리 용량이라는 하드웨어가 아니라, 이론 커뮤니케이션이라는 소프트웨어의 혁신에서 왔다. 한 세대의 시행착오가 언어라는 기록 장치를 통해 다음 세대의 상식이 되는 지식의 복리 효과. 그것은 오직 인간만이 누리는 특권이었다.</p>
+      <p>문명은 도구보다 언어적 설계로 먼저 지어졌다. 그 증거가 있다.</p>
+    </div>
+
+    <div class="year-box">
+      <div class="year-item">
+        <div class="year-label">괴베클리 테페 건설</div>
+        <div class="year-val">BC 9600</div>
+        <div class="year-sub">공동의 믿음을 나누기 위해 모인 수렵채집인들이 거대한 돌기둥을 세웠다.</div>
+      </div>
+      <div class="year-item">
+        <div class="year-label">농경 시작</div>
+        <div class="year-val">BC 8500</div>
+        <div class="year-sub">괴베클리 테페보다 <strong>1000년 이후</strong>. 소통이 먼저였고, 농경이 따라왔다.</div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>인류는 배고픔을 해결하기 위해 농사를 짓고 모인 것이 아니라, 공동의 믿음을 나누고 소통하기 위해 먼저 모였다. 거대한 돌기둥을 세우는 정교한 손기술은, "저 돌을 저기에 세우자"라는 추상적인 약속을 가능케 한 언어적 설계가 있었기에 빛을 발할 수 있었다.</p>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">마치며 · Closing</div>
+    <p class="conclusion-body">수어가 전 세계 공통이 아니라는 사실은 소통의 실패가 아니다. 어떤 환경에서도, 어떤 방식으로든 서로를 이해하려 했던 인류의 지독한 연결 의지가 만들어낸 다채로운 꽃밭에 가깝다.</p>
+    <p class="conclusion-close">인류는 손으로 벽돌을 쌓기 전에 언제나 <strong>말로 먼저 신전을 지어 올렸다.</strong> 우리가 나누는 모든 대화는, 그 거대한 문명의 신전을 지탱하는 가장 작고도 위대한 주춧돌이다.</p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">History · 인류학 · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+if (!isTouchDevice) {
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+} else {
+  document.getElementById('cursor').style.display='none';
+  document.getElementById('cursorRing').style.display='none';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.year-box,.fact-box,.conclusion').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>부러움은 죄가 아니다 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="부러운 건 부끄러운 일이 아니다. 문제는 그 다음이다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="부러움은 죄가 아니다 · F3YNM4N">
+<meta property="og:description" content="부러운 건 부끄러운 일이 아니다. 문제는 그 다음이다.">
+<meta property="og:url" content="https://f3ynm4n.com/envy.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="부러움은 죄가 아니다 · F3YNM4N">
+<meta name="twitter:description" content="부러운 건 부끄러운 일이 아니다. 문제는 그 다음이다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#be123c;--accent2:#e11d48;--accent3:rgba(190,18,60,.12);
+  --border:rgba(190,18,60,0.18);--border2:rgba(190,18,60,0.28);
+  --border-neutral:rgba(26,24,20,0.1);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(190,18,60,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0f0608;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 40% 60%, rgba(190,18,60,.2) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 25%, rgba(225,29,72,.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 80%, rgba(200,150,62,.04) 0%, transparent 40%),
+    linear-gradient(170deg,#0f0608 0%,#120709 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(190,18,60,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(190,18,60,.04) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse at 40% 60%, black 0%, transparent 62%);
+}
+
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.hline{position:absolute;left:0;right:0;height:1px;}
+.hline:nth-child(1){top:38%;background:linear-gradient(90deg,transparent,rgba(190,18,60,.08) 30%,rgba(190,18,60,.08) 70%,transparent);}
+.hline:nth-child(2){top:60%;background:linear-gradient(90deg,transparent,rgba(190,18,60,.05) 25%,rgba(190,18,60,.05) 75%,transparent);}
+.hline:nth-child(3){top:78%;background:linear-gradient(90deg,transparent,rgba(200,150,62,.04) 40%,rgba(200,150,62,.04) 60%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(190,18,60,.8);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(190,18,60,.7);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#2a0810;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.5vw,60px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:16px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(225,29,72,.8);}
+.hero-subtitle{font-family:'Noto Serif KR',serif;font-size:clamp(14px,1.8vw,19px);font-weight:300;color:rgba(190,18,60,.6);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .6s;line-height:1.7;}
+.hero-sub{font-size:15px;font-weight:300;color:#3a1018;line-height:1.95;max-width:560px;border-left:2px solid rgba(190,18,60,.4);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .7s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#2a0810;text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,rgba(190,18,60,.5),transparent);}
+
+/* BODY */
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.12;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+/* 각주 */
+.footnote{margin:24px 0;padding:20px 24px;background:var(--bg3);border-left:2px solid rgba(190,18,60,.3);font-family:'Noto Serif KR',serif;font-size:14px;color:var(--text-muted);line-height:1.9;}
+.footnote::before{content:'*';color:var(--accent);font-weight:700;margin-right:6px;}
+
+.sec-rule{border:none;border-top:1px solid rgba(190,18,60,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(190,18,60,.3);}
+
+.conclusion{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.conclusion-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.conclusion-close strong{font-style:normal;color:var(--accent);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:26px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .conclusion{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-lines,.hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-lines">
+    <div class="hline"></div><div class="hline"></div><div class="hline"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-tag">Culture · Opinion</div>
+    <div class="hero-eyebrow">Envy · Inferiority · Bonus · Psychology</div>
+    <h1 class="hero-title">
+      부러움은<br><em>죄가 아니다</em>
+    </h1>
+    <p class="hero-subtitle">보너스 잔치와 자격지심의 경계선</p>
+    <p class="hero-sub">
+      부러운 건 부끄러운 일이 아니다.<br>
+      문제는 그 다음이다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(190,18,60,.15);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>삼성전자와 SK하이닉스의 성과급 발표를 보며 많은 이들이 허탈함을 느꼈다. 몇억 단위의 보너스 소식에 "나는 지금껏 뭐 했나" 싶은 마음이 드는 건 인간으로서 지극히 자연스러운 반응이다.</p>
+    <p>결론부터 말한다. 남이 잘되는 게 부러운 것은 부끄러운 일이 아니다. <strong>문제는 그 다음이다.</strong></p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">부러움이 추함으로 변하는 순간</h2>
+    </div>
+    <div class="article-body">
+      <p>나도 부럽다. 누구나 부럽다. 그런데 이 건강한 부러움이 추함으로 변질되는 지점이 있다. 그들의 성취를 운이나 불공정으로 치부하며 깎아내리기 시작할 때다.</p>
+      <p>"지가 잘해서 받은 거냐, 그냥 AI 시대를 잘 만난 거지." "공부도 안 했는데 저렇게 많이 받는 건 너무한 거 아냐."</p>
+      <p>이런 생각이 스치는 순간, 부러움은 자격지심이 된다. 그들이 그 자리에 가기 위해 보낸 시간과 시대적 운을 분리해서 비난하는 건, 자신의 초라함을 감추기 위한 방어기제일 뿐이다.</p>
+    </div>
+
+    <div class="pq">
+      <p>부러움은 나를 향한 에너지다. 자격지심은 상대를 향한 독이다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">학벌이라는 단일 잣대</h2>
+    </div>
+    <div class="article-body">
+      <p>우리는 흔히 공부라는 단일 잣대로 세상의 보상을 재단하려 한다. 내가 더 많이 공부했으니 더 많이 받아야 한다는 논리. 그런데 이 논리가 작동하지 않을 때 두 가지 반응이 나온다. 조용히 자신의 전략을 수정하거나, 상대의 보상을 깎아내리거나.</p>
+      <p>후자가 자격지심이다. 그리고 이건 학벌이 높을수록 더 정교하게 포장된다. 지적인 언어로 세상을 훈수 두는 방식으로. 비판처럼 보이지만 속을 들여다보면 "나는 이만큼 했는데 왜 저만큼 못 받느냐"는 서열적 불쾌감이 깔려 있다.*</p>
+      <p>세상은 공부라는 단일 트랙으로 보상하지 않는다. 그걸 받아들이지 못할 때 분노는 엉뚱한 곳을 향한다.</p>
+    </div>
+
+    <div class="footnote">최근 일부 공인들의 발언에서 이 패턴이 반복적으로 목격된다. 특정인을 지목할 생각은 없다. 독자가 이미 알고 있을 테니.</div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">운도 실력이고, 시대도 실력이다</h2>
+    </div>
+    <div class="article-body">
+      <p>하이닉스 직원이 잘나서 받은 것이냐고 묻는다면, 절반은 맞고 절반은 틀리다. 그들은 AI라는 거대한 파도가 올 때 그 배에 올라타 있었다. 그것이 운이라 할지라도, 파도를 견뎌내고 노를 저은 것은 그들 자신이다.</p>
+      <p>우리가 화가 나는 진짜 이유는 그들이 많이 받아서가 아닐지 모른다. 과거의 나보다 공부를 안 했던 것 같은 저들이 나보다 더 큰 보상을 받는 것에 대한 서열적 불쾌감. 그게 본질이다.</p>
+      <p>시대는 이미 바뀌었다. 시대를 잘 읽고 흐름에 몸을 실은 이들이 승리하는 구조가 됐다. 그 구조를 탓하기 전에, 내가 탄 배의 노를 어디로 저을지 먼저 고민하는 게 순서다.</p>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">마치며 · Closing</div>
+    <p class="conclusion-body">누군가의 대박 소식에 배가 아픈가. 그냥 부러워하자. "와, 진짜 좋겠다. 나도 저런 파도 한번 타고 싶다"라고 말하는 것이 훨씬 당당하다.</p>
+    <p class="conclusion-body">타인의 노력을 폄하하고 보상의 정당성을 따지는 순간, 우리는 지적인 자격지심에 갇힌 노예가 된다.</p>
+    <p class="conclusion-close">남의 잔치를 구경하며 침을 뱉기보다는, 내가 탄 배의 노를 어디로 저을지 고민하는 것. <strong>그게 사람다운 삶의 태도다.</strong></p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Culture · Opinion · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+if (!isTouchDevice) {
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+} else {
+  document.getElementById('cursor').style.display='none';
+  document.getElementById('cursorRing').style.display='none';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.footnote,.conclusion').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>
