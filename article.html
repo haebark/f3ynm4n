@@ -564,6 +564,13 @@ async function init() {
   // 헤더 채우기
   document.getElementById('article-tag').textContent = article.tag || CAT_NAMES[article.category] || '';
   document.getElementById('article-title').textContent = article.title;
+
+  // 제목 길이에 따라 폰트 크기 자동 조정
+  const titleEl = document.getElementById('article-title');
+  const len = article.title.length;
+  if (len > 20) titleEl.style.fontSize = 'clamp(24px, 3.5vw, 44px)';
+  else if (len > 14) titleEl.style.fontSize = 'clamp(28px, 4vw, 52px)';
+  else titleEl.style.fontSize = 'clamp(32px, 5vw, 64px)';
   document.getElementById('article-subtitle').textContent = article.subtitle || '';
 
   const wordCount = (article.content || '').replace(/<[^>]*>/g, '').length;
