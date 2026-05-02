@@ -1329,7 +1329,8 @@ function renderFiction(articles) {
     el.innerHTML = '<div class="fiction-empty">창작물이 없습니다.</div>';
     return;
   }
-  const html = articles.map((a, i) => {
+  const display = articles.slice(0, 3);
+  const html = display.map((a, i) => {
     const date = new Date(a.created_at).toLocaleDateString('ko-KR', { year:'numeric', month:'2-digit', day:'2-digit' });
     return `
     <a href="${articleHref(a)}" class="fiction-item">
@@ -1345,7 +1346,12 @@ function renderFiction(articles) {
       </div>
     </a>`;
   }).join('');
-  el.innerHTML = html;
+
+  const moreLink = articles.length > 3
+    ? `<a href="article.html?cat=fiction" style="display:block;text-align:right;margin-top:20px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold-dim);text-decoration:none;text-transform:uppercase;">전체 보기 (${articles.length}) →</a>`
+    : '';
+
+  el.innerHTML = html + moreLink;
 }
 
 async function renderFeatured(articles) {
