@@ -691,6 +691,83 @@ footer {
   writing-mode: horizontal-tb;
 }
 
+/* ── FICTION SECTION ── */
+.fiction-section {
+  padding: 80px 48px;
+  border-top: 1px solid var(--border);
+}
+.fiction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.fiction-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+}
+.fiction-item:first-child { border-top: 1px solid var(--border); }
+.fiction-item:hover { background: rgba(200,150,62,0.03); }
+.fiction-item-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--gold-dim);
+  text-align: right;
+}
+.fiction-item-body {}
+.fiction-item-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.fiction-item-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--off-white);
+  margin-bottom: 6px;
+  transition: color .2s;
+}
+.fiction-item:hover .fiction-item-title { color: var(--gold); }
+.fiction-item-sub {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--mid);
+}
+.fiction-item-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--mid);
+  text-align: right;
+  white-space: nowrap;
+}
+.fiction-item-meta .arrow {
+  display: block;
+  color: var(--gold);
+  margin-top: 6px;
+  letter-spacing: 2px;
+}
+.fiction-empty {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--mid);
+  padding: 40px 0;
+  text-align: center;
+}
+
 /* ═══════════════════════════════════════
    MOBILE RESPONSIVE — 768px 이하
 ═══════════════════════════════════════ */
@@ -821,6 +898,15 @@ footer {
   }
   .manifesto-quote { font-size: 20px; }
 
+  /* ── Fiction ── */
+  .fiction-section { padding: 48px 20px; }
+  .fiction-item {
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+  }
+  .fiction-item-meta { display: none; }
+  .fiction-item-title { font-size: 16px; }
+
   /* ── Footer ── */
   footer {
     padding: 24px 20px;
@@ -874,6 +960,7 @@ footer {
     <a href="#featured">피처드</a>
     <a href="#recent">최근 글</a>
     <a href="#categories">카테고리</a>
+    <a href="#fiction">창작</a>
     <a href="#manifesto">소개</a>
   </nav>
 </header>
@@ -929,6 +1016,12 @@ footer {
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;" id="recent-grid"><!-- JS --></div>
   <!-- 페이지네이션 -->
   <div id="pagination" style="display:flex;align-items:center;justify-content:center;gap:24px;margin-top:48px;"></div>
+</section>
+
+<!-- FICTION -->
+<section class="fiction-section" id="fiction">
+  <div class="section-label">창작 · Fiction</div>
+  <div class="fiction-list" id="fiction-list"><!-- JS --></div>
 </section>
 
 <!-- MANIFESTO -->
@@ -1052,6 +1145,7 @@ function renderCoverlines(articles) {
 
 // 페이지네이션 상태
 let allArticles = [];
+let fictionArticles = [];
 let currentPage = 1;
 let activeTag = null;
 const PAGE_SIZE = 6;
@@ -1229,6 +1323,31 @@ function renderCategories(articles) {
   document.getElementById('cat-grid').innerHTML = html;
 }
 
+function renderFiction(articles) {
+  const el = document.getElementById('fiction-list');
+  if (!articles || articles.length === 0) {
+    el.innerHTML = '<div class="fiction-empty">창작물이 없습니다.</div>';
+    return;
+  }
+  const html = articles.map((a, i) => {
+    const date = new Date(a.created_at).toLocaleDateString('ko-KR', { year:'numeric', month:'2-digit', day:'2-digit' });
+    return `
+    <a href="${articleHref(a)}" class="fiction-item">
+      <div class="fiction-item-num">${String(i + 1).padStart(2, '0')}</div>
+      <div class="fiction-item-body">
+        <div class="fiction-item-tag">${a.tag || 'fiction'}</div>
+        <div class="fiction-item-title">${a.title.replace(/\\n/g,'<br>').replace(/\n/g,'<br>')}</div>
+        ${a.subtitle ? `<div class="fiction-item-sub">${a.subtitle}</div>` : ''}
+      </div>
+      <div class="fiction-item-meta">
+        ${date}
+        <span class="arrow">읽기 →</span>
+      </div>
+    </a>`;
+  }).join('');
+  el.innerHTML = html;
+}
+
 async function renderFeatured(articles) {
   const sidePicks = articles.filter(a => a.cover_col).slice(0, 2);
   const sideHtml = sidePicks.map(a => `
@@ -1320,8 +1439,39 @@ function renderMobileCoverlines(articles) {
   document.getElementById('cover-mobile-lines').innerHTML = html;
 }
 
+// ── 캐시 설정 ──
+const CACHE_KEY = 'f3_articles_v1';
+const CACHE_TTL = 5 * 60 * 1000; // 5분
+
+function renderAll(articles) {
+  fictionArticles = articles.filter(a => a.category === 'fiction');
+  allArticles = articles.filter(a => a.category !== 'fiction');
+
+  renderCoverlines(allArticles);
+  renderTagFilter();
+  renderRecent(allArticles, currentPage);
+  initSwipe();
+  renderCategories(articles);
+  renderFiction(fictionArticles);
+  renderFeatured(articles);
+  renderCoverGenres();
+  renderMobileCoverlines(articles);
+}
+
 // ── 메인 로드 ──
 async function loadAndRender() {
+  // sessionStorage 캐시 확인
+  try {
+    const cached = sessionStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { data, ts } = JSON.parse(cached);
+      if (Date.now() - ts < CACHE_TTL) {
+        renderAll(data);
+        return;
+      }
+    }
+  } catch (_) {}
+
   try {
     const res = await fetch(
       `${SUPABASE_URL}/rest/v1/articles?select=id,title,subtitle,slug,category,tag,href,cover_col,cover_title,is_featured,is_popular,is_series,series_name,series_order,created_at,published&published=eq.true&order=created_at.desc`,
@@ -1329,26 +1479,25 @@ async function loadAndRender() {
     );
     const articles = await res.json();
 
-    renderCoverlines(articles);
-    allArticles = articles;
-    renderTagFilter();
-    renderRecent(allArticles, currentPage);
-    initSwipe();
-    renderCategories(articles);
-    await renderFeatured(articles);
-    renderCoverGenres();
-    renderMobileCoverlines(articles);
+    // 캐시 저장
+    try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data: articles, ts: Date.now() })); } catch (_) {}
+
+    renderAll(articles);
   } catch (e) {
     console.error('Supabase 로드 실패:', e);
-    // 실패해도 카테고리/featured는 표시
     renderCategories([]);
     renderFeatured([]);
+    renderFiction([]);
     renderCoverGenres();
     document.getElementById('recent-grid').innerHTML = '<p style="color:var(--mid);padding:32px;">글을 불러오는 중 오류가 발생했습니다.</p>';
   }
 }
 
-loadAndRender();
+// bfcache 복원 시 재fetch 스킵, 아니면 캐시 우선 로드
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) return; // bfcache에서 즉시 복원 — 아무것도 안 해도 됨
+  loadAndRender();
+});
 
 // ─── 커스텀 커서 ───
 const cursor = document.getElementById("cursor");
