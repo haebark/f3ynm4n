@@ -1109,7 +1109,6 @@ const CATEGORIES = [
 
 // 글 slug → href 변환 (slug가 있으면 article.html?slug=xxx 방식)
 function articleHref(a) {
-  if (a.href) return a.href; // href 방식 → 직접 HTML 파일로 (article.html 거치지 않음)
   return a.slug ? `article.html?slug=${a.slug}` : '#';
 }
 

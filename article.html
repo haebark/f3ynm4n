@@ -542,8 +542,9 @@ async function init() {
   const article = await fetchArticle(slug);
   if (!article) { showNotFound(); return; }
 
-  // href가 있으면 해당 HTML 파일로 바로 이동
+  // href가 있으면 해당 HTML 파일로 바로 이동 (히스토리에서 article.html 제거)
   if (article.href) {
+    history.replaceState(null, '', article.href);
     location.href = article.href;
     return;
   }
