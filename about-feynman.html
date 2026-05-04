@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="비 오는 날의 놀이공원. 이것은 곧 미화된다.">
+<meta name="description" content="직관을 먼저 던지고 구조로 증명한다. 그게 파인만의 방식이고, 이 매거진의 방식이다.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="F3YNM4N">
-<meta property="og:title" content="비 오는 날의 놀이공원 · F3YNM4N">
-<meta property="og:description" content="이것은 곧 미화된다.">
-<meta property="og:url" content="https://f3ynm4n.com/rainy-park.html">
+<meta property="og:title" content="F3YNM4N, 시작하며 · F3YNM4N">
+<meta property="og:description" content="혹은 파인만이라는 이름에 대하여">
+<meta property="og:url" content="https://f3ynm4n.com/about-feynman.html">
 <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
 <meta name="twitter:card" content="summary_large_image">
-<title>비 오는 날의 놀이공원 · F3YNM4N</title>
+<title>F3YNM4N, 시작하며 · F3YNM4N</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
@@ -19,217 +19,71 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --bg:#0d0d0b;
-  --accent:#5b9bc2;
-  --accent-dim:rgba(91,155,194,0.15);
-  --accent-line:rgba(91,155,194,0.3);
+  --accent:#c8963e;
+  --accent-line:rgba(200,150,62,0.25);
   --text:#f2ede6;
-  --text-mid:#9a9490;
-  --text-muted:#5a5450;
+  --text-mid:#b8b4ae;
+  --text-muted:#6a6460;
   --gold:#c8963e;
-  --border:rgba(91,155,194,0.15);
+  --border:rgba(200,150,62,0.15);
 }
 html{scroll-behavior:smooth;}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Noto Serif KR',serif;
-  min-height:100vh;
-  overflow-x:hidden;
-  cursor:none;
-}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif KR',serif;min-height:100vh;overflow-x:hidden;cursor:none;}
 .cursor{position:fixed;width:5px;height:5px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
-.cursor-ring{position:fixed;width:28px;height:28px;border:1px solid rgba(91,155,194,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .2s;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:28px;height:28px;border:1px solid rgba(200,150,62,.3);border-radius:50%;pointer-events:none;z-index:9998;transition:all .2s;transform:translate(-50%,-50%);}
 
-/* HEADER */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  padding:16px 48px;
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid rgba(91,155,194,.12);
-  background:rgba(13,13,11,.92);
-  backdrop-filter:blur(12px);
-}
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.1);background:rgba(13,13,11,.92);backdrop-filter:blur(12px);}
 .logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
 .logo span{color:var(--text-muted);opacity:.5;}
 .header-home{font-size:10px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
 .header-home:hover{color:var(--accent);}
 
-/* HERO AREA */
-.hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;justify-content:center;
-  padding:120px 48px 80px;
-  position:relative;
-  overflow:hidden;
-}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;overflow:hidden;background:#0d0d0b;}
 .hero::before{
   content:'';position:absolute;inset:0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(91,155,194,.07) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 20%, rgba(91,155,194,.04) 0%, transparent 45%);
+    radial-gradient(ellipse at 30% 60%, rgba(200,150,62,.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 25%, rgba(200,150,62,.04) 0%, transparent 45%);
 }
-/* 비 애니메이션 */
-.rain{
-  position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.18;
-}
-.rain-drop{
-  position:absolute;top:-20px;width:1px;background:linear-gradient(to bottom,transparent,var(--accent));
-  animation:fall linear infinite;
-}
-@keyframes fall{
-  to{transform:translateY(110vh);}
-}
-
 .hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;width:100%;}
-
-.meta-row{
-  display:flex;align-items:center;gap:16px;
-  margin-bottom:64px;
-  opacity:0;animation:fadeUp .8s ease forwards .1s;
-}
-.meta-tag{
-  font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;
-  color:var(--accent);text-transform:uppercase;
-  display:flex;align-items:center;gap:8px;
-}
+.meta-row{display:flex;align-items:center;gap:16px;margin-bottom:64px;opacity:0;animation:fadeUp .8s ease forwards .1s;}
+.meta-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:8px;}
 .meta-tag::before{content:'';width:16px;height:1px;background:var(--accent);}
 .meta-date{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);}
+.hero-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(38px,6vw,88px);font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:var(--text);margin-bottom:16px;opacity:0;animation:fadeUp .9s ease forwards .3s;}
+.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,1.8vw,20px);color:var(--accent);letter-spacing:0.02em;margin-bottom:80px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
 
-.hero-label{
-  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
-  color:var(--text-muted);text-transform:uppercase;
-  margin-bottom:24px;
-  opacity:0;animation:fadeUp .8s ease forwards .2s;
-}
-
-.hero-title{
-  font-family:'Noto Serif KR',serif;
-  font-size:clamp(42px,7vw,96px);
-  font-weight:700;
-  line-height:1.15;
-  letter-spacing:-0.03em;
-  color:var(--text);
-  margin-bottom:16px;
-  opacity:0;animation:fadeUp .9s ease forwards .3s;
-}
-
-.hero-sub{
-  font-family:'Playfair Display',serif;
-  font-style:italic;
-  font-size:clamp(16px,2vw,22px);
-  color:var(--accent);
-  letter-spacing:0.02em;
-  margin-bottom:80px;
-  opacity:0;animation:fadeUp .8s ease forwards .5s;
-}
-
-/* FLOW SECTIONS */
-.flow{max-width:680px;margin:0 auto;padding:0 48px 160px;}
-
-.block{
-  margin-bottom:100px;
-  opacity:0;transform:translateY(30px);
-  transition:opacity .9s ease,transform .9s ease;
-}
+.flow-wrap{background:var(--bg);}
+.flow{max-width:680px;margin:0 auto;padding:48px 48px 160px;}
+.block{margin-bottom:100px;opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease;}
 .block.visible{opacity:1;transform:translateY(0);}
 
-/* 경험 블록 — 작은 텍스트, 여백 넉넉 */
-.block-exp{
-  font-size:16px;font-weight:300;line-height:2.2;
-  color:var(--text-mid);
-  border-left:1px solid var(--accent-line);
-  padding-left:24px;
-}
+.block-exp{font-size:16px;font-weight:300;line-height:2.2;color:var(--text-mid);border-left:1px solid var(--accent-line);padding-left:24px;}
 .block-exp em{font-style:italic;color:var(--text);font-weight:400;}
 
-/* 핵심 문장 — 크게 */
-.block-punch{
-  font-size:clamp(28px,4vw,52px);
-  font-weight:700;
-  line-height:1.3;
-  letter-spacing:-0.02em;
-  color:var(--text);
-}
+.block-punch{font-size:clamp(26px,4vw,52px);font-weight:700;line-height:1.3;letter-spacing:-0.02em;color:var(--text);}
 .block-punch .hl{color:var(--accent);}
 
-/* 논지 블록 */
-.block-logic{
-  font-size:17px;font-weight:400;line-height:2.1;
-  color:var(--text-mid);
-}
+.block-logic{font-size:17px;font-weight:400;line-height:2.1;color:var(--text-mid);}
 .block-logic strong{color:var(--text);font-weight:600;}
 
-/* 키워드 강조 */
-.block-keyword{
-  font-family:'Space Mono',monospace;
-  font-size:clamp(20px,3vw,36px);
-  font-weight:700;
-  letter-spacing:-0.01em;
-  color:var(--text);
-  display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
-}
-.block-keyword .kw{
-  color:var(--accent);
-  position:relative;
-}
-.block-keyword .kw::after{
-  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;
-  background:var(--accent);opacity:.4;
-}
-.block-keyword .sym{color:var(--text-muted);font-size:.6em;}
+.block-name{font-family:'Space Mono',monospace;font-size:clamp(32px,5vw,72px);font-weight:700;letter-spacing:0.05em;color:var(--text);line-height:1.2;}
+.block-name .hl{color:var(--accent);}
+.block-name .sub{display:block;font-size:clamp(11px,1.2vw,14px);letter-spacing:3px;color:var(--text-muted);margin-top:16px;font-weight:400;}
 
-/* 구분선 */
-.divider{
-  width:40px;height:1px;
-  background:var(--accent-line);
-  margin:0 0 100px 0;
-}
+.divider{width:40px;height:1px;background:var(--accent-line);margin:0 0 100px 0;}
 
-/* 마지막 감성 */
-.ending{
-  padding-top:60px;
-  border-top:1px solid var(--border);
-  text-align:center;
-}
-.ending-main{
-  font-family:'Playfair Display',serif;
-  font-style:italic;
-  font-size:clamp(20px,2.5vw,28px);
-  line-height:1.8;
-  color:var(--text);
-  margin-bottom:32px;
-}
+.ending{padding-top:60px;border-top:1px solid var(--border);text-align:center;}
+.ending-main{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(20px,2.5vw,30px);line-height:1.9;color:var(--text);margin-bottom:32px;}
 .ending-main .hl{color:var(--accent);}
-.ending-sub{
-  font-family:'Space Mono',monospace;
-  font-size:10px;letter-spacing:3px;
-  color:var(--text-muted);text-transform:uppercase;
-}
+.ending-sub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase;}
 
-/* 공유 버튼 */
-.share-row{
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  margin-top:80px;padding-top:40px;
-  border-top:1px solid var(--border);
-}
-.share-btn{
-  font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;
-  color:var(--text-muted);text-transform:uppercase;
-  background:none;border:1px solid var(--border);
-  padding:8px 16px;cursor:pointer;transition:all .2s;
-}
-.share-btn:hover{color:var(--accent);border-color:var(--accent-line);}
-
-footer{
-  border-top:1px solid var(--border);
-  padding:24px 48px;
-  display:flex;align-items:center;justify-content:space-between;
-}
+footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
 .footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
 .footer-meta{font-family:'Space Mono',monospace;font-size:9px;color:var(--text-muted);letter-spacing:1px;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
 @media(hover:none),(pointer:coarse){.cursor,.cursor-ring{display:none;}body{cursor:auto;}}
 @media(max-width:640px){
   header{padding:14px 20px;}
@@ -238,14 +92,12 @@ footer{
   footer{padding:20px;flex-direction:column;gap:8px;}
 }
 </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
-<!-- 비 효과 -->
-<div class="rain" id="rain"></div>
 
 <header>
   <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
@@ -255,104 +107,110 @@ footer{
 <section class="hero">
   <div class="hero-inner">
     <div class="meta-row">
-      <span class="meta-tag">Essay · Culture</span>
+      <span class="meta-tag">Essay · Note</span>
       <span class="meta-date">2026. 05. 03</span>
     </div>
-    <div class="hero-label">Rainy Day · Memory · Reconstruction</div>
-    <h1 class="hero-title">비 오는 날의<br>놀이공원</h1>
-    <p class="hero-sub">이것은 곧 미화된다.</p>
+    <div class="hero-label">Feynman · Magazine · Origin</div>
+    <h1 class="hero-title">F3YNM4N,<br>시작하며</h1>
+    <p class="hero-sub">혹은 파인만이라는 이름에 대하여</p>
   </div>
 </section>
 
+<div class="flow-wrap">
 <div class="flow">
 
-  <!-- 경험 -->
+  <!-- 파인만 -->
   <div class="block block-exp">
-    5월의 놀이공원에 비가 왔다.<br>
-    회사 대관이라는 흔치 않은 기회였는데, 하늘은 무심했다.<br><br>
-    신발 속으로 스며드는 차가운 수분.<br>
-    몸에 감기는 젖은 우비.<br>
-    그 순간만큼은 <em>고생 그 이상도 이하도 아니었다.</em>
+    파인만은 내 창작 캐릭터의 이름이다.<br>
+    리처드 파인만에서 따왔다.<br><br>
+    그 과학자를 깊이 아는 건 아니었다.<br>
+    근데 그의 방식은 <em>마음에 들었다.</em>
   </div>
 
-  <!-- 확신 -->
+  <div class="block block-logic">
+    수식보다 이미지를 먼저 그렸다.<br>
+    답을 먼저 직관하고, 나중에 증명했다.<br>
+    <strong>농담도 잘했다.</strong>
+  </div>
+
   <div class="block block-punch">
-    그런데 집에 돌아와<br>
-    아이들 얼굴을 보고<br>
-    <span class="hl">확신했다.</span>
-  </div>
-
-  <div class="block block-punch" style="font-size:clamp(22px,3vw,40px);color:var(--text-mid);">
-    이 하루는<br>
-    반드시 <span class="hl">미화된다.</span>
+    그리고 그게<br>
+    <span class="hl">이 매거진이<br>글을 쓰는<br>방식이기도 하다.</span>
   </div>
 
   <div class="divider"></div>
 
-  <!-- 과학 논지 -->
+  <!-- 이름 -->
   <div class="block block-logic">
-    인간이 미화하는 건 극한의 고통만이 아니다.<br>
-    젖은 양말, 줄, 추위 — 일상의 <strong>불편함</strong>도 포함된다.<br><br>
-    뇌는 불필요한 노이즈를 제거한다.<br>
-    불쾌한 감각 데이터는 빠르게 휘발시키고,<br>
-    그 자리에 감정이 실린 장면들을 남긴다.<br><br>
-    이건 감상이 아니라 <strong>생존 알고리즘</strong>이다.<br>
-    살아남은 모든 순간을 의미있게 만들려는 본능.
+    그 캐릭터 안에서 왠지 <strong>나의 느낌</strong>이 났다.<br>
+    그래서 필명이 됐다.<br>
+    그래서 이 공간의 이름이 됐다.
   </div>
 
-  <!-- 키워드 -->
-  <div class="block block-keyword">
-    <span>기억은</span>
-    <span class="sym">/</span>
-    <span>저장이 아니라</span>
-    <span class="kw">재구성</span>
-    <span>이다.</span>
-  </div>
-
-  <!-- RAW 파일 논지 -->
-  <div class="block block-logic">
-    오늘의 불편함은 훗날<br>
-    <strong>"비가 억수같이 쏟아지는데 같이 범퍼카 탔던 날"</strong>로 편집된다.<br><br>
-    맑은 날의 평범한 하루는 저용량 파일이다.<br>
-    오늘 같은 날은 <strong>RAW 파일</strong>이다.<br><br>
-    정보량이 많을수록<br>
-    나중에 더 다양한 색으로 보정된다.
-  </div>
-
-  <!-- 결론 펀치 -->
-  <div class="block block-punch">
-    추억이란<br>
-    과거의 기록이 아니다.<br><br>
-    <span class="hl">현재의 내가<br>미래에게 보내는<br>편집본이다.</span>
+  <div class="block block-name">
+    F<span class="hl">3</span>YNM<span class="hl">4</span>N
+    <span class="sub">Leet Speak — 숫자가 알파벳을 대체하는 표기법.<br>해커들이 쓰던 방식. 소설 속 내 캐릭터의 닉.<br>그게 힙해 보였다. ㅋㅋ</span>
   </div>
 
   <div class="divider"></div>
 
-  <!-- 감성 마무리 -->
+  <!-- 매거진 -->
+  <div class="block block-logic">
+    처음엔 블로그로 시작하려 했다.<br>
+    근데 몇 년치 생각을 꺼내놓고 보니<br>
+    <strong>개인 일상이 아니었다.</strong><br><br>
+    석유 가설, 문명 체급, 토크나이저 전략 —<br>
+    이게 블로그 글인가.
+  </div>
+
+  <div class="block block-punch">
+    그냥 크게 부르기로 했다.<br>
+    <span class="hl">매거진으로.</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 후원 -->
+  <div class="block block-logic">
+    웹소설도 써봤고, 이북도 냈다.<br>
+    잡히지 않는 꿈을 마냥 바라보기보다<br>
+    <strong>할 수 있는 방향으로 움직이기로 했다.</strong><br><br>
+    그래서 내가 나를 후원하기로 했다.
+  </div>
+
+  <div class="block block-punch" style="font-size:clamp(18px,2.5vw,36px);line-height:1.7;">
+    낮에는 공장, 밤에는 매거진.<br><br>
+    피렌체의 메디치 가문이<br>예술가들을 후원했듯,<br>
+    <span class="hl">나의 본업이<br>나의 취미를 후원한다.</span>
+  </div>
+
+  <div class="block block-logic">
+    직업이 꿈을 죽이는 게 아니라<br>
+    직업이 꿈을 먹여 살리는 구조.<br>
+    <strong>이게 더 단단하다고 생각한다.</strong>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 마무리 -->
   <div class="block ending">
     <p class="ending-main">
-      오늘 나는<br>
-      질 좋은 원본 소스 하나를 만들었다.<br><br>
-      <span class="hl">오늘 같은 날이 있어서,<br>인생에 여운이 남는다.</span>
+      고작 며칠 됐다.<br>
+      근데 <span class="hl">쌓인 건 몇 년이다.</span><br><br>
+      그걸로 충분하다.
     </p>
-    <p class="ending-sub" style="font-style:italic;font-family:'Playfair Display',serif;font-size:13px;letter-spacing:0;">재구성은 이미 시작됐다.</p>
-  </div>
-
-  <!-- 공유 -->
-  <div class="share-row">
-    <button class="share-btn" onclick="copyUrl()">URL 복사</button>
-    <button class="share-btn" onclick="shareX()">X 공유</button>
+    <p class="ending-sub">F3YNM4N · 2026</p>
   </div>
 
 </div>
+</div>
 
-<footer>
+<footer style="background:var(--cream);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;">
   <a href="index.html" class="footer-logo">F3YNM4N</a>
-  <span class="footer-meta">Essay · 2026</span>
+  <span class="footer-meta">Essay · Note · 2026</span>
 </footer>
 
 <script>
-// 커서
 const isTouchDevice=('ontouchstart' in window)||navigator.maxTouchPoints>0;
 if(!isTouchDevice){
   const cursor=document.getElementById('cursor');
@@ -361,36 +219,10 @@ if(!isTouchDevice){
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
   (function animRing(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
 }
-
-// 비 생성
-const rain=document.getElementById('rain');
-for(let i=0;i<40;i++){
-  const drop=document.createElement('div');
-  drop.className='rain-drop';
-  const left=Math.random()*100;
-  const duration=0.8+Math.random()*1.2;
-  const delay=Math.random()*3;
-  const height=40+Math.random()*60;
-  drop.style.cssText=`left:${left}%;height:${height}px;animation-duration:${duration}s;animation-delay:${delay}s;opacity:${0.3+Math.random()*0.7}`;
-  rain.appendChild(drop);
-}
-
-// 스크롤 애니메이션
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
 },{threshold:0.1});
 document.querySelectorAll('.block').forEach(el=>obs.observe(el));
-
-// 공유
-function copyUrl(){
-  navigator.clipboard.writeText(location.href).then(()=>{
-    const btn=event.target;const orig=btn.textContent;
-    btn.textContent='복사됨';setTimeout(()=>btn.textContent=orig,1500);
-  });
-}
-function shareX(){
-  window.open('https://twitter.com/intent/tweet?text=비 오는 날의 놀이공원 — 이것은 곧 미화된다.&url='+encodeURIComponent(location.href),'_blank');
-}
 </script>
 
 <!-- =============================================
