@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="카피레프트 세대가 AI 시대를 만났다. 내리지 않는다. 깃발을 꽂는다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="나의 깃발 · F3YNM4N">
+<meta property="og:description" content="AI 크롤링의 바다에서 영리한 히치하이커로 살아남기">
+<meta property="og:url" content="https://f3ynm4n.com/my-flag.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>나의 깃발 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#111110;
+  --cream:#f5f0e8;
+  --cream2:#ede8e0;
+  --accent:#f59e0b;
+  --accent-dim:rgba(245,158,11,0.12);
+  --accent-line:rgba(245,158,11,0.3);
+  --text:#1a1814;
+  --text-mid:#4a4540;
+  --text-muted:#7a7468;
+  --gold:#c8963e;
+  --border:rgba(245,158,11,0.18);
+  --border2:rgba(245,158,11,0.3);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif KR',serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:5px;height:5px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:28px;height:28px;border:1px solid rgba(245,158,11,.3);border-radius:50%;pointer-events:none;z-index:9998;transition:all .2s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,158,11,.15);background:rgba(17,17,16,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:#5a5450;opacity:.5;}
+.header-home{font-size:10px;letter-spacing:2px;color:#6a6460;text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--accent);}
+
+/* HERO — 연한 검은색 배경 */
+.hero{
+  min-height:75vh;padding-top:80px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;
+  background:var(--bg);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 60% 50%, rgba(245,158,11,.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 30%, rgba(245,158,11,.04) 0%, transparent 45%);
+}
+.hero-inner{position:relative;z-index:2;padding:0 48px 80px;max-width:860px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--accent);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#5a5450;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .3s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(40px,6vw,88px);font-weight:700;line-height:1.15;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:20px;opacity:0;animation:fadeUp .9s ease forwards .4s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--accent);}
+.hero-sub{font-size:16px;font-weight:300;color:#6a6560;line-height:1.9;max-width:520px;border-left:2px solid rgba(245,158,11,.35);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .6s;}
+
+/* BODY — 크림 */
+.body-wrap{background:var(--cream);}
+.body-inner{max-width:720px;margin:0 auto;padding:80px 48px 140px;}
+
+.section{margin-bottom:72px;}
+.section-num{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.section-num::after{content:'';flex:1;height:1px;background:rgba(245,158,11,.2);}
+.section-title{font-family:'Noto Serif KR',serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:24px;line-height:1.4;}
+.section-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;line-height:2.15;color:var(--text-mid);}
+.section-body p{margin-bottom:20px;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body strong{color:var(--text);font-weight:600;}
+
+/* 팩트박스 */
+.fact-box{background:var(--cream2);border:1px solid var(--border);border-left:3px solid var(--accent);padding:28px 32px;margin:36px 0;}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;}
+.fact-body{font-size:15px;font-weight:400;line-height:1.9;color:var(--text-mid);}
+.fact-body strong{color:var(--text);}
+
+/* 깃발 박스 */
+.flag-box{background:var(--bg);border:1px solid rgba(245,158,11,.25);padding:36px 40px;margin:36px 0;position:relative;}
+.flag-box::before{content:'⚑';position:absolute;top:24px;right:28px;font-size:20px;color:var(--accent);opacity:.5;}
+.flag-item{display:flex;gap:16px;margin-bottom:24px;}
+.flag-item:last-child{margin-bottom:0;}
+.flag-num{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;min-width:40px;padding-top:3px;}
+.flag-text{font-size:15px;font-weight:400;line-height:1.9;color:#c8c4be;}
+.flag-text strong{color:#f2ede6;font-weight:600;}
+
+/* 인용구 */
+.pull-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2vw,24px);line-height:1.75;color:var(--text);border-top:2px solid var(--accent);border-bottom:1px solid var(--border2);padding:28px 0;margin:40px 0;}
+.pull-quote strong{font-style:normal;color:var(--accent);}
+
+/* 마무리 */
+.closing{background:var(--cream2);border:1px solid var(--border2);padding:40px;position:relative;overflow:hidden;margin-top:48px;}
+.closing::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),rgba(245,158,11,.2),transparent);}
+.closing-text{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;line-height:2.15;color:var(--text-mid);}
+.closing-text strong{color:var(--text);font-weight:600;}
+.closing-text p{margin-bottom:16px;}
+.closing-text p:last-child{margin-bottom:0;}
+
+/* 공유 */
+
+
+footer{border-top:1px solid var(--border2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--cream);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(hover:none),(pointer:coarse){.cursor,.cursor-ring{display:none;}body{cursor:auto;}}
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 60px;}
+  .hero-title{font-size:36px;}
+  .body-inner{padding:48px 20px 100px;}
+  .flag-box{padding:24px 20px;}
+  .closing{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+}
+</style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← 홈으로</a>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Essay · Culture</div>
+    <div class="hero-eyebrow">Copyleft · AI · Renaissance</div>
+    <h1 class="hero-title">나의 깃발:<br><em>AI 크롤링의 바다에서</em><br>살아남기</h1>
+    <p class="hero-sub">카피레프트 세대가 AI 시대를 만났다. 내리지 않는다. 깃발을 꽂는다.</p>
+  </div>
+</section>
+
+<div class="body-wrap">
+<div class="body-inner">
+
+  <!-- 01 -->
+  <div class="section">
+    <div class="section-num">01 · 낭만적 저항의 세대</div>
+    <div class="section-body">
+      <p>20~30년 전, 교복을 입고 토렌트와 소리바다를 오가던 시절이 있었다. 당시 우리가 외쳤던 카피레프트(Copyleft)는 거대 자본이 주도하는 지적 재산권이라는 독점에 대한 순수한 반발이었다. 지식은 공공재여야 한다는 그 뜨거운 믿음이, 이제 AI라는 거대한 용광로 앞에 다시 섰다.</p>
+      <p>그리고 이번엔 규모가 다르다.</p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">Copyleft · 카피레프트</div>
+      <div class="fact-body">저작권(Copyright)에 대항하는 개념. 창작물을 자유롭게 사용·복제·수정할 수 있도록 허용하되, 파생 저작물에도 동일한 자유를 보장해야 한다는 원칙. 리처드 스톨먼이 1980년대에 체계화했으며, 오픈소스 운동의 철학적 기반이 됐다.</div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="section">
+    <div class="section-num">02 · 거대한 용광로와 데이터 통행료</div>
+    <div class="section-body">
+      <p>우리는 거인들이 닦아놓은 고속도로 위에 있다. 클라우드플레어가 대역폭을 무제한으로 풀고, 구글이 저장공간을 뿌리는 이 자선 같은 풍경의 진짜 이름은 <strong>락인(Lock-in)</strong>이다.</p>
+      <p>현금을 내지 않을 뿐, 우리의 사유와 주행 기록은 데이터 통행료로 이미 지불되고 있다. 내가 공들여 쓴 글이 AI 크롤러의 먹이가 되는 순간, 나의 고유한 사유는 거대한 지능의 파편으로 분해되어 희석된다.</p>
+    </div>
+
+    <div class="pull-quote">
+      우리는 요금을 내는 고객이 아니다.<br>
+      <strong>데이터를 제공하는 원료다.</strong>
+    </div>
+
+    <div class="section-body">
+      <p>유발 하라리는 이를 <strong>잉여계급(Useless Class)</strong>의 탄생이라 경고했다. 내 창작물이 누구의 것인지도 모른 채 시스템의 가축으로 전락할지 모른다는 공포는 실존적이다.</p>
+      <p>그래서 내려야 하는가.</p>
+      <p><strong>내리지 않는다.</strong></p>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="section">
+    <div class="section-num">03 · 깃발을 꽂는 영리한 히치하이커</div>
+    <div class="section-body">
+      <p>거인들의 싸움 덕분에 개인의 창작 비용은 제로에 수렴했다. 이 고속도로는 무섭도록 쾌적하다. 구조를 알고 타는 것과 모르고 타는 것은 다르다.</p>
+      <p>나는 영리한 히치하이커가 되기로 했다. 통행료를 내더라도, 그 지식의 정점에 <strong>나만의 깃발</strong>을 꽂는 방식으로.</p>
+    </div>
+
+    <div class="flag-box">
+      <div class="flag-item">
+        <span class="flag-num">DOI</span>
+        <span class="flag-text"><strong>디지털 등기부.</strong> DOI(Digital Object Identifier)로 나의 연구(PBGC)에 절대 지워지지 않는 좌표를 찍는다. 세상의 모든 데이터가 섞여도, 타임스탬프는 기원을 증명한다.</span>
+      </div>
+      <div class="flag-item">
+        <span class="flag-num">F3YNM4N</span>
+        <span class="flag-text"><strong>독립적인 성채.</strong> f3ynm4n.com을 통해 AI가 긁어가는 데이터의 뿌리가 어디인지 박제한다. 누군가 내 글을 훔쳐 자기 것이라 주장해도, 깃발은 남는다.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="section">
+    <div class="section-num">04 · 지구 르네상스의 서곡</div>
+    <div class="section-body">
+      <p>하라리가 본 잉여계급은 낡은 산업 시대의 애벌레가 죽어가는 모습일 뿐이다. 생존이 보장되고 AI가 언어와 기술의 장벽을 낮추는 순간, 인류 전체는 역사상 최초의 <strong>보편적 여가 계급</strong>이 될 기회를 얻는다.</p>
+      <p>단 0.1%만이라도 창조와 탐구에 나선다면 — 히말라야의 아이가 SF를 쓰고, 사바나의 유목민이 사이버펑크를 그려내는 <strong>지구 르네상스</strong>가 시작된다.</p>
+      <p>내 글이 AI의 지능을 높이는 거름이 되어도 좋다. 나는 이미 깃발을 꽂았고, 좌표를 남겼다.</p>
+    </div>
+  </div>
+
+  <!-- 마무리 -->
+  <div class="closing">
+    <div class="closing-text">
+      <p>확실한 파멸을 기다리느니, 불확실한 희망의 르네상스에 걸겠다.</p>
+      <p>카피레프트를 외치던 그 시절, 우리는 지식의 자유를 꿈꿨다. 그 꿈은 AI 시대에 형태만 바꿨을 뿐, 아직 살아있다.</p>
+      <p><strong>우리는 히치하이커다. 다만, 목적지를 알고 깃발을 든 가장 영리한 히치하이커.</strong></p>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Essay · Culture · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+if(!isTouchDevice){
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});
+},{threshold:0.05});
+document.querySelectorAll('.section,.closing').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';
+  el.style.transition='opacity .7s ease,transform .7s ease';
+  obs.observe(el);
+});
+
+</script>
+
+<!-- =============================================
+  F3YNM4N 공유 버튼 컴포넌트
+============================================= -->
+
+<style>
+.f3-share-btn{
+  position:fixed;bottom:36px;right:36px;z-index:1000;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.f3-share-toggle{
+  width:44px;height:44px;border-radius:50%;
+  background:#c8963e;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s,background .2s;
+  box-shadow:0 2px 12px rgba(200,150,62,.35);
+}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{
+  display:flex;flex-direction:column;gap:6px;
+  opacity:0;transform:translateY(8px) scale(.96);
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+}
+.f3-share-panel.open{
+  opacity:1;transform:translateY(0) scale(1);pointer-events:all;
+}
+.f3-share-item{
+  display:flex;align-items:center;gap:10px;
+  background:#0d0d0b;border:1px solid rgba(200,150,62,.3);
+  padding:10px 16px;cursor:pointer;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;
+  color:#c8963e;text-transform:uppercase;white-space:nowrap;
+  transition:background .15s,border-color .15s;
+  text-decoration:none;
+}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{
+  width:16px;height:16px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.f3-share-toast{
+  position:fixed;bottom:100px;right:36px;z-index:1001;
+  background:#0d0d0b;border:1px solid rgba(200,150,62,.4);
+  padding:10px 18px;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;
+  opacity:0;transform:translateY(4px);
+  transition:opacity .2s,transform .2s;pointer-events:none;
+}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+
+@media(max-width:640px){
+  .f3-share-btn{bottom:24px;right:20px;}
+  .f3-share-toast{right:20px;bottom:90px;}
+}
+</style>
+
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+
+    <!-- URL 복사 -->
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+      </span>
+      URL 복사
+    </button>
+
+    <!-- X (Twitter) -->
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </span>
+      X 공유
+    </a>
+
+    <!-- 카카오톡 -->
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e">
+          <path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/>
+        </svg>
+      </span>
+      카카오톡
+    </button>
+
+  </div>
+
+  <!-- 토글 버튼 -->
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24">
+      <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+    </svg>
+  </button>
+</div>
+
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  var KAKAO_KEY = 'e0642d0a5c0ae01b8893422a148e9aba';
+
+  function loadKakaoSDK(cb){
+    if(window.Kakao){cb();return;}
+    var s=document.createElement('script');
+    s.src='https://developers.kakao.com/sdk/js/kakao.min.js';
+    s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};
+    document.head.appendChild(s);
+  }
+
+  var panelOpen = false;
+
+  window.f3ToggleShare = function(){
+    panelOpen = !panelOpen;
+    document.getElementById('f3SharePanel').classList.toggle('open', panelOpen);
+  };
+
+  window.f3CopyUrl = function(){
+    var url = location.href;
+    navigator.clipboard.writeText(url).then(function(){
+      showToast('URL 복사됨');
+    }).catch(function(){
+      var ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+      showToast('URL 복사됨');
+    });
+    panelOpen = false;
+    document.getElementById('f3SharePanel').classList.remove('open');
+  };
+
+  var xLink = document.getElementById('f3ShareX');
+  if(xLink){
+    var title = document.title || 'F3YNM4N';
+    var url = location.href;
+    xLink.href = 'https://twitter.com/intent/tweet?text=' +
+      encodeURIComponent(title) + '&url=' + encodeURIComponent(url);
+  }
+
+  window.f3ShareKakao = function(){
+    if(!KAKAO_KEY){ showToast('카카오 앱키 필요'); return; }
+    loadKakaoSDK(function(){
+    var title = document.title || 'F3YNM4N';
+    var desc  = document.querySelector('meta[name="description"]');
+    Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: title,
+        description: desc ? desc.content : '',
+        imageUrl: 'https://f3ynm4n.com/og_default.png',
+        link: { mobileWebUrl: location.href, webUrl: location.href }
+      },
+      buttons: [{
+        title: '읽기',
+        link: { mobileWebUrl: location.href, webUrl: location.href }
+      }]
+    });
+    });
+  };
+
+  function showToast(msg){
+    var t = document.getElementById('f3Toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2000);
+  }
+
+  document.addEventListener('click', function(e){
+    if(!document.getElementById('f3ShareBtn').contains(e.target)){
+      panelOpen = false;
+      document.getElementById('f3SharePanel').classList.remove('open');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
