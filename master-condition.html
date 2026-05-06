@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마침표를 찍지 못하는 거장은 없다 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="장인정신이라는 이름의 화려한 퇴로. 완결하지 못한 위대함은 존재하지 않는다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="마침표를 찍지 못하는 거장은 없다 · F3YNM4N">
+<meta property="og:description" content="장인정신이라는 이름의 화려한 퇴로. 완결하지 못한 위대함은 존재하지 않는다.">
+<meta property="og:url" content="https://f3ynm4n.com/master-condition.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="마침표를 찍지 못하는 거장은 없다 · F3YNM4N">
+<meta name="twitter:description" content="장인정신이라는 이름의 화려한 퇴로. 완결하지 못한 위대함은 존재하지 않는다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#374151;--accent2:#6b7280;--accent3:rgba(55,65,81,.1);
+  --border:rgba(55,65,81,0.18);--border2:rgba(55,65,81,0.25);
+  --border-neutral:rgba(26,24,20,0.1);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(55,65,81,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(55,65,81,.22) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 25%, rgba(107,114,128,.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 30%, rgba(200,150,62,.04) 0%, transparent 40%),
+    linear-gradient(170deg,#0d0d0b 0%,#111318 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(55,65,81,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(55,65,81,.04) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse at 30% 60%, black 0%, transparent 62%);
+}
+
+.hero-period{
+  position:absolute;right:5%;bottom:5%;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(140px,20vw,300px);
+  line-height:1;color:rgba(55,65,81,.07);
+  pointer-events:none;user-select:none;
+  opacity:0;animation:fadeUp .8s ease forwards 1.2s;
+}
+
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.hline{position:absolute;left:0;right:0;height:1px;}
+.hline:nth-child(1){top:38%;background:linear-gradient(90deg,transparent,rgba(55,65,81,.08) 35%,rgba(55,65,81,.08) 65%,transparent);}
+.hline:nth-child(2){top:62%;background:linear-gradient(90deg,transparent,rgba(55,65,81,.05) 25%,rgba(55,65,81,.05) 75%,transparent);}
+.hline:nth-child(3){top:78%;background:linear-gradient(90deg,transparent,rgba(200,150,62,.04) 40%,rgba(200,150,62,.04) 60%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(107,114,128,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(107,114,128,.7);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(55,65,81,.45);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(26px,4vw,56px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:16px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(107,114,128,.75);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(13px,1.6vw,18px);font-weight:400;color:rgba(107,114,128,.5);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .6s;line-height:1.7;}
+.hero-sub{font-size:15px;font-weight:300;color:rgba(242,237,230,.3);line-height:1.95;max-width:560px;border-left:2px solid rgba(55,65,81,.5);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .7s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(55,65,81,.5);text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,rgba(55,65,81,.5),transparent);}
+
+/* BODY */
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.1;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--text);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(55,65,81,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(55,65,81,.3);}
+
+.conclusion{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.conclusion-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.conclusion-close strong{font-style:normal;color:var(--accent);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:24px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .conclusion{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-lines,.hero-scroll,.hero-period{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-lines">
+    <div class="hline"></div><div class="hline"></div><div class="hline"></div>
+  </div>
+  <div class="hero-period">.</div>
+  <div class="hero-inner">
+    <div class="hero-tag">Culture · 창작론</div>
+    <div class="hero-eyebrow">Completion · Craft · Design</div>
+    <h1 class="hero-title">
+      마침표를 찍지 못하는<br><em>거장은 없다</em>
+    </h1>
+    <p class="hero-subtitle">장인정신이라는 이름의 화려한 퇴로</p>
+    <p class="hero-sub">
+      끝내지 못한 위대함은 존재하지 않는다.<br>
+      그것은 단지, 끝내지 않은 채 보존된 가능성일 뿐이다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(55,65,81,.15);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>시작보다 중요한 것은 완결이라는 책임이다. 세상은 화려한 출발과 압도적인 과정에 쉽게 열광한다. 그러나 창작에서 진짜로 평가받아야 할 지점은 늘 마지막에 있다. 끝내지 못한 이야기는, 아무리 장대해 보여도 아직 이야기일 뿐이다. <strong>마침표가 없는 문장은 문장이 아니라 구조를 갖추지 못한 흔적에 가깝다.</strong></p>
+    <p>문제는 재능이 아니다. 노력의 양도 아니다. 문제는 그 모든 것이 어디를 향하고 있느냐다. 그 노력이 결말을 향해 밀고 나아가고 있는지, 아니면 결말을 지연시키고 있는지. 기준은 단 하나다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">지연의 기술</h2>
+    </div>
+    <div class="article-body">
+      <p>우리는 종종 압도적인 디테일 앞에서 판단을 유보한다. 한 컷에 집착하는 집요함, 수년에 걸친 연재, 끝없이 확장되는 설정. 이 모든 것은 장인정신이라는 이름으로 포장되기 쉽다. 그러나 그 정교함이 서사를 앞으로 밀어내지 못하는 순간, 그것은 더 이상 기술이 아니다. 그것은 지연의 기술이다.</p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">핵심 진단</div>
+      <p class="fact-text">정교함은 깊이로 오해되고, 반복은 성실로 오해된다. 그리고 지연은 어느새 헌신으로 재해석된다. 하지만 냉정하게 보면, <strong>감당할 수 없는 서사는 종종 디테일 속으로 숨어든다.</strong> 결말을 마주할 능력이나 설계가 부족할 때, 창작은 전진 대신 정밀화로 방향을 틀어버린다.</p>
+    </div>
+
+    <div class="article-body">
+      <p>그 결과물은 화려하다. 그러나 방향을 잃은 화려함이다.</p>
+    </div>
+
+    <div class="pq">
+      <p>더 정교하게, 더 세밀하게, 더 완벽하게.<br>그럴듯한 이유는 끝없이 만들어진다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">장인정신의 변질</h2>
+    </div>
+    <div class="article-body">
+      <p>이 지점에서 장인정신은 변질된다. 원래 그것은 완성도를 끌어올리는 기술이지만, 어느 순간 완성을 미루는 명분으로 기능하기 시작한다. 그러나 질문은 하나로 충분하다. <strong>그래서 그 작업은 끝을 향하고 있는가.</strong></p>
+      <p>창작 환경 역시 이 왜곡을 강화한다. 지속을 요구하는 구조 속에서 결말은 언제나 후순위로 밀린다. 연장은 보상받고, 종료는 위험이 된다. 그 결과, 끝내는 능력보다 계속하는 능력이 더 높게 평가되는 기묘한 질서가 만들어진다.</p>
+      <p>그 선택이 반복될수록 작품은 점점 더 정교해지지만, 동시에 점점 더 끝에서 멀어진다. 이때의 디테일은 더 이상 작품을 완성시키기 위한 것이 아니다. <strong>작품을 멈추지 않기 위한 장치가 된다.</strong></p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">설계의 증명</h2>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">재능과 설계의 차이</div>
+      <p class="fact-text"><strong>확장할 수 있는 능력은 재능이다.</strong> 그러나 수습하고 끝낼 수 있는 능력은 설계다. 전자는 보여주기 쉽고, 후자는 증명하기 어렵다. 그래서 많은 작품이 전자에 머무르고, 소수만이 후자에 도달한다.</p>
+    </div>
+
+    <div class="article-body">
+      <p>완결은 단순한 종료가 아니다. 그것은 자신이 만든 세계를 감당했다는 증명이다. 시작은 누구나 할 수 있지만, 끝은 선택과 책임을 요구한다. 무엇을 남기고 무엇을 버릴 것인지, 어디에서 멈출 것인지 결정하는 순간, 창작자는 비로소 자신의 한계를 받아들인다.</p>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">마치며 · Closing</div>
+    <p class="conclusion-body">끝내지 못한 위대함은 존재하지 않는다. 그것은 단지, 끝내지 않은 채 보존된 가능성일 뿐이다. 그리고 가능성은, 책임을 대신해주지 않는다.</p>
+    <p class="conclusion-close"><strong>마침표를 찍지 못하는 거장은 없다.</strong> 마침표를 미루는 순간, 그 모든 정교함은 결국 하나의 사실로 수렴한다. 아직 끝나지 않았다는 사실.</p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Culture · 창작론 · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+if (!isTouchDevice) {
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+} else {
+  document.getElementById('cursor').style.display='none';
+  document.getElementById('cursorRing').style.display='none';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.fact-box,.conclusion').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>
