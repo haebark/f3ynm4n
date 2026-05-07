@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미식의 나라 에필로그 — 이미 올라온 나라 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="한식이 올라오고 있다는 말을 자주 듣는다. 하지만 데이터를 보면 이미 올라왔다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="미식의 나라 에필로그 — 이미 올라온 나라 · F3YNM4N">
+<meta property="og:description" content="한식이 올라오고 있다는 말을 자주 듣는다. 하지만 데이터를 보면 이미 올라왔다.">
+<meta property="og:url" content="https://f3ynm4n.com/misik-epilogue.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="미식의 나라 에필로그 — 이미 올라온 나라 · F3YNM4N">
+<meta name="twitter:description" content="한식이 올라오고 있다는 말을 자주 듣는다. 하지만 데이터를 보면 이미 올라왔다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#d97706;--accent2:#f59e0b;--accent3:rgba(217,119,6,.1);
+  --border:rgba(217,119,6,0.18);--border2:rgba(217,119,6,0.25);
+}
+html{scroll-behavior:smooth;}
+body{background:#0d0d0b;color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(217,119,6,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(13,13,11,.92);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:rgba(242,237,230,.3);}
+.header-home{font-size:11px;letter-spacing:2px;color:rgba(242,237,230,.4);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+.series-nav{position:fixed;top:57px;left:0;right:0;z-index:49;padding:8px 48px;background:rgba(13,13,11,.88);backdrop-filter:blur(8px);border-bottom:1px solid rgba(217,119,6,.1);display:flex;align-items:center;gap:4px;overflow-x:auto;}
+.series-nav::-webkit-scrollbar{display:none;}
+.snav-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(217,119,6,.6);text-transform:uppercase;margin-right:8px;white-space:nowrap;}
+.snav-ep{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1px;padding:4px 12px;border:1px solid rgba(217,119,6,.2);color:rgba(242,237,230,.4);text-decoration:none;transition:all .2s;white-space:nowrap;}
+.snav-ep:hover{border-color:var(--accent);color:var(--accent);}
+.snav-ep.active{background:var(--accent);color:#0d0d0b;border-color:var(--accent);}
+
+.hero{min-height:100vh;padding-top:96px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 25% 68%, rgba(217,119,6,.25) 0%, transparent 55%),
+    radial-gradient(ellipse at 78% 22%, rgba(245,158,11,.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 90%, rgba(200,150,62,.06) 0%, transparent 40%),
+    linear-gradient(160deg,#0d0d0b 0%,#110e08 100%);
+}
+.hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(217,119,6,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(217,119,6,.04) 1px, transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse at 25% 68%, black 0%, transparent 60%);}
+.hero-wm{position:absolute;right:4%;bottom:4%;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(80px,14vw,200px);font-weight:700;line-height:1;color:rgba(217,119,6,.06);pointer-events:none;user-select:none;opacity:0;animation:fadeUp .8s ease forwards 1.2s;}
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.hline{position:absolute;left:0;right:0;height:1px;}
+.hline:nth-child(1){top:35%;background:linear-gradient(90deg,transparent,rgba(217,119,6,.1) 30%,rgba(217,119,6,.1) 70%,transparent);}
+.hline:nth-child(2){top:62%;background:linear-gradient(90deg,transparent,rgba(217,119,6,.06) 20%,rgba(217,119,6,.06) 80%,transparent);}
+.hline:nth-child(3){top:80%;background:linear-gradient(90deg,transparent,rgba(200,150,62,.04) 40%,rgba(200,150,62,.04) 60%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(245,158,11,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(245,158,11,.7);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(217,119,6,.45);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(26px,4vw,56px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:16px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(245,158,11,.75);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(13px,1.6vw,18px);color:rgba(245,158,11,.45);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .6s;line-height:1.7;}
+.hero-sub{font-size:15px;font-weight:300;color:rgba(242,237,230,.3);line-height:1.95;max-width:560px;border-left:2px solid rgba(217,119,6,.6);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .7s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(217,119,6,.5);text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,rgba(217,119,6,.5),transparent);}
+
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;background:var(--bg);}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.1;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--text);font-weight:600;}
+
+/* 데이터 수치 */
+.data-strip{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:32px 0;}
+.data-item{padding:24px 20px;border:1px solid var(--border2);background:var(--bg2);position:relative;}
+.data-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);}
+.data-source{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--accent2);text-transform:uppercase;margin-bottom:8px;}
+.data-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:6px;}
+.data-desc{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--text-mid);line-height:1.85;}
+
+.sec-rule{border:none;border-top:1px solid rgba(217,119,6,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(217,119,6,.3);}
+
+/* 최종 마무리 — 다크 배경 */
+.final-closing{margin-top:72px;padding:56px 48px;background:#0d0d0b;position:relative;overflow:hidden;}
+.final-closing::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.final-closing::after{content:'已';position:absolute;right:32px;bottom:16px;font-size:120px;color:rgba(217,119,6,.04);pointer-events:none;font-family:'Noto Serif KR',serif;}
+.final-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(245,158,11,.6);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.final-label::after{content:'';flex:1;height:1px;background:rgba(217,119,6,.2);}
+.final-body{font-family:'Noto Serif KR',serif;font-size:17px;color:rgba(242,237,230,.55);line-height:2.1;margin-bottom:32px;}
+.final-punch{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2.5vw,24px);line-height:1.85;color:#f2ede6;margin-bottom:20px;}
+.final-punch strong{font-style:normal;color:var(--accent2);}
+.final-stamp{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(245,158,11,.4);text-transform:uppercase;margin-top:32px;}
+
+.series-footer{background:var(--bg3);border-top:1px solid var(--border2);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:0 -48px;margin-top:80px;}
+.sfooter-prev,.sfooter-next{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.sfooter-prev:hover{color:var(--accent);}
+.sfooter-series{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .series-nav{padding:8px 20px;top:53px;}
+  .hero{padding-top:100px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:24px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .data-strip{grid-template-columns:1fr;}
+  .final-closing{padding:32px 20px;}
+  .series-footer{padding:24px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-lines,.hero-scroll,.hero-wm{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<nav class="series-nav">
+  <span class="snav-label">미식의 나라</span>
+  <a href="misik-1.html" class="snav-ep">01 · 3강</a>
+  <a href="misik-2.html" class="snav-ep">02 · 시장</a>
+  <a href="misik-3.html" class="snav-ep">03 · 기대치</a>
+  <a href="misik-4.html" class="snav-ep">04 · 떡볶이</a>
+  <a href="misik-5.html" class="snav-ep">05 · 변주</a>
+  <a href="misik-epilogue.html" class="snav-ep active">Ep · 에필로그</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-lines">
+    <div class="hline"></div><div class="hline"></div><div class="hline"></div>
+  </div>
+  <div class="hero-wm">已</div>
+  <div class="hero-inner">
+    <div class="hero-tag">Food · 미식의 나라 Epilogue</div>
+    <div class="hero-eyebrow">Data · Evidence · Arrival</div>
+    <h1 class="hero-title">
+      에필로그 —<br><em>이미 올라온 나라</em>
+    </h1>
+    <p class="hero-subtitle">SS급이라는 말을 쓸 때 기준이 있다</p>
+    <p class="hero-sub">
+      우리가 현장에 없었을 뿐이고,<br>
+      숫자를 보지 않았을 뿐이다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(217,119,6,.15);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>SS급이라는 말을 쓸 때 기준이 있다.</p>
+    <p>챌린지로 소비되는 것과 일상이 되는 것은 다르다. 전자는 유행이고 후자는 문화다. 매운 라면을 눈물 흘리며 먹는 영상이 바이럴되는 건 유행이다. 그 라면이 월마트 진열대에 상시 비치되고, 품귀 현상으로 뉴욕타임스에 오르는 건 다른 얘기다.</p>
+    <p><strong>한식이 SS급이라는 건, 신기한 것으로 소비되던 단계를 넘어 반복 구매가 일어나는 일상이 됐다는 뜻이다.</strong></p>
+    <p>나는 이걸 현장에서 목격하지 못했다. 하지만 숫자는 목격자보다 정직하다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">챌린지에서 반찬으로</h2>
+    </div>
+    <div class="article-body">
+      <p>불닭볶음면이 처음 틱톡에서 퍼졌을 때, 아무도 이게 오래갈 거라 생각하지 않았다. 그런데 이상한 일이 벌어졌다. 챌린지가 끝나도 구매가 계속됐다. 월마트, 코스트코, 아마존 등 미국 주류 유통망 입점이 확대됐고, 2024년 4월 뉴욕타임스는 품귀 현상을 직접 보도했다. 챌린지 음식이 공급 부족 기사가 나는 음식이 됐다. 삼양식품의 수출 비중은 2023년 68%에서 2024년 3분기 기준 77%로 올라섰다.</p>
+      <p>트레이더 조의 냉동김밥도 마찬가지다. 틱톡커 한 명이 올린 영상이 3주 만에 1,100만 조회수를 기록했고, 초도 물량 250톤이 한 달도 안 돼 완판됐다. 이후 코스트코 판매로 이어졌다. 품귀에서 코스트코 입점까지. 코스트코는 검증된 대중 소비재만 들어가는 곳이다. <strong>신기한 음식이 아니라 정기적으로 사는 음식이 됐다는 뜻이다.</strong></p>
+    </div>
+
+    <div class="pq">
+      <p>미국 부모들이 아이들 도시락에 김을 넣기 시작했다.<br>한 번 먹어보는 것과 자라면서 먹는 것은<br>20년 후가 완전히 달라진다.</p>
+    </div>
+
+    <div class="article-body">
+      <p>김은 더 극적인 사례다. 2025년 한국 김 수출액은 전년 대비 18.5% 증가한 4억 3,200만 달러로 사상 최고치를 기록했다. 전국 기준으로는 11억 달러. 국내 김 가격이 오른 이유가 수출 수요 때문이라는 건, 역설적으로 한식이 세계에서 얼마나 팔리고 있는지를 보여준다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">숫자로 보는 현재</h2>
+    </div>
+
+    <div class="data-strip">
+      <div class="data-item">
+        <div class="data-source">삼양식품 공시</div>
+        <div class="data-num">77%</div>
+        <p class="data-desc">삼양식품 수출 비중 (2024년 3분기). 2023년 68%에서 급등.</p>
+      </div>
+      <div class="data-item">
+        <div class="data-source">CJ제일제당 공시</div>
+        <div class="data-num">5.9조</div>
+        <p class="data-desc">CJ제일제당 해외 식품 매출 (2024). 2019년 3.1조 대비 90% 성장.</p>
+      </div>
+      <div class="data-item">
+        <div class="data-source">전라남도 (2026.01)</div>
+        <div class="data-num">+18.5%</div>
+        <p class="data-desc">2025년 한국 김 수출액 증가율. 수출액 4억 3,200만 달러 사상 최고.</p>
+      </div>
+      <div class="data-item">
+        <div class="data-source">미주중앙일보 (2023.10)</div>
+        <div class="data-num">250톤</div>
+        <p class="data-desc">트레이더조 냉동김밥 초도 물량. 한 달도 안 돼 완판.</p>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>CJ제일제당의 해외 식품 매출은 2019년 3조 1,540억에서 2024년 5조 9,247억으로 성장했다. 같은 기간 국내 매출은 줄었다. 해외가 처음으로 국내를 추월한 해다. 한 회사의 수치가 아니라 시장 전체의 신호다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">가장 보수적인 시장이 증명한 것</h2>
+    </div>
+    <div class="article-body">
+      <p>일본 얘기를 해야 한다. 일본은 외래 음식에 가장 까다로운 시장이다. 자국 식문화에 대한 자부심이 강하고, 변형을 쉽게 허용하지 않는다. 그 일본에서 김치와 불고기가 메인스트림 식재료로 올라섰다. 마트 어디서나 살 수 있고, 가정식 반찬으로 쓰인다. <strong>일본이 받아들였다는 건, 단순한 유행이 아니라 식문화로서의 검증을 통과했다는 뜻이다.</strong></p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">변주의 나라가 세계화에 유리한 이유</h2>
+    </div>
+    <div class="article-body">
+      <p>이 시리즈에서 한식의 정체성을 '변주'로 규정했다. 고정된 정답이 없고, 재료와 방식을 바꾸면서도 본질을 유지하는 음식. 그게 역설적으로 세계화의 무기가 됐다.</p>
+      <p>비비고가 나라마다 다른 만두를 만든 게 좋은 예다. 미국에서는 닭고기를 넣고, 일본에서는 생강을 추가하고, 베트남에서는 해산물로 바꿨다. 이게 변주다. 한식이 원래 그런 음식이었으니까 현지화가 자연스러웠다. <strong>정체성이 단단하게 고정된 음식은 이렇게 하기 어렵다.</strong></p>
+    </div>
+  </div>
+
+  <!-- 최종 마무리 — 다크 클로징 -->
+  <div class="final-closing">
+    <div class="final-label">마치며 · Series Closing</div>
+    <p class="final-body">한식이 올라오고 있다는 말을 자주 듣는다. 하지만 데이터를 보면 이미 올라왔다. 우리가 현장에 없었을 뿐이고, 숫자를 보지 않았을 뿐이다.</p>
+    <p class="final-punch">한식은 지금 세계 어딘가의 <strong>아이 도시락 안에 있다.</strong></p>
+    <p class="final-body" style="margin-bottom:0;">그걸로 충분하다.</p>
+    <div class="final-stamp">미식의 나라 · 전 6편 완결 · F3YNM4N · 2026</div>
+  </div>
+
+  <div class="series-footer">
+    <a href="misik-5.html" class="sfooter-prev">← 이전 · 변주의 나라</a>
+    <span class="sfooter-series">미식의 나라 · 6 / 6 · 完</span>
+    <span></span>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Food · 미식의 나라 Epilogue · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice=('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+if(!isTouchDevice){
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+}else{
+  document.getElementById('cursor').style.display='none';
+  document.getElementById('cursorRing').style.display='none';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.fact-box,.final-closing,.pq,.data-strip').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>

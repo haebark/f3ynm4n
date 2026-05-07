@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기대치가 맛을 만든다 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="맛은 혀가 결정하지 않는다. 기대치가 결정한다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="기대치가 맛을 만든다 · F3YNM4N">
+<meta property="og:description" content="맛은 혀가 결정하지 않는다. 기대치가 결정한다.">
+<meta property="og:url" content="https://f3ynm4n.com/misik-3.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="기대치가 맛을 만든다 · F3YNM4N">
+<meta name="twitter:description" content="맛은 혀가 결정하지 않는다. 기대치가 결정한다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#d97706;--accent2:#f59e0b;--accent3:rgba(217,119,6,.1);
+  --border:rgba(217,119,6,0.18);--border2:rgba(217,119,6,0.25);
+}
+html{scroll-behavior:smooth;}
+body{background:#0d0d0b;color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(217,119,6,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(13,13,11,.92);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:rgba(242,237,230,.3);}
+.header-home{font-size:11px;letter-spacing:2px;color:rgba(242,237,230,.4);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+.series-nav{position:fixed;top:57px;left:0;right:0;z-index:49;padding:8px 48px;background:rgba(13,13,11,.88);backdrop-filter:blur(8px);border-bottom:1px solid rgba(217,119,6,.1);display:flex;align-items:center;gap:4px;overflow-x:auto;}
+.series-nav::-webkit-scrollbar{display:none;}
+.snav-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(217,119,6,.6);text-transform:uppercase;margin-right:8px;white-space:nowrap;}
+.snav-ep{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1px;padding:4px 12px;border:1px solid rgba(217,119,6,.2);color:rgba(242,237,230,.4);text-decoration:none;transition:all .2s;white-space:nowrap;}
+.snav-ep:hover{border-color:var(--accent);color:var(--accent);}
+.snav-ep.active{background:var(--accent);color:#0d0d0b;border-color:var(--accent);}
+
+.hero{min-height:100vh;padding-top:96px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 30% 65%, rgba(217,119,6,.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 20%, rgba(245,158,11,.06) 0%, transparent 45%),
+    linear-gradient(160deg,#0d0d0b 0%,#110e08 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(217,119,6,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217,119,6,.04) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse at 30% 65%, black 0%, transparent 60%);
+}
+.hero-wm{position:absolute;right:4%;bottom:4%;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(80px,14vw,200px);font-weight:700;line-height:1;color:rgba(217,119,6,.05);pointer-events:none;user-select:none;opacity:0;animation:fadeUp .8s ease forwards 1.2s;}
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.hline{position:absolute;left:0;right:0;height:1px;}
+.hline:nth-child(1){top:35%;background:linear-gradient(90deg,transparent,rgba(217,119,6,.1) 30%,rgba(217,119,6,.1) 70%,transparent);}
+.hline:nth-child(2){top:62%;background:linear-gradient(90deg,transparent,rgba(217,119,6,.06) 20%,rgba(217,119,6,.06) 80%,transparent);}
+.hline:nth-child(3){top:80%;background:linear-gradient(90deg,transparent,rgba(200,150,62,.04) 40%,rgba(200,150,62,.04) 60%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(245,158,11,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(245,158,11,.7);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(217,119,6,.45);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(26px,4vw,56px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:16px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(245,158,11,.75);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(13px,1.6vw,18px);color:rgba(245,158,11,.45);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .6s;line-height:1.7;}
+.hero-sub{font-size:15px;font-weight:300;color:rgba(242,237,230,.3);line-height:1.95;max-width:560px;border-left:2px solid rgba(217,119,6,.6);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .7s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(217,119,6,.5);text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,rgba(217,119,6,.5),transparent);}
+
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;background:var(--bg);}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.1;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--text);font-weight:600;}
+
+/* 심리 효과 3칸 */
+.psych-strip{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--border2);margin:32px 0;}
+.psych-item{padding:24px 20px;border-right:1px solid var(--border2);}
+.psych-item:last-child{border-right:none;}
+.psych-name{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.psych-aka{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--accent2);margin-bottom:12px;text-transform:uppercase;}
+.psych-desc{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--text-mid);line-height:1.9;}
+
+.sec-rule{border:none;border-top:1px solid rgba(217,119,6,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(217,119,6,.3);}
+
+.conclusion{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.conclusion-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.conclusion-close strong{font-style:normal;color:var(--accent);}
+
+.series-footer{background:var(--bg3);border-top:1px solid var(--border2);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:0 -48px;margin-top:80px;}
+.sfooter-prev,.sfooter-next{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.sfooter-prev:hover,.sfooter-next:hover{color:var(--accent);}
+.sfooter-series{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .series-nav{padding:8px 20px;top:53px;}
+  .hero{padding-top:100px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:24px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .psych-strip{grid-template-columns:1fr;}
+  .psych-item{border-right:none;border-bottom:1px solid var(--border2);}
+  .psych-item:last-child{border-bottom:none;}
+  .conclusion{padding:28px 20px;}
+  .series-footer{padding:24px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-lines,.hero-scroll,.hero-wm{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<nav class="series-nav">
+  <span class="snav-label">미식의 나라</span>
+  <a href="misik-1.html" class="snav-ep">01 · 3강</a>
+  <a href="misik-2.html" class="snav-ep">02 · 시장</a>
+  <a href="misik-3.html" class="snav-ep active">03 · 기대치</a>
+  <a href="misik-4.html" class="snav-ep">04 · 떡볶이</a>
+  <a href="misik-5.html" class="snav-ep">05 · 변주</a>
+  <a href="misik-epilogue.html" class="snav-ep">Ep · 에필로그</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-lines">
+    <div class="hline"></div><div class="hline"></div><div class="hline"></div>
+  </div>
+  <div class="hero-wm">期待</div>
+  <div class="hero-inner">
+    <div class="hero-tag">Food · 미식의 나라 03</div>
+    <div class="hero-eyebrow">Expectation · Psychology · Taste</div>
+    <h1 class="hero-title">
+      기대치가<br><em>맛을 만든다</em>
+    </h1>
+    <p class="hero-subtitle">맛은 혀가 결정하지 않는다. 기대치가 결정한다</p>
+    <p class="hero-sub">
+      뇌가 먼저 맛을 결정하고<br>혀가 확인하는 구조다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(217,119,6,.15);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>맛은 혀가 결정하지 않는다. 기대치가 결정한다. 그리고 그 기대치는 철저하게 이미지와 문화가 만든다.</p>
+    <p>이건 일본 음식이나 프랑스 음식이 맛없다는 얘기가 아니다. 이미지 프리미엄이 실체보다 과도하게 올라가 있는 케이스와, 실체 대비 저평가된 케이스를 비교하는 거다. 음식 품질 논쟁이 아니라 <strong>기대치와 이미지의 메커니즘 얘기다.</strong></p>
+  </div>
+
+  <div class="psych-strip">
+    <div class="psych-item">
+      <div class="psych-name">베블런 효과</div>
+      <div class="psych-aka">Veblen Effect</div>
+      <p class="psych-desc">비쌀수록 더 갖고 싶어지는 심리. 미슐랭 별 하나가 붙으면 같은 음식도 다르게 느껴지는 원리.</p>
+    </div>
+    <div class="psych-item">
+      <div class="psych-name">밴드왜건 효과</div>
+      <div class="psych-aka">Bandwagon Effect</div>
+      <p class="psych-desc">다들 좋다고 하니까 따라가는 심리. 후쿠오카 라멘집 줄, 좁은 다찌석 — 이 세팅이 "특별한 경험"을 설계한다.</p>
+    </div>
+    <div class="psych-item">
+      <div class="psych-name">기대치 관리</div>
+      <div class="psych-aka">Expectation Management</div>
+      <p class="psych-desc">낮은 기대 후 맛있으면 플러스. 높은 기대를 충족 못하면 낙폭이 크다. 한식은 저평가에서 출발한 게 오히려 강점.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">프랑스와 일본이 기대치를 쌓은 방식</h2>
+    </div>
+    <div class="article-body">
+      <p>프랑스는 수백 년간 외교와 문화로 기대치를 쌓아올렸다. 요리를 국가 시스템으로 관리하고 외교 도구로 쓴 나라라 미식 이미지가 문화적 패권과 함께 깔렸다.</p>
+      <p>일본은 장인정신 이미지로 단기간에 기대치를 과도하게 올린 케이스다. 후쿠오카 라멘집 줄, 좁은 다찌석, 오픈 주방 — 이 세팅 자체가 "나 지금 특별한 걸 먹는다"는 기분을 설계한다. 맛이 아니라 경험을 파는 거다.</p>
+    </div>
+
+    <div class="pq">
+      <p>후쿠오카 라멘이 맛있었던 이유 중 상당 부분이 이거다. 일본까지 날아가서, 줄 서서, 유명하다고 알고 먹으니까 맛있는 거다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">한식은 경험으로 쌓였다</h2>
+    </div>
+    <div class="article-body">
+      <p>한식 재평가는 베블런도 밴드왜건도 아니다. K문화가 올라가면서 "유행이라는데 내가 직접 검증해보겠다"는 능동적 소비자가 생긴 거다. 이미지에 끌려가는 게 아니라 이미지를 의심하고 직접 판단하려는 소비자. 그리고 직접 먹어보니 "진짜 맛있네"가 나오는 거다.</p>
+      <p><strong>한식은 기대 없이 직접 먹어보고 쌓였다. 이미지로 쌓인 게 아니라 경험으로 쌓이는 거라 더 단단하다.</strong></p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">기대치 관리 비교</div>
+      <p class="fact-text">
+        프랑스 — 수백 년 문화 패권으로 쌓인 이미지. 충족 쉬움.<br><br>
+        일본 — 장인정신 이미지로 단기 급등. <strong>기대치가 높아 충족 못 하면 낙폭 큼.</strong><br><br>
+        한식 — 저평가에서 출발. 같은 퀄리티도 "생각보다 훨씬 낫네"가 되는 구조.
+      </p>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-label">마치며 · Closing</div>
+    <p class="conclusion-body">맛의 경험은 혀보다 맥락이 만든다. 어디서 먹었냐, 얼마나 기다렸냐, 어떤 이미지를 가지고 갔냐 — 이게 전부 맛의 일부다.</p>
+    <p class="conclusion-close">한식이 재평가받는 건 이미지가 올라가서가 아니다. <strong>기대치 없이 직접 경험한 사람들이 쌓아올린 결과다.</strong> 그게 가장 단단한 미식 이미지다.</p>
+  </div>
+
+  <div class="series-footer">
+    <a href="misik-2.html" class="sfooter-prev">← 이전 · 무서운 시장</a>
+    <span class="sfooter-series">미식의 나라 · 3 / 6</span>
+    <a href="misik-4.html" class="sfooter-next">다음 · 불멸의 떡볶이 →</a>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Food · 미식의 나라 03 · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice=('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+if(!isTouchDevice){
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+}else{
+  document.getElementById('cursor').style.display='none';
+  document.getElementById('cursorRing').style.display='none';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.fact-box,.conclusion,.pq,.psych-strip').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>
