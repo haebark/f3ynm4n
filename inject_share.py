@@ -1,19 +1,35 @@
 #!/usr/bin/env python3
 """
-F3YNM4N 공유버튼 컴포넌트 일괄 삽입 스크립트
-실행: python3 inject_share.py
-위치: ~/Downloads/f3ynm4n/ 에서 실행
+inject_share.py
+f3ynm4n 매거진 — 공유버튼 컴포넌트 일괄 삽입 스크립트
+사용법: python3 inject_share.py (f3ynm4n 로컬 폴더 루트에서 실행)
 """
 
 import os
 import re
 
-# 공유버튼 컴포넌트 전체
-SHARE_COMPONENT = """
-<!-- =============================================
-  F3YNM4N 공유 버튼 컴포넌트
-============================================= -->
+# ── 삽입 대상 파일 목록 ──────────────────────────────────────────
+TARGET_FILES = [
+    "rainy-park.html",
+    "digital-trickle.html",
+    "payment-evolution.html",
+    "my-flag.html",
+    "about-feynman.html",
+    "master-condition.html",
+    "battery-life.html",
+    "margin-gap.html",
+    "openai-ipo.html",
+    "misik-1.html",
+    "misik-2.html",
+    "misik-3.html",
+    "misik-4.html",
+    "misik-5.html",
+    "misik-epilogue.html",
+]
 
+# ── 공유버튼 컴포넌트 (renaissance.html 기준 표준) ────────────────
+SHARE_COMPONENT = """
+<!-- f3-share-btn 컴포넌트 (inject_share.py 자동 삽입) -->
 <style>
 .f3-share-btn{
   position:fixed;bottom:36px;right:36px;z-index:1000;
@@ -34,9 +50,7 @@ SHARE_COMPONENT = """
   pointer-events:none;
   transition:opacity .18s ease,transform .18s ease;
 }
-.f3-share-panel.open{
-  opacity:1;transform:translateY(0) scale(1);pointer-events:all;
-}
+.f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
 .f3-share-item{
   display:flex;align-items:center;gap:10px;
   background:#0d0d0b;border:1px solid rgba(200,150,62,.3);
@@ -60,7 +74,6 @@ SHARE_COMPONENT = """
   transition:opacity .2s,transform .2s;pointer-events:none;
 }
 .f3-share-toast.show{opacity:1;transform:translateY(0);}
-
 @media(max-width:640px){
   .f3-share-btn{bottom:24px;right:20px;}
   .f3-share-toast{right:20px;bottom:90px;}
@@ -69,7 +82,6 @@ SHARE_COMPONENT = """
 
 <div class="f3-share-btn" id="f3ShareBtn">
   <div class="f3-share-panel" id="f3SharePanel">
-
     <!-- URL 복사 -->
     <button class="f3-share-item" onclick="f3CopyUrl()">
       <span class="f3-share-icon">
@@ -79,7 +91,6 @@ SHARE_COMPONENT = """
       </span>
       URL 복사
     </button>
-
     <!-- X (Twitter) -->
     <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
       <span class="f3-share-icon">
@@ -89,7 +100,6 @@ SHARE_COMPONENT = """
       </span>
       X 공유
     </a>
-
     <!-- 카카오톡 -->
     <button class="f3-share-item" onclick="f3ShareKakao()">
       <span class="f3-share-icon">
@@ -99,9 +109,7 @@ SHARE_COMPONENT = """
       </span>
       카카오톡
     </button>
-
   </div>
-
   <!-- 토글 버튼 -->
   <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
     <svg viewBox="0 0 24 24">
@@ -158,21 +166,21 @@ SHARE_COMPONENT = """
   window.f3ShareKakao = function(){
     if(!KAKAO_KEY){ showToast('카카오 앱키 필요'); return; }
     loadKakaoSDK(function(){
-    var title = document.title || 'F3YNM4N';
-    var desc  = document.querySelector('meta[name="description"]');
-    Kakao.Share.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: title,
-        description: desc ? desc.content : '',
-        imageUrl: 'https://f3ynm4n.com/og_default.png',
-        link: { mobileWebUrl: location.href, webUrl: location.href }
-      },
-      buttons: [{
-        title: '읽기',
-        link: { mobileWebUrl: location.href, webUrl: location.href }
-      }]
-    });
+      var title = document.title || 'F3YNM4N';
+      var desc  = document.querySelector('meta[name="description"]');
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: title,
+          description: desc ? desc.content : '',
+          imageUrl: 'https://f3ynm4n.com/og_default.png',
+          link: { mobileWebUrl: location.href, webUrl: location.href }
+        },
+        buttons: [{
+          title: '읽기',
+          link: { mobileWebUrl: location.href, webUrl: location.href }
+        }]
+      });
     });
   };
 
@@ -192,45 +200,46 @@ SHARE_COMPONENT = """
 </script>
 """
 
-# 공유버튼 삽입 대상 파일 목록
-TARGET_FILES = [
-    'my-flag.html',
-    'payment-evolution.html',
-    'digital-trickle.html',
-    'rainy-park.html',
-    'about-feynman.html',
-]
+# ── 이미 삽입 여부 체크 패턴 ────────────────────────────────────
+ALREADY_INJECTED = "f3-share-btn"
 
-def inject_share(filepath):
-    if not os.path.exists(filepath):
-        print(f'  ❌ 파일 없음: {filepath}')
-        return False
+# ── 삽입 위치: </body> 바로 앞 ──────────────────────────────────
+INSERT_BEFORE = re.compile(r'</body>', re.IGNORECASE)
 
-    with open(filepath, 'r', encoding='utf-8') as f:
+
+def inject(filepath):
+    if not os.path.isfile(filepath):
+        print(f"  [SKIP] 파일 없음: {filepath}")
+        return
+
+    with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # 이미 삽입됐으면 스킵
-    if 'f3-share-btn' in content:
-        print(f'  ⏭  이미 있음: {filepath}')
-        return False
+    if ALREADY_INJECTED in content:
+        print(f"  [SKIP] 이미 삽입됨: {filepath}")
+        return
 
-    # </body> 바로 앞에 삽입
-    if '</body>' not in content:
-        print(f'  ⚠️  </body> 없음: {filepath}')
-        return False
+    if not INSERT_BEFORE.search(content):
+        print(f"  [WARN] </body> 태그 없음: {filepath}")
+        return
 
-    new_content = content.replace('</body>', SHARE_COMPONENT + '\n</body>', 1)
+    new_content = INSERT_BEFORE.sub(SHARE_COMPONENT + "\n</body>", content, count=1)
 
-    with open(filepath, 'w', encoding='utf-8') as f:
+    with open(filepath, "w", encoding="utf-8") as f:
         f.write(new_content)
 
-    print(f'  ✅ 삽입 완료: {filepath}')
-    return True
+    print(f"  [OK]   삽입 완료: {filepath}")
 
-if __name__ == '__main__':
-    print('F3YNM4N 공유버튼 일괄 삽입 시작\n')
-    success = 0
-    for fname in TARGET_FILES:
-        if inject_share(fname):
-            success += 1
-    print(f'\n완료: {success}/{len(TARGET_FILES)} 파일 처리됨')
+
+def main():
+    print("=== inject_share.py 시작 ===")
+    print(f"실행 위치: {os.getcwd()}\n")
+
+    for filename in TARGET_FILES:
+        inject(filename)
+
+    print("\n=== 완료 ===")
+
+
+if __name__ == "__main__":
+    main()
