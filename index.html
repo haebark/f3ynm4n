@@ -1035,6 +1035,7 @@ footer {
 <section class="categories" id="categories">
   <div class="section-label">Categories</div>
   <div class="cat-grid" id="cat-grid"><!-- JS --></div>
+  <div class="cat-grid-spacers" id="cat-grid-spacers"></div>
   <button class="cat-toggle" id="cat-toggle">
     <span class="cat-toggle-text">카테고리 더보기</span>
     <span class="cat-toggle-arrow">▾</span>
@@ -1367,11 +1368,35 @@ function renderCategories(articles) {
 
   buildGrid();
 
+  // 빈 칸 채우기 (grid 배경색 노출 방지)
+  function fillBlanks() {
+    const total = expanded ? CATEGORIES.length : VISIBLE_KEYS.length;
+    const cols = 3;
+    const remainder = total % cols;
+    const blanks = remainder === 0 ? 0 : cols - remainder;
+    const spacer = document.getElementById('cat-grid-spacers');
+    if (spacer) {
+      spacer.innerHTML = Array(blanks).fill('<div style="background:var(--black)"></div>').join('');
+      spacer.style.display = blanks > 0 ? 'contents' : 'none';
+    }
+  }
+
+  // cat-grid-spacers를 grid 안으로 이동
+  const spacerEl = document.getElementById('cat-grid-spacers');
+  const gridEl = document.getElementById('cat-grid');
+  if (spacerEl && gridEl) {
+    gridEl.appendChild(spacerEl);
+    spacerEl.style.display = 'contents';
+  }
+
+  fillBlanks();
+
   const toggle = document.getElementById('cat-toggle');
   if (toggle) {
     toggle.addEventListener('click', function() {
       expanded = !expanded;
       buildGrid();
+      fillBlanks();
       toggle.classList.toggle('open', expanded);
       toggle.querySelector('.cat-toggle-text').textContent = expanded ? '접기' : '카테고리 더보기';
     });
