@@ -539,9 +539,14 @@ nav a:hover { color: var(--gold); }
 }
 .cat-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   background: var(--border);
+}
+/* 마지막 줄 3개 → 가운데 배치용 더미 칸 */
+.cat-grid::after {
+  content: '';
+  background: var(--black);
 }
 .cat-item {
   background: var(--black);
@@ -935,6 +940,7 @@ footer {
   #recent { padding: 60px 24px !important; }
   .categories { padding: 60px 24px; }
   .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .cat-grid::after { display: none; }
 }
 
 </style>
@@ -1101,6 +1107,7 @@ const CATEGORIES = [
   { key: "film",    name: "영화비평",   icon: "🎬", href: "article.html?cat=film" },
   { key: "history", name: "대체역사",   icon: "🗺️", href: "article.html?cat=history" },
   { key: "culture", name: "문화칼럼",   icon: "✍️", href: "article.html?cat=culture" },
+  { key: "economy", name: "경제칼럼",   icon: "📈", href: "article.html?cat=economy" },
   { key: "fiction", name: "창작",       icon: "✒️", href: "article.html?cat=fiction" },
 ];
 
