@@ -539,14 +539,41 @@ nav a:hover { color: var(--gold); }
 }
 .cat-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--border);
 }
-/* 마지막 줄 3개 → 가운데 배치용 더미 칸 */
-.cat-grid::after {
-  content: '';
-  background: var(--black);
+.cat-item.cat-hidden {
+  display: none;
+}
+.cat-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  background: none;
+  border: 1px solid rgba(200,150,62,.25);
+  color: var(--gold-dim);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+  width: 100%;
+}
+.cat-toggle:hover {
+  border-color: rgba(200,150,62,.6);
+  color: var(--gold);
+}
+.cat-toggle-arrow {
+  transition: transform .25s;
+  display: inline-block;
+}
+.cat-toggle.open .cat-toggle-arrow {
+  transform: rotate(180deg);
 }
 .cat-item {
   background: var(--black);
@@ -940,7 +967,6 @@ footer {
   #recent { padding: 60px 24px !important; }
   .categories { padding: 60px 24px; }
   .cat-grid { grid-template-columns: repeat(3, 1fr); }
-  .cat-grid::after { display: none; }
 }
 
 </style>
@@ -1009,6 +1035,10 @@ footer {
 <section class="categories" id="categories">
   <div class="section-label">Categories</div>
   <div class="cat-grid" id="cat-grid"><!-- JS --></div>
+  <button class="cat-toggle" id="cat-toggle">
+    <span class="cat-toggle-text">카테고리 더보기</span>
+    <span class="cat-toggle-arrow">▾</span>
+  </button>
 </section>
 
 <!-- RECENT ARTICLES -->
@@ -1317,18 +1347,35 @@ function renderCategories(articles) {
   const counts = {};
   articles.forEach(a => { counts[a.category] = (counts[a.category] || 0) + 1; });
 
-  const html = CATEGORIES.map(cat => {
-    const total = (counts[cat.key] || 0) + (cat.baseCount || 0);
-    const count = total === 0 ? 'Coming Soon' : `${total} ARTICLE${total > 1 ? 'S' : ''}`;
-    const firstHref = cat.href || (articles.find(a => a.category === cat.key) ? `article.html?cat=${cat.key}` : '#');
-    return `<a href="${firstHref}" class="cat-item">
-      <span class="cat-icon">${cat.icon}</span>
-      <div class="cat-name">${cat.name}</div>
-      <div class="cat-count">${count}</div>
-    </a>`;
-  }).join('');
+  const VISIBLE_KEYS = ['food', 'science', 'culture'];
+  let expanded = false;
 
-  document.getElementById('cat-grid').innerHTML = html;
+  function buildGrid() {
+    const html = CATEGORIES.map(cat => {
+      const total = (counts[cat.key] || 0) + (cat.baseCount || 0);
+      const count = total === 0 ? 'Coming Soon' : `${total} ARTICLE${total > 1 ? 'S' : ''}`;
+      const firstHref = cat.href || (articles.find(a => a.category === cat.key) ? `article.html?cat=${cat.key}` : '#');
+      const hidden = (!expanded && !VISIBLE_KEYS.includes(cat.key)) ? ' style="display:none"' : '';
+      return `<a href="${firstHref}" class="cat-item"${hidden}>
+        <span class="cat-icon">${cat.icon}</span>
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-count">${count}</div>
+      </a>`;
+    }).join('');
+    document.getElementById('cat-grid').innerHTML = html;
+  }
+
+  buildGrid();
+
+  const toggle = document.getElementById('cat-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      expanded = !expanded;
+      buildGrid();
+      toggle.classList.toggle('open', expanded);
+      toggle.querySelector('.cat-toggle-text').textContent = expanded ? '접기' : '카테고리 더보기';
+    });
+  }
 }
 
 function renderFiction(articles) {
