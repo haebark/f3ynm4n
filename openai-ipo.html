@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPO 한 방, 누가 진짜 이기는가 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="오픈AI는 성장할수록 적자가 커지는 회사다. 그래서 상장이 필요하다. 그런데 이 게임의 진짜 승자는 따로 있을지 모른다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="IPO 한 방, 누가 진짜 이기는가 · F3YNM4N">
+<meta property="og:description" content="오픈AI는 성장할수록 적자가 커지는 회사다. 그런데 이 게임의 진짜 승자는 따로 있을지 모른다.">
+<meta property="og:url" content="https://f3ynm4n.com/openai-ipo.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IPO 한 방, 누가 진짜 이기는가 · F3YNM4N">
+<meta name="twitter:description" content="오픈AI는 성장할수록 적자가 커지는 회사다. 그런데 이 게임의 진짜 승자는 따로 있을지 모른다.">
+<meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#059669;--accent2:#10b981;--accent3:rgba(5,150,105,.1);
+  --border:rgba(5,150,105,0.18);--border2:rgba(5,150,105,0.25);
+}
+html{scroll-behavior:smooth;}
+body{background:#0d0d0b;color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(5,150,105,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(13,13,11,.92);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:rgba(242,237,230,.3);}
+.header-home{font-size:11px;letter-spacing:2px;color:rgba(242,237,230,.4);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 20% 70%, rgba(5,150,105,.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(16,185,129,.06) 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 50%, rgba(200,150,62,.03) 0%, transparent 40%),
+    linear-gradient(160deg,#0d0d0b 0%,#0a0f0d 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(5,150,105,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5,150,105,.04) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse at 20% 70%, black 0%, transparent 60%);
+}
+.hero-wm{position:absolute;right:4%;bottom:4%;font-family:'Space Mono',monospace;font-size:clamp(60px,12vw,180px);font-weight:700;line-height:1;color:rgba(5,150,105,.05);pointer-events:none;user-select:none;opacity:0;animation:fadeUp .8s ease forwards 1.2s;letter-spacing:-4px;}
+.hero-lines{position:absolute;inset:0;pointer-events:none;}
+.hline{position:absolute;left:0;right:0;height:1px;}
+.hline:nth-child(1){top:35%;background:linear-gradient(90deg,transparent,rgba(5,150,105,.1) 30%,rgba(5,150,105,.1) 70%,transparent);}
+.hline:nth-child(2){top:62%;background:linear-gradient(90deg,transparent,rgba(5,150,105,.06) 20%,rgba(5,150,105,.06) 80%,transparent);}
+.hline:nth-child(3){top:80%;background:linear-gradient(90deg,transparent,rgba(200,150,62,.04) 40%,rgba(200,150,62,.04) 60%,transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(16,185,129,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(16,185,129,.7);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(5,150,105,.45);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(26px,4vw,56px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:16px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(16,185,129,.75);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(13px,1.6vw,18px);color:rgba(16,185,129,.45);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .6s;line-height:1.7;}
+.hero-sub{font-size:15px;font-weight:300;color:rgba(242,237,230,.3);line-height:1.95;max-width:560px;border-left:2px solid rgba(5,150,105,.6);padding-left:20px;opacity:0;animation:fadeUp .8s ease forwards .7s;}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(5,150,105,.5);text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(180deg,rgba(5,150,105,.5),transparent);}
+
+/* BODY */
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;background:var(--bg);}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:1px;flex-shrink:0;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.1;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--text);font-weight:600;}
+
+/* 수치 3칸 */
+.stat-strip{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--border2);margin:32px 0;}
+.stat-item{padding:24px 20px;text-align:center;border-right:1px solid var(--border2);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:4px;}
+.stat-unit{font-size:13px;color:var(--text-muted);}
+.stat-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase;line-height:1.6;margin-top:6px;}
+
+/* 해자 지도 */
+.moat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:32px 0;}
+.moat-item{padding:24px 20px;border:1px solid var(--border2);background:var(--bg2);position:relative;}
+.moat-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);}
+.moat-company{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:6px;}
+.moat-tag{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px;}
+.moat-desc{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--text-mid);line-height:1.85;}
+
+/* 마소 시나리오 */
+.scenario-wrap{margin:32px 0;border:1px solid var(--border2);}
+.scenario-item{display:flex;align-items:flex-start;gap:16px;padding:20px 24px;border-bottom:1px solid var(--border2);}
+.scenario-item:last-child{border-bottom:none;}
+.scenario-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--accent2);text-transform:uppercase;white-space:nowrap;min-width:90px;padding-top:2px;}
+.scenario-content{font-family:'Noto Serif KR',serif;font-size:14px;color:var(--text-mid);line-height:1.85;}
+.scenario-content strong{color:var(--text);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(5,150,105,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(5,150,105,.3);}
+
+/* 에디터 노트 — 다크 클로징 */
+.editor-note{margin-top:72px;padding:48px;background:#0d0d0b;position:relative;overflow:hidden;}
+.editor-note::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.editor-note::after{content:'IPO';position:absolute;right:24px;bottom:12px;font-family:'Space Mono',monospace;font-size:80px;font-weight:700;color:rgba(5,150,105,.04);pointer-events:none;}
+.editor-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(16,185,129,.6);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.editor-label::after{content:'';flex:1;height:1px;background:rgba(5,150,105,.2);}
+.editor-body{font-family:'Noto Serif KR',serif;font-size:17px;color:rgba(242,237,230,.55);line-height:2.1;margin-bottom:20px;}
+.editor-punch{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2.2vw,22px);line-height:1.85;color:#f2ede6;}
+.editor-punch strong{font-style:normal;color:var(--accent2);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:24px;}
+  .body-wrap{padding:60px 20px 100px;}
+  .stat-strip{grid-template-columns:1fr;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border2);}
+  .stat-item:last-child{border-bottom:none;}
+  .moat-grid{grid-template-columns:1fr;}
+  .editor-note{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+  .hero-lines,.hero-scroll,.hero-wm{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <div class="hero-lines">
+    <div class="hline"></div><div class="hline"></div><div class="hline"></div>
+  </div>
+  <div class="hero-wm">IPO</div>
+  <div class="hero-inner">
+    <div class="hero-tag">Science · AI · 테크분석</div>
+    <div class="hero-eyebrow">OpenAI · Microsoft · IPO · 2026</div>
+    <h1 class="hero-title">
+      IPO 한 방,<br><em>누가 진짜 이기는가</em>
+    </h1>
+    <p class="hero-subtitle">오픈AI는 성장할수록 적자가 커지는 회사다</p>
+    <p class="hero-sub">
+      그래서 상장이 필요하다.<br>
+      그런데 이 게임의 진짜 승자는 따로 있을지 모른다.
+    </p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(5,150,105,.15);opacity:0;animation:fadeUp .8s ease forwards .2s;">
+    <p>2026년, AI 업계는 이상한 국면에 접어들었다. 세상에서 가장 유명한 AI 회사는 매출이 3배씩 성장하는데도 매달 수천억 원씩 적자를 내고 있다. 투자자들은 그 회사에 수백조 원을 쏟아붓고 있다. 그리고 그 회사는 조만간 주식시장에 상장하려 한다.</p>
+    <p><strong>오픈AI 얘기다.</strong></p>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat-item">
+      <div class="stat-num">$25B</div>
+      <div class="stat-label">2026년 2월 · 연환산 매출</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$17B</div>
+      <div class="stat-label">2026년 예상 현금 소각</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2030</div>
+      <div class="stat-label">흑자 전환 목표 연도</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">숫자가 말하는 것, 말하지 않는 것</h2>
+    </div>
+    <div class="article-body">
+      <p>표면만 보면 오픈AI는 지금 최전성기다. 2023년 연매출 $2B, 2024년 $6B, 2025년 $20B. 3년 만에 10배 성장. 주간 활성 유저 9억 1천만 명. ChatGPT는 인류 역사상 가장 빠르게 사용자를 모은 소비자 제품이다.</p>
+      <p>그런데 뒷면이 있다. 2026년 예상 현금 소각액은 $170억. 2025년 $90억보다 거의 두 배다. 매출이 늘수록 적자도 같이 불어나는 구조다. HSBC는 2030년까지 추가로 $2070억의 자금이 필요하다고 계산했다.</p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">왜 이런 구조인가</div>
+      <p class="fact-text">ChatGPT 질문 하나를 처리하는 데 드는 비용은 $0.01~$0.10. 이미지 한 장은 $0.10~$0.20. 숫자만 보면 별것 아니다. 하지만 오픈AI는 하루에 수십억 건의 쿼리를 처리한다. 2025년 추론 비용만 $84억, 2026년엔 $141억으로 늘어난다. <strong>더 많은 사람이 쓸수록 더 많은 돈이 나간다. 규모의 경제가 작동하지 않는 비즈니스.</strong></p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">골드러시의 진짜 수혜자</h2>
+    </div>
+    <div class="article-body">
+      <p>오픈AI가 피를 흘리는 동안 조용히 웃고 있는 곳들이 있다. 마이크로소프트는 Azure 클라우드로 오픈AI 연산을 처리하며, 오픈AI 매출의 20%를 2032년까지 가져가는 계약을 맺었다. 엔비디아는 GPU를 팔고, 오라클은 데이터센터를 임대한다. 캘리포니아 골드러시 때 삽과 청바지를 팔아 부자가 된 사람들의 2020년대 버전이다.</p>
+      <p>특히 마이크로소프트의 구조는 더 정교하다. 마이크로소프트가 오픈AI에 투자한 돈은, 오픈AI의 Azure 사용료로 다시 마이크로소프트에게 돌아온다. <strong>돈이 순환하는 메리고라운드다. 오픈AI가 돈을 쓸수록 마이크로소프트 Azure 매출이 오른다.</strong></p>
+    </div>
+
+    <div class="pq">
+      <p>오픈AI가 기술 경쟁에서 이기든 지든,<br>인프라 공급자들은 돈을 번다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">기술 격차의 소멸</h2>
+    </div>
+    <div class="article-body">
+      <p>오픈AI가 자금을 갈망하는 또 다른 이유가 있다. 경쟁 지형이 완전히 바뀌었기 때문이다. 2023년 ChatGPT는 독보적이었다. 지금은 다르다. 2026년 3월 스탠퍼드 AI 인덱스 기준 Arena Elo 순위에서 Anthropic(1503), xAI(1495), Google(1494), OpenAI(1481)이 한 줄로 붙었다. 기술 격차가 사실상 소멸했다.</p>
+      <p>경쟁의 축은 기술이 아니라 가격, 신뢰성, 도메인 특화 성능으로 넘어갔다. <strong>독주 체제에서 춘추전국시대로.</strong> 이 구도에서 오픈AI가 선두를 유지하려면 계속해서 더 빠르게 더 많은 돈을 써야 한다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">해자(Moat) 지도: 살아남는 회사들</h2>
+    </div>
+    <div class="article-body">
+      <p>AI 전쟁에서 오래 버티는 회사는 기술이 1등인 회사가 아니다. 도저히 빼앗을 수 없는 무언가를 가진 회사다.</p>
+    </div>
+
+    <div class="moat-grid">
+      <div class="moat-item">
+        <div class="moat-company">Google · Gemini</div>
+        <div class="moat-tag">본진이 있다</div>
+        <p class="moat-desc">제미나이 성능은 오픈AI와 대등하지만, 진짜 무기는 검색·유튜브·안드로이드에 기본 탑재되는 배포망이다. 20억 명의 일상 속에 이미 들어가 있다.</p>
+      </div>
+      <div class="moat-item">
+        <div class="moat-company">Microsoft · Copilot</div>
+        <div class="moat-tag">B2B 제왕</div>
+        <p class="moat-desc">포춘500 기업들은 이미 오피스·Teams·Azure 생태계 안에 있다. 오픈AI가 망해도 코파일럿은 멀티모델로 작동한다. 어떤 모델이 이겨도 레이어만 갈아끼우면 된다.</p>
+      </div>
+      <div class="moat-item">
+        <div class="moat-company">Meta</div>
+        <div class="moat-tag">1등 안 해도 된다</div>
+        <p class="moat-desc">광고로 돈을 버니까 AI 모델이 1등일 필요가 없다. Llama를 무료로 풀어 경쟁사의 핵심 제품을 범용품으로 만들어버린다. 35억 명 SNS 유저 기반 위에 AI를 올린다.</p>
+      </div>
+      <div class="moat-item">
+        <div class="moat-company">Apple</div>
+        <div class="moat-tag">가장 조용한 승자</div>
+        <p class="moat-desc">경쟁사들이 AI 설비에 합산 $7000억을 쏟을 때, 애플의 지출은 $127억이다. 온디바이스 처리로 개인정보 해자를 구축했다. 싸우지 않고 이기는 전략이다.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">오픈AI가 망하면 마이크로소프트가 이긴다</h2>
+    </div>
+    <div class="article-body">
+      <p>역설적으로 들리지만, 이게 진짜 시나리오다. 오픈AI의 자금이 바닥날 경우 가장 유력한 결말은 극적인 파산이 아니라 조용한 흡수 합병이다. 마이크로소프트는 현재 지구상에서 유일하게 오픈AI의 캐시 번 속도를 감당할 수 있는 현금을 보유한 기업이다.</p>
+    </div>
+
+    <div class="scenario-wrap">
+      <div class="scenario-item">
+        <span class="scenario-tag">오픈AI 성공</span>
+        <span class="scenario-content">지분 27% 가치 상승 + <strong>매출 20% 로열티</strong> 계속 수취</span>
+      </div>
+      <div class="scenario-item">
+        <span class="scenario-tag">오픈AI 휘청</span>
+        <span class="scenario-content"><strong>헐값에 핵심 기술·인재 흡수</strong> 가능. 코파일럿 멀티모델 전환 이미 준비됨</span>
+      </div>
+      <div class="scenario-item">
+        <span class="scenario-tag">오픈AI 붕괴</span>
+        <span class="scenario-content">Azure 인프라 유지 + <strong>코파일럿 멀티모델로 즉시 전환.</strong> 탈출구 이미 만들어놨다</span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>어떤 시나리오에서도 마이크로소프트는 손해를 보지 않는다. 오픈AI가 성공하면 투자 수익을, 실패하면 기술을 챙긴다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">그래서 IPO는 무엇의 국민투표인가</h2>
+    </div>
+    <div class="article-body">
+      <p>오픈AI는 2026년 4분기 IPO를 목표로 하고 있다. 시장 예상 기업가치는 $1조에 가깝다. 이미 역사상 가장 많은 자금을 모은 스타트업이지만, 그것만으로는 부족하다. 2030년 흑자 전환 시나리오를 현실로 만들려면 그 전까지의 수십조 원 규모 적자를 누군가 메워줘야 한다. 이번엔 그 누군가를 공개시장의 일반 투자자로 확장하겠다는 것이다.</p>
+    </div>
+  </div>
+
+  <!-- 에디터 노트 -->
+  <div class="editor-note">
+    <div class="editor-label">Editor's Note</div>
+    <p class="editor-body">오픈AI가 성공해도 마이크로소프트가 이기고, 오픈AI가 망해도 마이크로소프트가 이긴다. 이 게임에서 유일하게 지는 경우는 오픈AI도 아니고 마이크로소프트도 아닌, 그 베팅에 돈을 댄 일반 투자자들일지 모른다.</p>
+    <p class="editor-punch"><strong>IPO는 성공의 증표가 아니다.</strong> AI의 미래를 얼마나 믿는지에 대한 국민투표다. 그리고 그 투표용지를 사는 사람은 당신이다.</p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Science · AI · 2026</span>
+</footer>
+
+<script>
+const isTouchDevice=('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+if(!isTouchDevice){
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+  (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+}else{
+  document.getElementById('cursor').style.display='none';
+  document.getElementById('cursorRing').style.display='none';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.fact-box,.editor-note,.pq,.stat-strip,.moat-grid,.scenario-wrap').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+
+<!-- f3-share-btn 컴포넌트 (inject_share.py 자동 삽입) -->
+<style>
+.f3-share-btn{
+  position:fixed;bottom:36px;right:36px;z-index:1000;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.f3-share-toggle{
+  width:44px;height:44px;border-radius:50%;
+  background:#c8963e;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s,background .2s;
+  box-shadow:0 2px 12px rgba(200,150,62,.35);
+}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{
+  display:flex;flex-direction:column;gap:6px;
+  opacity:0;transform:translateY(8px) scale(.96);
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+}
+.f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.f3-share-item{
+  display:flex;align-items:center;gap:10px;
+  background:#0d0d0b;border:1px solid rgba(200,150,62,.3);
+  padding:10px 16px;cursor:pointer;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;
+  color:#c8963e;text-transform:uppercase;white-space:nowrap;
+  transition:background .15s,border-color .15s;
+  text-decoration:none;
+}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{
+  width:16px;height:16px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.f3-share-toast{
+  position:fixed;bottom:100px;right:36px;z-index:1001;
+  background:#0d0d0b;border:1px solid rgba(200,150,62,.4);
+  padding:10px 18px;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;
+  opacity:0;transform:translateY(4px);
+  transition:opacity .2s,transform .2s;pointer-events:none;
+}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+@media(max-width:640px){
+  .f3-share-btn{bottom:24px;right:20px;}
+  .f3-share-toast{right:20px;bottom:90px;}
+}
+</style>
+
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <!-- URL 복사 -->
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+      </span>
+      URL 복사
+    </button>
+    <!-- X (Twitter) -->
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </span>
+      X 공유
+    </a>
+    <!-- 카카오톡 -->
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e">
+          <path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/>
+        </svg>
+      </span>
+      카카오톡
+    </button>
+  </div>
+  <!-- 토글 버튼 -->
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24">
+      <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+    </svg>
+  </button>
+</div>
+
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  var KAKAO_KEY = 'e0642d0a5c0ae01b8893422a148e9aba';
+
+  function loadKakaoSDK(cb){
+    if(window.Kakao){cb();return;}
+    var s=document.createElement('script');
+    s.src='https://developers.kakao.com/sdk/js/kakao.min.js';
+    s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};
+    document.head.appendChild(s);
+  }
+
+  var panelOpen = false;
+
+  window.f3ToggleShare = function(){
+    panelOpen = !panelOpen;
+    document.getElementById('f3SharePanel').classList.toggle('open', panelOpen);
+  };
+
+  window.f3CopyUrl = function(){
+    var url = location.href;
+    navigator.clipboard.writeText(url).then(function(){
+      showToast('URL 복사됨');
+    }).catch(function(){
+      var ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+      showToast('URL 복사됨');
+    });
+    panelOpen = false;
+    document.getElementById('f3SharePanel').classList.remove('open');
+  };
+
+  var xLink = document.getElementById('f3ShareX');
+  if(xLink){
+    var title = document.title || 'F3YNM4N';
+    var url = location.href;
+    xLink.href = 'https://twitter.com/intent/tweet?text=' +
+      encodeURIComponent(title) + '&url=' + encodeURIComponent(url);
+  }
+
+  window.f3ShareKakao = function(){
+    if(!KAKAO_KEY){ showToast('카카오 앱키 필요'); return; }
+    loadKakaoSDK(function(){
+      var title = document.title || 'F3YNM4N';
+      var desc  = document.querySelector('meta[name="description"]');
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: title,
+          description: desc ? desc.content : '',
+          imageUrl: 'https://f3ynm4n.com/og_default.png',
+          link: { mobileWebUrl: location.href, webUrl: location.href }
+        },
+        buttons: [{
+          title: '읽기',
+          link: { mobileWebUrl: location.href, webUrl: location.href }
+        }]
+      });
+    });
+  };
+
+  function showToast(msg){
+    var t = document.getElementById('f3Toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2000);
+  }
+
+  document.addEventListener('click', function(e){
+    if(!document.getElementById('f3ShareBtn').contains(e.target)){
+      panelOpen = false;
+      document.getElementById('f3SharePanel').classList.remove('open');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
