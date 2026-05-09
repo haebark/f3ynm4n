@@ -426,6 +426,8 @@ body {
       <div class="sidebar-link" onclick="filterCategory('film')">🎬 영화비평 <span class="sidebar-count" id="count-film">0</span></div>
       <div class="sidebar-link" onclick="filterCategory('history')">🗺️ 대체역사 <span class="sidebar-count" id="count-history">0</span></div>
       <div class="sidebar-link" onclick="filterCategory('culture')">✍️ 문화칼럼 <span class="sidebar-count" id="count-culture">0</span></div>
+      <div class="sidebar-link" onclick="filterCategory('economy')">📈 경제칼럼 <span class="sidebar-count" id="count-economy">0</span></div>
+      <div class="sidebar-link" onclick="filterCategory('misc')">💭 잡생각 <span class="sidebar-count" id="count-misc">0</span></div>
       <div class="sidebar-link" onclick="filterCategory('fiction')">✒️ 창작 <span class="sidebar-count" id="count-fiction">0</span></div>
       <div class="sidebar-section">사이트</div>
       <div class="sidebar-link" onclick="window.open('index.html')">🌐 사이트 보기</div>
@@ -518,6 +520,8 @@ body {
                   <option value="film">🎬 영화비평</option>
                   <option value="history">🗺️ 대체역사</option>
                   <option value="culture">✍️ 문화칼럼</option>
+                  <option value="economy">📈 경제칼럼</option>
+                  <option value="misc">💭 잡생각</option>
                   <option value="fiction">✒️ 창작</option>
                 </select>
               </div>
@@ -664,7 +668,7 @@ function updateStats() {
   document.getElementById('stat-categories').textContent = categories;
   document.getElementById('count-all').textContent = total;
 
-  ['food','science','film','history','culture','fiction'].forEach(cat => {
+  ['food','science','film','history','culture','economy','misc','fiction'].forEach(cat => {
     const n = allArticles.filter(a => a.category === cat).length;
     document.getElementById('count-' + cat).textContent = n;
   });
@@ -749,7 +753,7 @@ function showSection(name) {
 }
 
 function filterCategory(cat) {
-  const catNames = { food:'미식', science:'팝사이언스', film:'영화비평', history:'대체역사', culture:'문화칼럼', fiction:'창작' };
+  const catNames = { food:'미식', science:'팝사이언스', film:'영화비평', history:'대체역사', culture:'문화칼럼', economy:'경제칼럼', misc:'잡생각', fiction:'창작' };
   const filtered = allArticles.filter(a => a.category === cat);
   showSection('articles');
   renderList(filtered, catNames[cat], `${filtered.length}개`);
