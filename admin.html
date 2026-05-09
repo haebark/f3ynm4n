@@ -500,6 +500,10 @@ body {
               <input type="text" id="f-subtitle" placeholder="한 줄 설명">
             </div>
             <div class="field">
+              <label>외부 HTML 링크 (href) <span style="font-size:11px;color:var(--gold-dim)">— 입력 시 본문 대신 해당 파일로 연결</span></label>
+              <input type="text" id="f-href" placeholder="예: tokenizer.html">
+            </div>
+            <div class="field">
               <label>본문 (HTML 또는 텍스트)</label>
               <textarea class="content-textarea" id="f-content" placeholder="글 내용을 입력하세요...&#10;&#10;HTML 태그 사용 가능:&#10;&lt;p&gt;문단&lt;/p&gt;&#10;&lt;strong&gt;굵게&lt;/strong&gt;&#10;&lt;em&gt;강조&lt;/em&gt;&#10;&lt;h2&gt;소제목&lt;/h2&gt;"></textarea>
             </div>
@@ -764,7 +768,7 @@ function resetEditor() {
   editingId = null;
   document.getElementById('editor-title').textContent = '새 글 작성';
   document.getElementById('delete-btn').style.display = 'none';
-  ['f-title','f-subtitle','f-content','f-tag','f-slug','f-cover-color','f-series-name','f-series-order'].forEach(id => {
+  ['f-title','f-subtitle','f-content','f-href','f-tag','f-slug','f-cover-color','f-series-name','f-series-order'].forEach(id => {
     document.getElementById(id).value = '';
   });
   document.getElementById('f-category').value = 'culture';
@@ -781,11 +785,12 @@ function editArticle(id) {
   document.getElementById('delete-btn').style.display = 'block';
   document.getElementById('f-title').value = a.title || '';
   document.getElementById('f-subtitle').value = a.subtitle || '';
+  document.getElementById('f-href').value = a.href || '';
   document.getElementById('f-content').value = a.content || '';
   document.getElementById('f-category').value = a.category || 'culture';
   document.getElementById('f-tag').value = a.tag || '';
   document.getElementById('f-slug').value = a.slug || '';
-  document.getElementById('f-cover-color').value = a.cover_col || '#0d0d0b';
+  document.getElementById('f-cover-color').value = a.cover_color || '#0d0d0b';
   document.getElementById('f-is-series').checked = a.is_series || false;
   document.getElementById('f-is-featured').checked = a.is_featured || false;
   document.getElementById('f-is-popular').checked = a.is_popular || false;
@@ -814,8 +819,9 @@ document.getElementById('f-title').addEventListener('blur', autoSlug);
 async function saveArticle(publish) {
   const title = document.getElementById('f-title').value.trim();
   const content = document.getElementById('f-content').value.trim();
+  const href = document.getElementById('f-href').value.trim();
   if (!title) { showToast('제목을 입력하세요', 'error'); return; }
-  if (!content) { showToast('내용을 입력하세요', 'error'); return; }
+  if (!content && !href) { showToast('본문 또는 href를 입력하세요', 'error'); return; }
 
   autoSlug();
   const slug = document.getElementById('f-slug').value.trim() || Date.now().toString();
@@ -824,10 +830,11 @@ async function saveArticle(publish) {
     title,
     subtitle: document.getElementById('f-subtitle').value.trim(),
     content,
+    href: href || null,
     category: document.getElementById('f-category').value,
     tag: document.getElementById('f-tag').value.trim(),
     slug,
-    cover_col: document.getElementById('f-cover-color').value.trim() || '#0d0d0b',
+    cover_color: document.getElementById('f-cover-color').value.trim() || '#0d0d0b',
     is_series: document.getElementById('f-is-series').checked,
     series_name: document.getElementById('f-series-name').value.trim() || null,
     series_order: parseInt(document.getElementById('f-series-order').value) || null,
