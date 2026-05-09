@@ -785,7 +785,7 @@ function editArticle(id) {
   document.getElementById('f-category').value = a.category || 'culture';
   document.getElementById('f-tag').value = a.tag || '';
   document.getElementById('f-slug').value = a.slug || '';
-  document.getElementById('f-cover-color').value = a.cover_color || '#0d0d0b';
+  document.getElementById('f-cover-color').value = a.cover_col || '#0d0d0b';
   document.getElementById('f-is-series').checked = a.is_series || false;
   document.getElementById('f-is-featured').checked = a.is_featured || false;
   document.getElementById('f-is-popular').checked = a.is_popular || false;
@@ -827,7 +827,7 @@ async function saveArticle(publish) {
     category: document.getElementById('f-category').value,
     tag: document.getElementById('f-tag').value.trim(),
     slug,
-    cover_color: document.getElementById('f-cover-color').value.trim() || '#0d0d0b',
+    cover_col: document.getElementById('f-cover-color').value.trim() || '#0d0d0b',
     is_series: document.getElementById('f-is-series').checked,
     series_name: document.getElementById('f-series-name').value.trim() || null,
     series_order: parseInt(document.getElementById('f-series-order').value) || null,
