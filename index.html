@@ -114,8 +114,8 @@ nav a:hover { color: var(--gold); }
 
 /* ── HERO / MAGAZINE COVER ── */
 .hero {
-  height: 100vh;
-  min-height: 700px;
+  height: 82vh;
+  min-height: 640px;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 200px 1fr 200px;
@@ -215,7 +215,7 @@ nav a:hover { color: var(--gold); }
 }
 .coverline-title {
   font-family: 'Noto Serif KR', serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--off-white);
   line-height: 1.5;
@@ -225,7 +225,7 @@ nav a:hover { color: var(--gold); }
 }
 .coverline-title:hover { color: var(--gold); }
 .coverline-desc {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.6;
   color: var(--mid);
 }
@@ -1376,7 +1376,7 @@ function renderCategories(articles) {
     const blanks = remainder === 0 ? 0 : cols - remainder;
     const spacer = document.getElementById('cat-grid-spacers');
     if (spacer) {
-      spacer.innerHTML = Array(blanks).fill('<div style="background:var(--bg)"></div>').join('');
+      spacer.innerHTML = Array(blanks).fill('<div style="background:var(--black)"></div>').join('');
       spacer.style.display = blanks > 0 ? 'contents' : 'none';
     }
   }
