@@ -541,7 +541,7 @@ nav a:hover { color: var(--gold); }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: var(--border);
+  background: var(--black);
 }
 .cat-item.cat-hidden {
   display: none;
@@ -584,6 +584,8 @@ nav a:hover { color: var(--gold); }
   text-decoration: none;
   color: inherit;
   display: block;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .cat-item:hover { background: rgba(200,150,62,0.06); }
 .cat-icon { font-size: 24px; margin-bottom: 12px; display: block; }
@@ -1377,7 +1379,7 @@ function renderCategories(articles) {
     const blanks = remainder === 0 ? 0 : cols - remainder;
     const spacer = document.getElementById('cat-grid-spacers');
     if (spacer) {
-      spacer.innerHTML = Array(blanks).fill('<div style="background:var(--bg)"></div>').join('');
+      spacer.innerHTML = Array(blanks).fill('<div style="background:var(--black)"></div>').join('');
       spacer.style.display = blanks > 0 ? 'contents' : 'none';
     }
   }
