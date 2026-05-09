@@ -1376,7 +1376,7 @@ function renderCategories(articles) {
     const blanks = remainder === 0 ? 0 : cols - remainder;
     const spacer = document.getElementById('cat-grid-spacers');
     if (spacer) {
-      spacer.innerHTML = Array(blanks).fill('<div style="background:var(--black)"></div>').join('');
+      spacer.innerHTML = Array(blanks).fill('<div style="background:var(--bg)"></div>').join('');
       spacer.style.display = blanks > 0 ? 'contents' : 'none';
     }
   }
