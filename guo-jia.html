@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>곽가 — 싸우기 전에 이미 이긴 자 | F3YNM4N</title>
+<meta name="description" content="십승십패론은 순수한 분석서가 아니다. 구조 독해 위에 설득을 덧씌운 정치 문서다.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0b;
+  --accent:#065f46;
+  --accent2:#059669;
+  --accent-dim:rgba(6,95,70,.45);
+  --gold:#c8963e;
+  --cream:#f5f0e8;
+  --text:#2a2420;
+  --off-white:#f2ede6;
+  --border:rgba(200,150,62,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--off-white);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+
+.reading-progress{position:fixed;top:0;left:0;width:0%;height:2px;background:var(--accent2);z-index:9999;transition:width .1s linear;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(5,150,105,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(13,13,11,.92);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--gold);text-decoration:none;}
+.header-home{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(200,150,62,.6);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+.hero{min-height:100vh;padding-top:72px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero-bg{position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 40% 45%, rgba(6,95,70,.18) 0%, transparent 70%),
+  radial-gradient(ellipse 30% 25% at 85% 75%, rgba(200,150,62,.05) 0%, transparent 60%);}
+.hero-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(6,95,70,.04) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(6,95,70,.04) 60px);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:860px;}
+.hero-series{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(5,150,105,.6);text-transform:uppercase;margin-bottom:12px;opacity:0;animation:fadeUp .8s ease forwards .1s;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(5,150,105,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';width:32px;height:1px;background:var(--accent2);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(200,150,62,.45);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.5vw,60px);font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:#f2ede6;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title span{color:var(--accent2);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,1.6vw,19px);color:rgba(200,150,62,.5);margin-bottom:40px;opacity:0;animation:fadeUp .8s ease forwards .65s;line-height:1.7;}
+.hero-meta{display:flex;align-items:center;gap:24px;opacity:0;animation:fadeUp .8s ease forwards .8s;}
+.hero-cat{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;border:1px solid var(--accent-dim);padding:5px 12px;}
+.hero-series-badge{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(200,150,62,.4);border:1px solid rgba(200,150,62,.15);padding:5px 12px;}
+.hero-date{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(200,150,62,.4);}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(200,150,62,.35);text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll-line{width:1px;height:48px;background:linear-gradient(180deg,rgba(5,150,105,.5),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes scrollPulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+
+.article-wrap{background:var(--cream);color:var(--text);}
+.article-body{max-width:720px;margin:0 auto;padding:80px 48px 100px;}
+.article-body p{font-family:'Noto Serif KR',serif;font-size:17px;line-height:2;color:var(--text);margin-bottom:28px;word-break:keep-all;}
+.article-body p:last-child{margin-bottom:0;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid rgba(6,95,70,.15);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);opacity:.7;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:700;color:var(--text);}
+
+.compare-box{margin:40px 0;padding:28px 32px;background:#0d0d0b;position:relative;overflow:hidden;}
+.compare-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.compare-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:16px;}
+.compare-row{display:flex;align-items:flex-start;gap:16px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(6,95,70,.12);}
+.compare-row:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.compare-name{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent2);min-width:60px;padding-top:2px;}
+.compare-desc{font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.8;color:rgba(242,237,230,.7);}
+
+.pq{margin:48px 0;padding:32px 40px;border-left:3px solid var(--accent2);background:rgba(6,95,70,.04);position:relative;}
+.pq::before{content:'"';position:absolute;top:-12px;left:32px;font-family:'Playfair Display',serif;font-size:80px;color:rgba(6,95,70,.1);line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.conclusion{margin-top:72px;padding:48px;background:#0d0d0b;position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2));}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:20px;}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;line-height:2;color:var(--off-white);margin-bottom:16px;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:rgba(200,150,62,.8);line-height:1.9;display:block;margin-top:8px;}
+
+.series-nav{background:#111109;border-top:1px solid rgba(200,150,62,.1);padding:32px 48px;}
+.series-nav-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(200,150,62,.4);text-transform:uppercase;margin-bottom:20px;}
+.series-list{display:flex;flex-wrap:wrap;gap:8px;}
+.series-item{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(200,150,62,.5);border:1px solid rgba(200,150,62,.12);padding:6px 12px;text-decoration:none;transition:all .2s;}
+.series-item:hover{color:var(--gold);border-color:rgba(200,150,62,.4);}
+.series-item.current{color:var(--accent2);border-color:var(--accent-dim);}
+
+footer{background:var(--bg);padding:48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--gold);text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(200,150,62,.4);}
+
+@media(max-width:768px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .article-body{padding:48px 20px 72px;}
+  .pq{padding:24px 20px;margin:32px 0;}
+  .compare-box{padding:24px 20px;}
+  .conclusion{padding:32px 24px;}
+  .series-nav{padding:24px 20px;}
+  footer{padding:32px 20px;flex-direction:column;gap:12px;text-align:center;}
+  .hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span style="color:rgba(200,150,62,.4);font-size:10px;">.mag</span></a>
+  <a href="index.html" class="header-home">← 홈으로</a>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-series">삼국지 인물론 1부 — 천재의 결말 · 01</div>
+    <div class="hero-tag">History · 삼국지 인물론</div>
+    <div class="hero-eyebrow">Guo Jia — Victory Before the Battle</div>
+    <h1 class="hero-title">곽가<br><span>싸우기 전에 이미 이긴 자</span></h1>
+    <p class="hero-subtitle">십승십패론은 순수한 분석서가 아니다.<br>구조 독해 위에 설득을 덧씌운 정치 문서다.</p>
+    <div class="hero-meta">
+      <span class="hero-cat">History</span>
+      <span class="hero-series-badge">1부 · 01</span>
+      <span class="hero-date">2026</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <div class="section">
+      <p>관도대전 전야, 조조는 열세였다. 병력도, 영토도, 명분도 원소에 밀렸다. 원소는 황하 북쪽 사주를 장악한 당대 최강의 군벌이었고, 조조는 그 앞에서 중원 하나를 겨우 쥐고 있었다. 누가 봐도 조조가 지는 싸움이었다.</p>
+      <p>그러나 곽가는 달랐다. 조조가 이긴다고 했다. 그것도 열 가지 이유를 들어서.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-title">전장이 아니라 조직을 읽었다</span>
+      </div>
+
+      <p>십승십패론은 전술 분석이 아니었다. 조직 해부였다. 곽가가 본 건 병력 수도, 지형도, 보급선도 아니었다. 원소라는 인간이 만든 조직의 내부 구조와, 조조라는 인간이 만든 조직의 내부 구조였다.</p>
+
+      <div class="compare-box">
+        <div class="compare-label">원소 vs 조조 — 구조의 차이</div>
+        <div class="compare-row">
+          <span class="compare-name">원소</span>
+          <span class="compare-desc">겉은 크고 안이 허물어진 조직. 의사결정이 느리고, 인재를 못 쓰며, 명분은 있지만 실행이 없다. 크고 화려하지만 속이 비어가는 구조.</span>
+        </div>
+        <div class="compare-row">
+          <span class="compare-name">조조</span>
+          <span class="compare-desc">겉은 열세지만 안이 단단한 조직. 의사결정이 빠르고, 인재를 제 자리에 쓰며, 명분보다 실행을 앞세운다. 작지만 단단한 구조.</span>
+        </div>
+      </div>
+
+      <p>곽가가 본 건 이거였다. 전장에 나가기 전에 승부는 이미 조직 안에서 나 있었다.</p>
+
+      <div class="pq">
+        <p>병력이 많다고 이기는 게 아니다.<br>안이 단단한 조직이 이긴다.<br>곽가는 그걸 전쟁 전에 읽었다.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-title">7할의 분석, 3할의 설득</span>
+      </div>
+
+      <p>십승십패론은 순수한 분석서가 아니다. 구조 독해 위에 설득을 덧씌운 정치 문서다. 7은 진짜 독해였고, 3은 조조를 설득하는 정치적 설계였다. 열세에 몰린 군주에게 "당신이 이길 수 있는 열 가지 이유"를 논리로 제시하는 것 — 그건 분석이면서 동시에 확신을 심어주는 행위다.</p>
+
+      <p>곽가는 맞는 말을 맞는 타이밍에 맞는 방식으로 전달할 줄 알았다. 그게 단순한 분석가와 책사를 가르는 지점이다. 아무리 정확한 분석도 군주가 받아들이지 않으면 의미가 없다. 곽가는 구조를 읽는 능력과 사람을 설득하는 능력을 동시에 가졌다. 그것까지 포함해서 천재였다.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-title">봉효가 있었다면</span>
+      </div>
+
+      <p>적벽대전 이후 조조는 한마디를 남겼다. "봉효가 살아있었다면." 곽가의 자字다. 단순한 추모가 아니었다. 조조가 적벽에서 진 건 208년이고, 곽가가 죽은 건 207년이다. 딱 1년 차이다.</p>
+
+      <p>곽가가 살아있었다면 손권과의 동맹 구도를 다르게 읽었을 거라는 해석이 있다. 맞을 수도 있고 틀릴 수도 있다. 그러나 조조가 그 말을 했다는 사실이 중요하다. 천하를 거의 손에 쥔 군주가, 패배한 순간 가장 먼저 떠올린 사람이 곽가였다는 것 — 그게 곽가의 위치를 말한다.</p>
+    </div>
+
+    <div class="conclusion">
+      <div class="conclusion-label">판정 · Verdict</div>
+      <p class="conclusion-body">천재는 때로 전장에서 죽지 않는다. 곽가는 병으로 죽었다. 38세였다.</p>
+      <span class="conclusion-close">곽가는 싸우기 전에 이미 이겨놓는 자였다.<br>그래서 누구보다 빨리 소진됐다.</span>
+    </div>
+
+  </div>
+</div>
+
+<div class="series-nav">
+  <div class="series-nav-label">삼국지 인물론 — 1부 천재의 결말</div>
+  <div class="series-list">
+    <a href="guo-jia.html" class="series-item current">01 · 곽가</a>
+    <a href="zhou-yu.html" class="series-item">02 · 주유</a>
+    <a href="sanguo-genius.html" class="series-item">03 · 가후</a>
+    <a href="sima-yi.html" class="series-item">04 · 사마의</a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">History · 삼국지 인물론 1부 · 2026</span>
+</footer>
+
+<!-- f3-share-btn -->
+<style>
+.f3-share-btn{position:fixed;bottom:36px;right:36px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.f3-share-toggle{width:44px;height:44px;border-radius:50%;background:#c8963e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(200,150,62,.35);}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;transition:opacity .18s ease,transform .18s ease;}
+.f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.f3-share-item{display:flex;align-items:center;gap:10px;background:#0d0d0b;border:1px solid rgba(200,150,62,.3);padding:10px 16px;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;text-transform:uppercase;white-space:nowrap;transition:background .15s,border-color .15s;text-decoration:none;}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.f3-share-toast{position:fixed;bottom:100px;right:36px;z-index:1001;background:#0d0d0b;border:1px solid rgba(200,150,62,.4);padding:10px 18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+@media(max-width:640px){.f3-share-btn{bottom:24px;right:20px;}.f3-share-toast{right:20px;bottom:90px;}}
+</style>
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+      URL 복사
+    </button>
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+      X 공유
+    </a>
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg></span>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  var KAKAO_KEY='e0642d0a5c0ae01b8893422a148e9aba';
+  function loadKakaoSDK(cb){if(window.Kakao){cb();return;}var s=document.createElement('script');s.src='https://developers.kakao.com/sdk/js/kakao.min.js';s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};document.head.appendChild(s);}
+  var panelOpen=false;
+  window.f3ToggleShare=function(){panelOpen=!panelOpen;document.getElementById('f3SharePanel').classList.toggle('open',panelOpen);};
+  window.f3CopyUrl=function(){var url=location.href;navigator.clipboard.writeText(url).then(function(){showToast('URL 복사됨');}).catch(function(){var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('URL 복사됨');});panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');};
+  var xLink=document.getElementById('f3ShareX');if(xLink){xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href);}
+  window.f3ShareKakao=function(){if(!KAKAO_KEY){showToast('카카오 앱키 필요');return;}loadKakaoSDK(function(){var desc=document.querySelector('meta[name="description"]');Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:desc?desc.content:'',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:location.href,webUrl:location.href}},buttons:[{title:'읽기',link:{mobileWebUrl:location.href,webUrl:location.href}}]});});};
+  function showToast(msg){var t=document.getElementById('f3Toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+  document.addEventListener('click',function(e){if(!document.getElementById('f3ShareBtn').contains(e.target)){panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');}});
+})();
+</script>
+
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+window.addEventListener('scroll',function(){
+  var doc=document.documentElement;
+  var pct=(doc.scrollTop||document.body.scrollTop)/(doc.scrollHeight-doc.clientHeight)*100;
+  document.getElementById('readingProgress').style.width=pct+'%';
+});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.compare-box,.conclusion,.pq').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>
