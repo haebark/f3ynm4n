@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사마의 — 끝까지 자신을 꺼내지 않은 천재 | F3YNM4N</title>
+<meta name="description" content="가장 오래 남은 자가 천하를 가져갔다. 삼국지 시리즈 완결편.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0b;
+  --accent:#92400e;
+  --accent2:#b45309;
+  --accent-dim:rgba(146,64,14,.45);
+  --gold:#c8963e;
+  --gold-dim:rgba(200,150,62,.5);
+  --cream:#f5f0e8;
+  --text:#2a2420;
+  --off-white:#f2ede6;
+  --border:rgba(200,150,62,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--off-white);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+
+.reading-progress{position:fixed;top:0;left:0;width:0%;height:2px;background:var(--accent2);z-index:9999;transition:width .1s linear;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(180,83,9,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(13,13,11,.92);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--gold);text-decoration:none;}
+.header-home{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(200,150,62,.6);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:72px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero-bg{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 45%, rgba(146,64,14,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 30% at 15% 80%, rgba(200,150,62,.06) 0%, transparent 60%);}
+.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(13,13,11,.6) 100%);}
+/* 시간의 흐름 — 수평선 여러 개 */
+.hero-lines{position:absolute;inset:0;}
+.hero-lines::before{content:'';position:absolute;top:30%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(146,64,14,.15),transparent);}
+.hero-lines::after{content:'';position:absolute;top:60%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(146,64,14,.1),transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:860px;}
+.hero-series{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(180,83,9,.6);text-transform:uppercase;margin-bottom:12px;opacity:0;animation:fadeUp .8s ease forwards .1s;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(180,83,9,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';width:32px;height:1px;background:var(--accent2);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(200,150,62,.45);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.5vw,60px);font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:#f2ede6;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title span{color:var(--accent2);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,1.6vw,19px);color:rgba(200,150,62,.5);margin-bottom:40px;opacity:0;animation:fadeUp .8s ease forwards .65s;line-height:1.7;}
+.hero-meta{display:flex;align-items:center;gap:24px;opacity:0;animation:fadeUp .8s ease forwards .8s;}
+.hero-cat{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;border:1px solid var(--accent-dim);padding:5px 12px;}
+.hero-series-badge{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(200,150,62,.4);border:1px solid rgba(200,150,62,.15);padding:5px 12px;}
+.hero-date{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(200,150,62,.4);}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(200,150,62,.35);text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll-line{width:1px;height:48px;background:linear-gradient(180deg,rgba(180,83,9,.5),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes scrollPulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+
+/* ARTICLE */
+.article-wrap{background:var(--cream);color:var(--text);}
+.article-body{max-width:720px;margin:0 auto;padding:80px 48px 100px;}
+.article-body p{font-family:'Noto Serif KR',serif;font-size:17px;line-height:2;color:var(--text);margin-bottom:28px;word-break:keep-all;}
+.article-body p:last-child{margin-bottom:0;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid rgba(146,64,14,.15);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);opacity:.7;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:700;color:var(--text);}
+
+/* 천재들 비교 박스 */
+.genius-box{margin:40px 0;padding:28px 32px;background:#0d0d0b;position:relative;overflow:hidden;}
+.genius-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.genius-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:16px;}
+.genius-row{display:flex;align-items:flex-start;gap:16px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(146,64,14,.12);}
+.genius-row:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.genius-row.highlight .genius-name{color:var(--accent2);}
+.genius-row.highlight .genius-desc{color:rgba(242,237,230,.9);}
+.genius-name{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(242,237,230,.5);min-width:72px;padding-top:2px;}
+.genius-desc{font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.8;color:rgba(242,237,230,.55);}
+
+.pq{margin:48px 0;padding:32px 40px;border-left:3px solid var(--accent2);background:rgba(146,64,14,.04);position:relative;}
+.pq::before{content:'"';position:absolute;top:-12px;left:32px;font-family:'Playfair Display',serif;font-size:80px;color:rgba(146,64,14,.1);line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.conclusion{margin-top:72px;padding:48px;background:#0d0d0b;position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2));}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:20px;}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;line-height:2;color:var(--off-white);margin-bottom:20px;}
+.conclusion-body:last-child{margin-bottom:0;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:rgba(200,150,62,.85);line-height:1.8;margin-top:24px;display:block;}
+
+/* 시리즈 네비 */
+.series-nav{background:#111109;border-top:1px solid rgba(200,150,62,.1);padding:32px 48px;}
+.series-nav-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(200,150,62,.4);text-transform:uppercase;margin-bottom:20px;}
+.series-list{display:flex;flex-wrap:wrap;gap:8px;}
+.series-item{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(200,150,62,.5);border:1px solid rgba(200,150,62,.12);padding:6px 12px;text-decoration:none;transition:all .2s;}
+.series-item:hover{color:var(--gold);border-color:rgba(200,150,62,.4);}
+.series-item.current{color:var(--accent2);border-color:var(--accent-dim);}
+.series-nav-section{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:rgba(200,150,62,.3);text-transform:uppercase;margin:16px 0 8px;width:100%;}
+
+footer{background:var(--bg);padding:48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--gold);text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(200,150,62,.4);}
+
+@media(max-width:768px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .article-body{padding:48px 20px 72px;}
+  .pq{padding:24px 20px;margin:32px 0;}
+  .genius-box{padding:24px 20px;}
+  .conclusion{padding:32px 24px;}
+  .series-nav{padding:24px 20px;}
+  footer{padding:32px 20px;flex-direction:column;gap:12px;text-align:center;}
+  .hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span style="color:rgba(200,150,62,.4);font-size:10px;">.mag</span></a>
+  <a href="index.html" class="header-home">← 홈으로</a>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-series">삼국지 인물론 · 완결편</div>
+    <div class="hero-tag">History · 삼국지 인물론 · 1부 — 천재의 결말</div>
+    <div class="hero-eyebrow">Sima Yi — The Genius Who Never Revealed Himself</div>
+    <h1 class="hero-title">사마의<br><span>끝까지 자신을 꺼내지 않은 천재</span></h1>
+    <p class="hero-subtitle">가장 강한 자도, 가장 빛나는 자도 아니었다.<br>가장 오래 남은 자였다.</p>
+    <div class="hero-meta">
+      <span class="hero-cat">History</span>
+      <span class="hero-series-badge">Series Final</span>
+      <span class="hero-date">2026</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <div class="section">
+      <p>삼국지의 천재들은 대체로 빨리 사라진다. 곽가는 38세에 죽었고, 주유는 36세에 죽었다. 순욱은 빈 찬합을 읽고 스스로 무너졌으며, 양수는 너무 빨리 읽고 너무 빨리 드러냈다. 제갈량은 나라 전체를 혼자 떠받치다가 오장원에서 쓰러졌다. 그러나 그 모든 시대를 지나 끝까지 살아남은 사람이 있었다. 사마의였다.</p>
+
+      <p>사람들은 사마의를 음험한 권신으로 기억한다. 그러나 그렇게만 보면 본질을 놓친다. 사마의의 진짜 무서움은 악함이 아니라 — 방향이었다. 다른 천재들이 재능을 폭발시키는 방향으로 갔다면, 사마의는 재능을 오래 운용하는 방향으로 갔다.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-title">그들이 사라진 이유</span>
+      </div>
+
+      <div class="genius-box">
+        <div class="genius-label">천재들의 결말</div>
+        <div class="genius-row">
+          <span class="genius-name">곽가</span>
+          <span class="genius-desc">너무 빨리 꺼냈다. 판을 설계하고 승부를 읽었다. 38세에 꺼졌다.</span>
+        </div>
+        <div class="genius-row">
+          <span class="genius-name">주유</span>
+          <span class="genius-desc">전장에서 모든 걸 태웠다. 가장 빛나는 자리에서 전부 불태웠다. 36세에 갔다.</span>
+        </div>
+        <div class="genius-row">
+          <span class="genius-name">순욱</span>
+          <span class="genius-desc">너무 깊게 읽었다. 조조와 목적지가 달랐다는 걸 읽어버렸고, 그 순간 살아남을 수 없었다.</span>
+        </div>
+        <div class="genius-row">
+          <span class="genius-name">양수</span>
+          <span class="genius-desc">읽고도 숨기지 못했다. 계륵 하나로 조조의 머릿속을 떠들었고 잘렸다.</span>
+        </div>
+        <div class="genius-row">
+          <span class="genius-name">제갈량</span>
+          <span class="genius-desc">너무 많이 짊어졌다. 시스템 전체를 혼자 떠받치며 자기 자신을 갈아 넣었다.</span>
+        </div>
+        <div class="genius-row highlight">
+          <span class="genius-name">사마의</span>
+          <span class="genius-desc">그 모든 걸 지켜봤다. 그리고 달랐다.</span>
+        </div>
+      </div>
+
+      <p>사마의는 그 모든 걸 봤다. 너무 빨리 빛나는 인간들이 어떻게 끝나는지, 권력 가까이에 있는 천재가 왜 오래 살지 못하는지를 눈앞에서 지켜봤다. 그래서 그는 달랐다. 읽었지만 드러내지 않았고, 능력이 있었지만 조절했으며, 순간의 승부보다 마지막 결과를 봤다.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-title">비겁함이 아니라 — 계산이었다</span>
+      </div>
+
+      <p>사람들은 그걸 비겁함이라고 부른다. 그러나 단순한 소심함으로 설명하기엔 사마의는 너무 오래 살아남았다. 진짜 소심한 인간은 기회를 잡지 못한다. 사마의는 달랐다. 기다릴 줄 알았고, 결정적인 순간엔 움직였다.</p>
+
+      <p>조조 밑에서는 숨었고, 조비 시대엔 버텼으며, 조예 시대엔 참고, 조상이 틈을 보였을 때 끝내 가져갔다. 참기만 한 사람이 아니라 — 때를 계산한 사람이었다.</p>
+
+      <div class="pq">
+        <p>그는 굳이 지금 증명할 필요가 없다는 걸 알았다.<br>재능은 드러내는 순간 소모되고,<br>권력은 눈에 띄는 순간 견제를 부른다.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-title">지속형 지능 — 재능을 장기 운용한 인간</span>
+      </div>
+
+      <p>여기서 사마의의 천재성이 드러난다. 그는 자신의 재능을 폭발력으로 사용하지 않았다. 장기 운용 자산처럼 관리했다. 대부분의 천재는 자기 능력을 증명하려 든다. "내가 누군지 아느냐"는 감각이 재능과 결합하는 순간, 인간은 자신을 전부 꺼내기 시작한다. 곽가도, 주유도, 양수도, 제갈량도 결국 그 방향으로 갔다.</p>
+
+      <p>그러나 사마의는 굳이 지금 증명할 필요가 없다는 걸 알았다. 재능은 드러내는 순간 소모되고, 권력은 눈에 띄는 순간 견제를 부른다는 걸 이해했다. 그래서 숨긴 게 아니라 아낀 것이다.</p>
+    </div>
+
+    <div class="conclusion">
+      <div class="conclusion-label">판정 · Verdict</div>
+      <p class="conclusion-body">삼국지는 영웅들의 이야기처럼 보인다. 가장 강한 자, 가장 충성스러운 자, 가장 빛나는 자들의 시대처럼 보인다. 그러나 끝에서 남은 건 달랐다. 모두가 자신을 증명하려 할 때, 사마의만은 끝까지 자신을 함부로 꺼내지 않았다.</p>
+      <span class="conclusion-close">그리고 결국 — 가장 오래 남은 자가 천하를 가져갔다.</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- 시리즈 네비 -->
+<div class="series-nav">
+  <div class="series-nav-label">삼국지 인물론 시리즈</div>
+  <div class="series-nav-section">1부 — 천재의 결말</div>
+  <div class="series-list">
+    <a href="guo-jia.html" class="series-item">01 · 곽가 — 싸우기 전에 이미 이긴 자</a>
+    <a href="zhou-yu.html" class="series-item">02 · 주유 — 가장 빛나는 자리에서 타버린 자</a>
+    <a href="jia-xu.html" class="series-item">03 · 가후 — 천재성을 숨긴 자</a>
+    <a href="sima-yi.html" class="series-item current">04 · 사마의 — 끝까지 꺼내지 않은 천재</a>
+  </div>
+  <div class="series-nav-section">2부 — 권력의 비극</div>
+  <div class="series-list">
+    <a href="cao-cao-xunyu.html" class="series-item">05 · 순욱 — 같은 버스, 다른 종착역</a>
+    <a href="zhuge-liang.html" class="series-item">06 · 제갈량 — 몸에 맞지 않는 옷</a>
+    <a href="guan-yu-jingzhou.html" class="series-item">07 · 형주 — 세 사람의 계산이 충돌한 장소</a>
+    <a href="cao-cao-destiny.html" class="series-item">08 · 조조 — 창업군주의 숙명</a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">History · 삼국지 인물론 완결 · 2026</span>
+</footer>
+
+<!-- f3-share-btn 컴포넌트 -->
+<style>
+.f3-share-btn{position:fixed;bottom:36px;right:36px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.f3-share-toggle{width:44px;height:44px;border-radius:50%;background:#c8963e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(200,150,62,.35);}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;transition:opacity .18s ease,transform .18s ease;}
+.f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.f3-share-item{display:flex;align-items:center;gap:10px;background:#0d0d0b;border:1px solid rgba(200,150,62,.3);padding:10px 16px;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;text-transform:uppercase;white-space:nowrap;transition:background .15s,border-color .15s;text-decoration:none;}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.f3-share-toast{position:fixed;bottom:100px;right:36px;z-index:1001;background:#0d0d0b;border:1px solid rgba(200,150,62,.4);padding:10px 18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+@media(max-width:640px){.f3-share-btn{bottom:24px;right:20px;}.f3-share-toast{right:20px;bottom:90px;}}
+</style>
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+      URL 복사
+    </button>
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+      X 공유
+    </a>
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg></span>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  var KAKAO_KEY='e0642d0a5c0ae01b8893422a148e9aba';
+  function loadKakaoSDK(cb){if(window.Kakao){cb();return;}var s=document.createElement('script');s.src='https://developers.kakao.com/sdk/js/kakao.min.js';s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};document.head.appendChild(s);}
+  var panelOpen=false;
+  window.f3ToggleShare=function(){panelOpen=!panelOpen;document.getElementById('f3SharePanel').classList.toggle('open',panelOpen);};
+  window.f3CopyUrl=function(){var url=location.href;navigator.clipboard.writeText(url).then(function(){showToast('URL 복사됨');}).catch(function(){var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('URL 복사됨');});panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');};
+  var xLink=document.getElementById('f3ShareX');if(xLink){xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href);}
+  window.f3ShareKakao=function(){if(!KAKAO_KEY){showToast('카카오 앱키 필요');return;}loadKakaoSDK(function(){var desc=document.querySelector('meta[name="description"]');Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:desc?desc.content:'',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:location.href,webUrl:location.href}},buttons:[{title:'읽기',link:{mobileWebUrl:location.href,webUrl:location.href}}]});});};
+  function showToast(msg){var t=document.getElementById('f3Toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+  document.addEventListener('click',function(e){if(!document.getElementById('f3ShareBtn').contains(e.target)){panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');}});
+})();
+</script>
+
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+window.addEventListener('scroll',function(){
+  var doc=document.documentElement;
+  var pct=(doc.scrollTop||document.body.scrollTop)/(doc.scrollHeight-doc.clientHeight)*100;
+  document.getElementById('readingProgress').style.width=pct+'%';
+});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.genius-box,.conclusion,.pq').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>
