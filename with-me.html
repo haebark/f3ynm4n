@@ -977,24 +977,19 @@
         await loadCounter();
 
       } else if (selectedPay === 'toss') {
-        const myAccount = "토스뱅크 1000-0585-8453 원성훈";
-        navigator.clipboard.writeText(myAccount).then(() => {
-          document.getElementById('confirm-title').textContent = '동전을 챙겼습니다.';
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (!isMobile) {
+          document.getElementById('confirm-title').textContent = '토스페이는 모바일에서 이용 가능합니다.';
           document.getElementById('overlay-confirm').querySelector('.overlay-sub').textContent =
-            '계좌번호가 복사되었습니다. 토스 앱을 실행합니다.';
-          setTimeout(() => {
-            window.location.href = 'supertoss://send?amount=' + (input.value || 300);
-            closeOverlay('overlay-confirm');
-            document.getElementById('overlay-complete').classList.add('active');
-            saveToDb(amount, 'toss');
-            loadCounter();
-          }, 1200);
-        }).catch(() => {
-          // 클립보드 실패 시 그냥 앱만 열기
-          window.location.href = 'supertoss://send?amount=' + (input.value || 300);
-          closeOverlay('overlay-confirm');
-          document.getElementById('overlay-complete').classList.add('active');
-        });
+            '모바일에서 접속해 두고 가세요.';
+          document.getElementById('overlay-confirm').querySelector('.btn-confirm').style.display = 'none';
+          return;
+        }
+        window.location.href = `supertoss://send?amount=${input.value || 300}&bank=%ED%86%A0%EC%8A%A4%EB%B1%85%ED%81%AC&accountNo=100006638453&origin=qr`;
+        document.getElementById('overlay-confirm').classList.remove('active');
+        document.getElementById('overlay-complete').classList.add('active');
+        await saveToDb(amount, 'toss');
+        await loadCounter();
       }
     }
 
