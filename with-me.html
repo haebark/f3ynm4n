@@ -770,14 +770,14 @@
 
       <label class="vending-input-label" for="amount">오늘의 커피값</label>
       <div class="vending-input-wrap">
-        <span class="vending-currency">$</span>
+        <span class="vending-currency">₩</span>
         <input
           class="vending-input"
           id="amount"
           type="number"
-          placeholder="1"
-          min="1"
-          step="1"
+          placeholder="300"
+          min="300"
+          step="100"
         />
       </div>
       <span class="vending-hint">얼마든 괜찮습니다. 당신이 떠올린 커피의 크기만큼.</span>
@@ -925,11 +925,30 @@
       document.querySelectorAll('.pay-btn').forEach(b => b.classList.remove('active'));
       el.classList.add('active');
       selectedPay = method;
+
+      const currency = document.querySelector('.vending-currency');
+      const input = document.getElementById('amount');
+
+      if (method === 'paypal') {
+        currency.textContent = '$';
+        input.placeholder = '1';
+        input.min = '1';
+        input.step = '1';
+        if (!input.value || input.value === '300') input.value = '';
+      } else {
+        currency.textContent = '₩';
+        input.placeholder = '300';
+        input.min = '300';
+        input.step = '100';
+        if (!input.value || input.value === '1') input.value = '';
+      }
     }
 
     // ── 결제 확인 오버레이 ──
     function showConfirm() {
-      const amount = document.getElementById('amount').value || '1';
+      const input = document.getElementById('amount');
+      const defaultVal = selectedPay === 'paypal' ? '1' : '300';
+      const amount = input.value || defaultVal;
       const title = document.getElementById('confirm-title');
       title.textContent = `이 커피를 두고 가시겠습니까?`;
       document.getElementById('overlay-confirm').classList.add('active');
@@ -937,7 +956,9 @@
     }
 
     async function showComplete() {
-      const amount = document.getElementById('amount').value || '1';
+      const input = document.getElementById('amount');
+      const defaultVal = selectedPay === 'paypal' ? '1' : '300';
+      const amount = input.value || defaultVal;
 
       if (selectedPay === 'paypal') {
         const url = `https://www.paypal.me/p3ynm4n/${amount}`;
