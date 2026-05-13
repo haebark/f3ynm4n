@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>조조 — 창업군주의 숙명 | F3YNM4N</title>
+<meta name="description" content="악해지지 않으면 살아남을 수 없다는 걸, 너무 빨리 이해하게 되는 데 있다.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0b;
+  --accent:#4c1d95;
+  --accent2:#7c3aed;
+  --accent-dim:rgba(124,58,237,.35);
+  --gold:#c8963e;
+  --cream:#f5f0e8;
+  --text:#2a2420;
+  --off-white:#f2ede6;
+  --border:rgba(200,150,62,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--off-white);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+
+.reading-progress{position:fixed;top:0;left:0;width:0%;height:2px;background:var(--accent2);z-index:9999;transition:width .1s linear;}
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(124,58,237,.3);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(13,13,11,.92);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--gold);text-decoration:none;}
+.header-home{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(200,150,62,.6);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+.hero{min-height:100vh;padding-top:72px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero-bg{position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 55% at 45% 45%, rgba(76,29,149,.22) 0%, transparent 70%),
+  radial-gradient(ellipse 35% 25% at 85% 75%, rgba(124,58,237,.08) 0%, transparent 60%);}
+.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 90% 90% at 50% 50%, transparent 45%, rgba(13,13,11,.55) 100%);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:860px;}
+.hero-series{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(124,58,237,.6);text-transform:uppercase;margin-bottom:12px;opacity:0;animation:fadeUp .8s ease forwards .1s;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(124,58,237,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';width:32px;height:1px;background:var(--accent2);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(200,150,62,.45);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.5vw,60px);font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:#f2ede6;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title span{color:var(--accent2);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,1.6vw,19px);color:rgba(200,150,62,.5);margin-bottom:40px;opacity:0;animation:fadeUp .8s ease forwards .65s;line-height:1.7;}
+.hero-meta{display:flex;align-items:center;gap:24px;opacity:0;animation:fadeUp .8s ease forwards .8s;}
+.hero-cat{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;border:1px solid var(--accent-dim);padding:5px 12px;}
+.hero-series-badge{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(200,150,62,.4);border:1px solid rgba(200,150,62,.15);padding:5px 12px;}
+.hero-date{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(200,150,62,.4);}
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(200,150,62,.35);text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll-line{width:1px;height:48px;background:linear-gradient(180deg,rgba(124,58,237,.4),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes scrollPulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+
+.article-wrap{background:var(--cream);color:var(--text);}
+.article-body{max-width:720px;margin:0 auto;padding:80px 48px 100px;}
+.article-body p{font-family:'Noto Serif KR',serif;font-size:17px;line-height:2;color:var(--text);margin-bottom:28px;word-break:keep-all;}
+.article-body p:last-child{margin-bottom:0;}
+
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid rgba(76,29,149,.15);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);opacity:.7;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:700;color:var(--text);}
+
+.pq{margin:48px 0;padding:32px 40px;border-left:3px solid var(--accent2);background:rgba(76,29,149,.04);position:relative;}
+.pq::before{content:'"';position:absolute;top:-12px;left:32px;font-family:'Playfair Display',serif;font-size:80px;color:rgba(76,29,149,.1);line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.fact-box{margin:40px 0;padding:28px 32px;background:#0d0d0b;position:relative;overflow:hidden;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:14px;}
+.fact-box p{font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.8;color:rgba(242,237,230,.7);margin:0 !important;}
+
+.conclusion{margin-top:72px;padding:48px;background:#0d0d0b;position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2));}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:20px;}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;line-height:2;color:var(--off-white);margin-bottom:20px;}
+.conclusion-body:last-child{margin-bottom:0;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:rgba(200,150,62,.8);line-height:1.9;display:block;margin-top:8px;}
+
+.series-nav{background:#111109;border-top:1px solid rgba(200,150,62,.1);padding:32px 48px;}
+.series-nav-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(200,150,62,.4);text-transform:uppercase;margin-bottom:20px;}
+.series-list{display:flex;flex-wrap:wrap;gap:8px;}
+.series-item{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(200,150,62,.5);border:1px solid rgba(200,150,62,.12);padding:6px 12px;text-decoration:none;transition:all .2s;}
+.series-item:hover{color:var(--gold);border-color:rgba(200,150,62,.4);}
+.series-item.current{color:var(--accent2);border-color:var(--accent-dim);}
+.series-nav-section{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:rgba(200,150,62,.3);text-transform:uppercase;margin:16px 0 8px;width:100%;}
+.series-list{display:flex;flex-wrap:wrap;gap:8px;}
+.series-divider{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(200,150,62,.25);padding:6px 4px;align-self:center;}
+
+footer{background:var(--bg);padding:48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--gold);text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(200,150,62,.4);}
+
+@media(max-width:768px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .article-body{padding:48px 20px 72px;}
+  .pq{padding:24px 20px;margin:32px 0;}
+  .fact-box{padding:24px 20px;}
+  .conclusion{padding:32px 24px;}
+  .series-nav{padding:24px 20px;}
+  footer{padding:32px 20px;flex-direction:column;gap:12px;text-align:center;}
+  .hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span style="color:rgba(200,150,62,.4);font-size:10px;">.mag</span></a>
+  <a href="index.html" class="header-home">← 홈으로</a>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-inner">
+    <div class="hero-series">삼국지 인물론 2부 — 권력의 비극 · 01</div>
+    <div class="hero-tag">History · 삼국지 인물론 · 2부 — 권력의 비극</div>
+    <div class="hero-eyebrow">Cao Cao — The Destiny of a Founder</div>
+    <h1 class="hero-title">조조<br><span>창업군주의 숙명</span></h1>
+    <p class="hero-subtitle">악해지지 않으면 살아남을 수 없다는 걸,<br>너무 빨리 이해하게 되는 데 있다.</p>
+    <div class="hero-meta">
+      <span class="hero-cat">History</span>
+      <span class="hero-series-badge">2부 · 01</span>
+      <span class="hero-date">2026</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <div class="section">
+      <p>조조는 악인처럼 보인다. 서주에서 사람을 죽였고, 군량이 부족하자 책임자를 베었으며, 끝내 순욱까지 잃었다. 역사는 그를 간웅이라 불렀고, 소설은 그 이미지를 굳혔다.</p>
+      <p>그러나 조조를 단순한 악인으로 읽는 순간, 더 중요한 걸 놓친다.</p>
+      <p>조조의 잔혹함은 성격이 아니라 자리에서 나왔다. 악해서 그런 선택을 한 것이 아니라, 그 자리에 앉은 인간이 결국 그런 선택을 하게 되는 구조가 있었다.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-title">서주 — 분노 이전의 통치</span>
+      </div>
+
+      <p>서주 대학살은 조조의 가장 어두운 기록이다. 부친 조숭이 죽은 뒤, 조조는 서주를 공격했고 수많은 사람이 죽었다.</p>
+      <p>분노의 복수극처럼 보인다. 실제로 분노가 있었을 것이다. 그러나 그걸 감정 폭발로만 읽으면 조조를 놓친다.</p>
+
+      <div class="pq">
+        <p>후한 말은 법이 무너진 시대였다.<br>보복하지 않는 군주는 약하게 보였고,<br>약한 군주는 곧 무너졌다.</p>
+      </div>
+
+      <p>군벌은 힘으로 질서를 증명해야 했다. 조조는 알고 있었다. 이 시대에 분노는 감정이 아니라 정치적 메시지가 된다는 걸.</p>
+      <p>옳았다는 뜻이 아니다. 다만 그 선택이 단순한 광기가 아니라는 뜻이다. 조조는 악인이기 전에, 난세의 문법을 정확히 이해한 권력자였다.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-title">군량미 — 누군가는 책임져야 한다</span>
+      </div>
+
+      <p>군량이 부족해졌을 때, 조조는 책임자를 처형했다. 많은 사람들은 잔혹함만 본다. 물론 잔혹했다.</p>
+      <p>그러나 더 본질적인 건 따로 있다. 군량 부족이 알려지는 순간, 군은 무너진다. 공포는 탈영을 낳고, 탈영은 붕괴를 부른다. 그때 필요한 건 진실보다 질서다.</p>
+
+      <div class="fact-box">
+        <div class="fact-label">창업군주의 계산</div>
+        <p>군량 부족 공개 → 공포 → 탈영 → 붕괴<br>책임자 처형 → 질서 유지 → 체제 생존<br>조조는 착한 선택을 버리고, 살아남는 선택을 택했다.</p>
+      </div>
+
+      <p>현대의 기준으로 보면 비겁하다. 그러나 창업군주에게 체제 붕괴는 개인 윤리보다 먼저 오는 문제다. 그런 인간이 천하를 얻는다.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-title">순욱 — 가장 깊이 아는 자를 잃다</span>
+      </div>
+
+      <p>그리고 끝내 조조는 순욱을 잃는다. 순욱은 단순한 참모가 아니었다. 조조의 조직을 설계한 공동 창업자였다. 곽가도, 순유도, 정욱도 순욱이 끌어들였다. 조조의 천하는 상당 부분 순욱이 깔아놓은 판 위에 세워졌다.</p>
+      <p>바로 그래서 위험했다. 너무 많은 걸 알고, 너무 깊이 들어와 있는 공신은 창업군주에게 부담이 된다.</p>
+      <p>더구나 순욱은 조조와 다른 목적지를 보고 있었다. 순욱은 한나라의 재건을 원했다. 조조는 어느 순간, 한나라 이후를 보기 시작했다.</p>
+
+      <div class="pq">
+        <p>조조가 보낸 빈 찬합은 협박이 아니었다.<br>마지막 예우였다.<br>읽을 수 있는 자에게만 통하는 방식.</p>
+      </div>
+
+      <p>조조는 순욱이 이해할 거라 믿었고, 순욱은 조조가 무엇을 말하는지 정확히 알았다. 20년 동행한 두 천재의 마지막 대화였다.</p>
+    </div>
+
+    <div class="conclusion">
+      <div class="conclusion-label">판정 · Verdict</div>
+      <p class="conclusion-body">조조는 선인이 아니었다. 그러나 멍청한 악당은 더더욱 아니었다. 그는 권력이 인간에게 무엇을 요구하는지 너무 잘 알았다. 그래서 잔혹했고, 그래서 살아남았다.</p>
+      <p class="conclusion-body">창업군주의 비극은 악해져서 욕먹는 데 있지 않다.</p>
+      <span class="conclusion-close">악해지지 않으면 살아남을 수 없다는 걸,<br>너무 빨리 이해하게 되는 데 있다.</span>
+    </div>
+
+  </div>
+</div>
+
+<div class="series-nav">
+  <div class="series-nav-label">삼국지 인물론 시리즈</div>
+  <div class="series-nav-section">1부 — 천재의 결말</div>
+  <div class="series-list">
+    <a href="guo-jia.html" class="series-item">01 · 곽가 — 싸우기 전에 이미 이긴 자</a>
+    <a href="zhou-yu.html" class="series-item">02 · 주유 — 가장 빛나는 자리에서 타버린 자</a>
+    <a href="jia-xu.html" class="series-item">03 · 가후 — 천재성을 숨긴 자</a>
+    <a href="sima-yi.html" class="series-item">04 · 사마의 — 끝까지 꺼내지 않은 천재</a>
+  </div>
+  <div class="series-nav-section">2부 — 권력의 비극</div>
+  <div class="series-list">
+    <a href="cao-cao-xunyu.html" class="series-item">05 · 순욱 — 같은 버스, 다른 종착역</a>
+    <a href="zhuge-liang.html" class="series-item">06 · 제갈량 — 몸에 맞지 않는 옷</a>
+    <a href="guan-yu-jingzhou.html" class="series-item">07 · 형주 — 세 사람의 계산이 충돌한 장소</a>
+    <a href="cao-cao-destiny.html" class="series-item current">08 · 조조 — 창업군주의 숙명</a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">History · 삼국지 인물론 2부 · 2026</span>
+</footer>
+
+<!-- f3-share-btn -->
+<style>
+.f3-share-btn{position:fixed;bottom:36px;right:36px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.f3-share-toggle{width:44px;height:44px;border-radius:50%;background:#c8963e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(200,150,62,.35);}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;transition:opacity .18s ease,transform .18s ease;}
+.f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.f3-share-item{display:flex;align-items:center;gap:10px;background:#0d0d0b;border:1px solid rgba(200,150,62,.3);padding:10px 16px;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;text-transform:uppercase;white-space:nowrap;transition:background .15s,border-color .15s;text-decoration:none;}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.f3-share-toast{position:fixed;bottom:100px;right:36px;z-index:1001;background:#0d0d0b;border:1px solid rgba(200,150,62,.4);padding:10px 18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+@media(max-width:640px){.f3-share-btn{bottom:24px;right:20px;}.f3-share-toast{right:20px;bottom:90px;}}
+</style>
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+      URL 복사
+    </button>
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+      X 공유
+    </a>
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg></span>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  var KAKAO_KEY='e0642d0a5c0ae01b8893422a148e9aba';
+  function loadKakaoSDK(cb){if(window.Kakao){cb();return;}var s=document.createElement('script');s.src='https://developers.kakao.com/sdk/js/kakao.min.js';s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};document.head.appendChild(s);}
+  var panelOpen=false;
+  window.f3ToggleShare=function(){panelOpen=!panelOpen;document.getElementById('f3SharePanel').classList.toggle('open',panelOpen);};
+  window.f3CopyUrl=function(){var url=location.href;navigator.clipboard.writeText(url).then(function(){showToast('URL 복사됨');}).catch(function(){var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('URL 복사됨');});panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');};
+  var xLink=document.getElementById('f3ShareX');if(xLink){xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href);}
+  window.f3ShareKakao=function(){if(!KAKAO_KEY){showToast('카카오 앱키 필요');return;}loadKakaoSDK(function(){var desc=document.querySelector('meta[name="description"]');Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:desc?desc.content:'',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:location.href,webUrl:location.href}}  ,buttons:[{title:'읽기',link:{mobileWebUrl:location.href,webUrl:location.href}}]});});};
+  function showToast(msg){var t=document.getElementById('f3Toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+  document.addEventListener('click',function(e){if(!document.getElementById('f3ShareBtn').contains(e.target)){panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');}});
+})();
+</script>
+
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+window.addEventListener('scroll',function(){
+  var doc=document.documentElement;
+  var pct=(doc.scrollTop||document.body.scrollTop)/(doc.scrollHeight-doc.clientHeight)*100;
+  document.getElementById('readingProgress').style.width=pct+'%';
+});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.fact-box,.conclusion,.pq').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>

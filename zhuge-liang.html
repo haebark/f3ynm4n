@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제갈량의 과로사 — 몸에 맞지 않는 옷 | F3YNM4N</title>
+<meta name="description" content="제갈량은 역사상 최고의 2인자였다. 그러나 1인자의 자리에 앉았다.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style id="reading-progress-style">
+.reading-progress{position:fixed;top:0;left:0;width:0%;height:2px;background:#9b1b30;z-index:9999;transition:width .1s linear;}
+
+/* 시리즈 네비 */
+.series-nav{background:#111109;border-top:1px solid rgba(200,150,62,.1);padding:32px 48px;}
+.series-nav-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(200,150,62,.4);text-transform:uppercase;margin-bottom:20px;}
+.series-nav-section{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:rgba(200,150,62,.3);text-transform:uppercase;margin:16px 0 8px;width:100%;}
+.series-list{display:flex;flex-wrap:wrap;gap:8px;}
+.series-item{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(200,150,62,.5);border:1px solid rgba(200,150,62,.12);padding:6px 12px;text-decoration:none;transition:all .2s;}
+.series-item:hover{color:var(--gold);border-color:rgba(200,150,62,.4);}
+.series-item.current{color:var(--accent2);border-color:var(--accent-dim);}
+@media(max-width:640px){.series-nav{padding:24px 20px;}}
+</style>
+<style>
+:root {
+  --bg: #0d0d0b;
+  --accent: #9b1b30;
+  --accent2: #c0394f;
+  --accent-dim: rgba(155,27,48,.45);
+  --gold: #c8963e;
+  --gold-dim: rgba(200,150,62,.5);
+  --cream: #f5f0e8;
+  --cream2: #ede8e0;
+  --text: #2a2420;
+  --text-mid: #5a4f48;
+  --off-white: #f2ede6;
+  --border: rgba(200,150,62,.15);
+  --border2: rgba(200,150,62,.08);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--off-white);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;cursor:none;}
+
+.cursor{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(155,27,48,.35);border-radius:50%;pointer-events:none;z-index:9998;transition:all .25s;transform:translate(-50%,-50%);}
+
+/* ── HEADER ── */
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(13,13,11,.92);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--gold);text-decoration:none;text-transform:uppercase;}
+.header-home{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(200,150,62,.6);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;padding-top:72px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0d0d0b;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%, rgba(155,27,48,.18) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,150,62,.06) 0%, transparent 60%);}
+.hero-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(155,27,48,.04) 80px);}
+/* 붓질 장식 */
+.hero-stroke{position:absolute;top:20%;right:5%;width:3px;height:40%;background:linear-gradient(180deg, transparent, var(--accent), transparent);opacity:.25;}
+.hero-stroke2{position:absolute;top:30%;right:8%;width:1px;height:25%;background:linear-gradient(180deg, transparent, rgba(200,150,62,.4), transparent);}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:860px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(155,27,48,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';width:32px;height:1px;background:var(--accent);}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(200,150,62,.45);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease forwards .35s;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.5vw,60px);font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:#f2ede6;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .5s;}
+.hero-title span{color:var(--accent2);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,1.6vw,19px);color:rgba(200,150,62,.5);margin-bottom:40px;opacity:0;animation:fadeUp .8s ease forwards .65s;line-height:1.7;}
+.hero-meta{display:flex;align-items:center;gap:24px;opacity:0;animation:fadeUp .8s ease forwards .8s;}
+.hero-cat{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;border:1px solid var(--accent-dim);padding:5px 12px;}
+.hero-date{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(200,150,62,.4);}
+
+.hero-scroll{position:absolute;bottom:48px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;color:rgba(200,150,62,.35);text-transform:uppercase;writing-mode:vertical-rl;}
+.hero-scroll-line{width:1px;height:48px;background:linear-gradient(180deg,rgba(200,150,62,.4),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes scrollPulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+
+/* ── ARTICLE BODY ── */
+.article-wrap{background:var(--cream);color:var(--text);}
+.article-body{max-width:720px;margin:0 auto;padding:80px 48px 100px;}
+
+.article-body p{font-family:'Noto Serif KR',serif;font-size:17px;line-height:2;color:var(--text);margin-bottom:28px;word-break:keep-all;}
+.article-body p:last-child{margin-bottom:0;}
+
+/* 섹션 구분 */
+.section{margin-bottom:64px;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid rgba(155,27,48,.15);}
+.section-num{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);opacity:.6;}
+.section-title{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:700;color:var(--text);letter-spacing:.02em;}
+
+/* 강조 인용 */
+.pq{margin:48px 0;padding:32px 40px;border-left:3px solid var(--accent);background:rgba(155,27,48,.04);position:relative;}
+.pq::before{content:'"';position:absolute;top:-12px;left:32px;font-family:'Playfair Display',serif;font-size:80px;color:rgba(155,27,48,.12);line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+/* 팩트 박스 */
+.fact-box{background:#0d0d0b;padding:28px 32px;margin:40px 0;position:relative;overflow:hidden;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:14px;}
+.fact-box p{font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.8;color:rgba(242,237,230,.75);margin:0 !important;}
+
+/* 결론 */
+.conclusion{margin-top:72px;padding:48px;background:#0d0d0b;position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2));}
+.conclusion-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:20px;}
+.conclusion-body{font-family:'Noto Serif KR',serif;font-size:17px;line-height:2;color:var(--off-white);margin-bottom:20px;}
+.conclusion-body:last-child{margin-bottom:0;}
+.conclusion-close{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(200,150,62,.7);line-height:1.8;}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);padding:48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--gold);text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(200,150,62,.4);}
+
+@media(max-width:768px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .article-body{padding:48px 20px 72px;}
+  .pq{padding:24px 24px;margin:32px 0;}
+  .conclusion{padding:32px 24px;}
+  footer{padding:32px 20px;flex-direction:column;gap:12px;text-align:center;}
+  .hero-scroll{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span style="color:rgba(200,150,62,.4);font-size:10px;">.mag</span></a>
+  <a href="index.html" class="header-home">← 홈으로</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-stroke"></div>
+  <div class="hero-stroke2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-tag">History · 삼국지 인물론 · 2부 — 권력의 비극</div>
+    <div class="hero-eyebrow">Zhuge Liang — A Misfit in Power</div>
+    <h1 class="hero-title">제갈량의 과로사<br><span>몸에 맞지 않는 옷</span></h1>
+    <p class="hero-subtitle">역사상 최고의 2인자가 1인자의 자리에 앉았을 때</p>
+    <div class="hero-meta">
+      <span class="hero-cat">Culture</span>
+      <span class="hero-date">2026</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+  <div class="article-body">
+
+    <div class="section">
+      <p>제갈량은 54세에 오장원에서 죽었다. 역사는 그를 충의의 화신으로 불렀고, 소설은 그 죽음을 비운의 희생으로 포장했다. 그러나 그 죽음을 가장 냉정하게 읽은 사람은 적진에 있었다.</p>
+
+      <p>사마의는 제갈량의 식사량과 하루 처리 업무량을 전령에게 물었다. 보고를 들은 뒤 한마디만 했다. "오래 못 산다." 사마의가 싸우지 않고 버틴 건 비겁함이 아니었다. 기다리면 된다는 걸 알고 있었다.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-title">잘못된 비교 — 제갈량은 한신이 아니다</span>
+      </div>
+
+      <p>사람들은 제갈량을 한신과 비교한다. 북벌이 왜 실패했냐고, 왜 위나라를 끝내 못 넘었냐고 묻는다. 그러나 이 질문 자체가 틀렸다.</p>
+
+      <p>제갈량은 한신 타입이 아니다. 전장에서 즉흥으로 판을 뒤집는 군사 천재가 아니라, 장량처럼 큰 그림을 설계하고 소하처럼 시스템을 굴리는 타입이었다. 유방에게는 장량, 소하, 한신이 따로 있었다. 제갈량은 셋을 혼자 다 해야 했고, 군사에서만큼은 한신이 아니었다. 북벌이 막힌 건 운이 나빠서가 아니라 애초에 그 자리가 아니었기 때문이다.</p>
+
+      <div class="pq">
+        <p>장량한테 왜 한신만큼 못 싸웠냐고 묻는 것과 같다.<br>질문이 틀리면 답도 없다.</p>
+      </div>
+
+      <p>그럼에도 이 비교가 지금까지 이어지는 건, 나관중이 설계한 신화 때문이다. 적벽의 화공은 주유가 주도했다. 숱한 기적 같은 전략들은 소설이 덧씌운 이미지다. 우리가 알고 있는 육각형 제갈량은 상당 부분 나관중의 작품이다. 실제 제갈량은 그보다 훨씬 인간적인 — 잘하는 것과 못하는 것이 분명한 — 사람이었을지 모른다.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-title">포지션의 모순 — 황제급 권한, 신하의 명분</span>
+      </div>
+
+      <p>제갈량은 참모의 자리에서는 역사상 최고였다. 유비가 있을 때 빛났고, 유비의 방향 아래서 움직였을 때 탁월했다. 그러나 유비가 사라지자 그 자리를 스스로 채워야 했다.</p>
+
+      <p>황제급 권한을 쥐었지만 명분은 신하였다. 황제처럼 큰 그림을 그려야 할 자리에서 실무자처럼 모든 걸 직접 챙겼다. 조조는 신하 자리에서 황제처럼 행동했고 욕을 먹었지만 조직은 돌아갔다. 조조의 후계자들이 위나라를 100년 넘게 이어간 건 우연이 아니다. 제갈량은 반대였다. 칭송은 받았지만 조직은 멈췄다.</p>
+
+      <div class="fact-box">
+        <div class="fact-label">핵심 대비</div>
+        <p>조조 — 신하의 자리, 황제의 행동 → 욕먹었지만 후계 100년<br>제갈량 — 황제의 권한, 신하의 행동 → 칭송받았지만 사후 40년 만에 멸망</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-title">육각형의 함정 — 모든 걸 할 수 있어서 못 맡겼다</span>
+      </div>
+
+      <p>모든 걸 직접 챙긴 구조는 후배가 치고 올라올 공간을 원천 차단했다. 20년 넘게 최고 권력을 쥔 리더가 쓸 만한 인재가 없다고 말하는 건 조직의 문제가 아니라 리더의 자백이다.</p>
+
+      <p>유능한 후계자가 등장하는 순간 비교가 시작된다. 비교가 시작되면 한계가 드러난다. 모든 걸 직접 쥐고 있으면 실수도, 성과도, 무엇보다 자신의 한계를 드러낼 비교 대상도 사라진다. 워커홀릭의 미덕으로 포장됐지만, 동시에 가장 효과적인 은폐 장치이기도 했다.</p>
+
+      <p>읍참마속은 그 구조의 민낯이었다. 유비가 유언으로 경고한 인물을 굳이 중용한 건 제갈량이었다. 가정에서 패했을 때 책임의 화살은 마속에게로 갔고, 제갈량은 법의 이름으로 처형을 집행하며 인사 오판을 지웠다. 스스로 직급을 낮추는 퍼포먼스가 뒤따랐지만 실권은 한 치도 내려놓지 않았다. 책임을 지는 척하면서 책임을 지지 않는 기술 — 그것만큼은 탁월했다.</p>
+    </div>
+
+    <div class="conclusion">
+      <div class="conclusion-label">판정 · Verdict</div>
+      <p class="conclusion-body">제갈량이 무능했다는 말이 아니다. 몸에 맞지 않는 옷을 입었다는 말이다. 참모로서는 역사상 최고였을 인물이 리더의 자리에 앉았고, 그 자리에서 할 수 있는 모든 것을 다 했다.</p>
+      <p class="conclusion-body">개인 역량과 인재를 키우는 역량은 다른 능력이다. 전자가 뛰어날수록 후자의 필요성을 느끼지 못한다. 오히려 어딘가 부족한 리더가 조직을 더 오래 살리는 건, 그 부족함이 사람을 키우게 만들기 때문이다.</p>
+      <p class="conclusion-close">적재적소라는 말이 왜 있겠는가. 사마의는 그걸 밖에서 읽었고, 오장원에서 제갈량이 쓰러졌을 때 그의 뒤에 아무도 없었다. 비운이 아니라, 처음부터 맞지 않는 옷이었다.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- 시리즈 네비 -->
+<div class="series-nav">
+  <div class="series-nav-label">삼국지 인물론 시리즈</div>
+  <div class="series-nav-section">1부 — 천재의 결말</div>
+  <div class="series-list">
+    <a href="guo-jia.html" class="series-item">01 · 곽가 — 싸우기 전에 이미 이긴 자</a>
+    <a href="zhou-yu.html" class="series-item">02 · 주유 — 가장 빛나는 자리에서 타버린 자</a>
+    <a href="jia-xu.html" class="series-item">03 · 가후 — 천재성을 숨긴 자</a>
+    <a href="sima-yi.html" class="series-item">04 · 사마의 — 끝까지 꺼내지 않은 천재</a>
+  </div>
+  <div class="series-nav-section">2부 — 권력의 비극</div>
+  <div class="series-list">
+    <a href="cao-cao-xunyu.html" class="series-item">05 · 순욱 — 같은 버스, 다른 종착역</a>
+    <a href="zhuge-liang.html" class="series-item current">06 · 제갈량 — 몸에 맞지 않는 옷</a>
+    <a href="guan-yu-jingzhou.html" class="series-item">07 · 형주 — 세 사람의 계산이 충돌한 장소</a>
+    <a href="cao-cao-destiny.html" class="series-item">08 · 조조 — 창업군주의 숙명</a>
+  </div>
+</div>
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Culture · 역사 인물론 · 2026</span>
+</footer>
+
+<style>
+.reading-progress{position:fixed;top:0;left:0;width:0%;height:2px;background:#9b1b30;z-index:9999;transition:width .1s linear;}
+</style>
+
+<!-- f3-share-btn 컴포넌트 -->
+<style>
+.f3-share-btn{position:fixed;bottom:36px;right:36px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.f3-share-toggle{width:44px;height:44px;border-radius:50%;background:#c8963e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(200,150,62,.35);}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;transition:opacity .18s ease,transform .18s ease;}
+.f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.f3-share-item{display:flex;align-items:center;gap:10px;background:#0d0d0b;border:1px solid rgba(200,150,62,.3);padding:10px 16px;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;text-transform:uppercase;white-space:nowrap;transition:background .15s,border-color .15s;text-decoration:none;}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.f3-share-toast{position:fixed;bottom:100px;right:36px;z-index:1001;background:#0d0d0b;border:1px solid rgba(200,150,62,.4);padding:10px 18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+@media(max-width:640px){.f3-share-btn{bottom:24px;right:20px;}.f3-share-toast{right:20px;bottom:90px;}}
+</style>
+
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+      URL 복사
+    </button>
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+      X 공유
+    </a>
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg></span>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  var KAKAO_KEY='e0642d0a5c0ae01b8893422a148e9aba';
+  function loadKakaoSDK(cb){if(window.Kakao){cb();return;}var s=document.createElement('script');s.src='https://developers.kakao.com/sdk/js/kakao.min.js';s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};document.head.appendChild(s);}
+  var panelOpen=false;
+  window.f3ToggleShare=function(){panelOpen=!panelOpen;document.getElementById('f3SharePanel').classList.toggle('open',panelOpen);};
+  window.f3CopyUrl=function(){var url=location.href;navigator.clipboard.writeText(url).then(function(){showToast('URL 복사됨');}).catch(function(){var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('URL 복사됨');});panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');};
+  var xLink=document.getElementById('f3ShareX');if(xLink){xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href);}
+  window.f3ShareKakao=function(){if(!KAKAO_KEY){showToast('카카오 앱키 필요');return;}loadKakaoSDK(function(){var desc=document.querySelector('meta[name="description"]');Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:desc?desc.content:'',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:location.href,webUrl:location.href}},buttons:[{title:'읽기',link:{mobileWebUrl:location.href,webUrl:location.href}}]});});};
+  function showToast(msg){var t=document.getElementById('f3Toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+  document.addEventListener('click',function(e){if(!document.getElementById('f3ShareBtn').contains(e.target)){panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');}});
+})();
+</script>
+
+<script>
+// 커서
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+
+// 리딩 프로그레스
+window.addEventListener('scroll',function(){
+  var doc=document.documentElement;
+  var scrolled=doc.scrollTop||document.body.scrollTop;
+  var total=doc.scrollHeight-doc.clientHeight;
+  var pct=total>0?(scrolled/total)*100:0;
+  document.getElementById('readingProgress').style.width=pct+'%';
+});
+
+// IntersectionObserver
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.section,.fact-box,.conclusion,.pq').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .7s ease,transform .7s ease';obs.observe(el);});
+</script>
+
+</body>
+</html>
