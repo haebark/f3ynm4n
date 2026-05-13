@@ -403,6 +403,56 @@ nav a:hover { color: var(--gold); }
   grid-template-columns: 1fr 1fr;
   gap: 2px;
 }
+
+/* NOW RUNNING 시리즈 배너 */
+.now-running {
+  margin-top: 2px;
+}
+.now-running-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--mid);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.series-banners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.series-banner-item {
+  display: block;
+  padding: 20px 24px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.2s;
+}
+.series-banner-item:hover { opacity: 0.85; }
+.series-banner-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.series-banner-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+.series-banner-desc {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.5);
+}
 .featured-main {
   background: rgba(200,150,62,0.04);
   border: 1px solid var(--border);
@@ -901,6 +951,10 @@ footer {
   }
   .feat-title { font-size: 28px; }
   .feat-side { padding: 20px; }
+  .now-running { margin-top: 2px; }
+  .series-banners { grid-template-columns: 1fr 1fr; gap: 2px; }
+  .series-banner-item { padding: 16px 18px; }
+  .series-banner-title { font-size: 13px; }
 
   /* ── Recent ── */
   #recent { padding: 48px 20px !important; }
@@ -1031,6 +1085,23 @@ footer {
 <section class="featured" id="featured">
   <div class="section-label">Featured Series</div>
   <div class="featured-grid" id="featured-grid"><!-- JS --></div>
+  <div class="now-running" id="now-running">
+    <div style="padding:12px 0 8px;">
+      <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--mid);text-transform:uppercase;">Now Running</span>
+    </div>
+    <div class="series-banners">
+      <a href="misik-1.html" class="series-banner-item" style="background:#d97706;">
+        <div class="series-banner-num">Series 01</div>
+        <div class="series-banner-title">미식의 나라</div>
+        <div class="series-banner-desc">전 6편 완결 · epilogue 포함</div>
+      </a>
+      <a href="sanguo-index.html" class="series-banner-item" style="background:#3d4a1e;">
+        <div class="series-banner-num">Series 02</div>
+        <div class="series-banner-title">삼국지 인물론</div>
+        <div class="series-banner-desc">2부 연재 중 · 8편</div>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- CATEGORIES -->
@@ -1291,8 +1362,27 @@ function renderRecent(articles, page) {
     transition:all .2s;
   `;
 
+  // 모바일 여부에 따라 최대 표시 페이지 수 결정
+  const isMobile = window.innerWidth <= 768;
+  const MAX_PAGES = isMobile ? 5 : totalPages;
+
+  // 현재 페이지 중심으로 window 계산
+  let startPage, endPage;
+  if (totalPages <= MAX_PAGES) {
+    startPage = 1;
+    endPage = totalPages;
+  } else {
+    const half = Math.floor(MAX_PAGES / 2);
+    startPage = Math.max(1, page - half);
+    endPage = startPage + MAX_PAGES - 1;
+    if (endPage > totalPages) {
+      endPage = totalPages;
+      startPage = endPage - MAX_PAGES + 1;
+    }
+  }
+
   let paginationHtml = `<button onclick="changePage(${page - 1})" style="${arrowStyle(page === 1)}">←</button>`;
-  for (let i = 1; i <= totalPages; i++) {
+  for (let i = startPage; i <= endPage; i++) {
     paginationHtml += `<button onclick="changePage(${i})" style="${btnStyle(i === page)}">${i}</button>`;
   }
   paginationHtml += `<button onclick="changePage(${page + 1})" style="${arrowStyle(page === totalPages)}">→</button>`;
