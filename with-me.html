@@ -968,12 +968,33 @@
         await saveToDb(amount, 'paypal');
         await loadCounter();
 
-      } else if (selectedPay === 'kakao' || selectedPay === 'toss') {
-        // 카카오/토스 — 준비중
-        document.getElementById('confirm-title').textContent = '조금만 기다려주세요. 곧 연결됩니다.';
-        document.getElementById('overlay-confirm').querySelector('.overlay-sub').textContent =
-          '카카오페이 · 토스페이 연동을 준비 중입니다.';
-        document.getElementById('overlay-confirm').querySelector('.btn-confirm').style.display = 'none';
+      } else if (selectedPay === 'kakao') {
+        const url = `https://qr.kakaopay.com/FDwQdvdyd`;
+        window.open(url, '_blank');
+        document.getElementById('overlay-confirm').classList.remove('active');
+        document.getElementById('overlay-complete').classList.add('active');
+        await saveToDb(amount, 'kakao');
+        await loadCounter();
+
+      } else if (selectedPay === 'toss') {
+        const myAccount = "토스뱅크 1000-0585-8453 원성훈";
+        navigator.clipboard.writeText(myAccount).then(() => {
+          document.getElementById('confirm-title').textContent = '동전을 챙겼습니다.';
+          document.getElementById('overlay-confirm').querySelector('.overlay-sub').textContent =
+            '계좌번호가 복사되었습니다. 토스 앱을 실행합니다.';
+          setTimeout(() => {
+            window.location.href = 'supertoss://send?amount=' + (input.value || 300);
+            closeOverlay('overlay-confirm');
+            document.getElementById('overlay-complete').classList.add('active');
+            saveToDb(amount, 'toss');
+            loadCounter();
+          }, 1200);
+        }).catch(() => {
+          // 클립보드 실패 시 그냥 앱만 열기
+          window.location.href = 'supertoss://send?amount=' + (input.value || 300);
+          closeOverlay('overlay-confirm');
+          document.getElementById('overlay-complete').classList.add('active');
+        });
       }
     }
 
