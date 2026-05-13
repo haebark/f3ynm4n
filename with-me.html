@@ -830,10 +830,12 @@
   <section class="traces">
     <div class="traces-label">— 놓고 간 한 잔 —</div>
 
-    <div class="trace-item">"늦은 밤 잘 읽었습니다."</div>
-    <div class="trace-item">"잠시 머물다 갑니다."</div>
-    <div class="trace-item">"다음 페이지를 기다립니다."</div>
-    <div class="trace-item">"종이컵 하나 두고 갑니다."</div>
+    <div id="traces-container">
+      <div class="trace-item">"늦은 밤 잘 읽었습니다."</div>
+      <div class="trace-item">"잠시 머물다 갑니다."</div>
+      <div class="trace-item">"다음 페이지를 기다립니다."</div>
+      <div class="trace-item">"종이컵 하나 두고 갑니다."</div>
+    </div>
 
     <div class="counter">
       <span id="counter-text">지금까지 놓고 간 커피 — 잔</span>
@@ -865,6 +867,57 @@
   </footer>
 
   <script>
+    // ── Supabase ──
+    const SUPABASE_URL = 'https://zbjurkhbumuqeusceknb.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_NCDATxds6xSoM7ecxuZxpQ_GLLYq0hF';
+
+    async function sbFetch(path, options = {}) {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
+        ...options,
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Content-Type': 'application/json',
+          ...(options.headers || {})
+        }
+      });
+      return res.ok ? res.json() : null;
+    }
+
+    // 커피 카운터 — DB에서 총 잔수
+    async function loadCounter() {
+      const data = await sbFetch('with_me_coffee?select=id');
+      const el = document.getElementById('counter-text');
+      if (data && data.length > 0) {
+        el.textContent = `지금까지 놓고 간 커피 ${data.length}잔`;
+      } else {
+        el.textContent = `지금까지 놓고 간 커피 — 잔`;
+      }
+    }
+
+    // 흔적 섹션 — DB에서 로드
+    async function loadTraces() {
+      const data = await sbFetch('coffee_traces?select=message&order=created_at.asc');
+      if (!data || data.length === 0) return;
+      const container = document.getElementById('traces-container');
+      container.innerHTML = '';
+      data.forEach((row, i) => {
+        const div = document.createElement('div');
+        div.className = 'trace-item';
+        div.style.animationDelay = `${i * 0.1}s`;
+        div.textContent = `"${row.message}"`;
+        container.appendChild(div);
+      });
+    }
+
+    // 결제 완료 시 DB에 기록
+    async function saveToDb(amount, method) {
+      await sbFetch('with_me_coffee', {
+        method: 'POST',
+        headers: { 'Prefer': 'return=minimal' },
+        body: JSON.stringify({ amount: parseInt(amount), method })
+      });
+    }
+
     // ── 결제 수단 선택 ──
     let selectedPay = 'kakao';
 
@@ -883,16 +936,16 @@
       document.body.style.overflow = 'hidden';
     }
 
-    function showComplete() {
+    async function showComplete() {
       const amount = document.getElementById('amount').value || '300';
 
       if (selectedPay === 'paypal') {
-        // 페이팔 — 금액 포함 링크로 이동
         const url = `https://www.paypal.me/p3ynm4n/${amount}`;
         window.open(url, '_blank');
         document.getElementById('overlay-confirm').classList.remove('active');
         document.getElementById('overlay-complete').classList.add('active');
-        incrementCounter();
+        await saveToDb(amount, 'paypal');
+        await loadCounter();
 
       } else if (selectedPay === 'kakao' || selectedPay === 'toss') {
         // 카카오/토스 — 준비중
@@ -975,7 +1028,8 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // ── Init ──
-    updateCounter();
+    loadCounter();
+    loadTraces();
   </script>
 
 </body>
