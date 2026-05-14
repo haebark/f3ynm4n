@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>골디락스 시대는 오지 않았다 — F3YNM4N</title>
+  <meta name="description" content="우주가 적당히 늙었을 때, 생명은 빛을 발한다. 철의 역설과 시간의 골디락스 존에 대하여." />
+  <meta property="og:title" content="골디락스 시대는 오지 않았다" />
+  <meta property="og:description" content="우주가 적당히 늙었을 때, 생명은 빛을 발한다." />
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://f3ynm4n.com/goldilocks-era.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --gold: #c8963e;
+      --accent: #1a2744;
+      --accent-light: #2a3f6f;
+      --accent-glow: rgba(26, 39, 68, 0.6);
+      --text: #e8e4dc;
+      --text-muted: #9a9488;
+      --cream: #f2ede4;
+      --divider: rgba(200, 150, 62, 0.25);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(13,13,11,0.97), transparent);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-category {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--accent-light);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: rgba(26,39,68,0.4);
+      border: 1px solid rgba(42,63,111,0.5);
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 30%, rgba(26,39,68,0.5) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 20% 60%, rgba(26,39,68,0.2) 0%, transparent 60%),
+        var(--bg);
+    }
+
+    /* 별 효과 */
+    .stars {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .stars::before,
+    .stars::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 50%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 80% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 35% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 85%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 88% 15%, rgba(200,150,62,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 48% 88%, rgba(200,150,62,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 22% 92%, rgba(255,255,255,0.3) 0%, transparent 100%);
+    }
+
+    .stars::after {
+      background-image:
+        radial-gradient(1px 1px at 8% 8%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 33% 22%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 62% 5%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 55%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 42%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 18% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 92% 30%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 67% 65%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 48%, rgba(200,150,62,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 53% 72%, rgba(255,255,255,0.3) 0%, transparent 100%);
+      opacity: 0.7;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--accent-light);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--accent-light);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 48px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .hero-meta-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 40px 120px;
+    }
+
+    /* 리드 문단 */
+    .lead {
+      font-size: 20px;
+      line-height: 1.8;
+      color: var(--text);
+      font-weight: 300;
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .lead strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* 섹션 */
+    .section {
+      margin-bottom: 72px;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--accent-light);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--accent-light), transparent);
+      opacity: 0.4;
+      max-width: 80px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 28px;
+      line-height: 1.3;
+    }
+
+    .section p {
+      color: #ccc8c0;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 강조 문장 */
+    .pull-quote {
+      margin: 40px 0;
+      padding: 28px 32px;
+      border-left: 3px solid var(--accent-light);
+      background: linear-gradient(to right, rgba(26,39,68,0.25), transparent);
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: var(--text) !important;
+      line-height: 1.6;
+      margin: 0 !important;
+    }
+
+    /* 골디락스 팩트 박스 */
+    .fact-box {
+      margin: 44px 0;
+      background: rgba(26,39,68,0.2);
+      border: 1px solid rgba(42,63,111,0.35);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .fact-box-header {
+      background: rgba(26,39,68,0.5);
+      padding: 14px 24px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--accent-light);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .fact-box-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .fact-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-bottom: 1px solid rgba(42,63,111,0.2);
+    }
+
+    .fact-row:last-child {
+      border-bottom: none;
+    }
+
+    .fact-cell {
+      padding: 16px 16px;
+    }
+
+    .fact-cell:first-child {
+      border-right: 1px solid rgba(42,63,111,0.2);
+    }
+
+    .fact-cell-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--accent-light);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .fact-cell-text {
+      font-size: 14px;
+      color: #b8b4ac;
+      line-height: 1.6;
+      font-family: 'Noto Serif KR', serif;
+    }
+
+    /* 구분선 */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 64px 0;
+      opacity: 0.4;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .section-divider-icon {
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+    }
+
+    /* 키워드 하이라이트 */
+    .kw {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* 마무리 섹션 */
+    .closing {
+      margin-top: 80px;
+      padding-top: 60px;
+      border-top: 1px solid var(--divider);
+      text-align: center;
+    }
+
+    .closing-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .closing-sub {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    f3-share-btn { display: block; }
+
+    /* 하단 네비 */
+    .bottom-nav {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--divider);
+      padding-top: 40px;
+    }
+
+    .bottom-nav a {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .bottom-nav a:hover {
+      color: var(--gold);
+    }
+
+    /* 반응형 */
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+
+      .hero-content { padding: 0 20px; }
+
+      .article-wrap { padding: 60px 20px 80px; }
+
+      .fact-row {
+        grid-template-columns: 1fr;
+      }
+
+      .fact-cell:first-child {
+        border-right: none;
+        border-bottom: 1px solid rgba(42,63,111,0.2);
+      }
+
+      .bottom-nav { padding: 40px 20px 60px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">F3YNM4N</a>
+    <span class="nav-category">팝사이언스</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="stars"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">Pop Science</div>
+      <h1 class="hero-title">골디락스 시대는<br><em>오지 않았다</em></h1>
+      <p class="hero-subtitle">우주가 적당히 늙었을 때, 생명은 빛을 발한다</p>
+      <div class="hero-meta">
+        <span>F3YNM4N</span>
+        <span class="hero-meta-dot"></span>
+        <span>2026</span>
+        <span class="hero-meta-dot"></span>
+        <span>팝사이언스</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <article class="article-wrap">
+
+    <!-- 리드 -->
+    <div class="lead">
+      우주의 나이는 약 138억 년이다. 인류는 그 역사 전체에서 보면 마지막 순간에 등장한 듯 보인다.
+      우리는 스스로를 늦게 온 존재라고 생각한다. 하지만 우주적 시간 단위에서 보면, 정반대일지도 모른다.
+      어쩌면 우리는 <strong>너무 일찍 태어났다.</strong>
+    </div>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-label">01</div>
+      <h2 class="section-title">별은 죽으며 씨앗을 뿌린다</h2>
+
+      <p>
+        우주 초기의 별들은 거의 수소와 헬륨으로만 이루어진 거대한 불덩어리였다.
+        이들은 핵융합을 통해 탄소와 산소, 규소 같은 무거운 원소를 만들어냈고, 마지막 단계에서 <span class="kw">철(Fe)</span>에 이르렀다.
+      </p>
+
+      <div class="pull-quote">
+        <p>철은 특별하다. 별 내부 핵융합이 도달하는 사실상의 종착점이기 때문이다.<br>
+        수백만 년을 불태워온 거인이 단 하나의 원소 앞에서 멈추는 것이다.</p>
+      </div>
+
+      <p>
+        철보다 무거운 원소를 만들려면 에너지를 얻는 대신 소비해야 한다. 별은 철 앞에서 더 이상 타오르지 못한다.
+        여기서 생을 마친 별은 초신성 폭발로 자신을 우주에 흩뿌린다.
+      </p>
+
+      <p>
+        폭발 속에서 퍼져나간 철과 중원소들은 성간 가스 구름에 섞이고, 그 구름은 다시 다음 세대의 별과 행성을 만든다.
+        이 과정이 반복될수록 우주의 금속 함량은 점점 높아진다.
+        지금 태어나는 행성들은, 초기 우주의 행성들과 전혀 다른 재료로 만들어지고 있다.
+      </p>
+    </div>
+
+    <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-label">02</div>
+      <h2 class="section-title">핵이 클수록 방패는 오래 버틴다</h2>
+
+      <p>
+        금속이 풍부한 환경에서 형성된 암석 행성은 더 크고 밀도 높은 금속 핵을 가질 가능성이 높다.
+        물론 이것만으로 자기장이 보장되지는 않는다. 내부 열, 냉각 속도, 자전, 맨틀 대류 같은 조건이 함께 맞아야 한다.
+        하지만 충분한 조건이 갖춰진다면, 큰 금속 핵은 더 오래 액체 상태를 유지하며 강력한 자기장을 만들어낼 가능성이 있다.
+      </p>
+
+      <div class="pull-quote">
+        <p>자기장은 행성의 방패다.</p>
+      </div>
+
+      <p>
+        항성은 끊임없이 하전 입자를 쏟아낸다. 이른바 태양풍이다.
+        자기장이 없는 행성은 이 입자 폭격에 대기를 서서히 빼앗긴다.
+      </p>
+
+      <p>
+        화성이 그랬다. 고대 화성에는 강과 호수가 존재했고, 바다 규모의 물이 있었을 가능성도 제기된다.
+        그러나 내부 핵이 식으며 자기장이 약해졌고, 대기는 서서히 우주로 벗겨져 나갔다.
+        지금의 화성은 <span class="kw">자기장을 잃은 행성이 맞이하는 결말</span>이다.
+      </p>
+
+      <p>
+        지구는 달랐다. 지구는 아직 살아 있는 액체 외핵 덕분에 자기권을 유지하고 있다.
+        보이지 않는 이 막이 없었다면, 지금의 바다와 대기, 그리고 생명은 존재하지 않았을 것이다.
+      </p>
+    </div>
+
+    <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-label">03</div>
+      <h2 class="section-title">골디락스 존은 공간에만 있지 않다</h2>
+
+      <p>
+        천문학에서 골디락스 존은 별로부터 너무 가깝지도, 너무 멀지도 않은 거리 —
+        액체 상태의 물이 존재할 수 있는 영역을 뜻한다.
+      </p>
+
+      <p>그런데 어쩌면, <span class="kw">시간에도 골디락스 존이 있다.</span></p>
+
+      <div class="fact-box">
+        <div class="fact-box-header">시간의 골디락스 존 — Goldilocks Epoch</div>
+        <div class="fact-box-body">
+          <div class="fact-row">
+            <div class="fact-cell">
+              <div class="fact-cell-label">너무 이른 우주</div>
+              <div class="fact-cell-text">금속이 없다. 암석 행성은 드물고, 자기장을 오래 유지할 조건도 희박하다.</div>
+            </div>
+            <div class="fact-cell">
+              <div class="fact-cell-label">너무 늦은 우주</div>
+              <div class="fact-cell-text">별의 탄생이 줄어들고, 생명의 화학 반응을 구동할 에너지원이 점차 희미해진다.</div>
+            </div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-cell" style="grid-column: span 2; padding: 20px 16px;">
+              <div class="fact-cell-label" style="color: var(--gold);">적당히 늙은 우주 ← 지금</div>
+              <div class="fact-cell-text" style="color: var(--text);">
+                수십억 세대의 별이 철을 충분히 축적했고, 여전히 항성 에너지가 남아 있다.
+                생명이 깃들 가능성은 이 좁은 창 안에서 가장 넓게 열린다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        우리가 사는 지금은, 어쩌면 그 창이 막 열리기 시작한 순간일지도 모른다.
+      </p>
+    </div>
+
+    <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+    <!-- 섹션 4 -->
+    <div class="section">
+      <div class="section-label">04</div>
+      <h2 class="section-title">작은 행성의 시대</h2>
+
+      <p>
+        이 가설이 흥미로운 이유는 또 있다.
+        우주가 더 금속 풍부해질수록, 과거에는 생명을 유지하기 어려웠던
+        <span class="kw">작은 암석 행성들</span>도 새로운 가능성을 얻을 수 있다.
+      </p>
+
+      <p>
+        화성 같은 작은 행성은 일반적으로 빨리 식는다. 그래서 자기장을 오래 유지하기 어렵다.
+        그러나 더 풍부한 금속과 더 효율적인 내부 구조를 갖춘다면,
+        같은 크기라도 더 오래 액체 핵을 유지할 가능성이 있다.
+      </p>
+
+      <p>
+        그 말은 곧, 우주의 시간이 흐를수록 생명이 깃들 수 있는 행성의 최소 크기가 낮아질 수 있다는 뜻이다.
+        미래의 우주는, <span class="kw">더 작은 세계들까지 생명의 무대</span>가 될지 모른다.
+      </p>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <p class="closing-quote">
+        "우주의 골디락스 시대는 아직 오지 않았다.<br>
+        우리는 그 시대가 오기 전에, 먼저 눈을 뜬 존재들이다."
+      </p>
+      <p class="closing-sub">
+        인류는 종종 스스로를 우주 역사의 늦은 도착자라 여긴다.<br>
+        하지만 물리적 조건으로 본다면, 우리는 오히려 선구자에 가까울 수 있다.<br>
+        생명에 최적화된 우주의 조건은 아직 완성되지 않았을지도 모른다.
+      </p>
+
+      <!-- 공유 버튼 -->
+      <f3-share-btn></f3-share-btn>
+    </div>
+
+  </article>
+
+  <!-- 하단 네비 -->
+  <div class="bottom-nav">
+    <a href="index.html">← 목록으로</a>
+    <a href="index.html">F3YNM4N</a>
+  </div>
+
+  <!-- Kakao SDK (bfcache 대응 lazy load) -->
+  <script>
+  window.addEventListener('pageshow', function(e) {
+    if (typeof Kakao === 'undefined') {
+      var s = document.createElement('script');
+      s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+      s.onload = function() {
+        if (!Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba');
+      };
+      document.head.appendChild(s);
+    }
+  });
+  </script>
+
+</body>
+</html>
