@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>파도는 준비된 자에게만 기회다 — F3YNM4N</title>
+  <meta name="description" content="플랫폼이 나를 원하지 않는다면, 내가 플랫폼을 만들면 된다. 기회와 준비에 대하여." />
+  <meta property="og:title" content="파도는 준비된 자에게만 기회다" />
+  <meta property="og:description" content="플랫폼이 나를 원하지 않는다면, 내가 플랫폼을 만들면 된다." />
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://f3ynm4n.com/wave-ready.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --gold: #c8963e;
+      --text: #e8e4dc;
+      --text-muted: #9a9488;
+      --text-body: #ccc8c0;
+      --divider: rgba(200, 150, 62, 0.2);
+      --accent: #c8963e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.95;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(13,13,11,0.97), transparent);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-category {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* HERO — 타이포 중심, 미니멀 */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 수평선 느낌의 그라디언트 */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(13,13,11,1) 0%, rgba(13,13,11,0.4) 50%, rgba(13,13,11,0.8) 100%),
+        linear-gradient(160deg, rgba(200,150,62,0.04) 0%, transparent 50%, rgba(200,150,62,0.03) 100%);
+    }
+
+    /* 파도 라인 */
+    .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      opacity: 0.06;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5.5vw, 64px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      margin-top: 32px;
+    }
+
+    .hero-meta-dot {
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+
+    /* ARTICLE */
+    .article-wrap {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 72px 40px 120px;
+    }
+
+    /* 오프닝 — 브런치 이야기 */
+    .opening {
+      margin-bottom: 64px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .opening p {
+      font-size: 18px;
+      line-height: 1.9;
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .opening p:last-child { margin-bottom: 0; }
+
+    .opening .pivot {
+      font-size: 17px;
+      color: var(--text-muted);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      margin: 28px 0;
+      padding-left: 20px;
+      border-left: 2px solid rgba(200,150,62,0.3);
+    }
+
+    .opening .declaration {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* 섹션 */
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .section p {
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 16px;
+      line-height: 1.95;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    /* 강조 */
+    .kw {
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    /* 풀쿼트 */
+    .pull {
+      margin: 36px 0;
+      padding: 0 0 0 24px;
+      border-left: 2px solid rgba(200,150,62,0.4);
+    }
+
+    .pull p {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--text) !important;
+      line-height: 1.65;
+      margin: 0 !important;
+    }
+
+    /* 구분선 */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 52px 0;
+      opacity: 0.3;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .divider span {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+    }
+
+    /* 클로징 */
+    .closing {
+      margin-top: 72px;
+      padding-top: 56px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .closing-lines p {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 10px;
+      line-height: 1.8;
+    }
+
+    .closing-final {
+      margin-top: 36px;
+    }
+
+    .closing-final p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(17px, 2.5vw, 21px);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .closing-final p:last-child {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    f3-share-btn { display: block; }
+
+    /* 하단 네비 */
+    .bottom-nav {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--divider);
+    }
+
+    .bottom-nav a {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .bottom-nav a:hover { color: var(--gold); }
+
+    /* 반응형 */
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .hero-content { padding: 0 20px; }
+      .article-wrap { padding: 56px 20px 80px; }
+      .bottom-nav { padding: 40px 20px 60px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">F3YNM4N</a>
+    <span class="nav-category">잡생각</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <!-- SVG 파도 -->
+    <svg class="hero-wave" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,100 C240,160 480,40 720,100 C960,160 1200,40 1440,100 L1440,200 L0,200 Z" fill="rgba(200,150,62,1)"/>
+      <path d="M0,130 C360,70 720,170 1080,110 C1260,80 1380,140 1440,130 L1440,200 L0,200 Z" fill="rgba(200,150,62,0.4)"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="hero-tag">잡생각 · 문화칼럼</div>
+      <h1 class="hero-title">파도는 준비된 자에게만<br><em>기회다</em></h1>
+      <div class="hero-meta">
+        <span>F3YNM4N</span>
+        <span class="hero-meta-dot"></span>
+        <span>2026</span>
+        <span class="hero-meta-dot"></span>
+        <span>잡생각</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <article class="article-wrap">
+
+    <!-- 오프닝 -->
+    <div class="opening">
+      <p>나는 브런치에 두 번 도전했다.</p>
+      <p>첫 번째는 창작소설로. 두 번째는 영화 비평과 미식의 나라로.</p>
+      <p>둘 다 안 됐다.</p>
+      <p class="pivot">플랫폼이 나를 원하지 않는다면, 내가 플랫폼을 만들면 되지 않을까.</p>
+      <p class="declaration">지금 이 매거진은 그렇게 시작됐다.</p>
+    </div>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <h2 class="section-title">파도를 기다리는 두 가지 방법</h2>
+      <p>서퍼는 파도를 만들지 못한다.</p>
+      <p>파도는 바다가 만든다. 서퍼가 할 수 있는 건 하나뿐이다. 파도가 올 때 탈 수 있도록, 미리 보드 위에 엎드려 있는 것.</p>
+      <p>기회도 그렇다고 생각한다.</p>
+      <p>기회는 예고 없이 온다. 언제 올지, 어떤 크기로 올지 아무도 모른다. 그런데 준비된 사람과 준비되지 않은 사람은 같은 파도 앞에서 전혀 다른 결과를 맞는다.</p>
+
+      <div class="pull">
+        <p>준비된 사람에게 파도는 기회가 된다.<br>준비되지 않은 사람에게 파도는 그냥 지나가는 물결일 뿐이다.</p>
+      </div>
+    </div>
+
+    <div class="divider"><span>◆</span></div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <h2 class="section-title">준비는 쌓는 것만이 아니다</h2>
+      <p>흔히 준비를 "열심히 쌓는 것"이라고 생각한다. 맞는 말이다. 근데 절반만 맞다.</p>
+      <p><span class="kw">나머지 절반은, 어디서 파도가 오는지 읽는 것이다.</span></p>
+      <p>브런치에 두 번 떨어지고 나서 그걸 알았다.</p>
+      <p>장르를 바꿔도, 소재를 바꿔도 결과가 같다면 문제는 내 콘텐츠가 아닐 수 있다. 플랫폼에는 각자의 어트랙터가 있다. 보이지 않는 기준이 있고, 결국 콘텐츠는 그 방향으로 수렴한다.</p>
+      <p>그 안에서 이기려 하면, 어느 순간 내 목소리가 아니라 플랫폼이 원하는 목소리를 흉내 내게 된다.</p>
+      <p>그래서 나는 판을 바꿨다. <span class="kw">기준이 없는 곳에 직접 깃발을 꽂았다.</span></p>
+    </div>
+
+    <div class="divider"><span>◆</span></div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <h2 class="section-title">느린 파도</h2>
+      <p>F3YNM4N은 느리다.</p>
+      <p>알고리즘이 없으니 추천도 없다. 찾아오는 사람만 온다.</p>
+      <p>근데 그게 장점이기도 하다.</p>
+      <p>알고리즘이 끌어온 독자는 알고리즘이 바뀌면 떠난다. 직접 찾아온 독자는 결이 맞아서 온 사람이다. 한 번 맞으면 오래 간다.</p>
+
+      <div class="pull">
+        <p>니치하다는 건 좁다는 뜻이 아니다.<br>깊다는 뜻이다.</p>
+      </div>
+    </div>
+
+    <div class="divider"><span>◆</span></div>
+
+    <!-- 섹션 4 -->
+    <div class="section">
+      <h2 class="section-title">파도는 갑자기 생기지 않는다</h2>
+      <p>기회는 갑자기 오는 것처럼 보인다.</p>
+      <p>근데 사실 대부분의 파도는 갑자기 만들어지지 않는다. 아주 먼 곳에서부터 바람이 불고, 밀리고, 겹치고, 쌓이고, 그러다 어느 순간 우리가 볼 수 있는 하나의 형태가 된다.</p>
+      <p>사람의 기회도 비슷하다.</p>
+      <p>오늘 쓴 글 하나, 실패한 시도 하나, 거절당한 경험 하나. 그런 것들이 보이지 않는 곳에서 계속 쌓이다가, 어느 날 비로소 파도가 된다.</p>
+      <p>생각해보면 우주도 그렇다.</p>
+      <p>우주는 수십억 년 동안 별이 죽으며 철을 쌓아왔다. 그 축적이 있었기에 더 단단한 행성이 태어나고, 자기장이 생기고, 생명이 머물 조건이 만들어졌다. 생명은 갑자기 나타난 기적이라기보다, 아주 오랜 준비 끝에 도착한 파도에 가깝다.</p>
+      <p>스케일만 다를 뿐 원리는 같다. 우주도, 사람도.</p>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <div class="closing-lines">
+        <p>그래서 나는 오늘도 쌓는다.</p>
+        <p>아티클 하나. 소설 한 편. 가설 하나.</p>
+        <p>파도가 언제 올지는 모른다.</p>
+      </div>
+      <div class="closing-final">
+        <p>근데 올 때 탈 수 있도록,<br>오늘도 보드 위에 엎드려 있는다.</p>
+        <p>깃발은 이미 꽂혔다.<br>이제 남은 건, 바다가 움직이는 걸 기다리는 일이다.</p>
+      </div>
+
+      <!-- 공유 버튼 -->
+      <f3-share-btn></f3-share-btn>
+    </div>
+
+  </article>
+
+  <!-- 하단 네비 -->
+  <div class="bottom-nav">
+    <a href="index.html">← 목록으로</a>
+    <a href="index.html">F3YNM4N</a>
+  </div>
+
+  <!-- Kakao SDK (bfcache 대응 lazy load) -->
+  <script>
+  window.addEventListener('pageshow', function(e) {
+    if (typeof Kakao === 'undefined') {
+      var s = document.createElement('script');
+      s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+      s.onload = function() {
+        if (!Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba');
+      };
+      document.head.appendChild(s);
+    }
+  });
+  </script>
+
+</body>
+</html>
