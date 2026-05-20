@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우리는 한 번도 음악을 소유한 적이 없었다 · F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<meta name="description" content="음악의 영원은, 내 일생의 영원이었다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="우리는 한 번도 음악을 소유한 적이 없었다 · F3YNM4N">
+<meta property="og:description" content="음악의 영원은, 내 일생의 영원이었다.">
+<meta property="og:url" content="https://f3ynm4n.com/music-eternal.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  :root {
+    --bg: #0d0d0b;
+    --accent: #b45309;
+    --accent-bright: #d97706;
+    --text: #f2ede6;
+    --text-mid: #b8b4ae;
+    --text-muted: #6a6660;
+    --border: rgba(180,83,9,0.2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Noto Serif KR',serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(13,13,11,0.95),transparent);}
+  .nav-logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--accent-bright);text-decoration:none;}
+  .nav-back{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+  .nav-back:hover{color:var(--accent-bright);}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 40px 80px;position:relative;overflow:hidden;background:#0d0d0b;}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 70%,rgba(180,83,9,0.1) 0%,transparent 55%);}
+  .hero-deco{position:absolute;top:50%;right:6%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:clamp(100px,16vw,200px);font-style:italic;color:rgba(180,83,9,0.05);line-height:1;pointer-events:none;user-select:none;letter-spacing:-4px;}
+  .hero-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent-bright);text-transform:uppercase;margin-bottom:24px;}
+  .hero-title{font-family:'Playfair Display',serif;font-size:clamp(32px,5.5vw,72px);font-weight:700;line-height:1.2;margin-bottom:28px;max-width:680px;}
+  .hero-title em{font-style:italic;color:var(--accent-bright);}
+  .hero-sub{font-size:15px;color:var(--text-mid);max-width:460px;line-height:1.7;border-left:2px solid var(--border);padding-left:20px;}
+  .hero-meta{margin-top:48px;display:flex;gap:32px;align-items:center;}
+  .hero-meta span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;}
+
+  /* FLOW */
+  .flow{max-width:640px;margin:0 auto;padding:80px 40px 120px;}
+
+  .block{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+  .block.visible{opacity:1;transform:none;}
+
+  .block-personal{margin-bottom:56px;}
+  .block-personal p{font-size:16px;color:var(--text-mid);line-height:2;word-break:keep-all;}
+  .block-personal p+p{margin-top:14px;}
+
+  .block-punch{margin-bottom:56px;}
+  .block-punch p{font-family:'Noto Serif KR',serif;font-size:clamp(20px,3.5vw,30px);font-weight:700;line-height:1.55;color:var(--text);word-break:keep-all;}
+  .block-punch em{font-style:normal;color:var(--accent-bright);}
+
+  .block-logic{margin-bottom:48px;}
+  .block-logic p{font-size:16px;color:var(--text);line-height:1.95;word-break:keep-all;}
+  .block-logic p+p{margin-top:16px;}
+
+  .block-divider{margin:60px 0;display:flex;align-items:center;gap:16px;}
+  .block-divider::before,.block-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+  .block-divider span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--text-muted);}
+
+  .block-media{margin-bottom:48px;padding:28px 32px;border-left:3px solid var(--accent);background:rgba(180,83,9,0.04);}
+  .block-media p{font-size:15px;color:var(--text-mid);line-height:1.9;word-break:keep-all;}
+  .block-media strong{color:var(--text);font-weight:600;}
+
+  .block-ad{margin-bottom:48px;padding:32px 36px;border:1px solid var(--border);position:relative;}
+  .block-ad::before{content:'AD';position:absolute;top:-10px;left:20px;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--accent);background:var(--bg);padding:0 8px;}
+  .block-ad p{font-family:'Playfair Display',serif;font-size:clamp(16px,2.2vw,20px);font-style:italic;color:var(--text-mid);line-height:1.7;}
+  .block-ad strong{color:var(--text);font-style:normal;}
+
+  .block-closing{margin-top:80px;padding:48px;background:rgba(180,83,9,0.06);border-top:2px solid var(--accent);}
+  .block-closing p{font-size:15px;color:var(--text-mid);line-height:1.95;word-break:keep-all;}
+  .block-closing p+p{margin-top:20px;}
+  .block-closing strong{color:var(--text);font-weight:700;}
+  .block-closing em{font-style:italic;color:var(--accent-bright);}
+
+  /* SHARE — 플로팅 토글 */
+  .f3-share-btn{position:fixed;bottom:36px;right:36px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+  .f3-share-toggle{width:44px;height:44px;border-radius:50%;background:#c8963e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(200,150,62,.35);}
+  .f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+  .f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+  .f3-share-panel{display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;transition:opacity .18s ease,transform .18s ease;}
+  .f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+  .f3-share-item{display:flex;align-items:center;gap:10px;background:#0d0d0b;border:1px solid rgba(200,150,62,.3);padding:10px 16px;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;text-transform:uppercase;white-space:nowrap;transition:background .15s,border-color .15s;text-decoration:none;}
+  .f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+  .f3-share-item .f3-share-icon{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .f3-share-toast{position:fixed;bottom:100px;right:36px;z-index:1001;background:#0d0d0b;border:1px solid rgba(200,150,62,.4);padding:10px 18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;}
+  .f3-share-toast.show{opacity:1;transform:translateY(0);}
+
+  @media(max-width:768px){
+    nav{padding:16px 20px;}
+    .hero{padding:0 20px 60px;}
+    .hero-deco{display:none;}
+    .flow{padding:60px 20px 80px;}
+    .block-ad{padding:24px 24px;}
+    .block-closing{padding:32px 24px;}
+    .f3-share-btn{bottom:24px;right:20px;}
+    .f3-share-toast{right:20px;bottom:90px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">F3YNM4N</a>
+  <a href="javascript:history.back()" class="nav-back">← Back</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco">永遠</div>
+  <div class="hero-tag">Culture · 잡생각</div>
+  <h1 class="hero-title">우리는 한 번도<br>음악을 <em>소유한 적</em>이<br>없었다</h1>
+  <p class="hero-sub">음악의 영원은, 내 일생의 영원이었다.</p>
+  <div class="hero-meta">
+    <span>F3YNM4N</span>
+    <span>2026</span>
+  </div>
+</section>
+
+<main class="flow">
+
+  <div class="block block-personal">
+    <p>나는 음악을 크게 좋아하지 않았다.<br>그래서 소니도 파나소닉도 아닌<br>듣보 브랜드 CDP를 샀다.</p>
+    <p>사실 돈이 없었다.</p>
+    <p>그래도 샀다는 건 —<br>음악 듣겠다는 열정이<br>조금이나마 있었나 보다.</p>
+    <p>지금 그게 어딨는지 모른다.<br>CD는 아마 어딘가 있을 텐데.</p>
+  </div>
+
+  <div class="block block-divider"><span>·</span></div>
+
+  <div class="block block-ad">
+    <p><strong>"영원히 열화되지 않는다."</strong></p>
+    <p>CD가 처음 나왔을 때 제조사들이 한 말이다.</p>
+  </div>
+
+  <div class="block block-logic">
+    <p>틀린 말은 아니었다.<br>CD는 제대로 보관하면 수십 년을 버틴다.<br>긁히지 않으면 지금도 멀쩡하다.</p>
+    <p>근데 그걸 틀어줄 기기가 없다.</p>
+  </div>
+
+  <div class="block block-punch">
+    <p>매체는 살아남았다.<br><em>재생기기가 먼저 죽었다.</em></p>
+  </div>
+
+  <div class="block block-media">
+    <p>LP도 그랬다. 카세트테이프도 그랬다. CD도 그랬다.</p>
+    <p><strong>영원을 약속한 건 매체였는데, 사라진 건 항상 기기였다.</strong></p>
+    <p>기기가 사라지면 멀쩡히 살아있는 매체는<br>재생 불가능한 플라스틱 원반이 된다.</p>
+  </div>
+
+  <div class="block block-divider"><span>·</span></div>
+
+  <div class="block block-logic">
+    <p>그래서 스트리밍으로 왔다.<br>열화도 없다. 기기 걱정도 없다.</p>
+    <p>근데 이건 소유가 아니다.<br>대여다.</p>
+    <p>서비스가 끊기면<br>손에 쥔 것 하나 없이 사라진다.</p>
+    <p>LP는 적어도 플라스틱이라도 남았다.</p>
+  </div>
+
+  <div class="block block-divider"><span>·</span></div>
+
+  <div class="block block-logic">
+    <p>최근에 아이유 CD+CDP 세트 앨범을 샀다.</p>
+    <p>영원하지 않다는 걸 알면서.<br>또 샀다.</p>
+    <p>그러다 깨달았다.</p>
+  </div>
+
+  <div class="block block-closing">
+    <p>애초에 그들이 말한 영원은<br>우주의 시간이 아니었다.</p>
+    <p><strong>한 사람의 청춘에서 노년까지.</strong><br>그게 음악이 약속한 영원의 전부였다.</p>
+    <p>그 기준으로 보면 — 틀린 말도 아니었다.</p>
+    <p><em>음악의 영원은,<br>내 일생의 영원이었다.</em></p>
+  </div>
+
+</main>
+
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>URL 복사
+    </button>
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>X 공유
+    </a>
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg></span>카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
+  },{threshold:0.1});
+  document.querySelectorAll('.block').forEach(b=>observer.observe(b));
+
+  (function(){
+    var KAKAO_KEY='e0642d0a5c0ae01b8893422a148e9aba';
+    function loadKakaoSDK(cb){if(window.Kakao){cb();return;}var s=document.createElement('script');s.src='https://developers.kakao.com/sdk/js/kakao.min.js';s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};document.head.appendChild(s);}
+    var panelOpen=false;
+    window.f3ToggleShare=function(){panelOpen=!panelOpen;document.getElementById('f3SharePanel').classList.toggle('open',panelOpen);};
+    window.f3CopyUrl=function(){var url=location.href;navigator.clipboard.writeText(url).then(function(){showToast('URL 복사됨');}).catch(function(){var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('URL 복사됨');});panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');};
+    var xLink=document.getElementById('f3ShareX');if(xLink){xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href);}
+    window.f3ShareKakao=function(){if(!KAKAO_KEY){showToast('카카오 앱키 필요');return;}loadKakaoSDK(function(){var desc=document.querySelector('meta[name="description"]');Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:desc?desc.content:'',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:location.href,webUrl:location.href}},buttons:[{title:'읽기',link:{mobileWebUrl:location.href,webUrl:location.href}}]});});};
+    function showToast(msg){var t=document.getElementById('f3Toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+    document.addEventListener('click',function(e){if(!document.getElementById('f3ShareBtn').contains(e.target)){panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');}});
+  })();
+</script>
+</body>
+</html>
