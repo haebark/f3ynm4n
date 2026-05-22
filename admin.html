@@ -427,7 +427,7 @@ body {
       <div class="sidebar-link" onclick="filterCategory('history')">🗺️ 대체역사 <span class="sidebar-count" id="count-history">0</span></div>
       <div class="sidebar-link" onclick="filterCategory('culture')">✍️ 문화칼럼 <span class="sidebar-count" id="count-culture">0</span></div>
       <div class="sidebar-link" onclick="filterCategory('economy')">📈 경제칼럼 <span class="sidebar-count" id="count-economy">0</span></div>
-      <div class="sidebar-link" onclick="filterCategory('misc')">💭 잡생각 <span class="sidebar-count" id="count-misc">0</span></div>
+      <div class="sidebar-link" onclick="filterCategory('misc')">💭 에세이 <span class="sidebar-count" id="count-misc">0</span></div>
       <div class="sidebar-link" onclick="filterCategory('sanguo')">⚔️ 삼국지 <span class="sidebar-count" id="count-sanguo">0</span></div>
       <div class="sidebar-link" onclick="filterCategory('fiction')">✒️ 창작 <span class="sidebar-count" id="count-fiction">0</span></div>
       <div class="sidebar-section">사이트</div>
@@ -526,7 +526,7 @@ body {
                   <option value="history">🗺️ 대체역사</option>
                   <option value="culture">✍️ 문화칼럼</option>
                   <option value="economy">📈 경제칼럼</option>
-                  <option value="misc">💭 잡생각</option>
+                  <option value="misc">💭 에세이</option>
                   <option value="sanguo">⚔️ 삼국지</option>
                   <option value="fiction">✒️ 창작</option>
                 </select>
@@ -759,7 +759,7 @@ function showSection(name) {
 }
 
 function filterCategory(cat) {
-  const catNames = { food:'미식', science:'팝사이언스', film:'영화비평', history:'대체역사', culture:'문화칼럼', economy:'경제칼럼', misc:'잡생각', sanguo:'삼국지', fiction:'창작' };
+  const catNames = { food:'미식', science:'팝사이언스', film:'영화비평', history:'대체역사', culture:'문화칼럼', economy:'경제칼럼', misc:'에세이', sanguo:'삼국지', fiction:'창작' };
   const filtered = allArticles.filter(a => a.category === cat);
   showSection('articles');
   renderList(filtered, catNames[cat], `${filtered.length}개`);
