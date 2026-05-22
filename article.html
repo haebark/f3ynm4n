@@ -515,18 +515,30 @@ async function showCategoryList(cat) {
     return;
   }
 
-  const html = articles.map(a => `
+  const cards = articles.map(a => `
     <a href="article.html?slug=${a.slug}"
-       style="display:block;padding:28px;border:1px solid var(--border);text-decoration:none;color:inherit;margin-bottom:2px;transition:background .2s;"
+       style="display:flex;flex-direction:column;padding:28px;border:1px solid var(--border);text-decoration:none;color:inherit;transition:background .2s;"
        onmouseover="this.style.background='rgba(200,150,62,0.04)'"
        onmouseout="this.style.background='transparent'">
-      <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">${a.tag}</div>
-      <div style="font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;line-height:1.3;color:var(--off-white);margin-bottom:8px;">${a.title}</div>
-      <p style="font-size:13px;line-height:1.7;color:var(--mid);margin-bottom:12px;">${a.subtitle || ''}</p>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">${a.tag || ''}</div>
+      <div style="font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;line-height:1.35;color:var(--off-white);margin-bottom:10px;flex:1;">${a.title}</div>
+      <p style="font-size:13px;line-height:1.7;color:var(--mid);margin-bottom:16px;">${a.subtitle || ''}</p>
       <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);">읽기 →</div>
     </a>`).join('');
 
-  document.getElementById('article-content').innerHTML = html;
+  const grid = `
+    <div style="
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2px;
+    ">${cards}</div>`;
+
+  document.getElementById('article-content').innerHTML = grid;
+
+  // 모바일 1열 대응
+  const style = document.createElement('style');
+  style.textContent = '@media(max-width:640px){#article-content>div{grid-template-columns:1fr!important;}}';
+  document.head.appendChild(style);
 }
 
 async function init() {
