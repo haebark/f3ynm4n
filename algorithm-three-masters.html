@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://f3ynm4n.com/algorithm-three-masters.html">
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="https://f3ynm4n.com/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
   <script>
@@ -193,7 +193,13 @@
     .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .back-link:hover { color: var(--cream); }
 
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(13,13,11,0.95), transparent); }
+    .nav-logo { font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 3px; color: var(--accent-light); text-decoration: none; }
+    .nav-back { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color .2s; }
+    .nav-back:hover { color: var(--accent-light); }
+
     @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
       .hero { min-height: 90vh; padding-bottom: 60px; }
       .hero-inner { padding: 0 24px; }
       .article-inner { padding: 56px 24px 72px; }
@@ -205,11 +211,17 @@
 </head>
 <body>
 
+<nav>
+  <a href="/" class="nav-logo">F3YNM4N</a>
+  <a href="javascript:history.back()" class="nav-back">← Back</a>
+</nav>
+
 <section class="hero">
   <div class="hero-watermark">▶</div>
   <div class="hero-inner">
     <div class="hero-meta">
       <span class="hero-category">Culture</span>
+      <span class="hero-series">알고리즘 시리즈 — 1편</span>
     </div>
     <h1 class="hero-title">알고리즘의 <em>세 주인</em></h1>
     <p class="hero-subtitle">유튜브는 당신의 취향을 학습하지 않는다. 설계한다.</p>
