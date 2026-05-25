@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알고리즘의 소작농 — F3YNM4N</title>
+  <meta name="description" content="유튜브는 시청자를 사육하고, 제작자를 소작농으로 만들었다">
+  <meta property="og:title" content="알고리즘의 소작농">
+  <meta property="og:description" content="유튜브는 시청자를 사육하고, 제작자를 소작농으로 만들었다">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/algorithm-farmer.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://f3ynm4n.com/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --accent: #c2410c;
+      --accent-light: #fb923c;
+      --cream: #f2ede6;
+      --cream-dim: #e8e2d9;
+      --text-dark: #1a1a17;
+      --muted: #888880;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 0 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(194,65,12,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 15% 75%, rgba(194,65,12,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 50%; right: -1%;
+      transform: translateY(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(100px, 18vw, 260px);
+      font-weight: 700;
+      color: rgba(194,65,12,0.05);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 40px;
+      position: relative; z-index: 1; width: 100%;
+    }
+
+    .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(194,65,12,0.15);
+      border: 1px solid rgba(251,146,60,0.25);
+      padding: 5px 12px; border-radius: 2px;
+    }
+
+    .hero-series {
+      font-family: 'Space Mono', monospace; font-size: 9px;
+      letter-spacing: 0.12em; color: rgba(251,146,60,0.45);
+      border-left: 2px solid rgba(194,65,12,0.3);
+      padding-left: 10px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 700; line-height: 1.2;
+      color: var(--cream); letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+
+    .hero-title em { font-style: normal; color: var(--accent-light); }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(15px, 2vw, 19px);
+      color: rgba(242,237,230,0.5); margin-bottom: 48px;
+    }
+
+    .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--accent-light), transparent); }
+
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.3;
+    }
+    .scroll-hint span { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    .article-body { background: var(--cream); color: var(--text-dark); }
+    .article-inner { max-width: 720px; margin: 0 auto; padding: 80px 40px 100px; }
+
+    .section { margin-bottom: 64px; }
+
+    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px; font-weight: 700; color: var(--text-dark);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      width: 100%;
+    }
+
+    .article-inner p { margin-bottom: 24px; color: #2a2a27; word-break: keep-all; }
+    .article-inner p:last-child { margin-bottom: 0; }
+
+    .intro-graf { font-size: 18px; line-height: 1.9; color: #1a1a17 !important; margin-bottom: 32px !important; }
+
+    blockquote { border-left: 3px solid var(--accent); margin: 36px 0; padding: 4px 0 4px 28px; }
+    blockquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.65; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .highlight { background: rgba(194,65,12,0.05); border: 1px solid rgba(194,65,12,0.15); padding: 20px 24px; margin: 28px 0; border-radius: 2px; }
+    .highlight p { font-size: 16px; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .closing { margin-top: 72px; padding-top: 40px; border-top: 1px solid rgba(26,26,23,0.15); }
+    .closing p { font-size: 17px; line-height: 1.9; color: #1a1a17 !important; }
+    .closing-punch { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.5vw, 22px) !important; line-height: 1.7 !important; color: #0d0d0b !important; margin-top: 32px !important; }
+
+    .f3-share-btn { position: fixed; bottom: 32px; right: 32px; z-index: 1000; }
+    .f3-share-toggle { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(194,65,12,0.4); transition: transform 0.2s, background 0.2s; }
+    .f3-share-toggle:hover { transform: scale(1.08); background: #9a3412; }
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .f3-share-panel { position: absolute; bottom: 64px; right: 0; display: flex; flex-direction: column; gap: 10px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 0.2s, transform 0.2s; }
+    .f3-share-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .f3-share-action { display: flex; align-items: center; gap: 10px; background: #1e1e1b; border: 1px solid rgba(255,255,255,0.1); color: var(--cream); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; padding: 10px 16px; border-radius: 24px; cursor: pointer; white-space: nowrap; transition: background 0.15s; text-decoration: none; }
+    .f3-share-action:hover { background: #2a2a27; }
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    .article-footer { background: var(--bg); padding: 60px 40px; text-align: center; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: var(--cream); }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 90vh; padding-bottom: 60px; }
+      .hero-inner { padding: 0 24px; }
+      .article-inner { padding: 56px 24px 72px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-watermark">畑</div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-category">Culture</span>
+      <span class="hero-series">알고리즘 시리즈 — 2편</span>
+    </div>
+    <h1 class="hero-title">알고리즘의 <em>소작농</em></h1>
+    <p class="hero-subtitle">유튜브는 시청자를 사육하고, 제작자를 소작농으로 만들었다</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<article class="article-body">
+  <div class="article-inner">
+
+    <p class="intro-graf">나는 제작자가 아니다. 유튜브 채널도 없고, 섬네일을 고민해본 적도 없다. 그런데 시청자로 오래 앉아 있다 보면 보이는 것이 있다. 알고리즘이 제작자를 어떻게 다루는지, 어쩌면 만드는 사람보다 보는 사람이 더 선명하게 볼 때가 있다.</p>
+
+    <p>화면 너머에는 늘 누군가가 있다. 오늘도 제목을 고치고, 썸네일을 바꾸고, 업로드 시간을 계산하며 플랫폼의 기분을 살피는 사람. 그들은 창작자인 동시에, 플랫폼이라는 거대한 토지 위에서 경작하는 소작농이다.</p>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">구독자라는 주식의 상장폐지</h2>
+      </div>
+
+      <p>한때 구독자는 자산이었다. 10만, 100만의 숫자는 단순한 장식이 아니었다. 내 영상을 기다리는 사람들과의 직접 연결이었다. 플랫폼 위에 서 있지만, 적어도 그 관계만큼은 내 것이라는 믿음.</p>
+
+      <p>알고리즘은 그 믿음을 조용히 무력화했다.</p>
+
+      <p>지금 유튜브의 중심은 구독 피드가 아니다. 홈 화면 추천이다. 당신이 구독했더라도, 플랫폼이 "지금은 아니다"라고 판단하면 영상은 보이지 않는다. 수년 동안 공들여 쌓아 올린 구독자는 어느 날 갑자기 유령 부서가 된다.</p>
+
+      <blockquote>
+        <p>팬은 여전히 존재한다. 다만 도달권이 사라졌을 뿐이다.</p>
+      </blockquote>
+
+      <p>이제 제작자는 자기 팬에게조차 플랫폼의 허락을 받아야 한다. 내가 모은 사람들인데, 통행세는 플랫폼이 받는다.</p>
+    </div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">묵은지 추천이 걷어찬 사다리</h2>
+      </div>
+
+      <p>시청자 피드에 몇 년 전 영상이 떠오른다는 것은 그만큼 새로운 영상이 설 자리가 줄어든다는 뜻이다. 오늘 밤새워 만든 신작이 5년 전 이미 검증된 메가히트 영상과 같은 자리를 두고 경쟁한다.</p>
+
+      <p>알고리즘은 새로움을 사랑하지 않는다. 검증된 효율을 사랑한다. 이미 반응이 입증된 과거 영상은 낮은 위험으로 높은 체류 시간을 보장한다. 플랫폼 입장에서 그것은 안전한 선택이다.</p>
+
+      <div class="highlight">
+        <p>하지만 그 안전함은 현역 제작자에게는 사다리를 걷어차는 일과 다르지 않다. "시간을 이기는 콘텐츠는 없다"가 아니다. AI가 반복 재생하는 과거의 성공을 신작이 이기기란 점점 어려워지고 있다.</p>
+      </div>
+
+      <p>알고리즘은 이미 창고에 쌓인 데이터와 너무 오래된 연애를 하고 있다. 새로운 창작자는 그 둘 사이에 끼어든 불청객일 뿐이다.</p>
+    </div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">조회수의 도파민 배급제</h2>
+      </div>
+
+      <p>제작자들이 가장 두려워하는 것은 실패가 아니다. 예측 불가능성이다. 어떤 영상은 폭발하고, 어떤 영상은 이유 없이 가라앉는다. 비슷한 품질, 비슷한 주제, 비슷한 반응인데도 조회수는 마치 보이지 않는 수도꼭지처럼 갑자기 잠기거나 열린다.</p>
+
+      <p>플랫폼은 제작자가 떠나지 않을 만큼의 희망과, 안주하지 못할 만큼의 불안을 동시에 공급한다. 이 구조 속에서 제작자는 매번 원인을 자신에게서 찾는다. 제목이 문제였나. 썸네일이 약했나. 업로드 시간이 틀렸나. 첫 3초를 더 자극적으로 갔어야 했나.</p>
+
+      <p>그래서 또 수정한다. 또 실험한다. 또 기도한다. 창작의 기쁨은 점점 줄어들고, 최적화의 강박만 남는다.</p>
+
+      <p>그 순간부터 그는 더 이상 창작자가 아니다. 수확량을 걱정하며 하늘 대신 알고리즘의 눈치를 보는 소작농이다.</p>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <p>1편에서 시청자는 사육되고 있었다. 2편에서 제작자는 경작하고 있다. 둘 다 모른다는 게 문제가 아니다. 알면서도 멈출 수 없다는 것이 문제다.</p>
+
+      <p>시청자는 오늘도 홈 화면을 새로고침한다. 제작자는 오늘도 알고리즘이 좋아할 제목과 썸네일을 고친다. 누구도 강요하지 않았다. 아무도 채찍을 들지 않았다. 그럴 필요가 없기 때문이다.</p>
+
+      <p>우리는 이미 스스로 플랫폼의 리듬에 맞춰 보고, 클릭하고, 만들고, 불안해하는 법을 배웠다.</p>
+
+      <p class="closing-punch">알고리즘은 잔인하지 않다. 잔인함은 비효율적이니까. 더 효율적인 방식이 있다. 사람이 스스로 순종하게 만드는 것.</p>
+    </div>
+
+  </div>
+</article>
+
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() { if (window.Kakao && !Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/algorithm-farmer.html';
+  const PAGE_TITLE = '알고리즘의 소작농';
+
+  document.getElementById('xShareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() { document.getElementById('sharePanel').classList.toggle('open'); }
+
+  function copyURL() {
+    navigator.clipboard.writeText(PAGE_URL).then(function() { alert('URL이 복사됐습니다.'); });
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: PAGE_TITLE,
+          description: '유튜브는 시청자를 사육하고, 제작자를 소작농으로 만들었다',
+          imageUrl: 'https://f3ynm4n.com/og_default.png',
+          link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL }
+        }
+      });
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open');
+  });
+</script>
+
+</body>
+</html>

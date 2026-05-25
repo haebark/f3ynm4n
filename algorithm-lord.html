@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알고리즘의 영주 — F3YNM4N</title>
+  <meta name="description" content="플랫폼은 시장이 아니다. 영토다.">
+  <meta property="og:title" content="알고리즘의 영주">
+  <meta property="og:description" content="플랫폼은 시장이 아니다. 영토다.">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/algorithm-lord.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://f3ynm4n.com/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --accent: #78350f;
+      --accent-light: #d97706;
+      --cream: #f2ede6;
+      --cream-dim: #e8e2d9;
+      --text-dark: #1a1a17;
+      --muted: #888880;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 0 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(120,53,15,0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 15% 75%, rgba(120,53,15,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 50%; right: -1%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(100px, 18vw, 260px);
+      font-weight: 700;
+      color: rgba(120,53,15,0.06);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 40px;
+      position: relative; z-index: 1; width: 100%;
+    }
+
+    .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(120,53,15,0.18);
+      border: 1px solid rgba(217,119,6,0.25);
+      padding: 5px 12px; border-radius: 2px;
+    }
+
+    .hero-series {
+      font-family: 'Space Mono', monospace; font-size: 9px;
+      letter-spacing: 0.12em; color: rgba(217,119,6,0.45);
+      border-left: 2px solid rgba(120,53,15,0.3);
+      padding-left: 10px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 700; line-height: 1.2;
+      color: var(--cream); letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+
+    .hero-title em { font-style: normal; color: var(--accent-light); }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(15px, 2vw, 19px);
+      color: rgba(242,237,230,0.5); margin-bottom: 48px;
+    }
+
+    .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--accent-light), transparent); }
+
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.3;
+    }
+    .scroll-hint span { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    .article-body { background: var(--cream); color: var(--text-dark); }
+    .article-inner { max-width: 720px; margin: 0 auto; padding: 80px 40px 100px; }
+
+    .section { margin-bottom: 64px; }
+    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px; font-weight: 700; color: var(--text-dark);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      width: 100%;
+    }
+
+    .article-inner p { margin-bottom: 24px; color: #2a2a27; word-break: keep-all; }
+    .article-inner p:last-child { margin-bottom: 0; }
+    .intro-graf { font-size: 18px; line-height: 1.9; color: #1a1a17 !important; margin-bottom: 32px !important; }
+
+    blockquote { border-left: 3px solid var(--accent); margin: 36px 0; padding: 4px 0 4px 28px; }
+    blockquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.65; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .highlight { background: rgba(120,53,15,0.05); border: 1px solid rgba(120,53,15,0.15); padding: 20px 24px; margin: 28px 0; border-radius: 2px; }
+    .highlight p { font-size: 16px; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .fact-box {
+      background: #1a1a17; border-left: 3px solid var(--accent);
+      padding: 24px 28px; margin: 36px 0; border-radius: 0 4px 4px 0;
+    }
+    .fact-box-label { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.2em; color: var(--accent-light); text-transform: uppercase; margin-bottom: 14px; }
+    .fact-box p { color: rgba(242,237,230,0.8) !important; font-size: 15px; line-height: 1.75; margin-bottom: 10px !important; }
+    .fact-box p:last-child { margin-bottom: 0 !important; }
+    .fact-box strong { color: var(--cream); }
+
+    .closing { margin-top: 72px; padding-top: 40px; border-top: 1px solid rgba(26,26,23,0.15); }
+    .closing p { font-size: 17px; line-height: 1.9; color: #1a1a17 !important; }
+    .closing-punch { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.5vw, 22px) !important; line-height: 1.7 !important; color: #0d0d0b !important; margin-top: 32px !important; }
+
+    .f3-share-btn { position: fixed; bottom: 32px; right: 32px; z-index: 1000; }
+    .f3-share-toggle { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(120,53,15,0.4); transition: transform 0.2s, background 0.2s; }
+    .f3-share-toggle:hover { transform: scale(1.08); background: #5c2a0a; }
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .f3-share-panel { position: absolute; bottom: 64px; right: 0; display: flex; flex-direction: column; gap: 10px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 0.2s, transform 0.2s; }
+    .f3-share-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .f3-share-action { display: flex; align-items: center; gap: 10px; background: #1e1e1b; border: 1px solid rgba(255,255,255,0.1); color: var(--cream); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; padding: 10px 16px; border-radius: 24px; cursor: pointer; white-space: nowrap; transition: background 0.15s; text-decoration: none; }
+    .f3-share-action:hover { background: #2a2a27; }
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    .article-footer { background: var(--bg); padding: 60px 40px; text-align: center; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: var(--cream); }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 90vh; padding-bottom: 60px; }
+      .hero-inner { padding: 0 24px; }
+      .article-inner { padding: 56px 24px 72px; }
+      .fact-box { padding: 20px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-watermark">城</div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-category">Culture</span>
+      <span class="hero-series">알고리즘 시리즈 — 3편</span>
+    </div>
+    <h1 class="hero-title">알고리즘의 <em>영주</em></h1>
+    <p class="hero-subtitle">플랫폼은 시장이 아니다. 영토다.</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<article class="article-body">
+  <div class="article-inner">
+
+    <p class="intro-graf">우리는 유튜브를 서비스라고 부른다. 영상 플랫폼, 검색 기업, 기술 혁신의 집합체. 그렇게 부르면 마음이 편하다. 서비스는 소비자가 선택하는 것이고, 기업은 시장의 경쟁 속에서 견제받는다고 믿을 수 있으니까.</p>
+
+    <p>하지만 어느 순간부터 그 이름들은 현실을 설명하지 못하게 됐다. 유튜브는 더 이상 서비스가 아니다. 영토다. 그리고 그 영토에는 왕보다 강한 영주가 산다.</p>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">법 위의 군주</h2>
+      </div>
+
+      <p>중세의 영주도 완전한 자유인은 아니었다. 왕의 눈치를 봐야 했고, 교회의 권위를 의식해야 했으며, 최소한 성문 안에 통용되는 관습법이라도 존재했다.</p>
+
+      <p>디지털 영주는 다르다. 그는 법을 따르지 않는다. 그가 곧 법이다.</p>
+
+      <p>어느 날 아침, 수익 배분 구조가 바뀐다. 어느 날 오후, 노란 딱지 기준이 바뀐다. 어느 날 밤, 알고리즘 우선순위가 수정된다. 공청회는 없다. 항소는 형식적이다. 설명은 대개 자동 생성된 몇 줄짜리 문장으로 끝난다.</p>
+
+      <div class="fact-box">
+        <div class="fact-box-label">현실의 법과 플랫폼의 법</div>
+        <p>현실의 법정에서는 최소한 판결문이라도 남는다.</p>
+        <p>이 영토에서는 노란 딱지 하나로 한 사람의 경제적 생명이 조용히 끊긴다.</p>
+        <p><strong>이유도, 얼굴도, 책임자도 없이.</strong></p>
+      </div>
+
+      <blockquote>
+        <p>독재의 가장 완성된 형태는 총칼을 들지 않는다. 그저 "정책이 업데이트되었습니다"라는 알림 하나면 충분하다.</p>
+      </blockquote>
+    </div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">피를 먹고 자라는 성</h2>
+      </div>
+
+      <p>권력은 유지비가 든다. 성과 군대를 먹이려면 언제나 더 많은 세금이 필요하다. 플랫폼도 다르지 않다. 특히 AI 시대 이후 영주의 식량은 훨씬 더 많이 필요해졌다. 거대한 연산 자원, 끝없이 돌아가는 서버, 천문학적 전력 소비.</p>
+
+      <p>이 비용을 영주가 직접 감당할까. 물론 아니다. 그는 백성의 체류 시간을 더 짜내고, 소작농의 노동 데이터를 더 많이 거두고, 그것을 AI라는 이름의 창고에 저장한다.</p>
+
+      <p>그리고 말한다. "당신을 더 편하게 해주겠다." 영상을 대신 요약해주고, 추천을 대신 고르고, 소비의 동선까지 대신 설계해주겠다고.</p>
+
+      <div class="highlight">
+        <p>편리함처럼 보인다. 하지만 편리함은 언제나 통제의 가장 세련된 가면이었다. 시청자와 제작자가 직접 만나는 길목마다 AI라는 새로운 관문이 세워진다. 플랫폼은 그 사이에서 더 많은 통행세를 거둔다.</p>
+      </div>
+
+      <p>우리가 바친 클릭과 노동이 결국 우리를 더 정교하게 가두는 창살이 되어 돌아온다. 피를 먹고 자란 성벽이 다시 피를 요구한다.</p>
+    </div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">책임 없는 왕관</h2>
+      </div>
+
+      <p>이 영주가 가장 영악한 이유는 모든 권력을 가지면서도 아무 책임도 지지 않는다는 점이다.</p>
+
+      <p>플랫폼에서 가짜 뉴스가 퍼진다. 혐오가 증폭된다. 아이들의 집중력은 숏폼 속에서 갈려 나간다. 그럴 때 영주는 늘 같은 말을 한다. "우리는 단지 연결의 장을 제공할 뿐입니다." 모든 판단은 알고리즘이 했다고.</p>
+
+      <p>돈을 벌 때는 세계 최고의 기술 기업이 된다. 문제가 터질 때는 중립적인 도구 제공자가 된다. 성과는 기업의 것이고, 실패는 코드의 것이다.</p>
+
+      <blockquote>
+        <p>"알고리즘의 판단입니다"라는 말은 현대판 "신의 뜻입니다"와 다르지 않다. 반박할 수 없고, 확인할 수도 없으며, 책임자를 찾을 수도 없다.</p>
+      </blockquote>
+
+      <p>그렇게 권력은 점점 더 투명해지고, 그래서 더 보이지 않게 된다.</p>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <p>1편에서 시청자는 사육당했다. 2편에서 제작자는 경작했다. 그리고 3편에서 우리는 마침내 성의 주인을 본다.</p>
+
+      <p>문제는 그가 폭군처럼 보이지 않는다는 것이다. 그는 늘 웃고 있다. 더 나은 추천, 더 편한 검색, 더 똑똑한 AI를 약속하며 우리에게 선택권이 있다고 말한다.</p>
+
+      <p>그래서 더 위험하다. 폭정은 저항을 부른다. 편리함은 순종을 부른다. 우리는 감시당하고 있다는 사실보다, 그 감시가 너무 편리하다는 사실에 익숙해졌다.</p>
+
+      <p class="closing-punch">그리고 어느 날 깨닫는다. 이곳이 감옥이었다는 사실을. 문이 잠겨 있었기 때문이 아니다. 애초에 나갈 생각조차 하지 않았기 때문이다.</p>
+    </div>
+
+  </div>
+</article>
+
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() { if (window.Kakao && !Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/algorithm-lord.html';
+  const PAGE_TITLE = '알고리즘의 영주';
+
+  document.getElementById('xShareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() { document.getElementById('sharePanel').classList.toggle('open'); }
+
+  function copyURL() {
+    navigator.clipboard.writeText(PAGE_URL).then(function() { alert('URL이 복사됐습니다.'); });
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: PAGE_TITLE,
+          description: '플랫폼은 시장이 아니다. 영토다.',
+          imageUrl: 'https://f3ynm4n.com/og_default.png',
+          link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL }
+        }
+      });
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
