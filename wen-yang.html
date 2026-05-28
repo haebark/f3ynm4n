@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문앙 — 반사체 없는 발광체 · F3YNM4N</title>
+<meta name="description" content="스스로 빛났지만, 아무도 그 빛을 돌려주지 않았다">
+<meta property="og:title" content="문앙 — 반사체 없는 발광체">
+<meta property="og:description" content="스스로 빛났지만, 아무도 그 빛을 돌려주지 않았다">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://f3ynm4n.com/wen-yang.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Serif+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+
+<style>
+:root {
+  --bg: #0d0d0b;
+  --gold: #c8963e;
+  --cream: #f5f0e8;
+  --cream-dark: #ede7d9;
+  --text: #1a1a17;
+  --mid: #666;
+  --border: rgba(200,150,62,0.15);
+  --accent: #7f1d1d;
+  --accent2: #991b1b;
+  --accent-dim: rgba(127,29,29,0.25);
+  --accent-light: rgba(127,29,29,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Serif KR', serif;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13,13,11,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.site-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-decoration: none;
+}
+.site-nav a {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #555;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: 28px;
+  transition: color .2s;
+}
+.site-nav a:hover { color: var(--gold); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--bg);
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 80px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 700px 500px at 60% 40%, rgba(127,29,29,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 300px 300px at 10% 80%, rgba(200,150,62,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* 격자 */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,150,62,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,150,62,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 760px;
+  position: relative;
+  z-index: 1;
+}
+
+.series-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.series-badge-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  border: 1px solid rgba(200,150,62,0.3);
+  padding: 4px 10px;
+}
+.series-badge-part {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #444;
+  text-transform: uppercase;
+}
+
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent2);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent2);
+}
+
+.hero-name {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  color: #f2ede6;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 16px;
+  opacity: 0.12;
+  position: absolute;
+  right: 0;
+  bottom: 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(28px, 4.5vw, 48px);
+  font-weight: 700;
+  color: #f2ede6;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(15px, 2vw, 19px);
+  color: rgba(242,237,230,0.45);
+  margin-bottom: 36px;
+  line-height: 1.55;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #444;
+  text-transform: uppercase;
+}
+.hero-meta-divider {
+  width: 1px;
+  height: 12px;
+  background: #2a2a27;
+}
+
+/* ── BODY ── */
+.article-body {
+  background: var(--cream);
+}
+
+.lead-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 72px 48px 0;
+}
+
+.lead-text {
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.95;
+  color: #2a2a25;
+  font-weight: 400;
+  border-left: 3px solid var(--accent2);
+  padding-left: 28px;
+}
+
+.section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 64px 48px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.section:last-child { border-bottom: none; }
+
+.section-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--accent2);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(19px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: 28px;
+  letter-spacing: -0.3px;
+}
+
+.section p {
+  font-size: 16px;
+  line-height: 1.95;
+  color: #2c2c28;
+  margin-bottom: 20px;
+}
+.section p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 700; color: var(--accent); }
+
+/* 강조 인용 */
+.emphasis {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(17px, 2.2vw, 21px);
+  color: var(--accent);
+  line-height: 1.6;
+  margin: 36px 0;
+  padding: 24px 32px;
+  border-left: 3px solid var(--accent2);
+  background: var(--accent-light);
+}
+
+/* 팩트박스 */
+.fact-box {
+  background: var(--cream-dark);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-left: 3px solid var(--accent2);
+  padding: 24px 28px;
+  margin: 36px 0;
+}
+.fact-box-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--accent2);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.fact-box p {
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+  color: #444 !important;
+  margin-bottom: 8px !important;
+}
+.fact-box p:last-child { margin-bottom: 0 !important; }
+
+/* 디바이더 */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 48px;
+  opacity: 0.25;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--accent2);
+}
+.divider span {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent2);
+  letter-spacing: 3px;
+}
+
+/* 클로징 */
+.closing-section {
+  background: var(--bg);
+  padding: 80px 48px;
+}
+.closing-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.closing-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--accent2);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  opacity: 0.5;
+}
+.closing-text {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(17px, 2.5vw, 22px);
+  font-weight: 500;
+  color: #f2ede6;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+.closing-final {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(242,237,230,0.45);
+  line-height: 1.7;
+}
+
+/* 시리즈 네비 */
+.series-nav {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 40px 48px;
+}
+.series-nav-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.series-nav a {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+.series-nav a:hover { color: var(--gold); }
+
+/* 공유 */
+f3-share-btn { display: block; }
+
+/* 애니메이션 */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-inner > * {
+  animation: fadeUp 0.8s ease both;
+}
+.series-badge { animation-delay: 0.1s; }
+.hero-tag { animation-delay: 0.2s; }
+.hero-title { animation-delay: 0.35s; }
+.hero-subtitle { animation-delay: 0.5s; }
+.hero-meta { animation-delay: 0.6s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .site-header { padding: 16px 20px; }
+  .site-nav { display: none; }
+  .hero { padding: 120px 20px 60px; }
+  .lead-section { padding: 48px 20px 0; }
+  .lead-text { padding-left: 20px; }
+  .section { padding: 48px 20px; }
+  .divider { padding: 0 20px; }
+  .emphasis { padding: 20px; margin: 28px 0; }
+  .fact-box { padding: 20px; }
+  .closing-section { padding: 60px 20px; }
+  .series-nav { padding: 32px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="site-logo">F3YNM4N</a>
+  <nav class="site-nav">
+    <a href="sanguo-index.html">삼국지 인물론</a>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="series-badge">
+      <span class="series-badge-label">삼국지 인물론</span>
+      <span class="series-badge-part">독립편</span>
+    </div>
+    <div class="hero-tag">삼국지 · 인물론 · 무력</div>
+    <h1 class="hero-title">문앙<br>— 반사체 없는 발광체</h1>
+    <p class="hero-subtitle">스스로 빛났지만, 아무도 그 빛을 돌려주지 않았다</p>
+    <div class="hero-meta">
+      <span class="hero-meta-item">F3YNM4N</span>
+      <span class="hero-meta-divider"></span>
+      <span class="hero-meta-item">2026</span>
+      <span class="hero-meta-divider"></span>
+      <span class="hero-meta-item">삼국지</span>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<article class="article-body">
+
+  <!-- 리드 -->
+  <div class="lead-section">
+    <p class="lead-text">삼국지의 영웅들은 혼자 빛나지 않는다. 발광체는 스스로 빛을 낸다. 근데 그 빛이 역사에 박히려면 반사체가 필요하다. 받아주는 인물, 맞서는 인물, 증언하는 인물. 그들이 없으면 발광체의 빛은 허공으로 사라진다.</p>
+  </div>
+
+  <!-- 01 -->
+  <div class="section">
+    <div class="section-num">01</div>
+    <h2 class="section-title">발광체들이 서로를 증폭시킨 시대</h2>
+    <p>관우가 위대한 건 조조가 그를 놓아주지 않으려 했기 때문이기도 하다. 여포가 전설이 된 건 삼형제가 셋이서 달려들었기 때문이기도 하다. 조자룡이 장판파에서 빛난 건 유비라는 무대가 있었기 때문이다.</p>
+
+    <div class="emphasis">
+      발광체들이 밀집한 시대엔 서로가 서로의 반사체가 된다. 그렇게 모두가 더 밝아진다.
+    </div>
+
+    <p>조조가 관우를 탐낼수록 관우의 가치는 올라갔고, 관우가 떠날수록 조조의 아량이 기록됐다. 두 발광체가 서로를 반사하면서 둘 다 더 밝아졌다. 여포를 상대하려면 셋이 필요했다 — 이 한 줄이 여포를 전설로 만들었다.</p>
+    <p>문앙이 태어난 시대엔 그 구조가 없었다.</p>
+  </div>
+
+  <div class="divider"><span>◆</span></div>
+
+  <!-- 02 -->
+  <div class="section">
+    <div class="section-num">02</div>
+    <h2 class="section-title">255년, 단 하나의 장면</h2>
+
+    <div class="fact-box">
+      <div class="fact-box-label">관구검의 난 · 255년</div>
+      <p>문흠이 사마사에 맞서 반란을 일으킨다. 사마사의 군대는 수만. 문흠 측은 소수였다. 애초에 기울어진 싸움이었다.</p>
+    </div>
+
+    <p>문앙은 밤에 단기로 적진을 들이받는다.</p>
+    <p>수십 합. 상처 없이 귀환. 다시 돌입. 다시 귀환. 추격병이 붙자 말을 돌려 혼자 달려들었다. 몇 번이고 반복했다. 추격대는 감히 따라붙지 못했다.</p>
+    <p>반란은 진압됐다. 문앙은 패배했다.</p>
+    <p><strong>근데 그 장면 하나가 역사에 박혔다.</strong></p>
+  </div>
+
+  <div class="divider"><span>◆</span></div>
+
+  <!-- 03 -->
+  <div class="section">
+    <div class="section-num">03</div>
+    <h2 class="section-title">반사체 없는 발광체</h2>
+    <p>255년의 문앙은 분명히 스스로 빛났다. 300기로 수만을 흔들었다. 추격대를 혼자 돌려세웠다. 이건 반사체가 만들어준 빛이 아니다. 문앙 본인에게서 나온 빛이다.</p>
+    <p>근데 그 빛을 받아준 인물이 없었다.</p>
+
+    <div class="emphasis">
+      조조였다면 문앙을 탐냈을 것이다. 그 탐냄이 문앙의 등급을 역사에 새겼을 것이다. 근데 상대는 사마사였다. 사마사는 문앙을 그냥 진압했다.
+    </div>
+
+    <p>반사체가 없으면 발광체의 등급은 영원히 판정 불가다. 문앙이 오호대장군급인지, 그 아래인지, 우리는 알 수 없다. 받아줄 인물이 없었으니까. 증폭될 기회가 없었으니까.</p>
+  </div>
+
+  <div class="divider"><span>◆</span></div>
+
+  <!-- 04 -->
+  <div class="section">
+    <div class="section-num">04</div>
+    <h2 class="section-title">평화의 시대엔 명장이 없다</h2>
+    <p>지금 이 순간에도 발광체들은 어딘가에 있다. 근데 반사체가 없으면 보이지 않는다. 전장이 없으면 명장은 그냥 평범한 사람이다. 맞서는 적이 없으면 영웅은 등급을 증명할 방법이 없다.</p>
+    <p>평화의 시대에 명장이 없는 건, 명장이 태어나지 않아서가 아니다. <strong>그들의 빛을 돌려줄 반사체가 없어서다.</strong></p>
+    <p>문앙은 운이 나빴다. 발광체로 태어났지만 시대가 반사체를 제공하지 않았다. 255년 하룻밤, 혼자 타올랐다. 돌려주는 사람 없이.</p>
+  </div>
+
+</article>
+
+<!-- 클로징 -->
+<section class="closing-section">
+  <div class="closing-inner">
+    <div class="closing-label">Closing</div>
+    <p class="closing-text">그 빛이 얼마나 강했는지는, 지금도 판정할 수 없다.</p>
+    <p class="closing-final">어쩌면 그래서 문앙은 끝내 판정되지 못했는지도 모른다.<br>빛났다는 건 알겠는데, 얼마나 밝았는지는<br>아무도 돌려 비추지 않았다.</p>
+  </div>
+</section>
+
+<!-- 공유 버튼 -->
+<f3-share-btn></f3-share-btn>
+
+<!-- 시리즈 네비 -->
+<div class="series-nav">
+  <div class="series-nav-inner">
+    <a href="sanguo-index.html">← 삼국지 인물론 목록</a>
+    <a href="index.html">F3YNM4N</a>
+  </div>
+</div>
+
+<!-- Kakao SDK (bfcache 대응 lazy load) -->
+<script>
+window.addEventListener('pageshow', function(e) {
+  if (typeof Kakao === 'undefined') {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() {
+      if (!Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba');
+    };
+    document.head.appendChild(s);
+  }
+});
+</script>
+
+</body>
+</html>
