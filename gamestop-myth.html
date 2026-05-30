@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게임스탑 신화의 이면 — F3YNM4N</title>
+  <meta name="description" content="우리는 추억을 얻었고, 누군가는 자본을 얻었다">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="F3YNM4N">
+  <meta property="og:title" content="게임스탑 신화의 이면">
+  <meta property="og:description" content="우리는 추억을 얻었고, 누군가는 자본을 얻었다">
+  <meta property="og:url" content="https://f3ynm4n.com/gamestop-myth.html">
+  <meta property="og:image" content="https://f3ynm4n.com/favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --gold: #c8963e;
+      --accent: #1f2937;
+      --accent-light: #374151;
+      --cream: #f2ede6;
+      --cream-dark: #e8e2d9;
+      --text: #2c2c2a;
+      --text-light: #5a5a56;
+      --hero-text: #f2ede6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Noto Serif KR', serif;
+      cursor: none;
+    }
+
+    /* 커스텀 커서 */
+    .cursor {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s;
+    }
+    .cursor-ring {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(200,150,62,0.5);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.12s, width 0.2s, height 0.2s;
+    }
+    @media (hover: none) {
+      .cursor, .cursor-ring { display: none; }
+      body { cursor: auto; }
+    }
+
+    /* 읽기 진행바 */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--gold);
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s;
+    }
+
+    /* 네비게이션 */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(13,13,11,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,150,62,0.15);
+    }
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-decoration: none;
+    }
+    .nav-back {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: rgba(242,237,230,0.5);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold); }
+
+    /* 히어로 */
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(31,41,55,0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(200,150,62,0.06) 0%, transparent 50%);
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 700;
+      color: var(--hero-text);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: rgba(242,237,230,0.65);
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      padding: 6px 14px;
+      border: 1px solid rgba(200,150,62,0.4);
+    }
+
+    .hero-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(242,237,230,0.2);
+    }
+
+    /* 본문 */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 40px 120px;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.95;
+      color: var(--text);
+      margin-bottom: 22px;
+      font-weight: 300;
+      word-break: keep-all;
+    }
+
+    .article-body p strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* 섹션 */
+    .section {
+      margin: 64px 0 0;
+    }
+
+    .section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(200,150,62,0.25);
+    }
+
+    /* 강조 인용 */
+    .pull-quote {
+      margin: 48px 0;
+      padding: 32px 40px;
+      border-left: 3px solid var(--gold);
+      background: rgba(31,41,55,0.06);
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 0 !important;
+    }
+
+    /* 팩트박스 */
+    .fact-box {
+      background: var(--accent);
+      padding: 32px 36px;
+      margin: 48px 0;
+    }
+
+    .fact-box .fact-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .fact-box p {
+      color: rgba(242,237,230,0.85) !important;
+      font-size: 15px !important;
+      line-height: 1.8 !important;
+      margin-bottom: 10px !important;
+    }
+
+    .fact-box .fact-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 28px;
+      color: var(--gold);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* 날짜 강조 */
+    .date-stamp {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    /* 클로징 */
+    .closing {
+      margin-top: 80px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(44,44,42,0.15);
+    }
+
+    .closing p {
+      font-size: 17px;
+      line-height: 2;
+    }
+
+    .closing .final-line {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 15px;
+      color: var(--text-light);
+      font-weight: 400;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(44,44,42,0.1);
+      font-style: italic;
+    }
+
+    /* 플로팅 공유버튼 */
+    .f3-share-btn {
+      position: fixed;
+      bottom: 36px;
+      right: 36px;
+      z-index: 500;
+    }
+
+    .share-toggle {
+      width: 48px; height: 48px;
+      background: var(--gold);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .share-toggle:hover { transform: scale(1.08); }
+
+    .share-toggle svg { width: 18px; height: 18px; fill: #0d0d0b; }
+
+    .share-panel {
+      position: absolute;
+      bottom: 60px;
+      right: 0;
+      background: #1a1a18;
+      border: 1px solid rgba(200,150,62,0.2);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 140px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .share-panel.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .share-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(242,237,230,0.8);
+      background: none;
+      border: 1px solid rgba(242,237,230,0.1);
+      padding: 9px 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .share-btn:hover {
+      background: rgba(200,150,62,0.15);
+      color: var(--gold);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .article-body { padding: 48px 20px 80px; }
+      .pull-quote { padding: 24px 20px; margin: 32px 0; }
+      .fact-box { padding: 24px 20px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div id="progress-bar"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">F3YNM4N</a>
+    <a href="javascript:history.back()" class="nav-back">← Back</a>
+  </nav>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Economy</span>
+      <h1 class="hero-title">게임스탑<br>신화의 이면</h1>
+      <p class="hero-subtitle">우리는 추억을 얻었고,<br>누군가는 자본을 얻었다</p>
+      <div class="hero-meta">
+        <span class="hero-category">ECONOMY</span>
+        <div class="hero-divider"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 본문 -->
+  <article class="article-body">
+
+    <p>2021년 초, 미국 주식시장에서 기묘한 사건이 벌어졌다.</p>
+    <p>망해가던 비디오게임 유통업체의 주가가 수십 달러에서 480달러까지 폭등했다. 개미들이 월가의 헤지펀드를 무릎 꿇렸다는 이야기는 순식간에 전 세계로 퍼졌다.</p>
+    <p>우리는 그것을 승리라고 불렀다.</p>
+    <p>하지만 판을 설계한 손이 따로 있었다.</p>
+
+    <div class="section">
+      <p class="section-title">공매도는 정말 악인가</p>
+      <p>공매도는 주가 하락에 베팅하는 방식이다. 주식을 빌려 먼저 판 뒤, 나중에 더 싸게 사서 갚는다.</p>
+      <p>대중에게는 탐욕처럼 보이지만, 시장에서는 또 다른 기능도 한다. 실적이 부실하거나 거품이 심한 기업을 가장 먼저 의심하는 쪽 역시 공매도 세력이다. 분식회계나 허위 공시 의혹이 공매도 리포트 하나로 드러난 사례는 적지 않다.</p>
+
+      <div class="pull-quote">
+        <p>공매도는 선악의 문제가 아니다. 판단의 문제다.</p>
+      </div>
+
+      <p>그리고 냉정하게 보면, 당시 게임스탑을 공매도했던 헤지펀드들의 판단 자체가 완전히 틀린 것도 아니었다. 게임 시장은 이미 디지털 다운로드 중심으로 이동하고 있었고, 오프라인 게임 유통업체였던 게임스탑의 실적은 기울고 있었다.</p>
+      <p>문제는 그 위에 훨씬 강력한 감정 서사가 덧씌워졌다는 것이다.</p>
+      <p><strong>"월가가 우리의 추억을 죽이려 한다."</strong></p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">침팬지라는 이름의 연대</p>
+      <p>레딧 WSB를 중심으로 하나의 문화가 만들어졌다.</p>
+      <p>'Apes Together Strong — 침팬지들은 뭉치면 강하다.' 우리는 능지가 처참해서 매도 버튼을 모른다, 무조건 쥐고 간다(HODL). 자학과 연대가 섞인 이 언어는 정교하게 설계된 가스라이팅이었다. 바보인 척하면서 버티는 게 미덕이 되는 순간, 판단력은 집단에 위탁된다.</p>
+      <p>광풍은 바다를 건너 한국까지 왔다. 커뮤니티마다 같은 말이 돌았다. 공매도가 회사를 죽인다, 이번엔 개미가 이겨야 한다, 이건 투자가 아니라 혁명이다.</p>
+      <p>나는 그 단톡방에 있었다.</p>
+      <p>공매도가 무조건 나쁜 게 아니라고 했다. 실적이 받쳐주는 회사는 공매도가 와도 결국 이긴다고, 국내 사례까지 가져왔다.</p>
+      <p>돌아온 건 "이것도 밈인데 같이 밀어보자"였다.</p>
+
+      <div class="pull-quote">
+        <p>아, 이제 이건 분석의 영역이 아니라 서사의 영역으로 넘어갔구나.</p>
+      </div>
+
+      <p>그리고 한 가지 더 느꼈다. 주동자가 저렇게 말은 하지만, 결국 혼자 먹고 튈 것 같다는 느낌. 그 감각은 틀리지 않았다.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">3만 원짜리 면죄부</p>
+      <p>당시 많은 개인 투자자들은 말했다. "이 돈 다 잃어도 상관없다. 정의를 위해 참전한다."</p>
+      <p>하지만 시장에서 "잃어도 된다"는 말은 종종 판단을 멈췄다는 뜻이기도 하다.</p>
+      <p>사람들은 3~4만 원짜리 주식을 기념품 사듯 매수했다. 손해 봐도 괜찮다고 먼저 선언하면, 판단하지 않아도 되니까. 정의의 편에 섰다는 감정은 생각보다 강력한 면죄부가 된다.</p>
+      <p>그리고 그게 바로 고기방패의 자발적 입대였다.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">시장은 결국 자기 편을 지켰다</p>
+      <span class="date-stamp">2021. 01. 28</span>
+      <p>로빈후드를 비롯한 대형 증권사들이 게임스탑 매수 버튼을 막아버렸다. 매도만 가능한 기형적 시장이 열렸고, 주가는 폭포처럼 쏟아졌다. 꼭대기에 물린 개미들은 순식간에 마이너스 90% 지옥으로 처박혔다.</p>
+      <p>자유 시장을 말하던 시스템이, 정작 자신들이 위험해지자 규칙을 바꿨다. 그 장면은 꽤 노골적이었다.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">타짜의 엑시트</p>
+      <p>판이 깨진 뒤, 가장 추악한 진실이 드러났다.</p>
+      <p>"끝까지 함께 버티자"고 전우애를 선동했던 로어링 키티(키스 길)는 청문회에서 순진한 표정으로 태연하게 거짓말했다. 그리고 잠적했다. 뒤로는 철저하게 계산된 타이밍에 옵션을 행사하고 주식을 던져 수천억 원을 챙겼다.</p>
+
+      <div class="fact-box">
+        <span class="fact-label">ROARING KITTY — FINAL SCORE</span>
+        <span class="fact-number">$260,000,000</span>
+        <p>3년 뒤 복귀한 그의 계좌 잔고. 약 3,500억 원.</p>
+        <p>평범한 금융 유튜버가 3,500억짜리 타짜가 되는 데 걸린 시간은 단 몇 주였다.</p>
+      </div>
+
+      <p>대중은 HODL을 외쳤고, 그는 옵션과 타이밍을 계산했다. 사람들이 혁명에 참가하는 동안, 그는 이미 출구를 보고 있었다.</p>
+    </div>
+
+    <div class="closing">
+      <p>우리는 여전히 게임스탑 사태를 개미가 월가를 이긴 순간으로 기억한다. 그 며칠 동안만큼은 정말 그렇게 보였으니까.</p>
+      <p>하지만 남은 것을 보면 이야기는 달라진다.</p>
+      <p>나 같은 작은 스피커의 경고는 축제 분위기에 묻혔고, 타짜는 그 판에서 부자가 되어 나갔다. 게임스탑의 영웅으로 불리며, 어떤 비판도 닿지 않는 철옹성 안에서 지금도 자유롭게 살아간다.</p>
+      <p>우리는 추억을 얻었고, 누군가는 자본을 얻었다.</p>
+      <p class="final-line">시장은 원래 그런 곳이다. 사람들이 혁명을 이야기할 때, 누군가는 이미 출구를 계산하고 있다.</p>
+    </div>
+
+  </article>
+
+  <!-- 플로팅 공유버튼 -->
+  <div class="f3-share-btn">
+    <div class="share-panel" id="sharePanel">
+      <button class="share-btn" onclick="copyURL()">URL 복사</button>
+      <button class="share-btn" onclick="shareX()">X 공유</button>
+      <button class="share-btn" onclick="shareKakao()">카카오톡</button>
+    </div>
+    <button class="share-toggle" onclick="toggleShare()" aria-label="공유">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    // 커서
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    if (window.matchMedia('(hover: hover)').matches) {
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        setTimeout(() => {
+          ring.style.left = e.clientX + 'px';
+          ring.style.top = e.clientY + 'px';
+        }, 60);
+      });
+    }
+
+    // 읽기 진행바
+    window.addEventListener('scroll', () => {
+      const el = document.documentElement;
+      const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+      document.getElementById('progress-bar').style.width = pct + '%';
+    });
+
+    // 공유 패널
+    function toggleShare() {
+      document.getElementById('sharePanel').classList.toggle('open');
+    }
+
+    function copyURL() {
+      navigator.clipboard.writeText(location.href).then(() => alert('URL이 복사되었습니다.'));
+    }
+
+    function shareX() {
+      const text = encodeURIComponent('게임스탑 신화의 이면 — 우리는 추억을 얻었고, 누군가는 자본을 얻었다');
+      window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + encodeURIComponent(location.href));
+    }
+
+    function shareKakao() {
+      if (!window.Kakao) {
+        const s = document.createElement('script');
+        s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js';
+        s.onload = () => {
+          Kakao.init('e0642d0a5c0ae01b8893422a148e9aba');
+          sendKakao();
+        };
+        document.head.appendChild(s);
+      } else {
+        sendKakao();
+      }
+    }
+
+    function sendKakao() {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: '게임스탑 신화의 이면',
+          description: '우리는 추억을 얻었고, 누군가는 자본을 얻었다',
+          imageUrl: 'https://f3ynm4n.com/favicon.svg',
+          link: { mobileWebUrl: location.href, webUrl: location.href }
+        }
+      });
+    }
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.f3-share-btn')) {
+        document.getElementById('sharePanel').classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
