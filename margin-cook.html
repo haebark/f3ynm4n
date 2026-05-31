@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마진쿡의 청구서 — F3YNM4N</title>
+  <meta name="description" content="회계사가 기술 회사를 운영하면">
+  <meta property="og:title" content="마진쿡의 청구서">
+  <meta property="og:description" content="회계사가 기술 회사를 운영하면">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/margin-cook.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://f3ynm4n.com/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --accent: #4b5563;
+      --accent-light: #9ca3af;
+      --cream: #f2ede6;
+      --cream-dim: #e8e2d9;
+      --text-dark: #1a1a17;
+      --muted: #888880;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 0 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(75,85,99,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 15% 75%, rgba(75,85,99,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* 배경 워터마크 */
+    .hero-watermark {
+      position: absolute;
+      top: 50%; right: -2%;
+      transform: translateY(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(100px, 18vw, 260px);
+      font-weight: 700;
+      color: rgba(75,85,99,0.05);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 40px;
+      position: relative; z-index: 1; width: 100%;
+    }
+
+    .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(75,85,99,0.2);
+      border: 1px solid rgba(156,163,175,0.25);
+      padding: 5px 12px; border-radius: 2px;
+    }
+
+    .hero-date { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; }
+
+    .hero-context {
+      font-family: 'Space Mono', monospace; font-size: 9px;
+      letter-spacing: 0.12em; color: rgba(156,163,175,0.5);
+      margin-bottom: 20px;
+      border-left: 2px solid rgba(75,85,99,0.4);
+      padding-left: 12px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 5vw, 54px);
+      font-weight: 700; line-height: 1.2;
+      color: var(--cream); letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+
+    .hero-title em { font-style: normal; color: var(--accent-light); }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(15px, 2vw, 19px);
+      color: rgba(242,237,230,0.5); margin-bottom: 48px;
+    }
+
+    .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--accent-light), transparent); }
+
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.3;
+    }
+    .scroll-hint span { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── ARTICLE ── */
+    .article-body { background: var(--cream); color: var(--text-dark); }
+    .article-inner { max-width: 720px; margin: 0 auto; padding: 80px 40px 100px; }
+
+    .section { margin-bottom: 64px; }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px; font-weight: 700; color: var(--text-dark);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      width: 100%;
+    }
+
+    .article-inner p { margin-bottom: 24px; color: #2a2a27; word-break: keep-all; }
+    .article-inner p:last-child { margin-bottom: 0; }
+
+    .intro-graf { font-size: 18px; line-height: 1.9; color: #1a1a17 !important; margin-bottom: 32px !important; }
+
+    /* 팩트박스 */
+    .fact-box {
+      background: #1a1a17; border-left: 3px solid var(--accent);
+      padding: 24px 28px; margin: 36px 0; border-radius: 0 4px 4px 0;
+    }
+    .fact-box-label { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.2em; color: var(--accent-light); text-transform: uppercase; margin-bottom: 14px; }
+    .fact-box p { color: rgba(242,237,230,0.8) !important; font-size: 15px; line-height: 1.75; margin-bottom: 10px !important; }
+    .fact-box p:last-child { margin-bottom: 0 !important; }
+    .fact-box strong { color: var(--cream); }
+
+    /* 인용 */
+    blockquote { border-left: 3px solid var(--accent); margin: 36px 0; padding: 4px 0 4px 28px; }
+    blockquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.65; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    /* 하이라이트 */
+    .highlight { background: rgba(75,85,99,0.07); border: 1px solid rgba(75,85,99,0.2); padding: 20px 24px; margin: 28px 0; border-radius: 2px; }
+    .highlight p { font-size: 16px; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    /* 클로징 */
+    .closing { margin-top: 72px; padding-top: 40px; border-top: 1px solid rgba(26,26,23,0.15); }
+    .closing p { font-size: 17px; line-height: 1.9; color: #1a1a17 !important; }
+    .closing-punch { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.5vw, 22px) !important; line-height: 1.7 !important; color: #0d0d0b !important; margin-top: 32px !important; }
+
+    /* ── 공유버튼 ── */
+    .f3-share-btn { position: fixed; bottom: 32px; right: 32px; z-index: 1000; }
+    .f3-share-toggle { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(75,85,99,0.4); transition: transform 0.2s, background 0.2s; }
+    .f3-share-toggle:hover { transform: scale(1.08); background: #374151; }
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .f3-share-panel { position: absolute; bottom: 64px; right: 0; display: flex; flex-direction: column; gap: 10px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 0.2s, transform 0.2s; }
+    .f3-share-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .f3-share-action { display: flex; align-items: center; gap: 10px; background: #1e1e1b; border: 1px solid rgba(255,255,255,0.1); color: var(--cream); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; padding: 10px 16px; border-radius: 24px; cursor: pointer; white-space: nowrap; transition: background 0.15s; text-decoration: none; }
+    .f3-share-action:hover { background: #2a2a27; }
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    .article-footer { background: var(--bg); padding: 60px 40px; text-align: center; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: var(--cream); }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 90vh; padding-bottom: 60px; }
+      .hero-inner { padding: 0 24px; }
+      .article-inner { padding: 56px 24px 72px; }
+      .fact-box { padding: 20px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-watermark">$</div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-category">Economy</span>
+      <span class="hero-date">2026.05.21</span>
+    </div>
+    <p class="hero-context">WWDC 2026과 9월 퇴임을 앞둔 팀 쿡의 유산에 대하여</p>
+    <h1 class="hero-title">마진쿡의 <em>청구서</em></h1>
+    <p class="hero-subtitle">회계사가 기술 회사를 운영하면</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article-body">
+  <div class="article-inner">
+
+    <p class="intro-graf">팀 쿡은 나쁜 경영자가 아니었다. 주가를 10배 올렸고, 시총 3조 달러를 만들었고, 아이폰을 15억 대 깔았다. 숫자만 보면 역사상 최고의 CEO 중 하나다.</p>
+
+    <p>문제는 그가 틀렸다는 게 아니다. 그가 회계사였다는 거다.</p>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">공급망이 중국을 키웠다</h2>
+      </div>
+
+      <p>팀 쿡이 애플에 가져온 건 스티브 잡스의 비전이 아니었다. 도요타 방식이었다. 리스크는 하청이 떠안고, 원청은 마진만 챙긴다. 이 원칙 하나로 애플의 순이익률은 26%까지 올라갔다. 하드웨어 제조사로서는 불가능에 가까운 숫자였다.</p>
+
+      <p>근데 도요타 방식에는 숨겨진 비용이 있다. 공급망을 극한으로 쥐어짜면, 그 공급망이 당신의 기술을 흡수한다.</p>
+
+      <p>폭스콘 공장에서 아이폰을 조립하면서 중국은 스마트폰 제조의 모든 것을 배웠다. 설계 공차, 공정 기술, 부품 생태계. 쿡이 원가를 낮추려고 중국 공급망을 키울수록, 중국 공급망은 애플 없이도 스마트폰을 만들 수 있는 능력을 쌓았다. 샤오미, 오포, 화웨이의 제조 기술 원천은 사실상 애플 공급망이다.</p>
+
+      <div class="highlight">
+        <p>더 근본적인 문제가 있다. 애플은 공장이 없다. 설계는 쿠퍼티노에서 하고, 제조는 전부 폭스콘에 맡긴다. 도요타는 공장이라도 있다. 애플은 공급망 그 자체가 회사다.</p>
+      </div>
+
+      <p>인도로 생산기지를 옮기려 해도 공장을 새로 지어야 하니 수년이 걸린다. 공급망이 흔들리면 자기 손으로 할 수 있는 게 아무것도 없다. 트럼프 관세가 터지자 팀 쿡이 직접 베이징으로 달려간 장면 — 공급망을 무기로 쓰던 회사가 공급망에 멱살을 잡혔다.</p>
+    </div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">같은 논리가 소프트웨어에서도 작동했다</h2>
+      </div>
+
+      <p>구글이 아이폰 기본 검색창 자리를 유지하는 대가로 매년 27조 원을 냈다. 원가도 재고도 없는 마진율 100%짜리 수입이었다. AI 인프라는 구글이 깔고, 애플은 자릿세만 챙겼다. 하청을 굴리는 방식 그대로였다.</p>
+
+      <p>AI 시대의 유저들은 검색창 대신 AI 비서에게 말을 건다. 자체 AI 인프라가 없는 애플은 시리의 뇌를 구글과 오픈AI에 외주로 줬다. 돈의 흐름이 뒤집혔다. 통행세를 받던 영주가 경쟁사 플랫폼의 정산 창구가 됐다.</p>
+
+      <blockquote>
+        <p>하청이 대체 불가능해지는 순간 도요타 방식은 역전된다. TAC가 그 순간이었다.</p>
+      </blockquote>
+    </div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">8GB는 철학의 압축이었다</h2>
+      </div>
+
+      <p>안드로이드 진영이 12GB, 16GB 램을 박아 넣을 때 애플은 8GB를 고집했다. 아이러니하게도 칩은 달랐다. Apple Silicon의 Neural Engine은 업계 최고 수준이었다. AI 연산 효율만 보면 경쟁사가 따라올 수 없었다.</p>
+
+      <p>회계사의 눈으로 보면 완벽한 판단이었다. 칩에는 투자했다. 그런데 램은 아꼈다. 칩이 아무리 빨라도 데이터가 올라올 공간이 없으면 돌아가지 않는다.</p>
+
+      <div class="fact-box">
+        <div class="fact-box-label">온디바이스 AI의 물리 법칙</div>
+        <p>AI를 구현하려면 수십억 개의 매개변수가 램 위에 상시 적재돼야 한다.</p>
+        <p>7B 모델을 돌리려면 8GB는 숨만 쉬어도 꽉 찬다.</p>
+        <p><strong>세계 최고의 AI 칩을 만들어 놓고, RAM이 아까워서 AI를 못 쓰는 회사가 됐다.</strong></p>
+      </div>
+
+      <p>결국 강제 업그레이드. 하필 지금 전 세계 빅테크가 AI 데이터센터 짓느라 메모리를 싹쓸이하는 타이밍이다. 물량으로 공급사를 후려치던 갑이 최고가에 부품을 사야 하는 을이 됐다.</p>
+
+      <p>8GB 고집은 부품 결정이 아니었다. 칩에는 아끼지 않으면서 램은 아낀 것 — 그게 회계사의 렌즈다.</p>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <p>세 청구서가 동시에 날아온 건 우연이 아니다. 세 개가 같은 철학에서 나왔기 때문이다.</p>
+
+      <p>리스크는 외부로, 수익은 내부로 — 이 원칙이 공급망에선 중국을 키웠고, 소프트웨어에선 구글을 키웠고, 하드웨어에선 메모리 의존을 키웠다. 그리고 공장이 없으니 흔들릴 때 버틸 방법도 없다.</p>
+
+      <p>WWDC 2026이 끝났다. 9월이면 팀 쿡은 퇴장한다. 가장 숫자가 화려한 정점에서, 영리하게.</p>
+
+      <p class="closing-punch">회계사는 훌륭한 숫자를 남긴다. 다만 숫자는 방향을 설명하지 않는다. 팀 쿡의 애플이 남긴 질문은 단순하다. 가장 효율적인 회사가, 가장 혁신적인 회사이기도 한가. WWDC 2026이 끝난 지금, 애플은 그 답을 증명해야 하는 위치에 섰다.</p>
+    </div>
+
+  </div>
+</article>
+
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<!-- 공유버튼 -->
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() { if (window.Kakao && !Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/margin-cook.html';
+  const PAGE_TITLE = '마진쿡의 청구서';
+
+  document.getElementById('xShareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() { document.getElementById('sharePanel').classList.toggle('open'); }
+
+  function copyURL() {
+    navigator.clipboard.writeText(PAGE_URL).then(function() { alert('URL이 복사됐습니다.'); });
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: PAGE_TITLE,
+          description: '회계사가 기술 회사를 운영하면',
+          imageUrl: 'https://f3ynm4n.com/og_default.png',
+          link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL }
+        }
+      });
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
