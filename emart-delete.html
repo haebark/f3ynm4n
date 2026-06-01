@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이마트에 필요한 건 전략이 아니라 삭제다 — F3YNM4N</title>
+  <meta name="description" content="자기잠식이 만든 3,120억의 청구서">
+  <meta property="og:title" content="이마트에 필요한 건 전략이 아니라 삭제다">
+  <meta property="og:description" content="자기잠식이 만든 3,120억의 청구서">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/emart-delete.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://f3ynm4n.com/favicon.ico">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --gold: #c8963e;
+      --accent: #166534;
+      --accent-light: #22c55e;
+      --cream: #f2ede6;
+      --cream-dim: #e8e2d9;
+      --text-dark: #1a1a17;
+      --muted: #888880;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(22,101,52,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(22,101,52,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* 배경 숫자 워터마크 */
+    .hero-watermark {
+      position: absolute;
+      top: 50%;
+      right: -2%;
+      transform: translateY(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(120px, 20vw, 280px);
+      font-weight: 700;
+      color: rgba(22,101,52,0.06);
+      letter-spacing: -0.05em;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(22,101,52,0.2);
+      border: 1px solid rgba(34,197,94,0.3);
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    .hero-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--accent-light);
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(15px, 2vw, 19px);
+      color: rgba(242,237,230,0.55);
+      margin-bottom: 48px;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-light), transparent);
+    }
+
+    /* ── SCROLL INDICATOR ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.35;
+    }
+    .scroll-hint span {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--cream);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      background: var(--cream);
+      color: var(--text-dark);
+    }
+
+    .article-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 40px 100px;
+    }
+
+    /* 섹션 */
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.01em;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* 본문 */
+    .article-inner p {
+      margin-bottom: 24px;
+      color: #2a2a27;
+      word-break: keep-all;
+      word-wrap: break-word;
+    }
+
+    .article-inner p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 인트로 단락 */
+    .intro-graf {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #1a1a17 !important;
+      margin-bottom: 32px !important;
+    }
+
+    /* 팩트박스 */
+    .fact-box {
+      background: #1a1a17;
+      border-left: 3px solid var(--accent);
+      padding: 24px 28px;
+      margin: 36px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .fact-box-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .fact-box p {
+      color: var(--cream-dim) !important;
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 10px !important;
+    }
+
+    .fact-box p:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .fact-box strong {
+      color: var(--cream);
+    }
+
+    /* 인용블록 */
+    blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 36px 0;
+      padding: 4px 0 4px 28px;
+    }
+
+    blockquote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.65;
+      color: #1a1a17 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* 키넘버 */
+    .key-numbers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 36px 0;
+      background: #1a1a17;
+    }
+
+    .key-number-item {
+      background: #1e1e1b;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .key-number-val {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      color: var(--accent-light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .key-number-label {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 12px;
+      color: rgba(242,237,230,0.55);
+      line-height: 1.4;
+    }
+
+    /* 하이라이트 텍스트 */
+    .highlight {
+      background: rgba(22,101,52,0.12);
+      border: 1px solid rgba(34,197,94,0.2);
+      padding: 20px 24px;
+      margin: 28px 0;
+      border-radius: 2px;
+    }
+
+    .highlight p {
+      font-size: 16px;
+      color: #1a1a17 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* 클로징 */
+    .closing {
+      margin-top: 72px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(26,26,23,0.15);
+    }
+
+    .closing p {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #1a1a17 !important;
+    }
+
+    .closing-punch {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(18px, 2.5vw, 22px) !important;
+      line-height: 1.7 !important;
+      color: #0d0d0b !important;
+      margin-top: 32px !important;
+    }
+
+    /* ── 공유버튼 플로팅 ── */
+    .f3-share-btn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 1000;
+    }
+
+    .f3-share-toggle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(22,101,52,0.4);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .f3-share-toggle:hover { transform: scale(1.08); background: #15803d; }
+
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .f3-share-panel {
+      position: absolute;
+      bottom: 64px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .f3-share-panel.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .f3-share-action {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #1e1e1b;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--cream);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      padding: 10px 16px;
+      border-radius: 24px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+      text-decoration: none;
+    }
+
+    .f3-share-action:hover { background: #2a2a27; }
+
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    /* ── FOOTER NAV ── */
+    .article-footer {
+      background: var(--bg);
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--cream); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .hero { min-height: 90vh; padding-bottom: 60px; }
+      .hero-inner { padding: 0 24px; }
+      .article-inner { padding: 56px 24px 72px; }
+      .key-numbers { grid-template-columns: 1fr; gap: 2px; }
+      .fact-box { padding: 20px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-watermark">₩</div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-category">Economy</span>
+      <span class="hero-date">2026.05.20</span>
+    </div>
+    <h1 class="hero-title">이마트에 필요한 건<br>전략이 아니라 <em>삭제</em>다</h1>
+    <p class="hero-subtitle">자기잠식이 만든 3,120억의 청구서</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+  <div class="article-inner">
+
+    <!-- 인트로 -->
+    <p class="intro-graf">이마트 매장에 들어서면 이상한 감각이 온다. 분명 장을 보러 왔는데, 어느 순간 자주 코너 앞에 서 있고, 그 옆엔 노브랜드가 있고, 조금 더 가면 와우샵이 있다. 전부 이마트 안에 있다. 전부 비슷한 걸 판다.</p>
+
+    <p>경제학에는 이 현상을 설명하는 단어가 있다. 자기잠식(Self-Cannibalization). 자기 브랜드가 자기 매출을 갉아먹는 것. 이마트는 지금 그 교과서적 사례다.</p>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">브랜드가 늘수록 돈은 줄었다</h2>
+      </div>
+
+      <p>이마트의 전략은 단순했다. 위협이 오면 새 브랜드를 만든다. 다이소가 뜨자 와우샵을 만들었다. SSM 시장을 잡으려고 에브리데이를 키웠다. 편의점 시장이 커지자 이마트24에 투자했다. 삐에로쇼핑도 만들었다.</p>
+
+      <p>문제는 각 브랜드를 만들 때마다 독립적인 운영 조직, 마케팅 비용, 재고 시스템이 따라붙는다는 거다. 총매출은 브랜드 수에 비례해 늘지 않는데, 총비용은 비례해서 늘어난다. 이게 자기잠식의 경제적 실체다.</p>
+
+      <div class="key-numbers">
+        <div class="key-number-item">
+          <div class="key-number-val">3,120억</div>
+          <div class="key-number-label">이마트24<br>누적 영업손실</div>
+        </div>
+        <div class="key-number-item">
+          <div class="key-number-val">463억</div>
+          <div class="key-number-label">2025년<br>단년 손실</div>
+        </div>
+        <div class="key-number-item">
+          <div class="key-number-val">1회</div>
+          <div class="key-number-label">출범 후<br>흑자 기록 횟수</div>
+        </div>
+      </div>
+
+      <div class="fact-box">
+        <div class="fact-box-label">Data</div>
+        <p>이마트24 영업손실: <strong>2023년 230억 → 2024년 298억 → 2025년 463억</strong>. 3년 연속 확대.</p>
+        <p>출범 이후 2022년 단 한 해 68억 흑자를 낸 것이 전부다.</p>
+        <p>이마트에브리데이는 SSM 시장 4위로 결국 2024년 본사에 흡수합병됐다.</p>
+      </div>
+
+      <p>브랜드를 만드는 데 쓴 비용이, 이기고 있는 것을 키우는 데 쓰이지 못했다.</p>
+    </div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">기회비용: 쓰지 못한 무기</h2>
+      </div>
+
+      <p>그 난립 속에서 유일하게 살아남은 게 노브랜드다.</p>
+
+      <blockquote>
+        <p>"연매출 1조 돌파. 이마트 연결 영업이익의 21%. 가맹점 면적당 매출은 편의점보다 15~20% 높다."</p>
+      </blockquote>
+
+      <p>노브랜드의 경쟁력은 구조적이다. 대형마트 소싱력으로 제조원가를 누르고, 중간 유통을 생략해 가격을 낮춘다. CU도 GS25도 복제할 수 없는 구조다. 편의점 단독으로는 이마트 수준의 규모 경제가 나오지 않기 때문이다.</p>
+
+      <div class="fact-box">
+        <div class="fact-box-label">경쟁사 비교 — 2023년 점포당 매출</div>
+        <p><strong>GS25</strong> — 6억 4천만원</p>
+        <p><strong>CU</strong> — 6억 3천만원</p>
+        <p><strong>세븐일레븐</strong> — 5억 3백만원</p>
+        <p><strong>이마트24</strong> — 4억 4천만원 ← 구조적 열위</p>
+      </div>
+
+      <div class="highlight">
+        <p>노브랜드 연계 매장 확대 이후, 이마트24는 3개 분기 연속 실적 향상을 기록했다. 답은 이미 나와 있었다.</p>
+      </div>
+    </div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">한 번 써봤다가 스스로 거뒀다</h2>
+      </div>
+
+      <p>근데 이건 새로운 얘기가 아니다.</p>
+
+      <p>이마트는 이미 한 번 이 패를 꺼냈다가 스스로 거뒀다. 노브랜드 단독 매장이 이마트24 상권을 침범하자, 정용진 회장은 직접 "뼈아픈 실수"라고 했다. 이마트24의 노브랜드 상품 매입을 중단시키고 노브랜드 단독 매장 신규 출점도 멈췄다.</p>
+
+      <p>자기잠식을 막으려다 자기 무기를 내려놓은 것이다. 내부 갈등이 전략을 이겼다.</p>
+
+      <div class="fact-box">
+        <div class="fact-box-label">데이터가 말하는 것</div>
+        <p>노브랜드 상품 도입 후 기존 이마트24 가맹점 평균 일매출 <strong>+8%</strong>.</p>
+        <p>신규점은 기존점 대비 <strong>+20% 이상</strong> 성장.</p>
+        <p>같은 답으로 돌아오는 데 5년이 걸렸다.</p>
+      </div>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">삭제가 전략이다</h2>
+      </div>
+
+      <p>와우샵은 지금도 시범 운영 중이다. 이마트 안에 이미 노브랜드가 있는데, 같은 카테고리에 새 브랜드를 또 만들었다. 자기잠식의 패턴은 반복되고 있다.</p>
+
+      <p>이마트에 필요한 건 새로운 무언가가 아니다. 와우샵을 접고, 자주를 정리하고, 만드는 걸 멈추고 버리는 것.</p>
+
+      <p>신라면과 카스는 그대로 둬도 된다. 킬러 상품 매대를 노브랜드로 채우면 된다. CU도 GS25도 PB가 있다. 하지만 소비자가 이름만 보고 집어드는 PB는 없다. 노브랜드는 이미 그 단계를 넘었다. 대형마트 소싱력에 브랜드 인지도까지 — 이건 편의점이 따로 만들어낼 수 있는 게 아니다.</p>
+
+      <p>3,120억의 청구서는 전략의 실패가 아니라 삭제의 실패가 만든 숫자다.</p>
+
+      <p class="closing-punch">이마트24가 노브랜드의 모세혈관이 되는 날 —<br>그게 이 회사의 진짜 반격이다.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<!-- 공유버튼 -->
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<!-- Kakao SDK -->
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() {
+      if (window.Kakao && !Kakao.isInitialized()) {
+        Kakao.init('e0642d0a5c0ae01b8893422a148e9aba');
+      }
+    };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/emart-delete.html';
+  const PAGE_TITLE = '이마트에 필요한 건 전략이 아니라 삭제다';
+
+  document.getElementById('xShareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() {
+    document.getElementById('sharePanel').classList.toggle('open');
+  }
+
+  function copyURL() {
+    navigator.clipboard.writeText(PAGE_URL).then(function() {
+      alert('URL이 복사됐습니다.');
+    });
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: PAGE_TITLE,
+          description: '자기잠식이 만든 3,120억의 청구서',
+          imageUrl: 'https://f3ynm4n.com/og_default.png',
+          link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL }
+        }
+      });
+    } else {
+      alert('카카오 SDK 로딩 중입니다. 잠시 후 다시 시도해주세요.');
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.f3-share-btn')) {
+      document.getElementById('sharePanel').classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
