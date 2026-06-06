@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>왜 자꾸 일본 먼저야 — F3YNM4N</title>
+  <meta name="description" content="한국이 패싱당하는 진짜 이유">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="F3YNM4N">
+  <meta property="og:title" content="왜 자꾸 일본 먼저야">
+  <meta property="og:description" content="한국이 패싱당하는 진짜 이유">
+  <meta property="og:url" content="https://f3ynm4n.com/korea-japan-market.html">
+  <meta property="og:image" content="https://f3ynm4n.com/favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --gold: #c8963e;
+      --accent: #1a1a2e;
+      --accent-mid: #252540;
+      --cream: #f2ede6;
+      --text: #2c2c2a;
+      --text-light: #5a5a56;
+      --hero-text: #f2ede6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Noto Serif KR', serif;
+      cursor: none;
+    }
+
+    .cursor {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-ring {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(200,150,62,0.45);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left 0.08s, top 0.08s;
+    }
+    @media (hover: none) {
+      .cursor, .cursor-ring { display: none; }
+      body { cursor: auto; }
+    }
+
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--gold);
+      width: 0%;
+      z-index: 1000;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(13,13,11,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,150,62,0.12);
+    }
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-decoration: none;
+    }
+    .nav-back {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: rgba(242,237,230,0.45);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold); }
+
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 65%, rgba(26,26,46,0.95) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 20%, rgba(200,150,62,0.04) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 700;
+      color: var(--hero-text);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(15px, 2.2vw, 20px);
+      color: rgba(242,237,230,0.55);
+      line-height: 1.55;
+      margin-bottom: 40px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      padding: 6px 14px;
+      border: 1px solid rgba(200,150,62,0.35);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 40px 120px;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.95;
+      color: var(--text);
+      margin-bottom: 22px;
+      font-weight: 300;
+      word-break: keep-all;
+    }
+
+    .section { margin-top: 64px; }
+
+    .section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(200,150,62,0.22);
+    }
+
+    .pull-quote {
+      margin: 44px 0;
+      padding: 28px 36px;
+      border-left: 3px solid var(--gold);
+      background: rgba(26,26,46,0.07);
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 19px !important;
+      line-height: 1.65 !important;
+      color: var(--text) !important;
+      margin-bottom: 0 !important;
+    }
+
+    .fact-box {
+      background: var(--accent);
+      padding: 32px 36px;
+      margin: 44px 0;
+    }
+
+    .fact-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .fact-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(200,150,62,0.12);
+      margin: 16px 0;
+    }
+
+    .fact-cell {
+      padding: 18px 20px;
+      background: var(--accent);
+    }
+
+    .fact-cell-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      color: rgba(242,237,230,0.35);
+      letter-spacing: 0.15em;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .fact-cell-value {
+      font-size: 14px;
+      color: rgba(242,237,230,0.85);
+      display: block;
+      line-height: 1.6;
+    }
+
+    .fact-cell-value strong { color: var(--gold); font-weight: 600; }
+
+    .fact-box p {
+      color: rgba(242,237,230,0.75) !important;
+      font-size: 14px !important;
+      line-height: 1.8 !important;
+      margin-bottom: 0 !important;
+      margin-top: 12px !important;
+    }
+
+    .closing {
+      margin-top: 80px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(44,44,42,0.12);
+    }
+
+    .closing p { font-size: 17px; line-height: 2; }
+
+    .closing-final {
+      margin-top: 36px;
+      padding: 32px 36px;
+      background: var(--accent);
+      border-left: 3px solid var(--gold);
+    }
+
+    .closing-final p {
+      color: rgba(242,237,230,0.85) !important;
+      font-size: 16px !important;
+      line-height: 1.9 !important;
+      margin-bottom: 10px !important;
+    }
+
+    .closing-final p:last-child { margin-bottom: 0 !important; }
+
+    .f3-share-btn {
+      position: fixed;
+      bottom: 36px;
+      right: 36px;
+      z-index: 500;
+    }
+
+    .share-toggle {
+      width: 48px; height: 48px;
+      background: var(--gold);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+      transition: transform 0.2s;
+    }
+
+    .share-toggle:hover { transform: scale(1.08); }
+    .share-toggle svg { width: 18px; height: 18px; fill: #0d0d0b; }
+
+    .share-panel {
+      position: absolute;
+      bottom: 60px;
+      right: 0;
+      background: #1a1a18;
+      border: 1px solid rgba(200,150,62,0.18);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 140px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .share-panel.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .share-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(242,237,230,0.75);
+      background: none;
+      border: 1px solid rgba(242,237,230,0.08);
+      padding: 9px 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .share-btn:hover {
+      background: rgba(200,150,62,0.12);
+      color: var(--gold);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .article-body { padding: 48px 20px 80px; }
+      .pull-quote { padding: 22px 20px; }
+      .fact-box { padding: 24px 20px; }
+      .fact-row { grid-template-columns: 1fr; }
+      .closing-final { padding: 24px 20px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div id="progress-bar"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">F3YNM4N</a>
+    <a href="javascript:history.back()" class="nav-back">← Back</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Economy</span>
+      <h1 class="hero-title">왜 자꾸<br>일본 먼저야</h1>
+      <p class="hero-subtitle">한국이 패싱당하는 진짜 이유</p>
+      <div class="hero-meta">
+        <span class="hero-category">ECONOMY</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-body">
+
+    <p>구글 픽셀 신제품이 아시아 최초로 일본에 출시됐다. 테슬라가 일본에 대규모 쇼룸을 열었다. 명품 브랜드 플래그십이 도쿄에 먼저 들어왔다.</p>
+    <p>한국 소비자 입장에서 열받을 수밖에 없는 상황이다.</p>
+    <p>구매력도 있고, IT 피드백도 빠르고, 트렌드 수용도 세계 최상위권인데 — 왜 자꾸 일본 먼저인가.</p>
+    <p>이유가 있다. 근데 한국이 못해서가 아니다.</p>
+
+    <div class="section">
+      <p class="section-title">구글이 일본에 공을 들이는 이유</p>
+      <p>구글은 한국 스마트폰 시장에서 픽셀로 의미 있는 점유율을 가져가기 어렵다. 삼성이라는 거대한 벽이 있기 때문이다. 한국 소비자는 갤럭시를 쓴다.</p>
+      <p>일본은 다르다. 아이폰 천하였던 일본에서 최근 픽셀폰이 점유율 2위권까지 올라왔다. 아이폰의 대안을 찾는 수요가 생기고 있고, 지금이 노 저을 타이밍이다.</p>
+
+      <div class="pull-quote">
+        <p>한국은 벽이 있고, 일본은 문이 열렸다. 그러니 일본 먼저다.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-title">테슬라가 일본에 애걸복걸하는 이유</p>
+      <p>테슬라 한국 시장은 마케팅을 많이 하지 않아도 돌아간다. 효자 시장이다.</p>
+      <p>일본은 정반대다. 하이브리드 강세에 자국 브랜드 충성도가 높다. 전기차가 쉽게 팔리지 않는다. 점유율을 올리려면 쇼룸을 열고, 시승 행사를 하고, 현지 마케팅에 돈을 쏟아부어야 한다.</p>
+      <p>꼬셔야 겨우 쳐다보는 시장에 더 많은 공을 들이는 것이다.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">잡은 물고기 vs 꼬셔야 하는 물고기</p>
+
+      <div class="fact-box">
+        <span class="fact-label">시장 구조 비교</span>
+        <div class="fact-row">
+          <div class="fact-cell">
+            <span class="fact-cell-label">한국 — 잡은 물고기</span>
+            <span class="fact-cell-value">시장이 열려 있고 소비자가 알아서 움직인다. <strong>공들일 이유가 적다.</strong> 그래서 패싱당한다.</span>
+          </div>
+          <div class="fact-cell">
+            <span class="fact-cell-label">일본 — 꼬셔야 하는 물고기</span>
+            <span class="fact-cell-value">시장이 고집스럽고 진입장벽이 높다. <strong>공들이지 않으면 못 들어간다.</strong> 그래서 우선순위가 높다.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <p>시장이 너무 잘 돌아가면 오히려 홀대받는 아이러니다.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-title">일본 중심 구조의 관성</p>
+      <p>근데 이것만으로 설명이 끝나진 않는다.</p>
+      <p>1980~90년대 일본은 세계 2위 경제대국이었고, 아시아 시장의 중심이었다. 많은 글로벌 기업들이 그 시기에 일본을 거점으로 유통망을 만들고, 파트너십을 구축하고, 조직을 설계했다.</p>
+      <p>그 결과 지금도 상당수 기업은 일본을 아시아 전략의 핵심 거점으로 취급한다.</p>
+      <p>한국의 위상은 그때와 비교할 수 없을 정도로 커졌다. 문화 영향력도, 기술력도, 소비력도 크게 달라졌다. 하지만 기업 조직은 생각보다 천천히 움직인다.</p>
+      <p>시장은 변해도 조직과 네트워크는 늦게 변한다. 그래서 실제 시장 규모나 영향력과 별개로 일본이 우선순위를 가져가는 경우가 여전히 존재한다.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">쉽게 바뀌지 않는 이유</p>
+      <p>안 사니까 매장 지어 꼬시고, 잘 사니까 대충 패싱한다.</p>
+      <p>기업 입장에서 보면 합리적인 전략이다. 문제는 소비자 입장에서는 정반대로 느껴진다는 점이다. 돈도 쓰고, 관심도 주고, 피드백도 열심히 하는데 정작 우선순위에서는 밀린다.</p>
+      <p>기업은 가장 중요한 시장에 돈을 쓰는 것이 아니라, 가장 공략하기 어려운 시장에 돈을 쓰는 경우가 많다.</p>
+    </div>
+
+    <div class="closing">
+      <p>한국이 자꾸 뒤로 밀리는 이유는 의외로 단순하다.</p>
+      <div class="closing-final">
+        <p>한국 시장이 이미 너무 잘 굴러가기 때문이다.</p>
+        <p>한국 소비자가 열받는 건 맞다. 근데 이건 한국이 못해서가 아니라, 너무 잘해서 생긴 역설이다.</p>
+      </div>
+    </div>
+
+  </article>
+
+  <div class="f3-share-btn">
+    <div class="share-panel" id="sharePanel">
+      <button class="share-btn" onclick="copyURL()">URL 복사</button>
+      <button class="share-btn" onclick="shareX()">X 공유</button>
+      <button class="share-btn" onclick="shareKakao()">카카오톡</button>
+    </div>
+    <button class="share-toggle" onclick="toggleShare()" aria-label="공유">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    if (window.matchMedia('(hover: hover)').matches) {
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        setTimeout(() => {
+          ring.style.left = e.clientX + 'px';
+          ring.style.top = e.clientY + 'px';
+        }, 60);
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      const el = document.documentElement;
+      const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+      document.getElementById('progress-bar').style.width = pct + '%';
+    });
+
+    function toggleShare() {
+      document.getElementById('sharePanel').classList.toggle('open');
+    }
+
+    function copyURL() {
+      navigator.clipboard.writeText(location.href).then(() => alert('URL이 복사되었습니다.'));
+    }
+
+    function shareX() {
+      const text = encodeURIComponent('왜 자꾸 일본 먼저야 — 한국이 패싱당하는 진짜 이유');
+      window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + encodeURIComponent(location.href));
+    }
+
+    function shareKakao() {
+      if (!window.Kakao) {
+        const s = document.createElement('script');
+        s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js';
+        s.onload = () => { Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); sendKakao(); };
+        document.head.appendChild(s);
+      } else { sendKakao(); }
+    }
+
+    function sendKakao() {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: '왜 자꾸 일본 먼저야',
+          description: '한국이 패싱당하는 진짜 이유',
+          imageUrl: 'https://f3ynm4n.com/favicon.svg',
+          link: { mobileWebUrl: location.href, webUrl: location.href }
+        }
+      });
+    }
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.f3-share-btn')) {
+        document.getElementById('sharePanel').classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
