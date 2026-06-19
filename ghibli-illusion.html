@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지브리라는 환상 — F3YNM4N</title>
+  <meta name="description" content="마침표 없는 거장의 두 번째 얼굴">
+  <meta property="og:title" content="지브리라는 환상">
+  <meta property="og:description" content="마침표 없는 거장의 두 번째 얼굴">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/ghibli-illusion.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://f3ynm4n.com/favicon.svg">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --accent: #9d174d;
+      --accent-light: #f472b6;
+      --cream: #f2ede6;
+      --cream-dim: #e8e2d9;
+      --text-dark: #1a1a17;
+      --muted: #888880;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(13,13,11,0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-logo:hover { color: var(--accent-light); }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--cream); }
+    .nav-back svg { width: 14px; height: 14px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 80px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 75% 30%, rgba(157,23,77,0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 20% 70%, rgba(157,23,77,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 50%;
+      right: -3%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(100px, 18vw, 240px);
+      font-weight: 700;
+      color: rgba(157,23,77,0.05);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(157,23,77,0.18);
+      border: 1px solid rgba(244,114,182,0.25);
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    .hero-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 5vw, 54px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-light);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(15px, 2vw, 19px);
+      color: rgba(242,237,230,0.5);
+      margin-bottom: 48px;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-light), transparent);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.3;
+    }
+    .scroll-hint span {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── ARTICLE ── */
+    .article-body {
+      background: var(--cream);
+      color: var(--text-dark);
+    }
+
+    .article-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 40px 100px;
+    }
+
+    .section { margin-bottom: 64px; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .article-inner p {
+      margin-bottom: 24px;
+      color: #2a2a27;
+      word-break: keep-all;
+    }
+
+    .article-inner p:last-child { margin-bottom: 0; }
+
+    .intro-graf {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #1a1a17 !important;
+      margin-bottom: 32px !important;
+    }
+
+    /* 팩트박스 */
+    .fact-box {
+      background: #1a1a17;
+      border-left: 3px solid var(--accent);
+      padding: 24px 28px;
+      margin: 36px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .fact-box-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .fact-box p {
+      color: rgba(242,237,230,0.8) !important;
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 10px !important;
+    }
+
+    .fact-box p:last-child { margin-bottom: 0 !important; }
+    .fact-box strong { color: var(--cream); }
+
+    /* 인용 */
+    blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 36px 0;
+      padding: 4px 0 4px 28px;
+    }
+
+    blockquote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.65;
+      color: #1a1a17 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* 하이라이트 */
+    .highlight {
+      background: rgba(157,23,77,0.06);
+      border: 1px solid rgba(157,23,77,0.15);
+      padding: 20px 24px;
+      margin: 28px 0;
+      border-radius: 2px;
+    }
+
+    .highlight p {
+      font-size: 16px;
+      color: #1a1a17 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* 클로징 */
+    .closing {
+      margin-top: 72px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(26,26,23,0.15);
+    }
+
+    .closing p {
+      font-size: 17px;
+      line-height: 1.9;
+      color: #1a1a17 !important;
+    }
+
+    .closing-punch {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(18px, 2.5vw, 22px) !important;
+      line-height: 1.7 !important;
+      color: #0d0d0b !important;
+      margin-top: 32px !important;
+    }
+
+    /* ── 공유버튼 ── */
+    .f3-share-btn {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      z-index: 1000;
+    }
+
+    .f3-share-toggle {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(157,23,77,0.4);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .f3-share-toggle:hover { transform: scale(1.08); background: #831843; }
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .f3-share-panel {
+      position: absolute;
+      bottom: 64px; right: 0;
+      display: flex; flex-direction: column; gap: 10px;
+      opacity: 0; pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .f3-share-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+
+    .f3-share-action {
+      display: flex; align-items: center; gap: 10px;
+      background: #1e1e1b;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--cream);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; letter-spacing: 0.05em;
+      padding: 10px 16px; border-radius: 24px;
+      cursor: pointer; white-space: nowrap;
+      transition: background 0.15s; text-decoration: none;
+    }
+    .f3-share-action:hover { background: #2a2a27; }
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    .article-footer {
+      background: var(--bg);
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; letter-spacing: 0.15em;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--cream); }
+
+    @media (max-width: 640px) {
+      .site-nav { padding: 16px 20px; }
+      .hero { min-height: 90vh; padding-bottom: 60px; }
+      .hero-inner { padding: 0 24px; }
+      .article-inner { padding: 56px 24px 72px; }
+      .fact-box { padding: 20px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="https://f3ynm4n.com" class="nav-logo">F3YNM4N</a>
+  <a href="https://f3ynm4n.com" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-watermark">幻</div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-category">Film</span>
+    </div>
+    <h1 class="hero-title"><em>지브리</em>라는 환상</h1>
+    <p class="hero-subtitle">마침표 없는 거장의 두 번째 얼굴</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article-body">
+  <div class="article-inner">
+
+    <p class="intro-graf">마침표를 찍지 못하는 거장은 없다고 했다. 그런데 더 불편한 경우가 있다. 찍을 능력이 있으면서 찍지 않는 경우다.</p>
+
+    <p>추억은 방울방울을 다시 봤다.</p>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">원작은 무죄다</h2>
+      </div>
+
+      <p>추억은 방울방울의 원작은 1966년부터 연재된 단편 만화 모음이다. 여자아이의 하루. 소소한 일상. 철학도 없고 향수도 없다. 담백하게 한 아이의 시간을 기록한 작품이다.</p>
+
+      <p>지브리가 이것을 가져왔다. 성인 타에코를 만들었고, 어린 시절 회상을 덧씌웠고, 귀농 결심이라는 틀을 얹었다. 원작에 없던 무게를 씌운 것이다. 문제는 그 무게가 실제로 있느냐다.</p>
+
+      <div class="fact-box">
+        <div class="fact-box-label">원작 vs 각색</div>
+        <p><strong>원작 (1966)</strong> — 초등학생 타에코의 일상 단편 모음. 담백한 기록.</p>
+        <p><strong>지브리 각색 (1991)</strong> — 성인 타에코의 귀농 결심 + 어린 시절 회상 구조. 원작에 없던 철학을 얹었다.</p>
+      </div>
+    </div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">우리는 왜 이걸 명작이라 불렀나 — 시차의 함정</h2>
+      </div>
+
+      <p>1991년 일본과 2006년 한국 사이에는 15년의 시차가 있다. 이 시차가 오독을 만들었다.</p>
+
+      <p>1991년은 일본 버블 경제의 정점이다. 배부른 나라가 가공된 향수를 소비하기 시작한 시점이다. 영화 속 1960년대의 풍요 — 바나나, 파인애플, 시골 여행 — 는 일본이 고도성장으로 쌓아올린 기억이다. 지브리는 그 시절을 그냥 "순수했던 때"로 박제했다. 그 성장이 어디서 왔는지는 묻지 않았다.</p>
+
+      <div class="highlight">
+        <p>15년 뒤 한국은 이것을 무비판적으로 수입했다. 우리가 겪지 않은 타국의 풍요로운 과거를 보며 서정적 예술이라 읽었다. 오독이 신화가 됐다.</p>
+      </div>
+
+      <p>평단은 지브리의 말줄임표를 고급 문화로 대접했다. 누구도 그 향수가 어디서 왔는지 묻지 않았다.</p>
+    </div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">철학인 척 — 빈 포장의 구조</h2>
+      </div>
+
+      <p>지브리의 각색이 만들어낸 건 철학이 아니라 철학처럼 보이는 분위기다.</p>
+
+      <p>타에코는 성장하지 않는다. 영화는 "당신도 이런 적 있었죠?"라고 물으며 관객 자신의 기억에 기댄다. 원작의 담백한 일상이 관객의 개인적 추억을 끌어당기는 장치로 소비된다. 창작이 아니라 감정의 재활용이다.</p>
+
+      <blockquote>
+        <p>원작이 가볍기 때문에 오히려 가능한 방식이다. 무게 없는 원작 위에 모호한 틀을 얹으면, 관객이 알아서 자기 의미를 채워넣는다.</p>
+      </blockquote>
+
+      <p>지브리는 그 빈자리를 설계했고, 관객은 자신이 채운 의미를 작품의 깊이라고 착각했다.</p>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">결론을 유보하는 것도 선택이다</h2>
+      </div>
+
+      <p>엔딩에서 타에코는 기차에서 내려 시골로 돌아간다. 초등학생 시절의 자신이 환영처럼 나타난다. 감독은 여기서 멈춘다.</p>
+
+      <p>귀농의 현실, 도시 생활의 정리, 관계의 변화. 이것들을 보여줄 의지가 없다. 모호하게 끝내고 관객에게 해석을 떠넘긴다. 일반 감독이 이렇게 끝냈으면 무책임한 서사라는 비판을 피할 수 없었을 것이다. 그런데 다카하타 이사오와 지브리라는 이름표가 이것을 깊은 여운으로 둔갑시켰다.</p>
+
+      <p>끝내지 못한 것과 끝내지 않은 것은 다르다. 전자는 비극이고 후자는 선택이다. 선택에는 책임이 따른다.</p>
+
+      <p class="closing-punch">마침표 없는 문장은 문장이 아니다. 마침표를 의도적으로 지운 문장도 마찬가지다. 원작은 담백했다. 포장이 문제였다.</p>
+    </div>
+
+  </div>
+</article>
+
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<!-- 공유버튼 -->
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() {
+      if (window.Kakao && !Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba');
+    };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/ghibli-illusion.html';
+  const PAGE_TITLE = '지브리라는 환상';
+
+  document.getElementById('xShareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() { document.getElementById('sharePanel').classList.toggle('open'); }
+
+  function copyURL() {
+    navigator.clipboard.writeText(PAGE_URL).then(function() { alert('URL이 복사됐습니다.'); });
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: PAGE_TITLE,
+          description: '마침표 없는 거장의 두 번째 얼굴',
+          imageUrl: 'https://f3ynm4n.com/og_default.png',
+          link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL }
+        }
+      });
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
