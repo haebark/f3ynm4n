@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알고리즘의 광대 — F3YNM4N</title>
+  <meta name="description" content="큰 권력은 비판마저 유희로 즐긴다.">
+  <meta property="og:title" content="알고리즘의 광대">
+  <meta property="og:description" content="큰 권력은 비판마저 유희로 즐긴다.">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/algorithm-jester.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --accent: #450a0a;
+      --accent-light: #b91c1c;
+      --cream: #f2ede6;
+      --cream-dim: #e8e2d9;
+      --text-dark: #1a1a17;
+      --muted: #888880;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 0 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(69,10,10,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 15% 75%, rgba(69,10,10,0.09) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 50%; right: -1%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(100px, 18vw, 260px);
+      font-weight: 700;
+      color: rgba(69,10,10,0.07);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 40px;
+      position: relative; z-index: 1; width: 100%;
+    }
+
+    .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(69,10,10,0.2);
+      border: 1px solid rgba(185,28,28,0.25);
+      padding: 5px 12px; border-radius: 2px;
+    }
+
+    .hero-series {
+      font-family: 'Space Mono', monospace; font-size: 9px;
+      letter-spacing: 0.12em; color: rgba(185,28,28,0.45);
+      border-left: 2px solid rgba(69,10,10,0.3);
+      padding-left: 10px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 700; line-height: 1.2;
+      color: var(--cream); letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+
+    .hero-title em { font-style: normal; color: var(--accent-light); }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(15px, 2vw, 19px);
+      color: rgba(242,237,230,0.5); margin-bottom: 48px;
+    }
+
+    .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--accent-light), transparent); }
+
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.3;
+    }
+    .scroll-hint span { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    .article-body { background: var(--cream); color: var(--text-dark); }
+    .article-inner { max-width: 720px; margin: 0 auto; padding: 80px 40px 100px; }
+
+    .section { margin-bottom: 64px; }
+    .section-header { margin-bottom: 28px; }
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px; font-weight: 700; color: var(--text-dark);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      width: 100%;
+    }
+
+    .article-inner p { margin-bottom: 24px; color: #2a2a27; word-break: keep-all; }
+    .article-inner p:last-child { margin-bottom: 0; }
+    .intro-graf { font-size: 18px; line-height: 1.9; color: #1a1a17 !important; margin-bottom: 32px !important; }
+
+    .verse { margin-bottom: 16px !important; line-height: 2.1 !important; }
+
+    blockquote { border-left: 3px solid var(--accent); margin: 36px 0; padding: 4px 0 4px 28px; }
+    blockquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.65; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .highlight { background: rgba(69,10,10,0.05); border: 1px solid rgba(69,10,10,0.15); padding: 20px 24px; margin: 28px 0; border-radius: 2px; }
+    .highlight p { font-size: 16px; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .closing { margin-top: 72px; padding-top: 40px; border-top: 1px solid rgba(26,26,23,0.15); }
+    .closing p { font-size: 17px; line-height: 1.9; color: #1a1a17 !important; }
+    .closing-punch { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.5vw, 22px) !important; line-height: 1.7 !important; color: #0d0d0b !important; margin-top: 32px !important; }
+
+    .f3-share-btn { position: fixed; bottom: 32px; right: 32px; z-index: 1000; }
+    .f3-share-toggle { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(69,10,10,0.4); transition: transform 0.2s, background 0.2s; }
+    .f3-share-toggle:hover { transform: scale(1.08); background: #2d0606; }
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .f3-share-panel { position: absolute; bottom: 64px; right: 0; display: flex; flex-direction: column; gap: 10px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 0.2s, transform 0.2s; }
+    .f3-share-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .f3-share-action { display: flex; align-items: center; gap: 10px; background: #1e1e1b; border: 1px solid rgba(255,255,255,0.1); color: var(--cream); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; padding: 10px 16px; border-radius: 24px; cursor: pointer; white-space: nowrap; transition: background 0.15s; text-decoration: none; }
+    .f3-share-action:hover { background: #2a2a27; }
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    .article-footer { background: var(--bg); padding: 60px 40px; text-align: center; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: var(--cream); }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(13,13,11,0.95), transparent); }
+    .nav-logo { font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 3px; color: var(--accent-light); text-decoration: none; }
+    .nav-back { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color .2s; }
+    .nav-back:hover { color: var(--accent-light); }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .hero { min-height: 90vh; padding-bottom: 60px; }
+      .hero-inner { padding: 0 24px; }
+      .article-inner { padding: 56px 24px 72px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">F3YNM4N</a>
+  <a href="javascript:history.back()" class="nav-back">← Back</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-watermark">♟</div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-category">Culture</span>
+      <span class="hero-series">알고리즘 시리즈 — 4편</span>
+    </div>
+    <h1 class="hero-title">알고리즘의 <em>광대</em></h1>
+    <p class="hero-subtitle">큰 권력은 비판마저 유희로 즐긴다.</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<article class="article-body">
+  <div class="article-inner">
+
+    <p class="intro-graf">한때 권력은 비판을 두려워했다. 비판은 균열의 시작이었다. 누군가 의심하기 시작하면 권위는 흔들렸고, 흔들리는 권위는 결국 무너졌다.</p>
+
+    <p>그래서 오래된 권력은 입을 막았다. 검열하고, 삭제하고, 추방했다. 두려웠기 때문이다.</p>
+
+    <p>하지만 진짜 큰 권력은 다르다. 충분히 거대한 시스템은 몇 마디 비판으로 흔들리지 않는다는 걸 안다. 그래서 막지 않는다. 오히려 웃으며 끌어안는다.</p>
+
+    <p>그리고 사람들은 그것을 관용이라 부른다.</p>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">열린 광장이라는 착각</h2>
+      </div>
+
+      <p>오늘날 플랫폼은 늘 같은 얼굴을 하고 있다.</p>
+
+      <p class="verse">"우리는 다양한 목소리를 존중합니다."<br>"자유로운 토론의 장입니다."<br>"건강한 논쟁을 환영합니다."</p>
+
+      <p>듣기 좋은 말이다. 그리고 대부분 사실이기도 하다.</p>
+
+      <p>당신은 플랫폼을 비판할 수 있다. 알고리즘을 욕할 수 있다. 운영 정책을 조롱할 수도 있다. 삭제되지 않는다. 추방되지 않는다. 사람들은 그것을 자유라고 믿는다.</p>
+
+      <blockquote>
+        <p>그 자유는 누구의 영토 안에서 허락된 자유인가. 광장은 열려 있다. 다만 그 광장의 땅문서는 언제나 플랫폼의 것이다.</p>
+      </blockquote>
+    </div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">논란이라는 연료</h2>
+      </div>
+
+      <p>큰 권력은 찬성만 먹고 자라지 않는다. 찬성과 반대를 함께 먹는다.</p>
+
+      <p>누군가는 플랫폼을 찬양한다. 누군가는 욕한다. 누군가는 그 싸움을 구경한다. 누군가는 댓글을 단다. 분노, 냉소, 조롱, 환호. 감정의 방향은 중요하지 않다.</p>
+
+      <p>중요한 것은 반응이 발생했다는 사실이다. 체류 시간이 늘어난다. 추천 신호가 강해진다. 논쟁은 더 넓게 퍼진다. 그리고 플랫폼은 그 모든 열기를 데이터로 저장한다.</p>
+
+      <div class="highlight">
+        <p>우리는 저항했다고 생각한다. 플랫폼은 학습했다고 생각한다.</p>
+      </div>
+    </div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">통 큰 영주의 연기</h2>
+      </div>
+
+      <p class="verse">"저 정도 비판도 놔두네."<br>"생각보다 통 크다."<br>"열린 시스템이네."</p>
+
+      <p>그 순간 권력은 한 번 더 승리한다. 비판받는 장면마저 자신의 관용을 증명하는 연출로 바꾸기 때문이다.</p>
+
+      <p>왕이 광대를 궁정에 두는 이유는 웃기기 위해서가 아니다. 권력이 여유롭다는 사실을 과시하기 위해서다.</p>
+
+      <blockquote>
+        <p>광대가 왕을 놀릴 수 있다는 사실은 왕이 약하다는 증거가 아니다. 그 놀림조차 허락할 만큼 강하다는 증거다.</p>
+      </blockquote>
+
+      <p>우리의 비판은 때로 저항이 아니라 그들의 크기를 증명하는 장식이 된다.</p>
+    </div>
+
+    <!-- 섹션 4 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">가장 완벽한 순종</h2>
+      </div>
+
+      <p>가장 강한 권력은 사람을 침묵시키지 않는다. 말하게 만든다. 떠들게 만든다. 비판하게 만든다. 그리고 그 모든 목소리를 자기 성장의 연료로 바꾼다.</p>
+
+      <p>그 순간 순종은 강요되지 않는다. 자발적으로 이루어진다.</p>
+
+      <p>우리는 스스로 비판했다고 믿는다. 플랫폼은 우리가 더 오래 머물렀다고 기록한다.</p>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <p>1편에서 우리는 사육되었다. 2편에서 우리는 경작했다. 3편에서 우리는 영주를 보았다. 그리고 4편에서 마침내 알게 된다.</p>
+
+      <p>이곳에서 가장 충성스러운 광대는 어쩌면 왕을 비웃고 있다고 믿는 우리 자신일지도 모른다는 것을.</p>
+
+      <p>우리는 자유롭게 외친다고 믿는다. 허락된 영역 안에서. 소리 없는 아우성으로.</p>
+
+      <p class="closing-punch">저항은 이미 소비가 된다.</p>
+    </div>
+
+  </div>
+</article>
+
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() { if (window.Kakao && !Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/algorithm-jester.html';
+  const PAGE_TITLE = '알고리즘의 광대';
+
+  document.getElementById('xShareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() { document.getElementById('sharePanel').classList.toggle('open'); }
+
+  function copyURL() {
+    navigator.clipboard.writeText(PAGE_URL).then(function() { alert('URL이 복사됐습니다.'); });
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: PAGE_TITLE,
+          description: '큰 권력은 비판마저 유희로 즐긴다.',
+          imageUrl: 'https://f3ynm4n.com/og_default.png',
+          link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL }
+        }
+      });
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
