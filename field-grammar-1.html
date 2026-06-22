@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>무에서 유, 유에서 과잉 · F3YNM4N</title>
+<meta name="description" content="같은 밀가루가 두 도시에서 다른 방식으로 정착한 이유. 현장의 문법 1편.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="무에서 유, 유에서 과잉 · F3YNM4N">
+<meta property="og:description" content="같은 밀가루가 두 도시에서 다른 방식으로 정착한 이유.">
+<meta property="og:url" content="https://f3ynm4n.com/field-grammar-1.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://f3ynm4n.com/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Serif+KR:wght@400;500;700;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+  :root{
+    --bg:#0d0d0b; --cream:#f2ede6; --cream-dim:#cfc8bb;
+    --gold:#c8963e; --accent:#3a2a1a; --accent-light:#d9a85c;
+    --text-dark:#1a1510; --muted:#8a8275;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'Noto Serif KR',serif; font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  /* NAV */
+  nav.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px; background:rgba(13,13,11,0.85);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  }
+  .nav-logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.1em;text-decoration:none;color:var(--cream);}
+  .nav-logo:hover{color:var(--gold);}
+  .nav-back{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-decoration:none;}
+  .nav-back:hover{color:var(--cream);}
+  .nav-back svg{width:14px;height:14px;}
+
+  /* HERO */
+  .hero{
+    background:var(--bg); min-height:100vh; display:flex; flex-direction:column;
+    justify-content:flex-end; padding:120px 0 80px; position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 10%, rgba(200,150,62,0.08), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 90%, rgba(58,42,26,0.5), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;padding:0 40px;position:relative;}
+  .series-tag{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;
+    color:var(--gold);text-transform:uppercase;margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .series-tag .ep{
+    background:var(--gold);color:var(--bg);padding:3px 8px;border-radius:2px;font-weight:700;
+  }
+  .hero-title{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:clamp(36px,6vw,58px);line-height:1.25;color:var(--cream);
+    letter-spacing:-.01em; margin-bottom:24px;
+  }
+  .hero-title em{font-style:normal;color:var(--gold);}
+  .hero-subtitle{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:clamp(17px,2vw,21px);color:var(--cream-dim);line-height:1.6;max-width:560px;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:18px;margin-top:40px;
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em;
+  }
+  .hero-meta span{display:flex;align-items:center;gap:6px;}
+  .hero-meta b{color:var(--cream-dim);font-weight:700;}
+
+  /* ARTICLE BODY */
+  .article-wrap{background:var(--cream);color:var(--text-dark);}
+  .article-inner{max-width:680px;margin:0 auto;padding:80px 40px 100px;}
+
+  .lede{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:24px;line-height:1.6;color:var(--text-dark);
+    margin-bottom:36px;
+  }
+  .lede strong{font-style:normal;font-weight:700;color:var(--accent);}
+
+  p{margin-bottom:22px;font-size:17px;line-height:1.9;}
+  p.lead-line{font-weight:700;font-size:19px;}
+
+  .divider-symmetry{
+    display:flex;align-items:center;gap:16px;margin:48px 0;
+  }
+  .divider-symmetry .line{flex:1;height:1px;background:rgba(26,21,16,0.15);}
+  .divider-symmetry .mark{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.15em;
+    color:var(--muted);white-space:nowrap;
+  }
+
+  .twin-block{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    margin:40px 0;border:1px solid rgba(26,21,16,0.12);
+  }
+  .twin-col{padding:32px 28px;}
+  .twin-col + .twin-col{border-left:1px solid rgba(26,21,16,0.12);}
+  .twin-col.daejeon{background:rgba(217,168,92,0.06);}
+  .twin-col.busan{background:rgba(58,42,26,0.04);}
+  .twin-label{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;
+    color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:block;
+  }
+  .twin-col p{font-size:15.5px;line-height:1.8;margin-bottom:14px;}
+  .twin-col p:last-child{margin-bottom:0;}
+
+  .punch-block{
+    border-left:3px solid var(--gold);
+    padding:6px 0 6px 28px;margin:40px 0;
+  }
+  .punch-block p{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:21px;line-height:1.65;color:var(--text-dark);margin-bottom:0;
+  }
+
+  h2.section-head{
+    font-family:'Noto Serif KR',serif;font-weight:900;font-size:24px;
+    margin:56px 0 20px;color:var(--text-dark);letter-spacing:-.01em;
+  }
+
+  .next-ep{
+    margin-top:64px;padding:28px 32px;background:rgba(26,21,16,0.04);
+    border-radius:2px;display:flex;align-items:center;justify-content:space-between;
+    gap:20px;flex-wrap:wrap;
+  }
+  .next-ep-text{font-size:14px;color:var(--muted);}
+  .next-ep-text b{display:block;font-size:17px;color:var(--text-dark);margin-top:4px;font-weight:700;}
+  .next-ep-link{
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;
+    color:var(--accent);text-decoration:none;white-space:nowrap;
+    border-bottom:1px solid var(--accent);padding-bottom:2px;
+  }
+  .next-ep-link:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* SHARE FLOATING */
+  .share-fab{
+    position:fixed;bottom:32px;right:32px;z-index:90;
+  }
+  .share-toggle{
+    width:52px;height:52px;border-radius:50%;background:var(--accent);
+    border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform .2s;
+  }
+  .share-toggle:hover{transform:scale(1.06);}
+  .share-toggle svg{width:20px;height:20px;stroke:var(--cream);}
+  .share-panel{
+    position:absolute;bottom:64px;right:0;background:var(--bg);
+    border:1px solid rgba(242,237,230,0.15);border-radius:8px;padding:10px;
+    display:none;flex-direction:column;gap:6px;min-width:140px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .share-panel.open{display:flex;}
+  .share-panel button{
+    background:none;border:none;color:var(--cream);font-family:'Space Mono',monospace;
+    font-size:12px;text-align:left;padding:8px 10px;cursor:pointer;border-radius:4px;
+  }
+  .share-panel button:hover{background:rgba(200,150,62,0.15);}
+
+  footer{
+    background:var(--bg);padding:36px 40px;display:flex;align-items:center;
+    justify-content:space-between;flex-wrap:wrap;gap:16px;
+  }
+  footer .pub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);}
+  footer .nav-links{display:flex;gap:24px;}
+  footer .nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;}
+  footer .nav-links a:hover{color:var(--gold);}
+
+  @media (max-width:640px){
+    nav.site-nav{padding:16px 20px;}
+    .hero{min-height:90vh;padding:100px 0 60px;}
+    .hero-inner{padding:0 24px;}
+    .article-inner{padding:56px 24px 72px;}
+    .twin-block{grid-template-columns:1fr;}
+    .twin-col + .twin-col{border-left:none;border-top:1px solid rgba(26,21,16,0.12);}
+    .share-fab{bottom:24px;right:20px;}
+    footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="https://f3ynm4n.com" class="nav-logo">F3YNM4N</a>
+  <a href="https://f3ynm4n.com" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="series-tag"><span class="ep">EP. 01</span>현장의 문법 — 살아 움직이는 시장</div>
+    <h1 class="hero-title">무에서 유,<br><em>유에서 과잉</em></h1>
+    <p class="hero-subtitle">같은 밀가루가 두 도시에서 다른 방식으로 정착한 이유</p>
+    <div class="hero-meta">
+      <span>Category <b>Economy</b></span>
+      <span>Series <b>현장의 문법 · 1/3</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-inner">
+
+    <p class="lede">대전은 <strong>원래 없던 도시</strong>다. 부산은 <strong>원래 있던 도시</strong>다. 그런데 똑같이 떨어진 미국 구호물자 밀가루가, 정확히 이 차이를 따라 완전히 다른 음식 문화로 갈라졌다.</p>
+
+    <p>조선 시대까지 대전 자리는 회덕현 한 자락에 불과했다. 도시가 생긴 건 1905년, 경부선이 이 자리를 지나가기로 결정되면서부터다. 철도가 먼저 있었고, 도시는 그 다음에 생겼다.</p>
+
+    <p>부산은 정반대다. 이미 수백 년 전부터 존재한 항구도시였다. 왜관이 있었고, 개항장이 있었고, 도시의 정체성은 이미 단단했다. 그런데 1950년, 전쟁이 모든 걸 바꿨다. 인구가 단기간에 몇 배로 불어났다. 원래 있던 도시 위로 피란민의 도시가 겹쳐 덮였다.</p>
+
+    <div class="divider-symmetry">
+      <div class="line"></div>
+      <div class="mark">무 → 유 / 유 → 과잉</div>
+      <div class="line"></div>
+    </div>
+
+    <p class="lead-line">하나는 무에서 유를 만들었다. 하나는 유 위에 과잉을 얹었다.</p>
+
+    <p>이 차이가 별것 아닌 것처럼 보일 수 있다. 그런데 두 도시가 같은 시기에 받은 같은 재료가, 정확히 이 차이를 따라 완전히 다른 결과로 갈라졌다.</p>
+
+    <h2 class="section-head">백지 위의 정착, 기억 위의 재해석</h2>
+
+    <p>대전에 원래 식문화의 뿌리랄 게 없었다. 도시 자체가 철도와 함께 생겨난 신생지였으니까. 미군 구호물자 밀가루가 들어왔을 때, 저항할 기존 질서가 없었다.</p>
+
+    <div class="twin-block">
+      <div class="twin-col daejeon">
+        <span class="twin-label">대전 — 정착</span>
+        <p>빈손으로 시작한 사람들은 배급받은 밀가루로 찐빵을 쪄 팔았다. 그게 지금 대한민국 빵의 성지로 불리는 성심당의 출발이다.</p>
+        <p>칼국수도 같은 맥락이다. 가장 빠르고 값싸게 배를 채울 수 있는 음식이 도시의 기본값이 됐다. 백지에는 저항이 없다. 그냥 스며든다.</p>
+      </div>
+      <div class="twin-col busan">
+        <span class="twin-label">부산 — 재해석</span>
+        <p>부산은 달랐다. 이미 가진 음식 문화가 있었다. 이북에서 내려온 피란민들에게는 고향의 냉면이라는 구체적인 기억이 있었다.</p>
+        <p>문제는 메밀을 구할 수 없었다는 거다. 대신 손에 들어온 건 구호물자 밀가루와 구황작물 전분. 그렇게 태어난 게 밀면이다.</p>
+      </div>
+    </div>
+
+    <p>대전이 밀가루를 그대로 받아들였다면, 부산은 밀가루로 다른 것을 흉내 냈다. 원형이 있는 도시는 새로운 재료조차 기존의 그리움에 맞춰 구부린다.</p>
+
+    <h2 class="section-head">하나의 질문</h2>
+
+    <p>같은 밀가루, 같은 시대, 같은 빈곤. 그런데 한쪽은 정착했고 한쪽은 재해석했다.</p>
+
+    <p>차이는 재료에 있지 않았다. 도시가 어떻게 태어났는가에 있었다.</p>
+
+    <div class="punch-block">
+      <p>"새로 생긴 도시는 받아들인다. 원래 있던 도시는 바꿔치기한다."</p>
+    </div>
+
+    <p>이 재해석 본능은 밀면에서 멈추지 않았다. 부산항으로 들어오는 생두 위에서, 같은 도시는 또 다른 산업을 길러내고 있었다.</p>
+
+    <div class="next-ep">
+      <div class="next-ep-text">현장의 문법 · EP.02<b>항구가 만든 감각</b></div>
+      <a href="field-grammar-2.html" class="next-ep-link">다음 편 읽기 →</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="share-fab">
+  <button class="share-toggle" onclick="document.querySelector('.share-panel').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  </button>
+  <div class="share-panel">
+    <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='복사됨 ✓';setTimeout(()=>this.textContent='URL 복사',1500)">URL 복사</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title))">X에 공유</button>
+    <button onclick="if(window.Kakao){Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:'같은 밀가루가 두 도시에서 다른 방식으로 정착한 이유',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:window.location.href,webUrl:window.location.href}}})}">카카오톡 공유</button>
+  </div>
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 2026</span>
+  <div class="nav-links">
+    <a href="field-grammar-2.html">다음 편 →</a>
+    <a href="index.html">홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 맨 위로</a>
+  </div>
+</footer>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>
+  if(window.Kakao && !Kakao.isInitialized()){ Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); }
+</script>
+
+</body>
+</html>
