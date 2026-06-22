@@ -95,15 +95,40 @@
   .lede{
     font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
     font-size:24px;line-height:1.6;color:var(--text-dark);
-    margin-bottom:36px;
+    margin-bottom:44px;
   }
   .lede strong{font-style:normal;font-weight:700;color:var(--accent);}
 
-  p{margin-bottom:22px;font-size:17px;line-height:1.9;}
+  p{margin-bottom:24px;font-size:17px;line-height:1.95;}
   p.lead-line{font-weight:700;font-size:19px;}
 
+  /* block-step: 번호 달린 흐름 단계 */
+  .step{
+    position:relative;
+    padding-left:54px;
+    margin:52px 0;
+  }
+  .step::before{
+    content:attr(data-step);
+    position:absolute;left:0;top:2px;
+    font-family:'Space Mono',monospace;font-size:13px;font-weight:700;
+    color:var(--accent);
+    width:34px;height:34px;border:1px solid rgba(58,42,26,0.35);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+  }
+  .step-label{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;
+    color:var(--accent);text-transform:uppercase;
+    margin-bottom:14px;display:block;
+  }
+  .step h2{
+    font-family:'Noto Serif KR',serif;font-weight:900;font-size:23px;
+    margin-bottom:18px;color:var(--text-dark);letter-spacing:-.01em;line-height:1.4;
+  }
+  .step p:last-child{margin-bottom:0;}
+
   .divider-symmetry{
-    display:flex;align-items:center;gap:16px;margin:48px 0;
+    display:flex;align-items:center;gap:16px;margin:56px 0;
   }
   .divider-symmetry .line{flex:1;height:1px;background:rgba(26,21,16,0.15);}
   .divider-symmetry .mark{
@@ -111,33 +136,13 @@
     color:var(--muted);white-space:nowrap;
   }
 
-  .twin-block{
-    display:grid;grid-template-columns:1fr 1fr;gap:0;
-    margin:40px 0;border:1px solid rgba(26,21,16,0.12);
-  }
-  .twin-col{padding:32px 28px;}
-  .twin-col + .twin-col{border-left:1px solid rgba(26,21,16,0.12);}
-  .twin-col.daejeon{background:rgba(217,168,92,0.06);}
-  .twin-col.busan{background:rgba(58,42,26,0.04);}
-  .twin-label{
-    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;
-    color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:block;
-  }
-  .twin-col p{font-size:15.5px;line-height:1.8;margin-bottom:14px;}
-  .twin-col p:last-child{margin-bottom:0;}
-
   .punch-block{
     border-left:3px solid var(--gold);
-    padding:6px 0 6px 28px;margin:40px 0;
+    padding:6px 0 6px 28px;margin:52px 0;
   }
   .punch-block p{
     font-family:'Playfair Display',serif;font-style:italic;
     font-size:21px;line-height:1.65;color:var(--text-dark);margin-bottom:0;
-  }
-
-  h2.section-head{
-    font-family:'Noto Serif KR',serif;font-weight:900;font-size:24px;
-    margin:56px 0 20px;color:var(--text-dark);letter-spacing:-.01em;
   }
 
   .next-ep{
@@ -192,8 +197,8 @@
     .hero{min-height:90vh;padding:100px 0 60px;}
     .hero-inner{padding:0 24px;}
     .article-inner{padding:56px 24px 72px;}
-    .twin-block{grid-template-columns:1fr;}
-    .twin-col + .twin-col{border-left:none;border-top:1px solid rgba(26,21,16,0.12);}
+    .step{padding-left:0;}
+    .step::before{position:static;margin-bottom:14px;}
     .share-fab{bottom:24px;right:20px;}
     footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
   }
@@ -226,9 +231,29 @@
 
     <p class="lede">대전은 <strong>원래 없던 도시</strong>다. 부산은 <strong>원래 있던 도시</strong>다. 그런데 똑같이 떨어진 미국 구호물자 밀가루가, 정확히 이 차이를 따라 완전히 다른 음식 문화로 갈라졌다.</p>
 
-    <p>조선 시대까지 대전 자리는 회덕현 한 자락에 불과했다. 도시가 생긴 건 1905년, 경부선이 이 자리를 지나가기로 결정되면서부터다. 철도가 먼저 있었고, 도시는 그 다음에 생겼다.</p>
+    <p>전쟁이 끝나갈 무렵, 한반도 남쪽으로 미국의 잉여 농산물이 쏟아져 들어왔다. 그 중심에 밀가루가 있었다. 쌀이 모자란 나라에 밀가루가 산처럼 쌓였고, 사람들은 익숙하지 않은 이 흰 가루로 어떻게든 끼니를 만들어야 했다.</p>
 
-    <p>부산은 정반대다. 이미 수백 년 전부터 존재한 항구도시였다. 왜관이 있었고, 개항장이 있었고, 도시의 정체성은 이미 단단했다. 그런데 1950년, 전쟁이 모든 걸 바꿨다. 인구가 단기간에 몇 배로 불어났다. 원래 있던 도시 위로 피란민의 도시가 겹쳐 덮였다.</p>
+    <p>흥미로운 건 여기서부터다. 같은 밀가루가 전국 어디서나 똑같은 음식이 되지는 않았다. 도시마다 다른 음식이 됐다. 그리고 그 차이는 우연이 아니었다. 도시가 어떻게 생겨났는가 하는, 그 도시의 출신 성분을 따라 갈라졌다.</p>
+
+    <p>두 도시를 나란히 놓으면 그 차이가 선명하게 보인다. 대전과 부산. 둘 다 같은 시기에 같은 재료를 받았지만, 출발선이 정반대였다.</p>
+
+    <div class="step" data-step="1">
+      <span class="step-label">대전 — 백지 위의 정착</span>
+      <h2>없던 자리에서 시작한 도시</h2>
+      <p>조선 시대까지 지금의 대전 자리는 회덕현 한 자락에 불과했다. 사람이 모여 사는 중심지가 아니었다. 도시가 생긴 건 1905년, 경부선 철도가 이 자리를 지나가기로 결정되면서부터다. 철도가 먼저 있었고, 도시는 그 다음에 생겼다.</p>
+      <p>그러니 대전에는 원래랄 게 없었다. 대대로 내려온 향토 음식도, 지켜야 할 식문화의 뿌리도 없었다. 도시 자체가 철도를 따라 새로 깔린 신생지였으니까. 미군 구호물자 밀가루가 들어왔을 때, 그것에 저항할 기존 질서가 아예 존재하지 않았다.</p>
+      <p>빈손으로 모여든 사람들은 배급받은 밀가루로 찐빵을 쪄서 팔았다. 그게 훗날 대한민국 빵의 성지로 불리게 되는 성심당의 출발점이다. 칼국수도 같은 맥락이었다. 가장 빠르고 값싸게 배를 채울 수 있는 밀가루 음식이, 별다른 저항 없이 도시의 기본값으로 스며들었다.</p>
+      <p>백지에는 저항이 없다. 새로 들어온 것이 곧 원형이 된다. 대전의 밀가루는 그 자체로 대전의 음식이 됐다.</p>
+    </div>
+
+    <div class="step" data-step="2">
+      <span class="step-label">부산 — 기억 위의 재해석</span>
+      <h2>이미 있던 도시에 겹쳐진 도시</h2>
+      <p>부산은 정반대였다. 이미 수백 년 전부터 존재한 항구도시였다. 왜관이 있었고, 개항장이 있었고, 도시의 정체성은 이미 단단하게 굳어 있었다. 그런데 1950년, 전쟁이 모든 걸 바꿨다. 인구가 단기간에 몇 배로 불어났다. 원래 있던 도시 위로, 피란민의 도시가 통째로 겹쳐 덮였다.</p>
+      <p>피란민들에게는 단순히 굶주림만 있었던 게 아니다. 두고 온 고향의 맛에 대한 구체적인 기억이 있었다. 특히 이북에서 내려온 사람들에게는 냉면이라는, 손에 잡힐 듯 또렷한 그리움이 있었다.</p>
+      <p>문제는 냉면을 만들 메밀을 구할 수 없었다는 거다. 대신 손에 들어온 건 똑같은 구호물자 밀가루, 그리고 구황작물에서 뽑아낸 전분이었다. 사람들은 그 재료로 고향의 냉면을 흉내 내기 시작했다. 그렇게 태어난 게 밀면이다.</p>
+      <p>대전이 밀가루를 그대로 받아들였다면, 부산은 밀가루로 다른 것을 흉내 냈다. 원형이 있는 도시는 새로운 재료조차 기존의 그리움에 맞춰 구부린다. 밀가루는 부산에서 그 자체가 되지 못하고, 냉면이라는 기억의 대용품이 됐다.</p>
+    </div>
 
     <div class="divider-symmetry">
       <div class="line"></div>
@@ -238,38 +263,15 @@
 
     <p class="lead-line">하나는 무에서 유를 만들었다. 하나는 유 위에 과잉을 얹었다.</p>
 
-    <p>이 차이가 별것 아닌 것처럼 보일 수 있다. 그런데 두 도시가 같은 시기에 받은 같은 재료가, 정확히 이 차이를 따라 완전히 다른 결과로 갈라졌다.</p>
+    <p>같은 밀가루, 같은 시대, 같은 빈곤이었다. 그런데 한쪽은 정착했고, 한쪽은 재해석했다. 차이는 재료에 있지 않았다. 도시가 어떻게 태어났는가에 있었다.</p>
 
-    <h2 class="section-head">백지 위의 정착, 기억 위의 재해석</h2>
-
-    <p>대전에 원래 식문화의 뿌리랄 게 없었다. 도시 자체가 철도와 함께 생겨난 신생지였으니까. 미군 구호물자 밀가루가 들어왔을 때, 저항할 기존 질서가 없었다.</p>
-
-    <div class="twin-block">
-      <div class="twin-col daejeon">
-        <span class="twin-label">대전 — 정착</span>
-        <p>빈손으로 시작한 사람들은 배급받은 밀가루로 찐빵을 쪄 팔았다. 그게 지금 대한민국 빵의 성지로 불리는 성심당의 출발이다.</p>
-        <p>칼국수도 같은 맥락이다. 가장 빠르고 값싸게 배를 채울 수 있는 음식이 도시의 기본값이 됐다. 백지에는 저항이 없다. 그냥 스며든다.</p>
-      </div>
-      <div class="twin-col busan">
-        <span class="twin-label">부산 — 재해석</span>
-        <p>부산은 달랐다. 이미 가진 음식 문화가 있었다. 이북에서 내려온 피란민들에게는 고향의 냉면이라는 구체적인 기억이 있었다.</p>
-        <p>문제는 메밀을 구할 수 없었다는 거다. 대신 손에 들어온 건 구호물자 밀가루와 구황작물 전분. 그렇게 태어난 게 밀면이다.</p>
-      </div>
-    </div>
-
-    <p>대전이 밀가루를 그대로 받아들였다면, 부산은 밀가루로 다른 것을 흉내 냈다. 원형이 있는 도시는 새로운 재료조차 기존의 그리움에 맞춰 구부린다.</p>
-
-    <h2 class="section-head">하나의 질문</h2>
-
-    <p>같은 밀가루, 같은 시대, 같은 빈곤. 그런데 한쪽은 정착했고 한쪽은 재해석했다.</p>
-
-    <p>차이는 재료에 있지 않았다. 도시가 어떻게 태어났는가에 있었다.</p>
+    <p>백지로 시작한 도시는 새로운 것을 의심 없이 받아들인다. 받아들인 그것이 곧 자기 자신이 된다. 반대로 이미 자기 정체성을 가진 도시는, 새로운 것이 들어와도 그것을 그대로 두지 않는다. 가진 기억에 맞춰 구부리고, 비틀고, 다른 무언가로 바꿔치기한다.</p>
 
     <div class="punch-block">
       <p>"새로 생긴 도시는 받아들인다. 원래 있던 도시는 바꿔치기한다."</p>
     </div>
 
-    <p>이 재해석 본능은 밀면에서 멈추지 않았다. 부산항으로 들어오는 생두 위에서, 같은 도시는 또 다른 산업을 길러내고 있었다.</p>
+    <p>이 재해석 본능은 밀면 한 그릇에서 멈추지 않았다. 부산이라는 도시가 가진 이 성질은, 전혀 다른 영역에서 또 한 번 똑같은 방식으로 작동한다. 부산항으로 쏟아져 들어오는 생두 위에서, 같은 도시는 또 다른 산업을 길러내고 있었다.</p>
 
     <div class="next-ep">
       <div class="next-ep-text">현장의 문법 · EP.02<b>항구가 만든 감각</b></div>
