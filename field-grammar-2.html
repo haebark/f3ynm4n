@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://f3ynm4n.com/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Serif+KR:wght@400;500;700;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto Serif+KR:wght@400;500;700;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -92,58 +92,61 @@
   .lede{
     font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
     font-size:24px;line-height:1.6;color:var(--text-dark);
-    margin-bottom:36px;
+    margin-bottom:44px;
   }
   .lede strong{font-style:normal;font-weight:700;color:var(--accent);}
 
-  p{margin-bottom:22px;font-size:17px;line-height:1.9;}
+  p{margin-bottom:24px;font-size:17px;line-height:1.95;}
   p.lead-line{font-weight:700;font-size:19px;}
 
   .prev-link{
     display:inline-flex;align-items:center;gap:8px;
     font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;
-    color:var(--muted);text-decoration:none;margin-bottom:32px;
+    color:var(--muted);text-decoration:none;margin-bottom:40px;
   }
   .prev-link:hover{color:var(--accent);}
 
-  .fact-box{
-    background:rgba(10,31,46,0.05);border:1px solid rgba(10,31,46,0.12);
-    padding:24px 28px;margin:36px 0;border-radius:2px;
+  /* block-step */
+  .step{
+    position:relative;
+    padding-left:54px;
+    margin:52px 0;
   }
-  .fact-box-label{
-    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em;
-    color:var(--accent);text-transform:uppercase;margin-bottom:10px;display:block;
+  .step::before{
+    content:attr(data-step);
+    position:absolute;left:0;top:2px;
+    font-family:'Space Mono',monospace;font-size:13px;font-weight:700;
+    color:var(--accent-light);
+    width:34px;height:34px;border:1px solid rgba(10,31,46,0.3);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
   }
-  .fact-box p{font-size:15.5px;margin-bottom:8px;}
-  .fact-box p:last-child{margin-bottom:0;}
+  .step-label{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;
+    color:var(--accent-light);text-transform:uppercase;
+    margin-bottom:14px;display:block;
+  }
+  .step h2{
+    font-family:'Noto Serif KR',serif;font-weight:900;font-size:23px;
+    margin-bottom:18px;color:var(--text-dark);letter-spacing:-.01em;line-height:1.4;
+  }
+  .step p:last-child{margin-bottom:0;}
 
-  .twin-block{
-    display:grid;grid-template-columns:1fr 1fr;gap:0;
-    margin:40px 0;border:1px solid rgba(16,26,31,0.12);
+  .divider-symmetry{
+    display:flex;align-items:center;gap:16px;margin:52px 0;
   }
-  .twin-col{padding:32px 28px;}
-  .twin-col + .twin-col{border-left:1px solid rgba(16,26,31,0.12);}
-  .twin-col.efficient{background:rgba(58,110,140,0.06);}
-  .twin-col.artisan{background:rgba(10,31,46,0.04);}
-  .twin-label{
-    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;
-    color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:block;
+  .divider-symmetry .line{flex:1;height:1px;background:rgba(16,26,31,0.12);}
+  .divider-symmetry .mark{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.15em;
+    color:var(--muted);white-space:nowrap;
   }
-  .twin-col p{font-size:15.5px;line-height:1.8;margin-bottom:14px;}
-  .twin-col p:last-child{margin-bottom:0;}
 
   .punch-block{
     border-left:3px solid var(--gold);
-    padding:6px 0 6px 28px;margin:40px 0;
+    padding:6px 0 6px 28px;margin:48px 0;
   }
   .punch-block p{
     font-family:'Playfair Display',serif;font-style:italic;
     font-size:21px;line-height:1.65;color:var(--text-dark);margin-bottom:0;
-  }
-
-  h2.section-head{
-    font-family:'Noto Serif KR',serif;font-weight:900;font-size:24px;
-    margin:56px 0 20px;color:var(--text-dark);letter-spacing:-.01em;
   }
 
   .next-ep{
@@ -190,13 +193,13 @@
   footer .nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;}
   footer .nav-links a:hover{color:var(--gold);}
 
-  @media (max-width:640px){
+  @media(max-width:640px){
     nav.site-nav{padding:16px 20px;}
     .hero{min-height:90vh;padding:100px 0 60px;}
     .hero-inner{padding:0 24px;}
     .article-inner{padding:56px 24px 72px;}
-    .twin-block{grid-template-columns:1fr;}
-    .twin-col + .twin-col{border-left:none;border-top:1px solid rgba(16,26,31,0.12);}
+    .step{padding-left:0;}
+    .step::before{position:static;margin-bottom:14px;}
     .share-fab{bottom:24px;right:20px;}
     footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
   }
@@ -231,44 +234,36 @@
 
     <p class="lede">밀면은 <strong>끝이 아니었다.</strong> 메밀이 없어 전분으로 냉면을 흉내 냈던 그 손은, 사실 처음부터 '있는 것으로 최선을 만든다'는 감각을 갖고 있었다. 문제는 그 감각이 음식에서 멈추지 않았다는 거다.</p>
 
-    <p>1편에서 짚었듯, 부산은 원형이 있는 도시다. 원래 가진 기억 위에 새 재료가 들어왔을 때, 그 도시는 받아들이는 대신 구부렸다.</p>
+    <p>1편에서 짚었듯, 부산은 원형이 있는 도시다. 원래 가진 기억 위에 새 재료가 들어왔을 때, 그 도시는 받아들이는 대신 구부렸다. 그 구부리는 본능은 음식이라는 그릇을 넘어서 이 도시가 다루는 모든 것에 스며들어 있었다.</p>
 
-    <p>부산은 항구다. 그것도 그냥 항구가 아니라, 대한민국 수입 생두의 90% 이상이 들어오는 관문이다.</p>
+    <p>부산은 항구다. 그것도 그냥 항구가 아니라, 대한민국 수입 생두의 대부분이 들어오는 관문이다. 컨테이너가 들고 나는 속도, 회전율, 단가를 계산하는 감각 — 이 도시는 오래전부터 이런 숫자로 생각하는 법을 몸에 익혔다. 물류의 중심지라는 사실은 단순한 인프라 우위가 아니다. 그건 사고방식의 문제다.</p>
 
-    <div class="fact-box">
-      <span class="fact-box-label">물류가 만든 감각</span>
-      <p>물류의 중심지라는 사실은 단순한 인프라 우위가 아니다. 그건 감각의 문제다. 컨테이너가 들고 나는 속도, 회전율, 단가 — 이 도시는 오래전부터 이런 숫자로 생각하는 법을 익혔다.</p>
+    <div class="step" data-step="1">
+      <span class="step-label">경험을 팔던 시장</span>
+      <h2>서울이 분위기를 팔 때</h2>
+      <p>스타벅스가 들어왔을 때 한국 커피 시장은 '공간'을 팔기 시작했다. 좋은 의자, 좋은 음악, 한 잔에 담긴 시간. 이디야가 그 자리를 가성비로 비집고 들어오면서, 시장은 프리미엄과 대중성 두 축으로 정리되는 듯 보였다. 서울의 기획실은 그 두 축 안에서 포지셔닝을 고민했다.</p>
+      <p>그런데 부산에서는 전혀 다른 생물이 자라고 있었다. 컴포즈커피, 더벤티, 더리터. 이름도, 전략도, 생김새도 달랐다. 이들은 브랜드 철학을 길게 설명하지 않았다. 분위기를 설계하지도 않았다. 대신 아주 단순한 질문 하나에만 집중했다. 얼마나 싸게, 얼마나 많이, 얼마나 빠르게.</p>
+      <p>컴포즈커피는 업계 최대 규모의 자체 로스팅 공장을 돌린다. 원두를 대량으로 직접 굽고 직배송해서 유통 단계를 줄인다. 매장은 단순하고, 동선은 짧고, 회전율은 빠르다. 한 잔의 경험을 설계하는 대신, 한 잔의 원가를 설계했다.</p>
     </div>
 
-    <p>그 감각이 커피로 옮겨갔을 때, 결과는 서울과 완전히 달랐다.</p>
-
-    <h2 class="section-head">경험을 팔던 시장</h2>
-
-    <p>스타벅스가 들어왔을 때 한국 커피 시장은 '공간'을 팔기 시작했다. 좋은 의자, 좋은 음악, 한 잔에 담긴 시간. 이디야가 그 자리를 가성비로 비집고 들어오면서, 시장은 프리미엄과 대중성 두 축으로 정리되는 듯 보였다.</p>
-
-    <p>그런데 부산에서는 전혀 다른 생물이 자라고 있었다.</p>
-
-    <div class="twin-block">
-      <div class="twin-col efficient">
-        <span class="twin-label">컴포즈커피 · 051 · 더벤티 · 더리터</span>
-        <p>본사가 부산에 있는 컴포즈커피는 업계 최대 규모로 꼽히는 자체 로스팅 공장을 운영한다. 원두를 대량으로 직접 굽고 직배송해서 유통비를 깎는다.</p>
-        <p>매장은 단순하고, 가격은 낮고, 회전율은 빠르다. 이들이 답하는 건 아주 단순한 질문이다. 얼마나 싸게, 얼마나 많이, 얼마나 빠르게.</p>
-      </div>
-      <div class="twin-col artisan">
-        <span class="twin-label">이름이 곧 증거</span>
-        <p>'더리터'. 커피를 분위기가 아니라 용량으로 부른다.</p>
-        <p>이건 우연이 아니다. 항구의 물류 감각이 그대로 옮겨붙은 거다. 대형 브랜드가 한 잔의 경험을 설계할 때, 부산의 브랜드는 원가와 회전율을 설계했다.</p>
-      </div>
+    <div class="step" data-step="2">
+      <span class="step-label">이름이 곧 증거</span>
+      <h2>'더리터'라고 이름 붙인 이유</h2>
+      <p>브랜드 이름 하나가 이 감각을 가장 선명하게 보여준다. '더리터'. 커피를 분위기가 아니라 용량으로 부른다. 한 잔이 아니라 한 리터.</p>
+      <p>이건 우연이 아니다. 항구 도시에서 물건은 단위로 거래된다. 컨테이너 몇 개, 팔레트 몇 장, 킬로그램 얼마. 부산이 오래전부터 다뤄온 언어가 그대로 커피 브랜드 이름 안으로 들어온 거다. 대형 브랜드가 한 잔의 감성을 빚을 때, 부산의 브랜드는 리터 단위의 실용을 팔았다.</p>
+      <p>메밀 대신 전분을 쓰던 그 실용주의가, 이번엔 원두 단가와 매장 효율을 계산하고 있었을 뿐이다. 재료가 바뀌었을 뿐, 감각은 같았다.</p>
     </div>
 
-    <p>메밀 대신 전분을 쓰던 그 실용주의가, 이번엔 원두 단가와 매장 효율을 계산하고 있었을 뿐이다.</p>
+    <div class="divider-symmetry">
+      <div class="line"></div>
+      <div class="mark">음식에서 산업으로</div>
+      <div class="line"></div>
+    </div>
 
-    <h2 class="section-head">하나로 이어지는 감각</h2>
-
-    <p>밀면이 부산의 재해석 본능을 보여줬다면, 커피는 그 본능이 산업으로 확장된 증거다.</p>
+    <p>밀면이 부산의 재해석 본능을 보여줬다면, 커피는 그 본능이 산업으로 확장된 증거다. 원형이 없으면 받아들이고, 원형이 있으면 구부린다는 이 도시의 습관이, 이번엔 시장 구조 자체를 구부리고 있었다.</p>
 
     <div class="punch-block">
-      <p>원형이 없으면 받아들이고, 원형이 있으면 구부린다 — 다만 이번엔 구부리는 대상이 추억이 아니라 시장이었을 뿐이다.</p>
+      <p>구부리는 대상이 추억에서 시장으로 바뀌었을 뿐, 손의 감각은 처음부터 같았다.</p>
     </div>
 
     <p>그리고 이 감각은 커피에서도 멈추지 않는다. 영남 전체로 시야를 넓히면, 똑같은 패턴이 유통과 치킨에서도 반복되고 있었다.</p>
