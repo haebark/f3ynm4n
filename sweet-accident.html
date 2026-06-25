@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제로라더니, 제로가 아니었다 · F3YNM4N</title>
+<meta name="description" content="설탕을 뺐더니 뭔가를 채웠다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="제로라더니, 제로가 아니었다 · F3YNM4N">
+<meta property="og:description" content="설탕을 뺐더니 뭔가를 채웠다.">
+<meta property="og:url" content="https://f3ynm4n.com/sweet-accident.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://f3ynm4n.com/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Serif+KR:wght@400;500;700;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+  :root{
+    --bg:#0d0d0b; --cream:#f2ede6; --cream-dim:#cfc8bb;
+    --gold:#c8963e; --accent:#0a2e1a; --accent-light:#2e7d52;
+    --text-dark:#0e1a13; --muted:#8a9290;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'Noto Serif KR',serif; font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  nav.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px; background:rgba(13,13,11,0.85);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  }
+  .nav-logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.1em;text-decoration:none;color:var(--cream);}
+  .nav-logo:hover{color:var(--gold);}
+  .nav-back{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-decoration:none;}
+  .nav-back:hover{color:var(--cream);}
+  .nav-back svg{width:14px;height:14px;}
+
+  .hero{
+    min-height:100vh; display:flex; flex-direction:column;
+    justify-content:center; padding:140px 0 80px;
+    position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 50%, rgba(46,125,82,0.07), transparent 65%),
+      radial-gradient(ellipse 40% 45% at 5% 92%, rgba(10,46,26,0.5), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;padding:0 40px;position:relative;width:100%;}
+  .eyebrow{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;
+    color:var(--accent-light);text-transform:uppercase;margin-bottom:28px;
+  }
+  .hero-title{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:clamp(32px,5vw,52px);line-height:1.3;color:var(--cream);
+    letter-spacing:-.02em; margin-bottom:24px;
+  }
+  .hero-subtitle{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:clamp(16px,2vw,19px);color:var(--cream-dim);
+    line-height:1.6;max-width:460px;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:18px;margin-top:44px;
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em;
+  }
+  .hero-meta b{color:var(--cream-dim);}
+
+  .article-wrap{background:var(--cream);color:var(--text-dark);}
+  .article-inner{max-width:640px;margin:0 auto;padding:88px 40px 110px;}
+
+  .lede{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:22px;line-height:1.7;color:var(--text-dark);
+    margin-bottom:52px;padding-bottom:36px;
+    border-bottom:1px solid rgba(14,26,19,0.1);
+  }
+  .lede strong{font-style:normal;font-weight:700;color:var(--accent);}
+
+  p{margin-bottom:26px;font-size:17px;line-height:2.0;}
+  p:last-child{margin-bottom:0;}
+
+  .pause{
+    display:block;text-align:center;
+    font-family:'Space Mono',monospace;font-size:11px;
+    letter-spacing:.2em;color:rgba(14,26,19,0.2);
+    margin:52px 0;
+  }
+
+  .punch-block{
+    border-left:2px solid var(--gold);
+    padding:4px 0 4px 24px;
+    margin:44px 0;
+  }
+  .punch-block p{
+    font-family:'Noto Serif KR',serif;font-weight:700;
+    font-size:19px;line-height:1.8;
+    color:var(--text-dark);margin-bottom:0;
+  }
+
+  .closing{
+    margin-top:64px;padding-top:40px;
+    border-top:1px solid rgba(14,26,19,0.1);
+  }
+  .closing p{
+    font-size:17px;line-height:2.0;
+    margin-bottom:20px;color:var(--text-dark);
+  }
+  .closing p.final{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:21px;line-height:1.7;
+    color:var(--accent);margin-bottom:0;margin-top:32px;
+  }
+
+  .share-fab{position:fixed;bottom:32px;right:32px;z-index:90;}
+  .share-toggle{
+    width:52px;height:52px;border-radius:50%;background:var(--accent);
+    border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform .2s;
+  }
+  .share-toggle:hover{transform:scale(1.06);}
+  .share-toggle svg{width:20px;height:20px;stroke:var(--cream);}
+  .share-panel{
+    position:absolute;bottom:64px;right:0;background:var(--bg);
+    border:1px solid rgba(242,237,230,0.15);border-radius:8px;padding:10px;
+    display:none;flex-direction:column;gap:6px;min-width:140px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .share-panel.open{display:flex;}
+  .share-panel button{
+    background:none;border:none;color:var(--cream);font-family:'Space Mono',monospace;
+    font-size:12px;text-align:left;padding:8px 10px;cursor:pointer;border-radius:4px;
+  }
+  .share-panel button:hover{background:rgba(200,150,62,0.15);}
+
+  footer{
+    background:var(--bg);padding:36px 40px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  }
+  footer .pub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);}
+  footer .nav-links{display:flex;gap:24px;}
+  footer .nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;}
+  footer .nav-links a:hover{color:var(--gold);}
+
+  @media(max-width:640px){
+    nav.site-nav{padding:16px 20px;}
+    .hero{padding:110px 0 60px;}
+    .hero-inner{padding:0 24px;}
+    .article-inner{padding:56px 24px 72px;}
+    .share-fab{bottom:24px;right:20px;}
+    footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="https://f3ynm4n.com" class="nav-logo">F3YNM4N</a>
+  <a href="https://f3ynm4n.com" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Science · Essay</div>
+    <h1 class="hero-title">제로라더니,<br>제로가 아니었다</h1>
+    <p class="hero-subtitle">설탕을 뺐더니 뭔가를 채웠다</p>
+    <div class="hero-meta">
+      <span>Category <b>Science</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-inner">
+
+    <p class="lede">요즘 당류가 위험하다는 얘기를 자주 듣습니다. 그래서 저도 제로 음료를 마시기 시작했습니다. 그러다 어느 날 <strong>캔 뒷면을 읽었습니다.</strong></p>
+
+    <p>비만, 당뇨, 인슐린 저항성 — 설탕이 현대인의 건강을 갉아먹는 주범이라는 인식이 퍼지면서, 제로 음료 시장이 폭발적으로 커졌습니다. 콜라 대신 제로 콜라, 에너지 드링크도 제로 버전으로. 뭔가 건강한 선택을 하고 있다는 느낌이 들었어요.</p>
+
+    <p>아스파탐, 수크랄로스, 아세설팜칼륨, 향미증진제. 설탕 칸은 0g인데, 성분표는 처음 보는 이름들로 가득했습니다. 설탕을 뺐더니 뭔가를 채워 넣었습니다. 제로라더니, 들어가는 건 제로가 아니었습니다.</p>
+
+    <p>그때부터 궁금해졌습니다. 이것들은 대체 어디서 온 걸까.</p>
+
+    <span class="pause">· · ·</span>
+
+    <p>지금 제로 음료에 들어가는 감미료들의 탄생 과정을 보면 한 가지 공통점이 있습니다. 전부 의도하지 않은 순간에 발견됐다는 것입니다.</p>
+
+    <p>사카린은 1879년에 나왔습니다. 존스홉킨스대학의 화학자 콘스탄틴 팔베르크가 콜타르 유도체를 연구하던 중 실험을 마치고 손을 씻지 않은 채 저녁을 먹었습니다. 빵이 이상하게 달았고, 손에 묻은 실험 물질을 추적한 결과 설탕보다 300배 단 화합물을 발견했습니다.</p>
+
+    <p>아스파탐은 1965년, 제임스 슐래터가 위궤양 치료제를 연구하다가 나왔습니다. 실험 도중 손가락에 묻은 물질을 무심코 핥았고, 강렬한 단맛을 느꼈습니다. 위장약이 될 뻔한 화합물이 감미료가 됐습니다.</p>
+
+    <p>수크랄로스는 1976년 영국 퀸메리대학에서 탄생했습니다. 지도교수가 새로 합성한 염소 화합물을 "테스트(test)하라"고 했는데, 인도 출신 대학원생이 억양 때문에 "테이스트(taste)하라 — 맛보라"로 잘못 알아들었습니다. 그 실수가 지금 수많은 제로 음료에 들어가는 감미료를 만들었습니다.</p>
+
+    <div class="punch-block">
+      <p>설계된 발명이 아니었습니다. 손을 안 씻은 연구자, 단어를 잘못 알아들은 대학원생 — 전부 사고에서 나왔습니다.</p>
+    </div>
+
+    <span class="pause">· · ·</span>
+
+    <p>이 중 가장 오랜 논란을 가진 건 아스파탐입니다. 수십 년간 발암 가능성 논쟁이 이어졌고, 2023년 WHO 산하 국제암연구소가 "발암 가능 물질 2B군"으로 분류하면서 다시 불거졌습니다. 근데 같은 등급에 알로에 추출물, 김치, 피클도 들어있습니다. "가능성이 완전히 배제되지 않는다"는 수준이지, "먹으면 암에 걸린다"는 뜻이 아닙니다. 수십 년간 수많은 연구가 쌓인 결과, 일일 허용 섭취량 안에서는 안전하다는 게 현재 과학계의 주류 결론입니다.</p>
+
+    <p>아스파탐은 오래됐기 때문에 검증이 됐습니다. 논란이 많았다는 건 그만큼 많이 들여다봤다는 뜻이기도 합니다.</p>
+
+    <p>문제는 지금 제로 음료에 아스파탐만 들어가는 게 아니라는 겁니다. 수크랄로스의 FDA 승인은 1998년, 아세설팜칼륨은 1988년입니다. 수십 년간 사용돼 왔지만, 설탕만큼 긴 세대 단위 데이터가 축적된 것은 아닙니다. 최근 연구들은 조심스럽게 몇 가지 신호를 제기합니다. 장내 미생물 구성 변화, 인슐린 반응 교란, 식욕 조절 메커니즘에 영향을 줄 수 있다는 가능성입니다. 확정된 결론이 아닙니다. 하지만 데이터가 부족한 것과 안전하다는 건 같은 말이 아닙니다.</p>
+
+    <span class="pause">· · ·</span>
+
+    <p>감미료 외에도 제로 음료에는 향미증진제, 산도조절제, 각종 첨가물이 들어갑니다. 설탕이 빠진 자리를 단순히 감미료 하나로 채우는 게 아니라, 단맛과 풍미를 흉내 내기 위한 여러 물질이 동시에 들어가는 구조입니다. 설탕 음료와 제로 음료를 나란히 놓고 성분표를 비교해보면 — 제로 음료의 성분 목록이 오히려 더 깁니다. 하나를 뺐더니 여럿을 채운 거예요.</p>
+
+    <p>이게 나쁘다는 얘기가 아닙니다. 성분 수가 많다고 무조건 위험한 것도 아니고, 맛을 유지하면서 칼로리를 줄이려면 이 방식이 현실적인 선택입니다. 다만 우리가 "제로"라는 라벨 뒤에 무엇이 있는지 — 한 번쯤 들여다볼 필요는 있다는 겁니다.</p>
+
+    <div class="closing">
+      <p>설탕을 줄이는 건 분명히 좋은 방향입니다. 제로 음료가 일반 음료보다 나쁘다는 근거도 없습니다.</p>
+      <p>다만 손을 안 씻은 연구자의 실수에서, 단어를 잘못 알아들은 대학원생의 사고에서 탄생한 것들을 매일 마시고 있다는 건 — 한 번쯤 기억할 만합니다.</p>
+      <p>캔 뒷면을 읽어본 적 있으신가요.</p>
+      <p class="final">제로는 설탕이 제로일 뿐입니다.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="share-fab">
+  <button class="share-toggle" onclick="document.querySelector('.share-panel').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  </button>
+  <div class="share-panel">
+    <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='복사됨 ✓';setTimeout(()=>this.textContent='URL 복사',1500)">URL 복사</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title))">X에 공유</button>
+    <button onclick="if(window.Kakao){Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:'설탕을 뺐더니 뭔가를 채웠다.',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:window.location.href,webUrl:window.location.href}}})}">카카오톡 공유</button>
+  </div>
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 2026</span>
+  <div class="nav-links">
+    <a href="index.html">홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 맨 위로</a>
+  </div>
+</footer>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>
+  if(window.Kakao && !Kakao.isInitialized()){ Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); }
+</script>
+
+</body>
+</html>
