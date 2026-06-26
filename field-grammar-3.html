@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Local War · F3YNM4N</title>
+<meta name="description" content="대기업의 세련된 구호는 왜 영남의 흙바닥에서 깨졌는가. 현장의 문법 3편, 완결.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="The Local War · F3YNM4N">
+<meta property="og:description" content="대기업의 세련된 구호는 왜 영남의 흙바닥에서 깨졌는가.">
+<meta property="og:url" content="https://f3ynm4n.com/field-grammar-3.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://f3ynm4n.com/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Serif+KR:wght@400;500;700;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+  :root{
+    --bg:#0d0d0b; --cream:#f2ede6; --cream-dim:#cfc8bb;
+    --gold:#c8963e; --accent:#2e0f12; --accent-light:#a83d44;
+    --text-dark:#1c1212; --muted:#958785;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'Noto Serif KR',serif; font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  nav.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px; background:rgba(13,13,11,0.85);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  }
+  .nav-logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.1em;text-decoration:none;color:var(--cream);}
+  .nav-logo:hover{color:var(--gold);}
+  .nav-back{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-decoration:none;}
+  .nav-back:hover{color:var(--cream);}
+  .nav-back svg{width:14px;height:14px;}
+
+  .hero{
+    background:var(--bg); min-height:100vh; display:flex; flex-direction:column;
+    justify-content:flex-end; padding:120px 0 80px; position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 12%, rgba(168,61,68,0.16), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 8% 90%, rgba(46,15,18,0.6), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;padding:0 40px;position:relative;}
+  .series-tag{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;
+    color:var(--gold);text-transform:uppercase;margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .series-tag .ep{
+    background:var(--gold);color:var(--bg);padding:3px 8px;border-radius:2px;font-weight:700;
+  }
+  .hero-title{
+    font-family:'Space Mono',monospace;font-weight:700;
+    font-size:clamp(34px,5.5vw,52px);line-height:1.2;color:var(--cream);
+    letter-spacing:-.01em; margin-bottom:24px;
+  }
+  .hero-title em{font-style:normal;color:var(--gold);}
+  .hero-subtitle{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:clamp(17px,2vw,21px);color:var(--cream-dim);line-height:1.6;max-width:560px;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:18px;margin-top:40px;
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em;
+  }
+  .hero-meta span{display:flex;align-items:center;gap:6px;}
+  .hero-meta b{color:var(--cream-dim);font-weight:700;}
+
+  .article-wrap{background:var(--cream);color:var(--text-dark);}
+  .article-inner{max-width:680px;margin:0 auto;padding:80px 40px 100px;}
+
+  .prev-link{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;
+    color:var(--muted);text-decoration:none;margin-bottom:32px;
+  }
+  .prev-link:hover{color:var(--accent);}
+
+  .bridge-block{
+    background:rgba(46,15,18,0.05);border-left:3px solid var(--accent-light);
+    padding:24px 28px;margin-bottom:44px;
+  }
+  .bridge-block p{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:18px;line-height:1.7;color:var(--text-dark);margin-bottom:12px;
+  }
+  .bridge-block p:last-child{margin-bottom:0;}
+
+  .lede{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:24px;line-height:1.6;color:var(--text-dark);
+    margin-bottom:36px;
+  }
+  .lede strong{font-style:normal;font-weight:700;color:var(--accent);}
+
+  p{margin-bottom:22px;font-size:17px;line-height:1.9;}
+  p.lead-line{font-weight:700;font-size:19px;}
+  p.tight{margin-bottom:8px;}
+
+  .quote-stack{
+    font-family:'Space Mono',monospace;font-size:15px;line-height:2.1;
+    color:var(--accent);margin:28px 0;padding-left:4px;
+  }
+  .quote-stack span{display:block;}
+
+  .punch-block{
+    border-left:3px solid var(--gold);
+    padding:6px 0 6px 28px;margin:40px 0;
+  }
+  .punch-block p{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:21px;line-height:1.65;color:var(--text-dark);margin-bottom:0;
+  }
+
+  h2.section-head{
+    font-family:'Noto Serif KR',serif;font-weight:900;font-size:24px;
+    margin:56px 0 20px;color:var(--text-dark);letter-spacing:-.01em;
+  }
+  h2.section-head .num{
+    font-family:'Space Mono',monospace;font-size:14px;font-weight:700;
+    color:var(--accent-light);margin-right:10px;
+  }
+
+  .brand-row{
+    display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 28px;
+  }
+  .brand-row span{
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em;
+    background:rgba(46,15,18,0.07);border:1px solid rgba(46,15,18,0.15);
+    padding:6px 14px;border-radius:20px;color:var(--accent);
+  }
+
+  .series-recap{
+    margin-top:64px;padding:32px;background:rgba(28,18,18,0.04);
+    border-radius:2px;
+  }
+  .series-recap-label{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em;
+    color:var(--muted);text-transform:uppercase;margin-bottom:16px;display:block;
+  }
+  .series-recap-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .series-recap-list a{
+    display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-dark);
+    font-size:14.5px;padding:6px 0;
+  }
+  .series-recap-list a:hover{color:var(--accent);}
+  .series-recap-list .ep-no{
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--accent-light);min-width:32px;
+  }
+  .series-recap-list .current{color:var(--accent);font-weight:700;}
+
+  .share-fab{position:fixed;bottom:32px;right:32px;z-index:90;}
+  .share-toggle{
+    width:52px;height:52px;border-radius:50%;background:var(--accent);
+    border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform .2s;
+  }
+  .share-toggle:hover{transform:scale(1.06);}
+  .share-toggle svg{width:20px;height:20px;stroke:var(--cream);}
+  .share-panel{
+    position:absolute;bottom:64px;right:0;background:var(--bg);
+    border:1px solid rgba(242,237,230,0.15);border-radius:8px;padding:10px;
+    display:none;flex-direction:column;gap:6px;min-width:140px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .share-panel.open{display:flex;}
+  .share-panel button{
+    background:none;border:none;color:var(--cream);font-family:'Space Mono',monospace;
+    font-size:12px;text-align:left;padding:8px 10px;cursor:pointer;border-radius:4px;
+  }
+  .share-panel button:hover{background:rgba(200,150,62,0.15);}
+
+  footer{
+    background:var(--bg);padding:36px 40px;display:flex;align-items:center;
+    justify-content:space-between;flex-wrap:wrap;gap:16px;
+  }
+  footer .pub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);}
+  footer .nav-links{display:flex;gap:24px;}
+  footer .nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;}
+  footer .nav-links a:hover{color:var(--gold);}
+
+  @media (max-width:640px){
+    nav.site-nav{padding:16px 20px;}
+    .hero{min-height:90vh;padding:100px 0 60px;}
+    .hero-inner{padding:0 24px;}
+    .article-inner{padding:56px 24px 72px;}
+    .share-fab{bottom:24px;right:20px;}
+    footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="https://f3ynm4n.com" class="nav-logo">F3YNM4N</a>
+  <a href="https://f3ynm4n.com" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="series-tag"><span class="ep">EP. 03 · 완결</span>현장의 문법 — 살아 움직이는 시장</div>
+    <h1 class="hero-title">The Local <em>War</em></h1>
+    <p class="hero-subtitle">대기업의 세련된 구호는 왜 영남의 흙바닥에서 깨졌는가</p>
+    <div class="hero-meta">
+      <span>Category <b>Economy</b></span>
+      <span>Series <b>현장의 문법 · 3/3</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-inner">
+
+    <a href="field-grammar-2.html" class="prev-link">← 이전 편: 항구가 만든 감각</a>
+
+    <div class="bridge-block">
+      <p>밀면이 재해석이었고, 커피가 그 재해석의 산업화였다면 — 이건 그 감각이 도시 하나를 넘어 지역 전체의 생존 방식이 됐다는 이야기다.</p>
+      <p>부산의 항구가 만든 실용 감각은 우연이 아니었다. 영남 전체가 같은 방식으로 단련되고 있었다.</p>
+    </div>
+
+    <p class="lede">대한민국의 대기업들은 늘 <strong>확신에 차 있다.</strong></p>
+
+    <p class="tight">전국 단위 물류망. 표준화된 MD. 통합 앱. 세련된 브랜딩과 감성 마케팅.</p>
+
+    <p>서울의 기획실에서 시장은 숫자다. 지역은 지도 위에 색칠된 권역이고, 소비자는 보고서 속 데이터 포인트다.</p>
+
+    <p>이 방식은 꽤 오랫동안 통했다. 서울에서 먹히면 전국에서도 먹힌다는 믿음. 수도권에서 검증된 감각이 곧 '표준'이라는 확신.</p>
+
+    <p>하지만 유독 이 공식을 번번이 깨뜨리는 곳이 있다. 영남이다.</p>
+
+    <p>이 지역의 소비자는 유난히 냉정하다. 화려한 광고보다 가격표를 먼저 보고, 브랜드 스토리보다 양과 품질을 먼저 본다.</p>
+
+    <div class="quote-stack">
+      <span>"그래서 얼마인데?"</span>
+      <span>"그 돈이면 국밥 먹는다."</span>
+      <span>"동네에 더 괜찮은 데 있는데 굳이?"</span>
+    </div>
+
+    <p>서울의 감성 마케팅은 이 질문 앞에서 자주 멈춘다.</p>
+
+    <p>이것은 지역성이 아니다. 오랜 경제 구조가 만든 소비 습관이다. 영남은 오랫동안 산업의 흥망을 가까이서 겪었다. 호황과 침체가 반복됐고, 소비자는 자연스럽게 배웠다.</p>
+
+    <div class="punch-block">
+      <p>돈은 쉽게 쓰는 것이 아니라, 증명된 가치에만 쓰는 것이라고.</p>
+    </div>
+
+    <p>이곳에서 소비는 취향의 선언이 아니라 생활의 계산이다. 한 번의 잘못된 선택은 곧 손해다. 애매한 브랜드를 시험해볼 만큼 시장은 넉넉하지 않았다.</p>
+
+    <p class="lead-line">그래서 이곳의 소비자는 집요하다. 더 싸야 한다. 더 많아야 한다. 더 확실해야 한다. 애매한 브랜드는 살아남지 못한다.</p>
+
+    <p>그리고 역설적으로, 바로 이 혹독한 검증이 전국 시장에서도 통하는 괴물을 길러냈다.</p>
+
+    <p>풍요는 브랜드를 키운다. 그러나 결핍은 시스템을 단련한다. 영남의 로컬 강자들은 그렇게 만들어졌다.</p>
+
+    <h2 class="section-head"><span class="num">01</span>유통 — 공룡이 멈춘 자리에서, 맹수가 자랐다</h2>
+
+    <p>이마트와 롯데마트는 충분히 강했다. 막대한 자본. 전국 물류망. 거대한 점포.</p>
+
+    <p>문제는 바로 그 거대함이었다. 대형 점포 모델은 규제 변화에 둔감했고, 복잡한 조직은 현장의 속도를 따라가지 못했다. 소비자는 로그인 화면 앞에서 지쳤고, 매장은 넓었지만 장보기는 불편해졌다.</p>
+
+    <p>그 사이, 로컬은 훨씬 단순했다.</p>
+
+    <div class="brand-row"><span>탑마트</span><span>장보고마트</span></div>
+
+    <p>탑마트는 주부의 장보기 동선을 읽었고, 장보고마트는 자영업자의 새벽 발주를 읽었다. 이들은 거대한 디지털 전환을 외치지 않았다. 대신 소비자의 반복 행동을 집요하게 분석했다.</p>
+
+    <p class="tight">무엇을 언제 사는가. 얼마까지 지불하는가. 어느 순간 "비싸다"고 느끼는가.</p>
+
+    <p>대기업이 전국 단위 최적화를 고민할 때 로컬은 동네 하나를 완벽하게 이해했다. 승부는 거기서 갈렸다.</p>
+
+    <h2 class="section-head"><span class="num">02</span>커피 — 항구는 브랜드보다 강했다</h2>
+
+    <p>한때 한국 커피 시장은 스타벅스와 이디야의 대결처럼 보였다. 프리미엄과 대중성. 고급과 합리.</p>
+
+    <p>하지만 그 사이, 부산에서는 전혀 다른 생물이 자라고 있었다.</p>
+
+    <div class="brand-row"><span>컴포즈커피</span><span>더벤티</span><span>더리터</span><span>하삼동커피</span></div>
+
+    <p>이들은 브랜드 철학을 길게 설명하지 않았다. 대신 아주 단순한 질문에 답했다.</p>
+
+    <p class="tight">얼마나 싸게. 얼마나 많이. 얼마나 빠르게.</p>
+
+    <p>부산은 항구다. 이 도시에서 물류는 단순한 인프라가 아니라 감각이다. 효율, 회전율, 단가 통제. 이 감각이 커피 산업에도 스며들었다.</p>
+
+    <p>대형 브랜드가 '경험'을 팔 때 부산의 브랜드는 효율을 팔았다. 한 잔의 분위기보다 한 리터의 실용. 그리고 소비자는 늘 냉정한 쪽의 편이었다.</p>
+
+    <h2 class="section-head"><span class="num">03</span>치킨 — 대프리카가 만든 생존형 표준</h2>
+
+    <div class="brand-row"><span>교촌치킨</span><span>호식이치킨</span><span>멕시카나치킨</span></div>
+
+    <p>대구의 치킨 브랜드들은 유행을 좇지 않았다. 그들은 생존을 설계했다.</p>
+
+    <p>대구의 치열한 자영업 시장에서 소비자는 냉혹하다. 비싸면 안 된다. 양이 적어도 안 된다. 맛이 약해도 안 된다.</p>
+
+    <p>이 조건을 통과하려면 원가 통제는 집요해야 하고, 소스는 중독적이어야 하며, 재구매는 습관이 되어야 한다.</p>
+
+    <p class="lead-line">이건 감성이 아니다. 철저한 시스템이다.</p>
+
+    <p>서울이 유행을 만들 때 대구는 구조를 만들었다. 유행은 사라진다. 구조는 남는다. 그리고 살아남은 구조는 결국 전국의 표준이 된다.</p>
+
+    <h2 class="section-head">결론 — 빌려온 날개는 태풍에 꺾인다</h2>
+
+    <p>강한 브랜드는 광고비로 만들어지지 않는다. 가장 혹독한 시장에서, 가장 냉정한 소비자에게 자신의 가치를 반복해서 증명할 때 만들어진다.</p>
+
+    <p>영남의 로컬 군단이 특별한 이유는 지방이라서가 아니다. 그들은 풍요로운 시장에서 자란 브랜드가 아니다.</p>
+
+    <div class="punch-block">
+      <p>척박한 시장에서, "왜 이 가격을 받아야 하는가"를 매일 증명하며 살아남은 브랜드다.</p>
+    </div>
+
+    <p>서울의 기획실은 시장을 설계한다. 그러나 진짜 시장은 언제나 계산대 앞에서 완성된다.</p>
+
+    <p class="lead-line">그리고 그 계산대는, 생각보다 훨씬 더 냉정하다.</p>
+
+    <div class="quote-stack" style="margin-top:36px;">
+      <span>대전은 밀가루를 받아들였다.</span>
+      <span>부산은 밀가루를 바꿔 썼다.</span>
+      <span>그리고 영남은 들어온 모든 것을 시험했다.</span>
+    </div>
+
+    <div class="punch-block">
+      <p>살아남은 것은 지역 브랜드가 아니라, 가장 먼저 검증을 통과한 시스템이었다.</p>
+    </div>
+
+    <div class="series-recap">
+      <span class="series-recap-label">현장의 문법 — 살아 움직이는 시장 (전 3편 완결)</span>
+      <ul class="series-recap-list">
+        <li><a href="field-grammar-1.html"><span class="ep-no">01</span>무에서 유, 유에서 과잉</a></li>
+        <li><a href="field-grammar-2.html"><span class="ep-no">02</span>항구가 만든 감각</a></li>
+        <li><a href="field-grammar-3.html" class="current"><span class="ep-no">03</span>The Local War</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="share-fab">
+  <button class="share-toggle" onclick="document.querySelector('.share-panel').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  </button>
+  <div class="share-panel">
+    <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='복사됨 ✓';setTimeout(()=>this.textContent='URL 복사',1500)">URL 복사</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title))">X에 공유</button>
+    <button onclick="if(window.Kakao){Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:'대기업의 세련된 구호는 왜 영남의 흙바닥에서 깨졌는가',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:window.location.href,webUrl:window.location.href}}})}">카카오톡 공유</button>
+  </div>
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 2026</span>
+  <div class="nav-links">
+    <a href="field-grammar-1.html">시리즈 처음으로</a>
+    <a href="index.html">홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 맨 위로</a>
+  </div>
+</footer>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>
+  if(window.Kakao && !Kakao.isInitialized()){ Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); }
+</script>
+
+</body>
+</html>
