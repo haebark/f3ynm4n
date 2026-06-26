@@ -431,6 +431,7 @@ body {
       <div class="sidebar-link" onclick="filterCategory('sanguo')">⚔️ 삼국지 <span class="sidebar-count" id="count-sanguo">0</span></div>
       <div class="sidebar-link" onclick="filterCategory('fiction')">✒️ 창작 <span class="sidebar-count" id="count-fiction">0</span></div>
       <div class="sidebar-section">사이트</div>
+      <div class="sidebar-link" onclick="showSection('now-running')">📺 Now Running 설정</div>
       <div class="sidebar-link" onclick="window.open('index.html')">🌐 사이트 보기</div>
     </nav>
 
@@ -584,6 +585,91 @@ body {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- NOW RUNNING 설정 -->
+      <div id="section-now-running" style="display:none;">
+        <div class="page-header">
+          <div>
+            <div class="page-title">Now Running 설정</div>
+            <div class="page-sub">메인 화면 시리즈 배너 2개를 편집합니다</div>
+          </div>
+          <button class="btn btn-gold" onclick="saveNowRunning()">저장</button>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;">
+
+          <!-- 슬롯 1 -->
+          <div style="background:var(--panel);border:1px solid var(--border);padding:24px;border-radius:4px;">
+            <div style="font-size:11px;letter-spacing:2px;color:var(--gold);margin-bottom:16px;">SERIES 01</div>
+            <div class="field">
+              <label>번호 표시</label>
+              <input type="text" id="nr1-num" placeholder="Series 01">
+            </div>
+            <div class="field">
+              <label>시리즈 제목</label>
+              <input type="text" id="nr1-title" placeholder="미식의 나라">
+            </div>
+            <div class="field">
+              <label>설명</label>
+              <input type="text" id="nr1-desc" placeholder="전 6편 완결 · epilogue 포함">
+            </div>
+            <div class="field">
+              <label>링크 (href)</label>
+              <input type="text" id="nr1-href" placeholder="misik-1.html">
+            </div>
+            <div class="field">
+              <label>배경색</label>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="nr1-color" placeholder="#d97706" style="flex:1;">
+                <input type="color" id="nr1-color-picker" value="#d97706"
+                  oninput="document.getElementById('nr1-color').value=this.value"
+                  style="width:36px;height:36px;border:none;cursor:pointer;background:none;">
+              </div>
+            </div>
+            <div id="nr1-preview" style="margin-top:12px;padding:16px;border-radius:4px;background:#d97706;">
+              <div style="font-size:10px;letter-spacing:2px;opacity:.7;margin-bottom:4px;">Series 01</div>
+              <div style="font-weight:700;font-size:15px;">미식의 나라</div>
+              <div style="font-size:12px;opacity:.7;margin-top:4px;">전 6편 완결 · epilogue 포함</div>
+            </div>
+          </div>
+
+          <!-- 슬롯 2 -->
+          <div style="background:var(--panel);border:1px solid var(--border);padding:24px;border-radius:4px;">
+            <div style="font-size:11px;letter-spacing:2px;color:var(--gold);margin-bottom:16px;">SERIES 02</div>
+            <div class="field">
+              <label>번호 표시</label>
+              <input type="text" id="nr2-num" placeholder="Series 02">
+            </div>
+            <div class="field">
+              <label>시리즈 제목</label>
+              <input type="text" id="nr2-title" placeholder="삼국지 인물론">
+            </div>
+            <div class="field">
+              <label>설명</label>
+              <input type="text" id="nr2-desc" placeholder="2부 연재 중 · 8편">
+            </div>
+            <div class="field">
+              <label>링크 (href)</label>
+              <input type="text" id="nr2-href" placeholder="sanguo-index.html">
+            </div>
+            <div class="field">
+              <label>배경색</label>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="nr2-color" placeholder="#3d4a1e" style="flex:1;">
+                <input type="color" id="nr2-color-picker" value="#3d4a1e"
+                  oninput="document.getElementById('nr2-color').value=this.value"
+                  style="width:36px;height:36px;border:none;cursor:pointer;background:none;">
+              </div>
+            </div>
+            <div id="nr2-preview" style="margin-top:12px;padding:16px;border-radius:4px;background:#3d4a1e;">
+              <div style="font-size:10px;letter-spacing:2px;opacity:.7;margin-bottom:4px;">Series 02</div>
+              <div style="font-weight:700;font-size:15px;">삼국지 인물론</div>
+              <div style="font-size:12px;opacity:.7;margin-top:4px;">2부 연재 중 · 8편</div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -742,7 +828,7 @@ function renderList(articles, title = '글 관리', sub = '전체 글') {
 
 // ── SECTIONS ──
 function showSection(name) {
-  ['dashboard','articles','new'].forEach(s => {
+  ['dashboard','articles','new','now-running'].forEach(s => {
     document.getElementById('section-' + s).style.display = s === name ? 'block' : 'none';
   });
   document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
@@ -753,6 +839,9 @@ function showSection(name) {
   } else if (name === 'articles') {
     renderList(allArticles);
     document.querySelectorAll('.sidebar-link')[1].classList.add('active');
+  } else if (name === 'now-running') {
+    loadNowRunning();
+    document.querySelectorAll('.sidebar-link')[3].classList.add('active');
   } else {
     document.querySelectorAll('.sidebar-link')[0].classList.add('active');
   }
@@ -905,6 +994,79 @@ async function deleteArticle() {
   showToast('삭제되었습니다', 'success');
   await loadArticles();
   showSection('articles');
+}
+
+// ── NOW RUNNING ──
+async function loadNowRunning() {
+  const { data, error } = await sb.from('site_config').select('value').eq('key', 'now_running').single();
+  if (error || !data) return;
+  const s = data.value;
+  if (s[0]) {
+    document.getElementById('nr1-num').value   = s[0].num   || '';
+    document.getElementById('nr1-title').value = s[0].title || '';
+    document.getElementById('nr1-desc').value  = s[0].desc  || '';
+    document.getElementById('nr1-href').value  = s[0].href  || '';
+    document.getElementById('nr1-color').value = s[0].color || '#d97706';
+    document.getElementById('nr1-color-picker').value = s[0].color || '#d97706';
+    updatePreview(1);
+  }
+  if (s[1]) {
+    document.getElementById('nr2-num').value   = s[1].num   || '';
+    document.getElementById('nr2-title').value = s[1].title || '';
+    document.getElementById('nr2-desc').value  = s[1].desc  || '';
+    document.getElementById('nr2-href').value  = s[1].href  || '';
+    document.getElementById('nr2-color').value = s[1].color || '#3d4a1e';
+    document.getElementById('nr2-color-picker').value = s[1].color || '#3d4a1e';
+    updatePreview(2);
+  }
+}
+
+function updatePreview(n) {
+  const title = document.getElementById(`nr${n}-title`).value;
+  const desc  = document.getElementById(`nr${n}-desc`).value;
+  const num   = document.getElementById(`nr${n}-num`).value;
+  const color = document.getElementById(`nr${n}-color`).value;
+  const preview = document.getElementById(`nr${n}-preview`);
+  if (!preview) return;
+  preview.style.background = color;
+  preview.innerHTML = `
+    <div style="font-size:10px;letter-spacing:2px;opacity:.7;margin-bottom:4px;">${num}</div>
+    <div style="font-weight:700;font-size:15px;">${title}</div>
+    <div style="font-size:12px;opacity:.7;margin-top:4px;">${desc}</div>`;
+}
+
+// 입력할 때 실시간 프리뷰
+[1,2].forEach(n => {
+  ['num','title','desc','color'].forEach(field => {
+    setTimeout(() => {
+      const el = document.getElementById(`nr${n}-${field}`);
+      if (el) el.addEventListener('input', () => updatePreview(n));
+    }, 500);
+  });
+});
+
+async function saveNowRunning() {
+  const value = [
+    {
+      num:   document.getElementById('nr1-num').value,
+      title: document.getElementById('nr1-title').value,
+      desc:  document.getElementById('nr1-desc').value,
+      href:  document.getElementById('nr1-href').value,
+      color: document.getElementById('nr1-color').value,
+    },
+    {
+      num:   document.getElementById('nr2-num').value,
+      title: document.getElementById('nr2-title').value,
+      desc:  document.getElementById('nr2-desc').value,
+      href:  document.getElementById('nr2-href').value,
+      color: document.getElementById('nr2-color').value,
+    }
+  ];
+  const { error } = await sb.from('site_config')
+    .update({ value, updated_at: new Date().toISOString() })
+    .eq('key', 'now_running');
+  if (error) { showToast('저장 실패 ' + error.message, 'error'); return; }
+  showToast('Now Running 저장됐습니다 ✓', 'success');
 }
 
 // ── TOAST ──

@@ -1089,18 +1089,7 @@ footer {
     <div style="padding:12px 0 8px;">
       <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--mid);text-transform:uppercase;">Now Running</span>
     </div>
-    <div class="series-banners">
-      <a href="misik-1.html" class="series-banner-item" style="background:#d97706;">
-        <div class="series-banner-num">Series 01</div>
-        <div class="series-banner-title">미식의 나라</div>
-        <div class="series-banner-desc">전 6편 완결 · epilogue 포함</div>
-      </a>
-      <a href="sanguo-index.html" class="series-banner-item" style="background:#3d4a1e;">
-        <div class="series-banner-num">Series 02</div>
-        <div class="series-banner-title">삼국지 인물론</div>
-        <div class="series-banner-desc">2부 연재 중 · 8편</div>
-      </a>
-    </div>
+    <div class="series-banners" id="now-running-banners"><!-- JS --></div>
   </div>
 </section>
 
@@ -1639,6 +1628,42 @@ function renderAll(articles) {
   renderMobileCoverlines(articles);
 }
 
+// ── now-running 동적 렌더링 ──
+async function loadNowRunning() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/site_config?key=eq.now_running&select=value`,
+      { headers: { 'apikey': SUPABASE_KEY } }
+    );
+    const data = await res.json();
+    if (!data || !data.length) return;
+    const series = data[0].value;
+    const container = document.getElementById('now-running-banners');
+    if (!container) return;
+    container.innerHTML = series.map(s => `
+      <a href="${s.href}" class="series-banner-item" style="background:${s.color};">
+        <div class="series-banner-num">${s.num}</div>
+        <div class="series-banner-title">${s.title}</div>
+        <div class="series-banner-desc">${s.desc}</div>
+      </a>`).join('');
+  } catch (e) {
+    console.error('now-running 로드 실패:', e);
+    // 실패 시 기본값 폴백
+    const container = document.getElementById('now-running-banners');
+    if (container) container.innerHTML = `
+      <a href="misik-1.html" class="series-banner-item" style="background:#d97706;">
+        <div class="series-banner-num">Series 01</div>
+        <div class="series-banner-title">미식의 나라</div>
+        <div class="series-banner-desc">전 6편 완결 · epilogue 포함</div>
+      </a>
+      <a href="sanguo-index.html" class="series-banner-item" style="background:#3d4a1e;">
+        <div class="series-banner-num">Series 02</div>
+        <div class="series-banner-title">삼국지 인물론</div>
+        <div class="series-banner-desc">2부 연재 중 · 8편</div>
+      </a>`;
+  }
+}
+
 // ── 메인 로드 ──
 async function loadAndRender() {
   // sessionStorage 캐시 확인
@@ -1678,6 +1703,7 @@ async function loadAndRender() {
 window.addEventListener('pageshow', (e) => {
   if (e.persisted) return; // bfcache에서 즉시 복원 — 아무것도 안 해도 됨
   loadAndRender();
+  loadNowRunning();
 });
 
 // ─── 커스텀 커서 ───
