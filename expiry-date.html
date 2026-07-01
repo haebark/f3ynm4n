@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>유효기간 — F3YNM4N</title>
+  <meta name="description" content="사유의 민주화는 왔다. 근데 유효기간이 있다.">
+  <meta property="og:title" content="유효기간">
+  <meta property="og:description" content="사유의 민주화는 왔다. 근데 유효기간이 있다.">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/expiry-date.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://f3ynm4n.com/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --accent: #7c2d12;
+      --accent-light: #fb923c;
+      --cream: #f2ede6;
+      --muted: #666660;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .page-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: linear-gradient(to bottom, rgba(13,13,11,0.9), transparent);
+    }
+    .site-logo {
+      font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; color: var(--accent-light);
+      text-decoration: none; opacity: 0.7; transition: opacity 0.2s;
+    }
+    .site-logo:hover { opacity: 1; }
+    .header-category {
+      font-family: 'Space Mono', monospace; font-size: 9px;
+      letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase;
+    }
+
+    .typo-section {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 40px; position: relative; overflow: hidden;
+    }
+    .typo-inner { max-width: 760px; margin: 0 auto; width: 100%; }
+
+    .fade-up {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* S1 */
+    .s1 { background: var(--bg); }
+    .s1::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 40% 50%, rgba(124,45,18,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .overline {
+      font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.25em; color: var(--accent-light);
+      text-transform: uppercase; margin-bottom: 32px; display: block;
+    }
+    .series-badge {
+      display: inline-block;
+      font-family: 'Space Mono', monospace; font-size: 9px;
+      letter-spacing: 0.15em; color: var(--accent-light);
+      border: 1px solid rgba(251,146,60,0.3);
+      padding: 4px 10px; border-radius: 2px; margin-bottom: 20px;
+    }
+    .big-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(40px, 8vw, 96px);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -0.03em; color: var(--cream); margin-bottom: 24px;
+    }
+    .big-title em { font-style: normal; color: var(--accent-light); }
+    .sub-line {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(15px, 2vw, 20px); color: rgba(242,237,230,0.4);
+    }
+
+    /* S2 하라리 */
+    .s2 { background: #0f0f0d; }
+    .prose {
+      font-size: clamp(17px, 2.2vw, 22px);
+      line-height: 1.9; color: rgba(242,237,230,0.8);
+      margin-bottom: 32px; word-break: keep-all;
+    }
+    .prose strong { color: var(--cream); font-weight: 700; }
+    .section-label {
+      font-family: 'Space Mono', monospace; font-size: 10px;
+      letter-spacing: 0.2em; color: var(--accent-light);
+      text-transform: uppercase; margin-bottom: 40px; display: block; opacity: 0.7;
+    }
+
+    /* S3 창이 열린 시간 */
+    .s3 { background: var(--bg); }
+    .key-sentence {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(22px, 4vw, 46px);
+      font-weight: 600; line-height: 1.5;
+      color: var(--cream); margin-bottom: 56px; letter-spacing: -0.01em;
+    }
+    .key-sentence strong { color: var(--accent-light); font-weight: 700; }
+    .key-sentence:last-child { margin-bottom: 0; }
+
+    .time-counter {
+      display: flex; flex-direction: column; gap: 2px; margin: 40px 0;
+    }
+    .time-item {
+      display: flex; align-items: center; gap: 20px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .time-val {
+      font-family: 'Space Mono', monospace; font-size: 13px;
+      color: var(--accent-light); min-width: 80px; flex-shrink: 0;
+    }
+    .time-desc {
+      font-size: 15px; color: rgba(242,237,230,0.6);
+      font-family: 'Noto Serif KR', serif;
+    }
+
+    /* S4 불꽃 */
+    .s4 { background: #0f0f0d; }
+
+    /* S5 클로징 */
+    .s5 { background: var(--bg); min-height: 80vh; }
+    .closing-big {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(22px, 4vw, 52px);
+      line-height: 1.45; color: var(--cream);
+      margin-bottom: 48px; letter-spacing: -0.01em;
+    }
+    .closing-big strong { font-style: normal; color: var(--accent-light); }
+    .closing-punch {
+      font-size: clamp(18px, 2.5vw, 24px);
+      color: rgba(242,237,230,0.6);
+      margin-top: 48px; padding-top: 40px;
+      border-top: 1px solid rgba(124,45,18,0.3);
+      line-height: 1.8; font-family: 'Noto Serif KR', serif;
+    }
+    .closing-punch em { color: var(--accent-light); font-style: normal; font-weight: 700; }
+
+    .article-footer {
+      background: var(--bg); padding: 60px 40px; text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      letter-spacing: 0.15em; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--cream); }
+
+    .f3-share-btn { position: fixed; bottom: 32px; right: 32px; z-index: 1000; }
+    .f3-share-toggle {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--accent); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(124,45,18,0.4);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .f3-share-toggle:hover { transform: scale(1.08); background: #6b1e08; }
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .f3-share-panel {
+      position: absolute; bottom: 64px; right: 0;
+      display: flex; flex-direction: column; gap: 10px;
+      opacity: 0; pointer-events: none;
+      transform: translateY(10px); transition: opacity 0.2s, transform 0.2s;
+    }
+    .f3-share-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .f3-share-action {
+      display: flex; align-items: center; gap: 10px;
+      background: #1e1e1b; border: 1px solid rgba(255,255,255,0.1);
+      color: var(--cream); font-family: 'Space Mono', monospace;
+      font-size: 11px; letter-spacing: 0.05em;
+      padding: 10px 16px; border-radius: 24px;
+      cursor: pointer; white-space: nowrap;
+      transition: background 0.15s; text-decoration: none;
+    }
+    .f3-share-action:hover { background: #2a2a27; }
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    @media (max-width: 640px) {
+      .page-header { padding: 16px 24px; }
+      .typo-section { padding: 100px 24px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="page-header">
+  <a href="https://f3ynm4n.com" class="site-logo">F3YNM4N</a>
+  <span class="header-category">Culture</span>
+</header>
+
+<!-- S1 오프닝 -->
+<section class="typo-section s1">
+  <div class="typo-inner">
+    <span class="series-badge fade-up">사유의 민주화 — 2편</span>
+    <span class="overline fade-up" style="transition-delay:0.05s">2026.06.22</span>
+    <h1 class="big-title fade-up" style="transition-delay:0.1s">
+      유효<em>기간</em>
+    </h1>
+    <p class="sub-line fade-up" style="transition-delay:0.2s">사유의 민주화는 왔다. 근데 유효기간이 있다.</p>
+  </div>
+</section>
+
+<!-- S2 하라리 반박 -->
+<section class="typo-section s2">
+  <div class="typo-inner">
+    <span class="section-label fade-up">하라리의 경고에 답한다</span>
+
+    <p class="prose fade-up" style="transition-delay:0.1s">
+      하라리는 말했다.<br>
+      AI 이후 인류의 대다수는 잉여계급이 된다고.
+    </p>
+
+    <p class="prose fade-up" style="transition-delay:0.2s">
+      나는 그 절망에 동의하지 않는다.<br>
+      잉여가 생기는 게 아니라<br>
+      <strong>성냥이 생기는 거다.</strong>
+    </p>
+
+    <p class="prose fade-up" style="transition-delay:0.3s">
+      성냥 하나의 불꽃은 작다.<br>
+      <strong>근데 수억 개의 불꽃은 노바다.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- S3 창이 열린 시간 -->
+<section class="typo-section s3">
+  <div class="typo-inner">
+    <span class="section-label fade-up">근데</span>
+
+    <p class="key-sentence fade-up" style="transition-delay:0.1s">
+      이 창이 열려 있는 시간이<br>
+      <strong>얼마나 될지 모른다.</strong>
+    </p>
+
+    <div class="time-counter fade-up" style="transition-delay:0.2s">
+      <div class="time-item">
+        <span class="time-val">90년</span>
+        <span class="time-desc">러셀의 여가론이 민주화되는 데 걸린 시간</span>
+      </div>
+      <div class="time-item">
+        <span class="time-val">10년?</span>
+        <span class="time-desc">AI가 도구로 존재하는 이 시간</span>
+      </div>
+      <div class="time-item">
+        <span class="time-val">5년?</span>
+        <span class="time-desc">어쩌면</span>
+      </div>
+      <div class="time-item">
+        <span class="time-val">더 짧을 수도</span>
+        <span class="time-desc">있다</span>
+      </div>
+    </div>
+
+    <p class="key-sentence fade-up" style="transition-delay:0.3s">
+      AGI가 오면<br>
+      사유가 대체된다.<br>
+      <strong>실패할 권리도 함께.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- S4 불꽃 -->
+<section class="typo-section s4">
+  <div class="typo-inner">
+    <span class="section-label fade-up">유한하기에</span>
+
+    <p class="prose fade-up" style="transition-delay:0.1s">
+      불꽃은 꺼지기 때문에 아름답다.
+    </p>
+
+    <p class="prose fade-up" style="transition-delay:0.2s">
+      AGI에게 사유를 의탁하는 순간<br>
+      인간은 생각하는 존재이기를 포기한다.<br>
+      틀릴 수 없는 존재는 생각하지 않는 존재다.
+    </p>
+
+    <p class="prose fade-up" style="transition-delay:0.3s">
+      지금 이 창이 열려 있다.<br>
+      AI가 도구로 존재하는 이 시간.<br>
+      <strong>사유의 민주화가 유효한 이 순간.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- S5 클로징 -->
+<section class="typo-section s5">
+  <div class="typo-inner">
+    <p class="closing-big fade-up">
+      사유의 민주화는 왔다.<br>
+      <strong>근데 유효기간이 있다.</strong>
+    </p>
+
+    <p class="prose fade-up" style="transition-delay:0.15s">
+      지금 생각하지 않으면<br>
+      생각할 기회 자체가 사라질 수 있다.
+    </p>
+
+    <p class="closing-punch fade-up" style="transition-delay:0.3s">
+      <em>유한하기에, 지금 써야 한다.</em>
+    </p>
+  </div>
+</section>
+
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() { if (window.Kakao && !Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/expiry-date.html';
+  const PAGE_TITLE = '유효기간';
+  document.getElementById('xShareBtn').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() { document.getElementById('sharePanel').classList.toggle('open'); }
+  function copyURL() { navigator.clipboard.writeText(PAGE_URL).then(function() { alert('URL이 복사됐습니다.'); }); document.getElementById('sharePanel').classList.remove('open'); }
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({ objectType: 'feed', content: { title: PAGE_TITLE, description: '사유의 민주화는 왔다. 근데 유효기간이 있다.', imageUrl: 'https://f3ynm4n.com/og_default.png', link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL } } });
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+  document.addEventListener('click', function(e) { if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open'); });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
