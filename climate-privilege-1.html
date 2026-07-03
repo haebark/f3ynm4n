@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>시원한 나라의 도덕 1부 — F3YNM4N</title>
+  <meta name="description" content="유럽의 환경주의는 기후 특권 위에 세워진 사다리 걷어차기였다" />
+  <meta property="og:title" content="시원한 나라의 도덕 1부" />
+  <meta property="og:description" content="유럽의 환경주의는 기후 특권 위에 세워진 사다리 걷어차기였다" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://f3ynm4n.com/climate-privilege-1.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Playfair+Display:ital@1&family=Space+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0b;
+      --surface: #131310;
+      --gold: #c8963e;
+      --accent: #6b5fd8;
+      --text: #d4cfc8;
+      --muted: #7a7570;
+      --cover: #1a1a2e;
+    }
+
+    html { font-size: 18px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif KR', serif;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--cover);
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 4rem 2rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 30%, rgba(107,95,216,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(200,150,62,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .series-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .series-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .part-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.25;
+      color: #f0ece4;
+      margin-bottom: 0.5rem;
+      word-break: keep-all;
+    }
+
+    .hero-subtitle {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 300;
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      word-break: keep-all;
+    }
+
+    /* BODY */
+    .article-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    .section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 2.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(107,95,216,0.25);
+    }
+
+    p {
+      margin-bottom: 1.7rem;
+      font-weight: 400;
+      font-size: 1rem;
+      word-break: keep-all;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    strong {
+      color: #f0ece4;
+      font-weight: 500;
+    }
+
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      margin: 3rem 0;
+      padding: 1.2rem 2rem;
+      background: rgba(107,95,216,0.05);
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #e8e4dc;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* SERIES NAV */
+    .series-nav {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 5rem;
+      padding-top: 2.5rem;
+    }
+
+    .series-nav-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .series-nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .nav-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 1.2rem 1.4rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+      display: block;
+    }
+    .nav-card:hover { border-color: var(--accent); }
+
+    .nav-card-dir {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-card-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    .nav-card.next { text-align: right; }
+    .nav-card.disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* SHARE FAB */
+    .share-fab { position: fixed; bottom: 32px; right: 32px; z-index: 90; }
+    .share-toggle {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--accent); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3); transition: transform 0.2s;
+    }
+    .share-toggle:hover { transform: scale(1.06); }
+    .share-toggle svg { width: 20px; height: 20px; stroke: #f0ece4; }
+    .share-panel {
+      position: absolute; bottom: 64px; right: 0;
+      background: var(--bg); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; padding: 10px;
+      display: none; flex-direction: column; gap: 6px; min-width: 140px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .share-panel.open { display: flex; }
+    .share-panel button {
+      background: none; border: none; color: var(--text);
+      font-family: 'Space Mono', monospace; font-size: 12px;
+      text-align: left; padding: 8px 10px; cursor: pointer; border-radius: 4px;
+    }
+    .share-panel button:hover { background: rgba(200,150,62,0.15); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem;
+      text-align: center;
+    }
+    footer a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .series-nav-grid { grid-template-columns: 1fr; }
+      .nav-card.next { text-align: left; }
+      .article-wrap { padding: 3rem 1.4rem 4rem; }
+      .hero { padding: 3rem 1.4rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="series-label">기후 특권 · 1부</div>
+    <div class="part-label">PART ONE</div>
+    <h1>시원한 나라의 도덕</h1>
+    <p class="hero-subtitle">유럽의 환경주의는 기후 특권 위에 세워진 사다리 걷어차기였다</p>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article-wrap">
+
+  <div class="section-title">그들의 기준은 처음부터 자기 조건이었다</div>
+
+  <p>유럽인들은 오랫동안 에어컨 없이 살았다. 그리고 그것을 일종의 자부심으로 삼았다. 냉방에 기대어 사는 아시아를 은근히 내려다보면서, 자신들의 절제를 문명의 성숙함으로 포장했다. 환경을 생각하는 삶, 탄소를 줄이는 선택, 지속 가능한 미래. 말은 그럴듯했다. 그레타 툰베리가 요트를 타고 대서양을 건넜을 때, 유럽은 열광했다. 십대 소녀의 분노가 시대의 양심처럼 보였다. 그 양심의 무대가 어디서 만들어졌는지는 아무도 묻지 않았다.</p>
+
+  <p>그런데 그 절제의 이유는 단 하나였다. <strong>시원했으니까.</strong></p>
+
+  <p>파리의 여름은 서울의 봄이었다. 런던에는 장마가 없었고, 베를린에는 열대야가 없었다. 서울은 7월에 35도를 넘고 습도가 80퍼센트에 달하는 날이 반복된다. 그 조건에서 에어컨은 선택이 아니라 생존이다. 에어컨이 필요 없는 기후에서 에어컨 없이 사는 건 미덕이 아니다. 그냥 당연한 일이다. 냉장고 없이도 살 수 있는 사람이 냉장고를 포기한다고 해서 그게 절제는 아닌 것처럼. 유럽의 환경주의는 그 당연함을 도덕으로 둔갑시키는 데서 출발했다.</p>
+
+  <div class="pullquote">
+    <p>자기 조건을 보편으로 착각한 자는 죄책감이 없다. 확신만 있다.</p>
+  </div>
+
+  <p>문제는 그 도덕이 글로벌 스탠더드가 됐다는 것이다.</p>
+
+  <p>RE100은 사용 전력의 100퍼센트를 재생에너지로 충당하라는 요구다. CBAM은 탄소 배출 기준을 못 맞추는 나라의 제품에 국경세를 매긴다. ESG 공시는 기업의 환경 성과를 수치로 요구한다. 이 기준들은 모두 유럽의 조건 위에서 설계됐다. 재생에너지 인프라가 먼저 깔려 있고, 에너지 효율이 이미 높고, 냉방 수요 자체가 낮은 지역의 기준. 독일은 육상 풍력 조건이 탁월하고, 노르웨이는 수력이 넘친다. 그 지리적 행운을 제도로 바꿔놓은 다음, 한국에, 인도에, 동남아에 들이밀었다. 못 맞추면 후진적이라고 했다. 지구를 생각하지 않는다고 했다. 삼성과 현대가 RE100을 맞추려면 한국 전력망 전체를 뜯어고쳐야 한다는 사실은 그들의 기준표에 없었다.</p>
+
+  <p>자각이 없었기 때문에 더 강하게 밀어붙일 수 있었다. 자기 조건을 보편으로 착각한 자는 죄책감이 없다. 확신만 있다. 그 확신이 교조가 되고, 교조가 제도가 됐다. 유럽은 진심으로 자신들이 옳다고 믿었을 것이다. 그래서 더 위험했다. 위선은 적어도 자각이 있다. 들키면 부끄러워한다. 이건 달랐다. 자기 특권을 진리로 믿은 자는 반박을 불경으로 받아들인다. 아시아가 기준을 못 맞춘다고 항의하면, 그건 환경을 포기하겠다는 선언으로 읽혔다. 대화가 아니라 심판의 구조였다.</p>
+
+  <!-- SERIES NAV -->
+  <nav class="series-nav">
+    <div class="series-nav-label">기후 특권 시리즈</div>
+    <div class="series-nav-grid">
+      <div class="nav-card disabled">
+        <div class="nav-card-dir">← 이전</div>
+        <div class="nav-card-title">—</div>
+      </div>
+      <a href="climate-privilege-2.html" class="nav-card next">
+        <div class="nav-card-dir">다음 →</div>
+        <div class="nav-card-title">온도를 올린 건 자기들이었고, 청구서는 아시아로 갔다</div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- SHARE -->
+</article>
+
+<footer>
+  <a href="index.html">← F3YNM4N</a>
+</footer>
+
+<div class="share-fab">
+  <button class="share-toggle" onclick="document.querySelector('.share-panel').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  </button>
+  <div class="share-panel">
+    <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='복사됨 ✓';setTimeout(()=>this.textContent='URL 복사',1500)">URL 복사</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title))">X에 공유</button>
+    <button onclick="if(window.Kakao){Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:'유럽의 환경주의는 기후 특권 위에 세워진 사다리 걷어차기였다',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:window.location.href,webUrl:window.location.href}}})}">카카오톡 공유</button>
+  </div>
+</div>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>
+  if(window.Kakao && !Kakao.isInitialized()){ Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); }
+</script>
+
+</body>
+</html>
