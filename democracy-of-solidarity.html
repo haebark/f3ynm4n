@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나는 틀렸기를 바랐다 · F3YNM4N</title>
+<meta name="description" content="대통령 지지는 거의 접을 지경입니다. 하지만 저는 이 민주주의를 포기할 생각이 없습니다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="나는 틀렸기를 바랐다 · F3YNM4N">
+<meta property="og:description" content="대통령 지지는 거의 접을 지경입니다. 하지만 저는 이 민주주의를 포기할 생각이 없습니다.">
+<meta property="og:url" content="https://f3ynm4n.com/democracy-of-solidarity.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://f3ynm4n.com/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Serif+KR:wght@400;500;700;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+  :root{
+    --bg:#0d0d0b; --cream:#f2ede6; --cream-dim:#cfc8bb;
+    --gold:#c8963e; --accent:#0f1e38; --accent-light:#2a4a7f;
+    --text-dark:#0e1520; --muted:#8a8f98;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'Noto Serif KR',serif; font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  nav.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px; background:rgba(13,13,11,0.88);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  }
+  .nav-logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.1em;text-decoration:none;color:var(--cream);}
+  .nav-logo:hover{color:var(--gold);}
+  .nav-back{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-decoration:none;}
+  .nav-back:hover{color:var(--cream);}
+  .nav-back svg{width:14px;height:14px;}
+
+  .hero{
+    background:var(--bg); min-height:100vh; display:flex; flex-direction:column;
+    justify-content:flex-end; padding:120px 0 80px; position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 10%, rgba(42,74,127,0.1), transparent 60%),
+      radial-gradient(ellipse 50% 45% at 5% 88%, rgba(15,30,56,0.6), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;padding:0 40px;position:relative;}
+  .eyebrow{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;
+    color:var(--gold);text-transform:uppercase;margin-bottom:20px;
+  }
+  .hero-title{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:clamp(34px,5.5vw,54px);line-height:1.25;color:var(--cream);
+    letter-spacing:-.01em; margin-bottom:24px;
+  }
+  .hero-subtitle{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:clamp(16px,2vw,20px);color:var(--cream-dim);line-height:1.6;max-width:520px;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:18px;margin-top:40px;
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em;
+  }
+  .hero-meta b{color:var(--cream-dim);}
+
+  .article-wrap{background:var(--cream);color:var(--text-dark);}
+  .article-inner{max-width:680px;margin:0 auto;padding:80px 40px 100px;}
+
+  .lede{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:22px;line-height:1.7;color:var(--text-dark);
+    margin-bottom:48px;
+  }
+  .lede strong{font-style:normal;font-weight:700;color:var(--accent);}
+
+  p{margin-bottom:24px;font-size:17px;line-height:1.95;}
+
+  .pause{
+    display:flex;align-items:center;gap:16px;margin:48px 0;
+  }
+  .pause .line{flex:1;height:1px;background:rgba(14,21,32,0.1);}
+  .pause .mark{
+    font-family:'Space Mono',monospace;font-size:10px;
+    letter-spacing:.16em;color:var(--muted);white-space:nowrap;
+  }
+
+  .punch-block{
+    border-left:3px solid var(--gold);
+    padding:6px 0 6px 28px;margin:44px 0;
+  }
+  .punch-block p{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:20px;line-height:1.7;color:var(--text-dark);margin-bottom:12px;
+  }
+  .punch-block p:last-child{margin-bottom:0;}
+
+  .series-nav{
+    margin-top:52px;padding:24px 28px;
+    background:rgba(14,21,32,0.04);
+    border-radius:2px;
+    display:flex;flex-wrap:wrap;gap:12px;
+  }
+  .series-nav-label{
+    font-family:'Space Mono',monospace;font-size:10px;
+    letter-spacing:.14em;color:var(--muted);
+    width:100%;margin-bottom:4px;
+  }
+  .series-nav a{
+    font-family:'Space Mono',monospace;font-size:11px;
+    color:var(--accent);text-decoration:none;
+    border-bottom:1px solid rgba(14,21,32,0.2);
+    padding-bottom:2px;
+  }
+  .series-nav a:hover{color:var(--gold);border-color:var(--gold);}
+
+  .closing{
+    margin-top:60px;padding-top:40px;
+    border-top:1px solid rgba(14,21,32,0.12);
+  }
+  .closing p{
+    font-size:17px;line-height:1.95;
+    margin-bottom:20px;color:var(--text-dark);
+  }
+  .closing p.final-a{
+    font-family:'Noto Serif KR',serif;font-weight:700;
+    font-size:19px;color:var(--muted);margin-bottom:12px;
+  }
+  .closing p.final-b{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:21px;color:var(--accent);margin-bottom:0;
+  }
+
+  .share-fab{position:fixed;bottom:32px;right:32px;z-index:90;}
+  .share-toggle{
+    width:52px;height:52px;border-radius:50%;background:var(--accent);
+    border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform .2s;
+  }
+  .share-toggle:hover{transform:scale(1.06);}
+  .share-toggle svg{width:20px;height:20px;stroke:var(--cream);}
+  .share-panel{
+    position:absolute;bottom:64px;right:0;background:var(--bg);
+    border:1px solid rgba(242,237,230,0.15);border-radius:8px;padding:10px;
+    display:none;flex-direction:column;gap:6px;min-width:140px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .share-panel.open{display:flex;}
+  .share-panel button{
+    background:none;border:none;color:var(--cream);font-family:'Space Mono',monospace;
+    font-size:12px;text-align:left;padding:8px 10px;cursor:pointer;border-radius:4px;
+  }
+  .share-panel button:hover{background:rgba(200,150,62,0.15);}
+
+  footer{
+    background:var(--bg);padding:36px 40px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  }
+  footer .pub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);}
+  footer .nav-links{display:flex;gap:24px;}
+  footer .nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;}
+  footer .nav-links a:hover{color:var(--gold);}
+
+  @media(max-width:640px){
+    nav.site-nav{padding:16px 20px;}
+    .hero{min-height:90vh;padding:100px 0 60px;}
+    .hero-inner{padding:0 24px;}
+    .article-inner{padding:56px 24px 72px;}
+    .share-fab{bottom:24px;right:20px;}
+    footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="https://f3ynm4n.com" class="nav-logo">F3YNM4N</a>
+  <a href="https://f3ynm4n.com" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Culture · 정치 비평 · 4편</div>
+    <h1 class="hero-title">나는 틀렸기를<br>바랐다</h1>
+    <p class="hero-subtitle">대통령 지지는 거의 접을 지경입니다. 하지만 저는 이 민주주의를 포기할 생각이 없습니다.</p>
+    <div class="hero-meta">
+      <span>Category <b>Culture</b></span>
+      <span>Series <b>정치 비평 · 4/4</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-inner">
+
+    <p class="lede">정치에 관한 글을 몇 편 썼습니다. 쓰면서 내내 한 가지 마음이 있었습니다. <strong>내가 틀렸기를 바랐습니다.</strong></p>
+
+    <p>이 분석이 맞다면 우리는 또 실망하게 됩니다. 그러니까 틀렸으면 했어요. 계약은 지켜질 거라고, 이번엔 다를 거라고 믿고 싶었습니다.</p>
+
+    <div class="pause">
+      <div class="line"></div>
+      <div class="mark">개미와 군집</div>
+      <div class="line"></div>
+    </div>
+
+    <p>개인 시민과 대통령 사이의 힘의 격차는 인간과 개미의 격차입니다.</p>
+
+    <p>개미 한 마리가 인간 앞에서 할 수 있는 일은 없습니다. 물어봤자 간지럽고, 소리를 질러봤자 들리지 않습니다. 계약을 이행하라고 외쳐도, 이너서클은 꿈쩍하지 않고, 선거를 잘하는 사람이 통치를 잘한다는 보장도 없습니다. 개미 한 마리가 느끼는 무력감은 착각이 아닙니다. 실제로 그 격차가 존재합니다.</p>
+
+    <p>그래서 실망합니다. 당연히 실망해야 합니다. 문제는 그다음입니다.</p>
+
+    <p>실망이 포기가 되는 순간 — 그게 기득권이 원하는 결과입니다. 무관심한 유권자가 가장 다루기 쉬운 유권자입니다. 실망한 사람이 등을 돌리는 순간, 권력은 편해집니다. 요구가 사라지고, 압력이 없어지고, 광장이 조용해집니다. 개미 한 마리가 스스로 발을 떼는 거예요.</p>
+
+    <div class="punch-block">
+      <p>근데 개미 군집은 인간도 피합니다.</p>
+    </div>
+
+    <p>개미 한 마리의 힘이 아닙니다. 방향의 일치가 힘입니다. 같은 곳을 향해 움직이는 개미들 앞에서 인간은 피합니다. 민주주의는 바로 그 원리 위에 서 있어요. 개인의 힘을 키우는 게 아니라, 같은 방향을 가진 개인들이 모이는 구조입니다.</p>
+
+    <div class="pause">
+      <div class="line"></div>
+      <div class="mark">검증</div>
+      <div class="line"></div>
+    </div>
+
+    <p>오늘 유시민 작가의 이야기를 들었습니다. 놀랐던 건, 최근 제가 글에서 고민했던 문제와 비슷한 지점을 짚고 있었다는 점입니다.</p>
+
+    <p>자가면역질환. 외부의 적과 싸워야 할 동력이 내부 핵심 지지층을 파괴하는 데 낭비되고 있다는 진단입니다. 검찰개혁은 지연됐고, 이 정권을 만들어낸 사람들이 공격받고 있고, 대통령 지지율만 폭락하는 디커플링이 일어나고 있습니다.</p>
+
+    <p>지지층이 원한 건 증축이었습니다. 기존 기반 위에 한 층을 더 올리는 것. 근데 실제로 일어난 건 재건축이었습니다. 기존 입주자 동의 없이 용역을 투입해 철거하려 한 것. 선거에서 유능했던 방식이 통치에서는 통하지 않는 자리입니다.</p>
+
+    <p>유 작가는 이 상황을 되돌릴 열쇠는 대통령 본인뿐이라고 했습니다. 맞는 말입니다. 근데 그 열쇠를 쥐게 만드는 건 침묵이 아닙니다.</p>
+
+    <div class="pause">
+      <div class="line"></div>
+      <div class="mark">그럼에도</div>
+      <div class="line"></div>
+    </div>
+
+    <p>빛의 혁명이 그랬습니다. 광장에 나온 사람 한 명 한 명은 개미였지만, 군집은 역사를 바꿨습니다.</p>
+
+    <p>실망하세요. 당연히 해야 합니다. 근데 그 실망을 포기로 쓰지 마세요. 혼자가 아니라 같이, 개미가 아니라 군집으로.</p>
+
+    <div class="closing">
+      <p class="final-a">대통령 지지는 거의 접을 지경입니다.</p>
+      <p class="final-b">하지만 저는 이 민주주의를 포기할 생각이 없습니다.</p>
+    </div>
+
+    <div class="series-nav">
+      <span class="series-nav-label">정치 비평 시리즈</span>
+      <a href="social-contract.html">1편 — 우리는 왕을 뽑지 않았다</a>
+      <a href="inner-circle.html">2편 — 끼려 했던 자와 싸운 자</a>
+      <a href="peters-law.html">3편 — 대통령은 시장의 확장판이 아니다</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="share-fab">
+  <button class="share-toggle" onclick="document.querySelector('.share-panel').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  </button>
+  <div class="share-panel">
+    <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='복사됨 ✓';setTimeout(()=>this.textContent='URL 복사',1500)">URL 복사</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title))">X에 공유</button>
+    <button onclick="if(window.Kakao){Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:'대통령 지지는 거의 접을 지경입니다. 하지만 저는 이 민주주의를 포기할 생각이 없습니다.',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:window.location.href,webUrl:window.location.href}}})}">카카오톡 공유</button>
+  </div>
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 2026</span>
+  <div class="nav-links">
+    <a href="peters-law.html">← 3편</a>
+    <a href="index.html">홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 맨 위로</a>
+  </div>
+</footer>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>
+  if(window.Kakao && !Kakao.isInitialized()){ Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); }
+</script>
+
+</body>
+</html>
