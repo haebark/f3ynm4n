@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>시원한 나라의 도덕 2부 — F3YNM4N</title>
+  <meta name="description" content="온도를 올린 건 자기들이었고, 청구서는 아시아로 갔다" />
+  <meta property="og:title" content="시원한 나라의 도덕 2부" />
+  <meta property="og:description" content="온도를 올린 건 자기들이었고, 청구서는 아시아로 갔다" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://f3ynm4n.com/climate-privilege-2.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Playfair+Display:ital@1&family=Space+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0b;
+      --surface: #131310;
+      --gold: #c8963e;
+      --accent: #6b5fd8;
+      --text: #d4cfc8;
+      --muted: #7a7570;
+      --cover: #1a1a2e;
+    }
+
+    html { font-size: 18px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif KR', serif;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--cover);
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 4rem 2rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 30%, rgba(107,95,216,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 90% 80%, rgba(200,150,62,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .series-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .series-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .part-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.25;
+      color: #f0ece4;
+      margin-bottom: 0.5rem;
+      word-break: keep-all;
+    }
+
+    .hero-subtitle {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 300;
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      word-break: keep-all;
+    }
+
+    /* BODY */
+    .article-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    .section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 2.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(107,95,216,0.25);
+    }
+
+    p {
+      margin-bottom: 1.7rem;
+      font-weight: 400;
+      font-size: 1rem;
+      word-break: keep-all;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    strong {
+      color: #f0ece4;
+      font-weight: 500;
+    }
+
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      margin: 3rem 0;
+      padding: 1.2rem 2rem;
+      background: rgba(107,95,216,0.05);
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #e8e4dc;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* 구분선 */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 3.5rem 0;
+    }
+
+    /* SERIES NAV */
+    .series-nav {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 5rem;
+      padding-top: 2.5rem;
+    }
+
+    .series-nav-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .series-nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .nav-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 1.2rem 1.4rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+      display: block;
+    }
+    .nav-card:hover { border-color: var(--accent); }
+
+    .nav-card-dir {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-card-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    .nav-card.next { text-align: right; }
+    .nav-card.disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* SHARE FAB */
+    .share-fab { position: fixed; bottom: 32px; right: 32px; z-index: 90; }
+    .share-toggle {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--accent); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3); transition: transform 0.2s;
+    }
+    .share-toggle:hover { transform: scale(1.06); }
+    .share-toggle svg { width: 20px; height: 20px; stroke: #f0ece4; }
+    .share-panel {
+      position: absolute; bottom: 64px; right: 0;
+      background: var(--bg); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; padding: 10px;
+      display: none; flex-direction: column; gap: 6px; min-width: 140px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .share-panel.open { display: flex; }
+    .share-panel button {
+      background: none; border: none; color: var(--text);
+      font-family: 'Space Mono', monospace; font-size: 12px;
+      text-align: left; padding: 8px 10px; cursor: pointer; border-radius: 4px;
+    }
+    .share-panel button:hover { background: rgba(200,150,62,0.15); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem;
+      text-align: center;
+    }
+    footer a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .series-nav-grid { grid-template-columns: 1fr; }
+      .nav-card.next { text-align: left; }
+      .article-wrap { padding: 3rem 1.4rem 4rem; }
+      .hero { padding: 3rem 1.4rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="series-label">기후 특권 · 2부</div>
+    <div class="part-label">PART TWO</div>
+    <h1>시원한 나라의 도덕</h1>
+    <p class="hero-subtitle">온도를 올린 건 자기들이었고, 청구서는 아시아로 갔다</p>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article-wrap">
+
+  <div class="section-title">온도를 올린 건 자기들이었고, 청구서는 아시아로 갔다</div>
+
+  <p>산업혁명은 영국에서 시작됐다. 유럽과 미국이 석탄을 태우고 공장을 돌리던 150년 동안, 한국은 농경사회였고 중국은 열강의 수탈 아래 신음했다. 인도는 영국의 식민지였다. 지금 대기 중에 쌓인 CO₂의 역사적 책임을 따지면 서구가 압도적 다수를 차지한다. 기후변화를 일으킨 온실가스는 수십 년을 대기에 머문다. 지금 지구가 더워지는 건 지난 150년의 결과다. 그 150년 동안 아시아는 구경꾼이었다. 그리고 피해자였다.</p>
+
+  <p>그러다 생산기지가 아시아로 넘어왔다. 1980년대부터 가속화된 글로벌 분업 체계 속에서 유럽과 미국의 기업들은 공장을 중국으로, 한국으로, 베트남으로 옮겼다. 값싼 노동력, 느슨한 규제, 빠른 성장. 이윤은 본사로 돌아갔다. 오염은 현지에 남았다. 그리고 탄소 통계에는 중국과 한국의 배출량이 찍혔다. 유럽의 탄소 배출이 줄어든 건 그들이 깨끗해진 게 아니었다. <strong>더러운 공정을 수출했기 때문이었다.</strong> 폭스바겐의 부품이 동유럽과 아시아 공장에서 만들어지는 동안, 독일의 탄소 지표는 개선됐다. 그렇게 만든 제품을 다시 수입해서 소비하면서, 탄소 발자국은 생산국 몫으로 처리됐다.</p>
+
+  <div class="pullquote">
+    <p>범행을 저지른 자가 피해자에게 청소를 요구하는 형국이었다.</p>
+  </div>
+
+  <p>소비 기준으로 탄소를 따지면 그림이 완전히 달라진다. 누가 만들었느냐가 아니라 누가 소비했느냐로 책임을 배분하면, 유럽의 탄소 책임은 공식 통계보다 훨씬 높아진다. 그 계산은 글로벌 스탠더드에 포함되지 않았다. 포함시킬 이유가 없었으니까.</p>
+
+  <p>이 구조를 완성해놓고 손가락은 아시아를 향했다. 너희가 지구를 더럽히고 있다고. 탄소 감축에 협조하지 않는다고. 글로벌 기준을 따르지 않는다고. 파리협정에서 개발도상국의 감축 목표가 선진국과 다르게 설정된 건 그나마 역사적 책임을 인정한 흔적이었다. 하지만 현실에서 CBAM은 그 차이를 무력화했다. 유럽 시장에 팔려면 유럽 기준을 맞추라는 것이다. 협상 테이블에선 양보하는 척하고, 시장에서는 관세로 걷어찼다. 사다리를 먼저 올라가 걷어차는 것도 모자라, 아래에 있는 사람에게 왜 못 올라오냐고 훈계까지 했다.</p>
+
+  <hr class="divider" />
+
+  <p>그리고 지금, 유럽이 덥다.</p>
+
+  <p>파리가 40도를 넘고, 영국에 폭염 경보가 내린다. 스페인과 포르투갈은 산불로 타들어간다. 에어컨을 사본 적 없던 사람들이 처음으로 매장에 줄을 선다. 프랑스 가전 매장에서 이동식 에어컨이 품절됐다는 뉴스가 나온다. 수십 년간 쌓아올린 환경 교조주의가 폭염 한 철에 에어컨 구매로 귀결되는 장면. 그 장면이 모든 것을 설명한다.</p>
+
+  <p>그들이 에어컨 없이 살았던 건 의지가 아니었다. 필요가 없었을 뿐이다. 그 필요 없음의 조건이 사라지자, 태도도 함께 사라졌다. 아무도 자신의 교조를 철회하지 않았다. 그냥 조용히 다른 선택을 했다. 위선이라고 부르기도 민망하다. 위선은 적어도 자각이 있다. 이건 그냥 자기 조건을 진리로 믿었던 사람들이, 조건이 바뀌자 조용히 다른 선택을 하는 것이다.</p>
+
+  <p>지구의 온도를 올린 건 자기들이었다. 그 청구서를 아시아에 보냈다. 이제 자신들도 그 청구서를 받아들고 에어컨 코너 앞에 서 있다.</p>
+
+  <p><strong>시원한 나라의 도덕은, 나라가 더워지자 조용히 끝났다.</strong></p>
+
+  <!-- SERIES NAV -->
+  <nav class="series-nav">
+    <div class="series-nav-label">기후 특권 시리즈</div>
+    <div class="series-nav-grid">
+      <a href="climate-privilege-1.html" class="nav-card">
+        <div class="nav-card-dir">← 이전</div>
+        <div class="nav-card-title">그들의 기준은 처음부터 자기 조건이었다</div>
+      </a>
+      <div class="nav-card next disabled">
+        <div class="nav-card-dir">다음 →</div>
+        <div class="nav-card-title">—</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SHARE -->
+</article>
+
+<footer>
+  <a href="index.html">← F3YNM4N</a>
+</footer>
+
+<div class="share-fab">
+  <button class="share-toggle" onclick="document.querySelector('.share-panel').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  </button>
+  <div class="share-panel">
+    <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='복사됨 ✓';setTimeout(()=>this.textContent='URL 복사',1500)">URL 복사</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title))">X에 공유</button>
+    <button onclick="if(window.Kakao){Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:'온도를 올린 건 자기들이었고, 청구서는 아시아로 갔다',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:window.location.href,webUrl:window.location.href}}})}">카카오톡 공유</button>
+  </div>
+</div>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>
+  if(window.Kakao && !Kakao.isInitialized()){ Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); }
+</script>
+
+</body>
+</html>
