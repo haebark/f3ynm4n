@@ -37,6 +37,30 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* HEADER */
+    header.site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(13,13,11,0.88);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .header-logo {
+      font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-decoration: none; color: #f0ece4;
+    }
+    .header-logo:hover { color: var(--gold); }
+    .header-back {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
+      color: var(--muted); text-decoration: none;
+    }
+    .header-back:hover { color: var(--text); }
+    .header-back svg { width: 14px; height: 14px; }
+    @media (max-width: 600px) {
+      header.site-header { padding: 16px 20px; }
+    }
+
     /* HERO */
     .hero {
       background: var(--cover);
@@ -283,8 +307,16 @@
 </head>
 <body>
 
+<header class="site-header">
+  <a href="index.html" class="header-logo">F3YNM4N</a>
+  <a href="index.html" class="header-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</header>
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="padding-top: 5.5rem;">
   <div class="hero-inner">
     <div class="series-label">기후 특권 · 2부</div>
     <div class="part-label">PART TWO</div>
