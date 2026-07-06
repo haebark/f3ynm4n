@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>울산은 세 개의 지도 위에 있다 — F3YNM4N</title>
+  <meta name="description" content="부울경이 맞다, 그러나 울산은 여전히 애매하다">
+  <meta property="og:title" content="울산은 세 개의 지도 위에 있다">
+  <meta property="og:description" content="부울경이 맞다, 그러나 울산은 여전히 애매하다">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/ulsan-three-maps.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --accent: #1e3a5f;
+      --accent-light: #60a5fa;
+      --cream: #f2ede6;
+      --cream-dim: #e8e2d9;
+      --text-dark: #1a1a17;
+      --muted: #888880;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    header.site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(13,13,11,.88);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .header-logo {
+      font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-decoration: none; color: var(--cream);
+    }
+    .header-logo:hover { color: var(--accent-light); }
+    .header-back {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
+      color: var(--muted); text-decoration: none;
+    }
+    .header-back:hover { color: var(--cream); }
+    .header-back svg { width: 14px; height: 14px; }
+    @media (max-width: 600px) {
+      header.site-header { padding: 16px 20px; }
+    }
+
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 60px 0 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(30,58,95,0.2) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 15% 75%, rgba(30,58,95,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 50%; right: -1%;
+      transform: translateY(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(100px, 18vw, 260px);
+      font-weight: 700;
+      color: rgba(30,58,95,0.07);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 40px;
+      position: relative; z-index: 1; width: 100%;
+    }
+
+    .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(30,58,95,0.2);
+      border: 1px solid rgba(96,165,250,0.2);
+      padding: 5px 12px; border-radius: 2px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(26px, 4.5vw, 52px);
+      font-weight: 700; line-height: 1.25;
+      color: var(--cream); letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+
+    .hero-title em { font-style: normal; color: var(--accent-light); }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(15px, 2vw, 19px);
+      color: rgba(242,237,230,0.5); margin-bottom: 48px;
+    }
+
+    .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--accent-light), transparent); }
+
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.3;
+    }
+    .scroll-hint span { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    .article-body { background: var(--cream); color: var(--text-dark); }
+    .article-inner { max-width: 720px; margin: 0 auto; padding: 80px 40px 100px; }
+
+    .section { margin-bottom: 64px; }
+    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px; font-weight: 700; color: var(--text-dark);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      width: 100%;
+    }
+
+    .article-inner p { margin-bottom: 24px; color: #2a2a27; word-break: keep-all; }
+    .article-inner p:last-child { margin-bottom: 0; }
+    .intro-graf { font-size: 18px; line-height: 1.9; color: #1a1a17 !important; margin-bottom: 32px !important; }
+
+    blockquote { border-left: 3px solid var(--accent); margin: 36px 0; padding: 4px 0 4px 28px; }
+    blockquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.65; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .highlight { background: rgba(30,58,95,0.06); border: 1px solid rgba(30,58,95,0.15); padding: 20px 24px; margin: 28px 0; border-radius: 2px; }
+    .highlight p { font-size: 16px; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    /* 지도 비교 그리드 */
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 36px 0;
+      background: #1a1a17;
+    }
+
+    .map-item {
+      background: #1e1e1b;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .map-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .map-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 15px; font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .map-desc {
+      font-size: 13px;
+      color: rgba(242,237,230,0.5);
+      line-height: 1.6;
+      font-family: 'Noto Serif KR', serif;
+    }
+
+    .closing { margin-top: 72px; padding-top: 40px; border-top: 1px solid rgba(26,26,23,0.15); }
+    .closing p { font-size: 17px; line-height: 1.9; color: #1a1a17 !important; }
+    .closing-punch { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.5vw, 22px) !important; line-height: 1.7 !important; color: #0d0d0b !important; margin-top: 32px !important; }
+
+    .f3-share-btn { position: fixed; bottom: 32px; right: 32px; z-index: 1000; }
+    .f3-share-toggle { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(30,58,95,0.4); transition: transform 0.2s, background 0.2s; }
+    .f3-share-toggle:hover { transform: scale(1.08); background: #152d4a; }
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .f3-share-panel { position: absolute; bottom: 64px; right: 0; display: flex; flex-direction: column; gap: 10px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 0.2s, transform 0.2s; }
+    .f3-share-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .f3-share-action { display: flex; align-items: center; gap: 10px; background: #1e1e1b; border: 1px solid rgba(255,255,255,0.1); color: var(--cream); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; padding: 10px 16px; border-radius: 24px; cursor: pointer; white-space: nowrap; transition: background 0.15s; text-decoration: none; }
+    .f3-share-action:hover { background: #2a2a27; }
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    .article-footer { background: var(--bg); padding: 60px 40px; text-align: center; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: var(--cream); }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 90vh; padding-bottom: 60px; }
+      .hero-inner { padding: 0 24px; }
+      .article-inner { padding: 56px 24px 72px; }
+      .map-grid { grid-template-columns: 1fr; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="header-logo">F3YNM4N</a>
+  <a href="index.html" class="header-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</header>
+
+<section class="hero">
+  <div class="hero-watermark">地</div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-category">Culture</span>
+    </div>
+    <h1 class="hero-title">울산은 <em>세 개의 지도</em> 위에 있다</h1>
+    <p class="hero-subtitle">부울경이 맞다, 그러나 울산은 여전히 애매하다</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<article class="article-body">
+  <div class="article-inner">
+
+    <p class="intro-graf">울산에는 지하철이 없다. 광역시 중 유일하다. 1인당 소득 전국 최상위권, 현대자동차·HD현대중공업·SK이노베이션 같은 대기업이 몰려 있는 도시인데도 그렇다.</p>
+
+    <p>흔히 "암반이라서 못 판다"는 말이 떠돌지만, 핵심은 지반보다 경제성과 기존 산업 인프라다. 울산 도심 지하에는 송유관과 가스관, 공업용 배관이 수십 년 동안 촘촘히 깔려 있다. 수소 배관만 120km에 이른다. 산업도시로 성공했기 때문에, 역설적으로 새로운 교통 인프라를 넣기 어려워진 도시.</p>
+
+    <p>지도를 펴면 울산의 위치가 먼저 보인다. 남쪽으로 부산, 북쪽으로 경주. 실제 부산 생활권은 김해·양산·창원까지 이어진다. 울산은 그 바깥에 있다. 그런데도 부울경 안에 있다.</p>
+
+    <blockquote>
+      <p>이 아이러니는 사실 울산 전체를 설명한다.</p>
+    </blockquote>
+
+    <!-- 지도 요약 그리드 -->
+    <div class="map-grid">
+      <div class="map-item">
+        <div class="map-label">산업</div>
+        <div class="map-title">울포경</div>
+        <div class="map-desc">철강→부품→완성차<br>동해안 밸류체인</div>
+      </div>
+      <div class="map-item">
+        <div class="map-label">소비·심리</div>
+        <div class="map-title">부울경</div>
+        <div class="map-desc">백화점·병원·문화<br>삶의 동선은 부산</div>
+      </div>
+      <div class="map-item">
+        <div class="map-label">정치</div>
+        <div class="map-title">부울경</div>
+        <div class="map-desc">인구 800만<br>수도권 대항마</div>
+      </div>
+    </div>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">산업의 지도 — 울포경</h2>
+      </div>
+
+      <p>POSCO가 있는 포항에서 철강이 나온다. 그 소재는 경주의 부품업체를 거쳐 울산의 자동차 공장으로 들어간다. 철강에서 부품으로, 부품에서 완성차로. 이 흐름은 실제로 동해안을 따라 이어지는 산업 밸류체인이다.</p>
+
+      <p>행정구역상 포항과 경주는 경북, 울산은 광역시다. 지도만 보면 서로 다른 권역처럼 보인다. 그러나 돈과 물류가 움직이는 산업의 지도 위에서 셋은 이미 하나의 벨트다.</p>
+
+      <p>이를 제도화한 것이 해오름동맹이다. 2016년 출범한 이 협의체는 초광역 교통망, 수소 산업, 첨단소재 협력 등 수십 개 사업을 함께 추진해왔다. 9년째 굴러가는 실질적 연합체지만, 의외로 대중적 존재감은 약하다.</p>
+
+      <div class="highlight">
+        <p>이유는 간단하다. 숫자가 없기 때문이다. 선거 구도도, 생활권 통계도, 언론 프레임도 여전히 부울경 중심으로 짜여 있다. 산업 논리는 강하지만, 대중적 상징은 약하다.</p>
+      </div>
+    </div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">소비의 지도 — 부울경</h2>
+      </div>
+
+      <p>하지만 울산 사람들은 부산으로 간다.</p>
+
+      <p>백화점, 대형병원, 공연, 쇼핑. 큰 소비가 필요한 순간, 시선은 자연스럽게 부산으로 향한다. 산업의 돈은 동해안에서 벌어도, 소비의 중심은 부산이다.</p>
+
+      <p>소비가 어디서 이뤄지느냐는 단순한 지출 문제가 아니다. 그것이 심리적 중심을 만든다. 울산 사람이 부산에서 시간을 보내고, 돈을 쓰고, 문화를 경험하는 한, 생활 감각의 지도는 부울경에 가깝다.</p>
+
+      <p>산업 밸류체인이 울포경을 가리켜도, 삶의 동선은 부울경을 향한다.</p>
+    </div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">수도권 앞에서 — 결국 부울경</h2>
+      </div>
+
+      <p>정치의 지도는 더 단순하다. 수도권에 맞서려면 숫자가 필요하다. 부울경 메가시티가 등장한 이유다. 부산·울산·경남을 묶어 인구 800만 규모의 초광역권을 만들겠다는 구상이다.</p>
+
+      <p>물론 수도권의 힘은 숫자만이 아니다. 산업, 소비, 문화, 심리가 한곳에 응축돼 있다는 데 진짜 힘이 있다. 반면 부울경은 산업은 흩어져 있고, 소비는 부산으로 쏠리며, 심리적 정체성도 제각각이다.</p>
+
+      <p>그럼에도 수도권 앞에서는 부울경이 맞다. 부울경은 울산의 인구와 광역시 타이틀이 필요하고, 울산은 부울경의 정치적 무게와 부산의 소비 인프라가 필요하다. 서로가 서로를 필요로 하는 구조다.</p>
+
+      <p>다만 이유는 다르다. 그리고 산업만큼은, 둘의 계산이 맞지 않는다.</p>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <div class="section-header">
+        <h2 class="section-title">세 개의 지도는 모두 맞다</h2>
+      </div>
+
+      <p>세 개의 지도는 모두 맞다. 그리고 모두 다르다. 울산의 애매함은 어느 하나의 지도로 완전히 설명되지 않는다. 지하철을 쉽게 놓지 못하는 이유가 산업 성공의 부산물이듯, 이 도시의 복합적 정체성 역시 성공이 남긴 흔적이다.</p>
+
+      <p class="closing-punch">울산은 경계에 선 도시가 아니다. 서로 다른 세 개의 지도를 동시에 작동시키는, 드문 도시다.</p>
+    </div>
+
+  </div>
+</article>
+
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() { if (window.Kakao && !Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/ulsan-three-maps.html';
+  const PAGE_TITLE = '울산은 세 개의 지도 위에 있다';
+
+  document.getElementById('xShareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() { document.getElementById('sharePanel').classList.toggle('open'); }
+  function copyURL() { navigator.clipboard.writeText(PAGE_URL).then(function() { alert('URL이 복사됐습니다.'); }); document.getElementById('sharePanel').classList.remove('open'); }
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({ objectType: 'feed', content: { title: PAGE_TITLE, description: '부울경이 맞다, 그러나 울산은 여전히 애매하다', imageUrl: 'https://f3ynm4n.com/og_default.png', link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL } } });
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+  document.addEventListener('click', function(e) { if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open'); });
+</script>
+
+</body>
+</html>

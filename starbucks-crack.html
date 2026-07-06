@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>거인의 균열 — F3YNM4N</title>
+  <meta name="description" content="스타벅스는 어떻게 프리미엄의 칼을 무디게 했는가">
+  <meta property="og:title" content="거인의 균열">
+  <meta property="og:description" content="스타벅스는 어떻게 프리미엄의 칼을 무디게 했는가">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/starbucks-crack.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --accent: #14532d;
+      --accent-light: #4ade80;
+      --cream: #f2ede6;
+      --cream-dim: #e8e2d9;
+      --text-dark: #1a1a17;
+      --muted: #888880;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    header.site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(13,13,11,.88);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .header-logo {
+      font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-decoration: none; color: var(--cream);
+    }
+    .header-logo:hover { color: var(--accent-light); }
+    .header-back {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
+      color: var(--muted); text-decoration: none;
+    }
+    .header-back:hover { color: var(--cream); }
+    .header-back svg { width: 14px; height: 14px; }
+    @media (max-width: 600px) {
+      header.site-header { padding: 16px 20px; }
+    }
+
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 60px 0 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(20,83,45,0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 15% 75%, rgba(20,83,45,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 50%; right: -1%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(100px, 18vw, 260px);
+      font-weight: 700;
+      color: rgba(20,83,45,0.06);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 40px;
+      position: relative; z-index: 1; width: 100%;
+    }
+
+    .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+
+    .hero-category {
+      font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(20,83,45,0.2);
+      border: 1px solid rgba(74,222,128,0.2);
+      padding: 5px 12px; border-radius: 2px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 700; line-height: 1.2;
+      color: var(--cream); letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+
+    .hero-title em { font-style: normal; color: var(--accent-light); }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(14px, 1.8vw, 17px);
+      color: rgba(242,237,230,0.4); margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--accent-light), transparent); margin-top: 40px; }
+
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.3;
+    }
+    .scroll-hint span { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    .article-body { background: var(--cream); color: var(--text-dark); }
+    .article-inner { max-width: 720px; margin: 0 auto; padding: 80px 40px 100px; }
+
+    .section { margin-bottom: 64px; }
+    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px; font-weight: 700; color: var(--text-dark);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      width: 100%;
+    }
+
+    .article-inner p { margin-bottom: 24px; color: #2a2a27; word-break: keep-all; }
+    .article-inner p:last-child { margin-bottom: 0; }
+    .intro-graf { font-size: 18px; line-height: 1.9; color: #1a1a17 !important; margin-bottom: 32px !important; }
+
+    blockquote { border-left: 3px solid var(--accent); margin: 36px 0; padding: 4px 0 4px 28px; }
+    blockquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.65; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .highlight { background: rgba(20,83,45,0.05); border: 1px solid rgba(20,83,45,0.15); padding: 20px 24px; margin: 28px 0; border-radius: 2px; }
+    .highlight p { font-size: 16px; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .closing { margin-top: 72px; padding-top: 40px; border-top: 1px solid rgba(26,26,23,0.15); }
+    .closing p { font-size: 17px; line-height: 1.9; color: #1a1a17 !important; }
+    .closing-punch { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.5vw, 22px) !important; line-height: 1.7 !important; color: #0d0d0b !important; margin-top: 32px !important; }
+
+    .f3-share-btn { position: fixed; bottom: 32px; right: 32px; z-index: 1000; }
+    .f3-share-toggle { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(20,83,45,0.4); transition: transform 0.2s, background 0.2s; }
+    .f3-share-toggle:hover { transform: scale(1.08); background: #0f3d21; }
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .f3-share-panel { position: absolute; bottom: 64px; right: 0; display: flex; flex-direction: column; gap: 10px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 0.2s, transform 0.2s; }
+    .f3-share-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .f3-share-action { display: flex; align-items: center; gap: 10px; background: #1e1e1b; border: 1px solid rgba(255,255,255,0.1); color: var(--cream); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; padding: 10px 16px; border-radius: 24px; cursor: pointer; white-space: nowrap; transition: background 0.15s; text-decoration: none; }
+    .f3-share-action:hover { background: #2a2a27; }
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    .article-footer { background: var(--bg); padding: 60px 40px; text-align: center; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: var(--cream); }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 90vh; padding-bottom: 60px; }
+      .hero-inner { padding: 0 24px; }
+      .article-inner { padding: 56px 24px 72px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="header-logo">F3YNM4N</a>
+  <a href="index.html" class="header-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</header>
+
+<section class="hero">
+  <div class="hero-watermark">✦</div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-category">Economy</span>
+    </div>
+    <h1 class="hero-title">거인의 <em>균열</em></h1>
+    <p class="hero-subtitle">스타벅스는 어떻게 프리미엄의 칼을 무디게 했는가</p>
+    <p class="hero-subtitle">'제3의 공간'이라는 이름의 물류 허브</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<article class="article-body">
+  <div class="article-inner">
+
+    <p class="intro-graf">프리미엄은 비효율을 감당할 때 성립한다. 머물러도 눈치 보이지 않는 공간, 함부로 풀리지 않는 희소성, 수익보다 결을 먼저 지키는 태도. 이것들은 단기 수익의 관점에서 보면 전부 낭비다.</p>
+
+    <p>스타벅스는 그 낭비를 팔았다. 그리고 그것이 프리미엄이었다. 지금 스타벅스는 그 비효율을 걷어내고 있다. 거인의 균열은 거기서 시작됐다.</p>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">공간의 상실 — 안식처에서 처리 공간으로</h2>
+      </div>
+
+      <p>스타벅스가 한국 시장을 장악한 진짜 무기는 커피가 아니었다. 집도 직장도 아닌 제3의 공간. 머물러도 되는 곳. 그 체류의 권리와 상징적 품격에 소비자는 비용을 지불했다.</p>
+
+      <p>지금 많은 매장의 풍경은 다르다. 앱 주문 알림이 쉼 없이 울리고, 픽업 고객과 배달 동선이 한 공간에 뒤섞인다. 소파와 체류형 테이블은 줄었고, 짧은 회전율에 적합한 구조가 그 자리를 채웠다.</p>
+
+      <p>기업 입장에서는 효율적인 선택이다. 문제는 그것이 스타벅스가 가장 비싸게 팔아온 가치, 즉 머물 수 있는 품격을 약화시킨다는 점이다.</p>
+
+      <blockquote>
+        <p>공간의 권위를 잃은 프리미엄은 결국 비싼 테이크아웃으로 축소된다.</p>
+      </blockquote>
+    </div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">승자의 저주 — 독점의 대가</h2>
+      </div>
+
+      <p>프리미엄 브랜드의 권위는 희소성과 통제에서 나온다. 과거 스타벅스 한국 운영에는 글로벌 기준이라는 제동 장치가 있었다. 브랜드의 속도보다 결을 우선하는 구조였다.</p>
+
+      <p>신세계그룹이 한국 법인 지분을 완전히 확보한 이후 구조가 달라졌다. 막대한 인수 비용은 회수되어야 한다. 자본이 회수를 서두를 때 가장 먼저 흔들리는 것은 대개 장기적 브랜드 가치다.</p>
+
+      <p>물론 기업 내부의 정확한 의사결정은 외부에서 단정할 수 없다. 그러나 소비자가 체감하는 변화는 분명하다. 브랜드가 지켜야 할 여백은 줄어들고, 수익 최적화의 흔적은 점점 노골적으로 드러난다.</p>
+
+      <div class="highlight">
+        <p>프리미엄은 효율만으로 유지되지 않는다. 오히려 비효율처럼 보이는 여백을 감당할 때 비로소 성립한다. 황금알을 낳는 거위를 해부하면 내부 구조는 볼 수 있을지 몰라도, 더 이상 알은 나오지 않는다.</p>
+      </div>
+    </div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">권위의 희석 — 많이 팔수록 약해지는 브랜드</h2>
+      </div>
+
+      <p>한때 스타벅스 MD는 단순한 굿즈가 아니었다. 그것은 컵이 아니라, '나는 이 브랜드의 세계를 소비한다'는 작은 선언에 가까웠다.</p>
+
+      <p>희소성이 반복되면 더 이상 희소하지 않다. 특별함이 일상이 되는 순간 권위는 희석된다. 그리고 이 변화는 시장의 취향 진화와 정면으로 충돌한다. 위쪽에서는 로컬 스페셜티 카페들이 취향의 깊이를 제안하고, 아래쪽에서는 메가커피와 컴포즈커피가 압도적 효율로 가격의 논리를 완성한다.</p>
+
+      <p>그 사이에서 스타벅스가 과거의 권위마저 잃는다면 남는 것은 가장 위험한 포지션이다. 비싸지만 특별하지 않고, 익숙하지만 설레지 않으며, 효율을 따지면 더 나은 대안이 넘쳐나는 브랜드.</p>
+
+      <p>거인은 그렇게 무너지기 시작한다.</p>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <p>어설픈 저가 브랜드가 무너지는 일은 흔하다. 그러나 프리미엄 브랜드가 스스로 품격을 깎아내리며 효율 경쟁의 독약을 마시는 장면은 훨씬 더 처참하다.</p>
+
+      <p>시장은 설계도 위에서 완성되지 않는다. 냉정한 계산대 앞에서 완성된다.</p>
+
+      <p>스타벅스다움이란 결국 인간다움의 카페적 번역이었다. 적당히 느슨하고, 때로는 활기차며, 누구도 함부로 재촉하지 않는 리듬. 소비자가 비싼 값을 지불한 것은 커피가 아니라 그 인간적인 여백이었다. 프리미엄이란 결국 그런 것이다. 효율의 반대편에서, 사람이 사람답게 머무를 수 있도록 허락하는 것. 그리고 그 여백이 사라지는 순간, 브랜드는 비로소 숫자로는 설명할 수 없는 균열을 맞는다.</p>
+
+      <p class="closing-punch">소비자는 결국 묻는다. 당신은 왜 이 가격이어야 하는가. 그 질문에 끝내 답하지 못하는 순간, 거인은 더 이상 거인이 아니다.</p>
+    </div>
+
+  </div>
+</article>
+
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() { if (window.Kakao && !Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/starbucks-crack.html';
+  const PAGE_TITLE = '거인의 균열';
+
+  document.getElementById('xShareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() { document.getElementById('sharePanel').classList.toggle('open'); }
+  function copyURL() { navigator.clipboard.writeText(PAGE_URL).then(function() { alert('URL이 복사됐습니다.'); }); document.getElementById('sharePanel').classList.remove('open'); }
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({ objectType: 'feed', content: { title: PAGE_TITLE, description: '스타벅스는 어떻게 프리미엄의 칼을 무디게 했는가', imageUrl: 'https://f3ynm4n.com/og_default.png', link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL } } });
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+  document.addEventListener('click', function(e) { if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open'); });
+</script>
+
+</body>
+</html>
