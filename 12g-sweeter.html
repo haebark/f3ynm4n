@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12그램이 30그램보다 달았다 — F3YNM4N</title>
+  <meta name="description" content="혀는 숫자를 모른다. 혀는 맥락을 안다" />
+  <meta property="og:title" content="12그램이 30그램보다 달았다" />
+  <meta property="og:description" content="혀는 숫자를 모른다. 혀는 맥락을 안다" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://f3ynm4n.com/12g-sweeter.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Playfair+Display:ital@1&family=Space+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0b;
+      --surface: #131310;
+      --gold: #c8963e;
+      --accent: #1d6e4a;
+      --text: #d4cfc8;
+      --muted: #7a7570;
+      --cover: #0a2e1a;
+    }
+
+    html { font-size: 18px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif KR', serif;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      background: var(--cover);
+      min-height: 64vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 4rem 2rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(29,110,74,0.14) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 90%, rgba(200,150,62,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.3;
+      color: #f0ece4;
+      margin-bottom: 0.5rem;
+      word-break: keep-all;
+    }
+
+    .hero-subtitle {
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 300;
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      word-break: keep-all;
+    }
+
+    .article-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    .section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin: 4rem 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-title:first-of-type { margin-top: 0; }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(29,110,74,0.25);
+    }
+
+    p {
+      margin-bottom: 1.7rem;
+      font-weight: 400;
+      font-size: 1rem;
+      word-break: keep-all;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    strong { color: #f0ece4; font-weight: 500; }
+
+    .pullquote {
+      border-left: 3px solid var(--accent);
+      margin: 3rem 0;
+      padding: 1.2rem 2rem;
+      background: rgba(29,110,74,0.06);
+    }
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #e8e4dc;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .factbox {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-left: 3px solid var(--gold);
+      padding: 1.4rem 1.6rem;
+      margin: 2.5rem 0;
+    }
+    .factbox-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+    .factbox p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 3.5rem 0;
+    }
+
+    /* SHARE FAB */
+    .share-fab { position: fixed; bottom: 32px; right: 32px; z-index: 90; }
+    .share-toggle {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--accent); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3); transition: transform 0.2s;
+    }
+    .share-toggle:hover { transform: scale(1.06); }
+    .share-toggle svg { width: 20px; height: 20px; stroke: #f0ece4; }
+    .share-panel {
+      position: absolute; bottom: 64px; right: 0;
+      background: var(--bg); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; padding: 10px;
+      display: none; flex-direction: column; gap: 6px; min-width: 140px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .share-panel.open { display: flex; }
+    .share-panel button {
+      background: none; border: none; color: var(--text);
+      font-family: 'Space Mono', monospace; font-size: 12px;
+      text-align: left; padding: 8px 10px; cursor: pointer; border-radius: 4px;
+    }
+    .share-panel button:hover { background: rgba(200,150,62,0.15); }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem;
+      text-align: center;
+    }
+    footer a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-wrap { padding: 3rem 1.4rem 4rem; }
+      .hero { padding: 3rem 1.4rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Science · 잡생각</div>
+    <h1>12그램이 30그램보다 달았다</h1>
+    <p class="hero-subtitle">혀는 숫자를 모른다. 혀는 맥락을 안다</p>
+  </div>
+</section>
+
+<article class="article-wrap">
+
+  <p>초코 과자 하나를 먹었다. 달았다. 영양성분표를 보니 당류 12그램. 적당히 단 게 당연하다고 생각했다.</p>
+
+  <p>그 직전에 먹은 건 달지 않았다. 짭짤하거나 그냥 무덤덤한 맛이었다. 그런데 성분표를 보니 당류 30그램. 초코 과자의 두 배 반이 넘는 당이 들어 있었는데, 단맛은 거의 느껴지지 않았다.</p>
+
+  <p>이상했다. 당이 두 배 반 더 들어간 게 덜 달다니. 숫자가 거짓말을 하고 있거나, 혀가 거짓말을 하고 있거나 둘 중 하나였다. 정답은 둘 다 아니었다. 숫자도 맞고 혀도 맞았다. <strong>그냥 둘이 서로 다른 걸 측정하고 있었을 뿐이다.</strong></p>
+
+  <div class="section-title">당은 한 종류가 아니다</div>
+
+  <p>"당류 12그램"이라는 표기는 그 안에 어떤 당이 들었는지 말해주지 않는다. 자당(설탕), 과당, 포도당, 유당. 이름은 다 "당"으로 뭉뚱그려지지만 단맛의 세기는 천차만별이다.</p>
+
+  <p>과당은 자당보다 단맛이 훨씬 강하게 느껴진다. 음료 회사들이 액상과당을 즐겨 쓰는 이유 중 하나가 적은 양으로도 단맛을 확실하게 낼 수 있어서다. 반대로 포도당은 같은 양이어도 상대적으로 약하게 느껴지고, 유당 — 우유에 들어 있는 당 — 은 단맛 기여도가 가장 낮은 축에 속한다. 우유나 유제품이 많이 들어간 디저트가 당 함량은 높은데 안 달게 느껴지는 일이 흔한 건 이 때문이다.</p>
+
+  <p>즉 "당류 30그램"이 전부 자당이면 꽤 달겠지만, 그 상당 부분이 유당이라면 숫자만큼 달지 않다. 영양성분표는 분자 구조를 구분하지 않는다. 무게만 잰다.</p>
+
+  <div class="factbox">
+    <div class="factbox-label">참고</div>
+    <p>단맛의 상대적 세기는 보통 자당을 기준(1.0)으로 비교한다. 과당은 자당보다 단맛이 강하고, 포도당과 유당은 그보다 약하다. 같은 그램 수라도 어떤 당이냐에 따라 체감 단맛 차이가 크게 벌어진다.</p>
+  </div>
+
+  <div class="section-title">짠맛이 단맛을 가린다</div>
+
+  <p>당 함량이 같아도 단맛이 다르게 느껴지는 또 다른 이유는 짠맛이다. 짠맛과 단맛은 서로를 가리는 관계에 있다. 짠맛이 조금만 있어도 단맛을 감지하는 역치가 올라가고, 결과적으로 같은 양의 당이라도 덜 달게 느껴진다.</p>
+
+  <p>토마토소스에 설탕이 꽤 들어가도 그게 "단 소스"로 느껴지지 않는 이유, 김치에 설탕을 넣어도 단맛 대신 감칠맛만 살아나는 이유가 다 이거다. 짠맛이 단맛 위에 덮여서 단맛 신호 자체를 둔하게 만든다. 그 30그램짜리 과자가 짭짤한 계열이었다면, 단맛이 안 느껴진 이유의 절반은 여기 있다.</p>
+
+  <div class="pullquote">
+    <p>혀는 당을 재는 저울이 아니다. 맥락을 읽는 감각이다.</p>
+  </div>
+
+  <div class="section-title">지방, 온도, 그리고 직전의 기억</div>
+
+  <p>초콜릿류가 유독 달게 느껴지는 데는 지방도 한몫한다. 카카오버터 같은 지방 성분이 입안에서 녹으면서 당이 미뢰에 닿는 방식을 바꾼다. 지방은 단맛을 더 빠르고 진하게, 그리고 더 오래 머물게 만든다. 반면 바삭하고 빨리 부서지는 식감의 과자는 당이 침에 녹아 혀에 닿는 시간 자체가 짧아서, 단맛이 스쳐 지나가는 느낌만 남긴다.</p>
+
+  <p>온도도 변수다. 차가운 음식은 단맛 수용체의 반응이 둔해지는 경향이 있어서 같은 당이라도 덜 달게 느껴지고, 따뜻해지면 더 달게 느껴진다. 아이스크림이 녹기 시작하면 갑자기 더 달게 느껴지는 경험은 착각이 아니다.</p>
+
+  <p>심지어 직전에 뭘 먹었는지도 영향을 준다. 짠 음식을 먹은 직후에 단 걸 먹으면 평소보다 더 달게 느껴지는 대비 효과가 있다. 혀는 절대값을 재지 않는다. 직전 상태와의 차이, 그러니까 상대값을 잰다.</p>
+
+  <hr class="divider" />
+
+  <p>결국 그 초코 과자가 달았던 건 당이 유난히 진해서가 아니라, 단맛을 느끼기 좋은 조건이 한꺼번에 겹쳤기 때문이다. 단맛 강한 당 종류, 지방의 보조, 빨리 부서지지 않는 식감. 반대로 30그램짜리가 안 달았던 건 당의 절대량과 무관하게, 그 당을 가리는 조건 — 짠맛이든 유당이든 식감이든 — 이 더 강했기 때문이다.</p>
+
+  <p>영양성분표의 숫자는 거짓말을 하지 않는다. 다만 그 숫자가 답하는 질문과, 혀가 답하는 질문이 다를 뿐이다. 성분표는 "얼마나 들어있나"를 말하고, 혀는 "지금 이 조건에서 얼마나 느껴지나"를 말한다.</p>
+
+  <p><strong>혀는 숫자를 모른다. 혀는 맥락을 안다.</strong></p>
+
+
+</article>
+
+<footer>
+  <a href="index.html">← F3YNM4N</a>
+</footer>
+
+<div class="share-fab">
+  <button class="share-toggle" onclick="document.querySelector('.share-panel').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  </button>
+  <div class="share-panel">
+    <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='복사됨 ✓';setTimeout(()=>this.textContent='URL 복사',1500)">URL 복사</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title))">X에 공유</button>
+    <button onclick="if(window.Kakao){Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:'혀는 숫자를 모른다. 혀는 맥락을 안다',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:window.location.href,webUrl:window.location.href}}})}">카카오톡 공유</button>
+  </div>
+</div>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>
+  if(window.Kakao && !Kakao.isInitialized()){ Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); }
+</script>
+
+</body>
+</html>
