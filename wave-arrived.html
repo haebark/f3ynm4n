@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>파도가 왔다 — F3YNM4N</title>
+  <meta name="description" content="100편 동안 배운 건, 파도를 타는 법이 아니라 파도를 보는 법이었다." />
+  <meta property="og:title" content="파도가 왔다" />
+  <meta property="og:description" content="100편 동안 배운 건, 파도를 타는 법이 아니라 파도를 보는 법이었다." />
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://f3ynm4n.com/wave-arrived.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --gold: #c8963e;
+      --text: #e8e4dc;
+      --text-muted: #9a9488;
+      --text-body: #ccc8c0;
+      --divider: rgba(200, 150, 62, 0.2);
+      --accent: #c8963e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.95;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(13,13,11,0.97), transparent);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-category {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(13,13,11,1) 0%, rgba(13,13,11,0.4) 50%, rgba(13,13,11,0.8) 100%),
+        linear-gradient(160deg, rgba(200,150,62,0.04) 0%, transparent 50%, rgba(200,150,62,0.03) 100%);
+    }
+
+    .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      opacity: 0.1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5.5vw, 64px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      margin-top: 32px;
+    }
+
+    .hero-meta-dot {
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+
+    .article-wrap {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 72px 40px 120px;
+    }
+
+    .opening {
+      margin-bottom: 64px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .opening p {
+      font-size: 18px;
+      line-height: 1.9;
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .opening p:last-child { margin-bottom: 0; }
+
+    .opening .pivot {
+      font-size: 17px;
+      color: var(--text-muted);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      margin: 28px 0;
+      padding-left: 20px;
+      border-left: 2px solid rgba(200,150,62,0.3);
+    }
+
+    .opening .declaration {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .section p {
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 16px;
+      line-height: 1.95;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .kw {
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    .pull {
+      margin: 36px 0;
+      padding: 0 0 0 24px;
+      border-left: 2px solid rgba(200,150,62,0.4);
+    }
+
+    .pull p {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--text) !important;
+      line-height: 1.65;
+      margin: 0 !important;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 52px 0;
+      opacity: 0.3;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .divider span {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+    }
+
+    .closing {
+      margin-top: 72px;
+      padding-top: 56px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .closing-lines p {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 10px;
+      line-height: 1.8;
+    }
+
+    .closing-final {
+      margin-top: 36px;
+    }
+
+    .closing-final p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(17px, 2.5vw, 21px);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .closing-final p:last-child {
+      color: var(--text-muted);
+      font-size: 16px;
+      font-style: normal;
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 700;
+    }
+
+    .bottom-nav {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--divider);
+    }
+
+    .bottom-nav a {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .bottom-nav a:hover { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .hero-content { padding: 0 20px; }
+      .article-wrap { padding: 56px 20px 80px; }
+      .bottom-nav { padding: 40px 20px 60px; }
+    }
+
+    /* f3-share-btn 컴포넌트 */
+    .f3-share-btn{
+      position:fixed;bottom:36px;right:36px;z-index:1000;
+      display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+    }
+    .f3-share-toggle{
+      width:44px;height:44px;border-radius:50%;
+      background:#c8963e;border:none;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      transition:transform .2s,background .2s;
+      box-shadow:0 2px 12px rgba(200,150,62,.35);
+    }
+    .f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+    .f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+    .f3-share-panel{
+      display:flex;flex-direction:column;gap:6px;
+      opacity:0;transform:translateY(8px) scale(.96);
+      pointer-events:none;
+      transition:opacity .18s ease,transform .18s ease;
+    }
+    .f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+    .f3-share-item{
+      display:flex;align-items:center;gap:10px;
+      background:#0d0d0b;border:1px solid rgba(200,150,62,.3);
+      padding:10px 16px;cursor:pointer;
+      font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;
+      color:#c8963e;text-transform:uppercase;white-space:nowrap;
+      transition:background .15s,border-color .15s;
+      text-decoration:none;
+    }
+    .f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+    .f3-share-item .f3-share-icon{
+      width:16px;height:16px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .f3-share-toast{
+      position:fixed;bottom:100px;right:36px;z-index:1001;
+      background:#0d0d0b;border:1px solid rgba(200,150,62,.4);
+      padding:10px 18px;
+      font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;
+      opacity:0;transform:translateY(4px);
+      transition:opacity .2s,transform .2s;pointer-events:none;
+    }
+    .f3-share-toast.show{opacity:1;transform:translateY(0);}
+    @media(max-width:640px){
+      .f3-share-btn{bottom:24px;right:20px;}
+      .f3-share-toast{right:20px;bottom:90px;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">F3YNM4N</a>
+    <span class="nav-category">잡생각</span>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <svg class="hero-wave" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,100 C240,160 480,40 720,100 C960,160 1200,40 1440,100 L1440,200 L0,200 Z" fill="rgba(200,150,62,1)"/>
+      <path d="M0,130 C360,70 720,170 1080,110 C1260,80 1380,140 1440,130 L1440,200 L0,200 Z" fill="rgba(200,150,62,0.4)"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="hero-tag">잡생각 · 100편 기념</div>
+      <h1 class="hero-title">파도가<br><em>왔다</em></h1>
+      <div class="hero-meta">
+        <span>F3YNM4N</span>
+        <span class="hero-meta-dot"></span>
+        <span>2026</span>
+        <span class="hero-meta-dot"></span>
+        <span>Article 100</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-wrap">
+
+    <div class="opening">
+      <p>50편 전, 나는 이렇게 썼다.</p>
+      <p class="pivot">깃발은 이미 꽂혔다. 이제 남은 건, 바다가 움직이는 걸 기다리는 일이다.</p>
+      <p>그 뒤로 50편을 더 썼다. 오늘로 100편이다.</p>
+      <p class="declaration">파도가 왔는지는 아직도 모르겠다. 조회수가 터진 것도, 알고리즘이 갑자기 나를 밀어준 것도 아니다. 그런 종류의 파도는 오지 않았다. 대신 다른 게 왔다.</p>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">반복된 건 소재가 아니었다</h2>
+      <p>50편을 쓸 땐 몰랐던 게 있다. 매일 글을 쓴다는 게 매번 새로운 소재를 찾는 일이라고 생각했다. 근데 100편을 채우고 보니, 진짜 반복된 건 소재가 아니라 하나의 동작이었다.</p>
+      <p><span class="kw">익숙한 걸 다르게 보는 동작.</span></p>
+      <p>증축과 재건축이라는 비유에 다들 말려들 때, 그 비유가 전제하는 걸 의심하고 개간이라는 세 번째 그림을 그렸다. 유럽이 환경을 지킨다고 믿었을 때, 그게 도덕이 아니라 위도였다는 걸 들여다봤다. 초콜릿이 달고 저칼로리 과자가 안 단 이유를 물었을 때, 숫자가 아니라 맥락이 답이라는 걸 알았다. 아이돌 한 명을 별로라고 믿었을 때, 그 판단이 사실 노출 기준의 문제였다는 걸 뒤늦게 알았다.</p>
+
+      <div class="pull">
+        <p>전부 다른 글이었다. 정치, 환경, 미각, 아이돌.<br>근데 동작은 하나였다. 프레임을 붙잡고, 그 밑을 들춰보는 것.</p>
+      </div>
+    </div>
+
+    <div class="divider"><span>◆</span></div>
+
+    <div class="section">
+      <h2 class="section-title">우연이 아니라 패턴이었다</h2>
+      <p>이게 처음부터 의도한 방법론은 아니었다. 그냥 어쩌다 보니 계속 그렇게 쓰고 있었다. 100편이 쌓이고 나서야, 그게 우연이 아니라 패턴이었다는 걸 알았다.</p>
+      <p>되짚어보면 이건 오래전부터 있던 습성이었다. 전공 하나를 깊게 파는 대신, 여러 영역을 오가며 작은 관찰들을 쌓아온 방식. 그게 어느 순간 하나로 연결되는 경험. 좁게 파고드는 지능 말고, 멀리 떨어진 것들을 가로지르는 지능도 있다는 감각.</p>
+      <p>100편은 그 감각이 실제로 작동한다는 걸 확인시켜준 실험이었다. 정치 비평 하나 쓰다가 그 안에서 프레임의 작동 원리를 봤고, 미각 에세이 하나 쓰다가 인지가 숫자보다 맥락을 따른다는 걸 봤다. 서로 다른 글이 결국 같은 근육을 쓰고 있었다.</p>
+    </div>
+
+    <div class="divider"><span>◆</span></div>
+
+    <div class="section">
+      <h2 class="section-title">쌓다 보면 패턴이 드러난다</h2>
+      <p>숫자로 보면 이렇다. 정치, 경제, 과학, 문화, 역사를 오가며 100편. 정치 시리즈, 지정학 3부작, 삼국지 인물론, 기후특권, 위기는 침묵한 적 없다 — 크고 작은 시리즈가 여럿 자연스럽게 생겨났다. 처음엔 하루 한 편이 목표였는데, 어느새 그 한 편들이 자기들끼리 묶이기 시작했다.</p>
+      <p>50편 땐 이런 그림을 그리지 못했다. 그때는 그냥 쌓고 있었다. 지금은 안다. <span class="kw">쌓다 보면 패턴이 스스로 드러난다는 걸.</span></p>
+    </div>
+
+    <div class="closing">
+      <div class="closing-lines">
+        <p>파도가 준비된 자에게만 기회라고 썼던 50편 전의 나에게, 지금은 이렇게 말해주고 싶다.</p>
+        <p>파도는 오지 않아도 된다. 파도를 기다리는 동안 네가 파도 읽는 법을 배운다면, 그게 이미 온 것이다.</p>
+      </div>
+      <div class="closing-final">
+        <p>100편이 증명한 건 파도가 왔다는 사실이 아니다.<br>파도를 기다리던 사람이, 어느새 파도를 읽는 사람이 되었다는 사실이다.</p>
+      </div>
+
+      <f3-share-btn></f3-share-btn>
+    </div>
+
+  </article>
+
+  <div class="bottom-nav">
+    <a href="index.html">← 목록으로</a>
+    <a href="index.html">F3YNM4N</a>
+  </div>
+
+  <div class="f3-share-btn" id="f3ShareBtn">
+    <div class="f3-share-panel" id="f3SharePanel">
+      <button class="f3-share-item" onclick="f3CopyUrl()">
+        <span class="f3-share-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round">
+            <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+        </span>
+        URL 복사
+      </button>
+      <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+        <span class="f3-share-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </span>
+        X 공유
+      </a>
+      <button class="f3-share-item" onclick="f3ShareKakao()">
+        <span class="f3-share-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e">
+            <path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/>
+          </svg>
+        </span>
+        카카오톡
+      </button>
+    </div>
+    <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+      <svg viewBox="0 0 24 24">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+  <script>
+  window.addEventListener('pageshow', function(e) {
+    if (typeof Kakao === 'undefined') {
+      var s = document.createElement('script');
+      s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+      s.onload = function() {
+        if (!Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba');
+      };
+      document.head.appendChild(s);
+    }
+  });
+  </script>
+
+  <script>
+  (function(){
+    var KAKAO_KEY = 'e0642d0a5c0ae01b8893422a148e9aba';
+
+    function loadKakaoSDK(cb){
+      if(window.Kakao){cb();return;}
+      var s=document.createElement('script');
+      s.src='https://developers.kakao.com/sdk/js/kakao.min.js';
+      s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};
+      document.head.appendChild(s);
+    }
+
+    var panelOpen = false;
+
+    window.f3ToggleShare = function(){
+      panelOpen = !panelOpen;
+      document.getElementById('f3SharePanel').classList.toggle('open', panelOpen);
+    };
+
+    window.f3CopyUrl = function(){
+      var url = location.href;
+      navigator.clipboard.writeText(url).then(function(){
+        showToast('URL 복사됨');
+      }).catch(function(){
+        var ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta);
+        ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        showToast('URL 복사됨');
+      });
+      panelOpen = false;
+      document.getElementById('f3SharePanel').classList.remove('open');
+    };
+
+    var xLink = document.getElementById('f3ShareX');
+    if(xLink){
+      var title = document.title || 'F3YNM4N';
+      var url = location.href;
+      xLink.href = 'https://twitter.com/intent/tweet?text=' +
+        encodeURIComponent(title) + '&url=' + encodeURIComponent(url);
+    }
+
+    window.f3ShareKakao = function(){
+      if(!KAKAO_KEY){ showToast('카카오 앱키 필요'); return; }
+      loadKakaoSDK(function(){
+        var title = document.title || 'F3YNM4N';
+        var desc  = document.querySelector('meta[name="description"]');
+        Kakao.Share.sendDefault({
+          objectType: 'feed',
+          content: {
+            title: title,
+            description: desc ? desc.content : '',
+            imageUrl: 'https://f3ynm4n.com/og_default.png',
+            link: { mobileWebUrl: location.href, webUrl: location.href }
+          },
+          buttons: [{
+            title: '읽기',
+            link: { mobileWebUrl: location.href, webUrl: location.href }
+          }]
+        });
+      });
+    };
+
+    function showToast(msg){
+      var t = document.getElementById('f3Toast');
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 2000);
+    }
+
+    document.addEventListener('click', function(e){
+      if(!document.getElementById('f3ShareBtn').contains(e.target)){
+        panelOpen = false;
+        document.getElementById('f3SharePanel').classList.remove('open');
+      }
+    });
+  })();
+  </script>
+
+</body>
+</html>
