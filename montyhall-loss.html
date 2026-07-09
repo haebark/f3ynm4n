@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>바꾸는 게 맞다. 그래도 나는 안 바꾼다 · F3YNM4N</title>
+<meta name="description" content="수학적 정답이 현실의 최선이 아닐 때.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="바꾸는 게 맞다. 그래도 나는 안 바꾼다 · F3YNM4N">
+<meta property="og:description" content="수학적 정답이 현실의 최선이 아닐 때.">
+<meta property="og:url" content="https://f3ynm4n.com/montyhall-loss.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://f3ynm4n.com/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Serif+KR:wght@400;500;700;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+  :root{
+    --bg:#0d0d0b; --cream:#f2ede6; --cream-dim:#cfc8bb;
+    --gold:#c8963e; --accent:#1a1a2e; --accent-light:#4a4a8a;
+    --text-dark:#111118; --muted:#8a8a95;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'Noto Serif KR',serif; font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  nav.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px; background:rgba(13,13,11,0.88);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  }
+  .nav-logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.1em;text-decoration:none;color:var(--cream);}
+  .nav-logo:hover{color:var(--gold);}
+  .nav-back{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-decoration:none;}
+  .nav-back:hover{color:var(--cream);}
+  .nav-back svg{width:14px;height:14px;}
+
+  .hero{
+    background:var(--bg); min-height:100vh; display:flex; flex-direction:column;
+    justify-content:flex-end; padding:120px 0 80px; position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 55% 45% at 78% 12%, rgba(74,74,138,0.1), transparent 60%),
+      radial-gradient(ellipse 45% 50% at 8% 88%, rgba(26,26,46,0.6), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;padding:0 40px;position:relative;}
+  .eyebrow{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;
+    color:var(--gold);text-transform:uppercase;margin-bottom:20px;
+  }
+  .hero-title{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:clamp(30px,5vw,50px);line-height:1.3;color:var(--cream);
+    letter-spacing:-.01em; margin-bottom:24px;
+  }
+  .hero-subtitle{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:clamp(16px,2vw,20px);color:var(--cream-dim);line-height:1.6;max-width:520px;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:18px;margin-top:40px;
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em;
+  }
+  .hero-meta b{color:var(--cream-dim);}
+
+  .article-wrap{background:var(--cream);color:var(--text-dark);}
+  .article-inner{max-width:680px;margin:0 auto;padding:80px 40px 100px;}
+
+  .lede{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:22px;line-height:1.7;color:var(--text-dark);
+    margin-bottom:48px;
+  }
+  .lede strong{font-style:normal;font-weight:700;color:var(--accent);}
+
+  p{margin-bottom:24px;font-size:17px;line-height:1.95;}
+
+  h2.section-head{
+    font-family:'Noto Serif KR',serif;font-weight:900;font-size:21px;
+    margin:56px 0 20px;color:var(--text-dark);letter-spacing:-.01em;
+    padding-top:8px;border-top:1px solid rgba(17,17,24,0.1);
+  }
+
+  .formula-block{
+    background:rgba(17,17,24,0.04);
+    border:1px solid rgba(17,17,24,0.1);
+    border-radius:2px;
+    padding:24px 28px;
+    margin:36px 0;
+    font-family:'Space Mono',monospace;
+    font-size:14px;
+    line-height:2.0;
+    color:var(--text-dark);
+  }
+  .formula-block .formula-label{
+    font-size:10px;letter-spacing:.14em;
+    color:var(--accent-light);text-transform:uppercase;
+    margin-bottom:12px;display:block;
+  }
+  .formula-block .formula-result{
+    margin-top:12px;padding-top:12px;
+    border-top:1px solid rgba(17,17,24,0.1);
+    font-weight:700;color:var(--accent);
+  }
+
+  .nobel-block{
+    background:rgba(74,74,138,0.06);
+    border:1px solid rgba(74,74,138,0.15);
+    border-radius:2px;
+    padding:24px 28px;
+    margin:36px 0;
+  }
+  .nobel-block .nobel-label{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;
+    color:var(--accent-light);text-transform:uppercase;
+    margin-bottom:10px;display:block;
+  }
+  .nobel-block p{font-size:16px;margin-bottom:12px;}
+  .nobel-block p:last-child{margin-bottom:0;}
+
+  .punch-block{
+    border-left:3px solid var(--gold);
+    padding:6px 0 6px 28px;margin:44px 0;
+  }
+  .punch-block p{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:20px;line-height:1.7;color:var(--text-dark);margin-bottom:0;
+  }
+
+  .closing{
+    margin-top:60px;padding-top:40px;
+    border-top:1px solid rgba(17,17,24,0.12);
+  }
+  .closing p{
+    font-size:17px;line-height:1.95;
+    margin-bottom:20px;color:var(--text-dark);
+  }
+  .closing p.final{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:20px;line-height:1.7;
+    color:var(--accent);margin-bottom:0;margin-top:28px;
+  }
+
+  .share-fab{position:fixed;bottom:32px;right:32px;z-index:90;}
+  .share-toggle{
+    width:52px;height:52px;border-radius:50%;background:var(--accent);
+    border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform .2s;
+  }
+  .share-toggle:hover{transform:scale(1.06);}
+  .share-toggle svg{width:20px;height:20px;stroke:var(--cream);}
+  .share-panel{
+    position:absolute;bottom:64px;right:0;background:var(--bg);
+    border:1px solid rgba(242,237,230,0.15);border-radius:8px;padding:10px;
+    display:none;flex-direction:column;gap:6px;min-width:140px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .share-panel.open{display:flex;}
+  .share-panel button{
+    background:none;border:none;color:var(--cream);font-family:'Space Mono',monospace;
+    font-size:12px;text-align:left;padding:8px 10px;cursor:pointer;border-radius:4px;
+  }
+  .share-panel button:hover{background:rgba(200,150,62,0.15);}
+
+  footer{
+    background:var(--bg);padding:36px 40px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  }
+  footer .pub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);}
+  footer .nav-links{display:flex;gap:24px;}
+  footer .nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;}
+  footer .nav-links a:hover{color:var(--gold);}
+
+  @media(max-width:640px){
+    nav.site-nav{padding:16px 20px;}
+    .hero{min-height:90vh;padding:100px 0 60px;}
+    .hero-inner{padding:0 24px;}
+    .article-inner{padding:56px 24px 72px;}
+    .formula-block{padding:18px 20px;font-size:13px;}
+    .share-fab{bottom:24px;right:20px;}
+    footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="https://f3ynm4n.com" class="nav-logo">F3YNM4N</a>
+  <a href="https://f3ynm4n.com" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Culture · 확률과 심리</div>
+    <h1 class="hero-title">바꾸는 게 맞다.<br>그래도 나는 안 바꾼다</h1>
+    <p class="hero-subtitle">수학적 정답이 현실의 최선이 아닐 때</p>
+    <div class="hero-meta">
+      <span>Category <b>Culture</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-inner">
+
+    <p class="lede">몬티홀 문제를 이해하는 데 시간이 걸렸습니다. 여러 번 설명을 들은 다음에야 납득했어요. 바꾸는 게 2/3로 유리하다는 것. 수학적으로 맞습니다. <strong>인정했습니다.</strong></p>
+
+    <p>근데 인정하고 나서 다른 질문이 생겼습니다.</p>
+
+    <p>단판이라면?</p>
+
+    <h2 class="section-head">수학이 맞는 이유</h2>
+
+    <p>몬티홀의 수학은 반복 실험을 전제로 한 기대값입니다. 이 게임을 100번 하면 바꾸는 쪽이 약 67번 이깁니다. 누적하면 바꾸는 게 압도적으로 유리합니다. 이건 틀리지 않아요.</p>
+
+    <p>전략 우위는 1/3입니다. 수식으로 보면:</p>
+
+    <div class="formula-block">
+      <span class="formula-label">단판 신호대잡음비 (SNR)</span>
+      Δ = 2/3 − 1/3 = 0.333 &nbsp;(전략 우위)<br>
+      σ = √(2/3 × 1/3) ≈ 0.471 &nbsp;(단판 표준편차)<br>
+      SNR = Δ / σ ≈ 0.707
+      <div class="formula-result">SNR &lt; 1 — 신호보다 잡음이 크다</div>
+    </div>
+
+    <p>전략 우위는 분명히 있습니다. 하지만 단판에서 그 우위는 변동성에 묻힙니다. 통계의 힘은 반복에서 나오니까요. 단판에서 "2/3로 유리하다"는 말은 맞지만, 그 유리함이 이번 한 번의 결과를 보장하지는 않습니다.</p>
+
+    <h2 class="section-head">손실 회피</h2>
+
+    <p>그리고 여기서 더 결정적인 게 들어옵니다.</p>
+
+    <p>몬티홀에서 바꿨다가 틀렸을 때의 후회와, 안 바꿨다가 틀렸을 때의 후회는 다릅니다. "내가 바꾸지만 않았어도"라는 후회가 "그냥 유지했어야 했는데"보다 훨씬 크게 느껴져요. 행동으로 인한 손실이 비행동으로 인한 손실보다 더 아프거든요.</p>
+
+    <div class="punch-block">
+      <p>수학이 바꾸라고 해도, 단판에서 손실 회피가 발목을 잡습니다.</p>
+    </div>
+
+    <h2 class="section-head">인간은 다르게 설계돼 있다</h2>
+
+    <p>2002년 노벨경제학상은 심리학자에게 돌아갔습니다. 대니얼 카너먼. 그가 증명한 건 인간이 기대값을 최대화하는 합리적 기계가 아니라는 거였어요.</p>
+
+    <div class="nobel-block">
+      <span class="nobel-label">전망 이론 · Prospect Theory · Kahneman &amp; Tversky</span>
+      <p>사람은 절대적 결과가 아니라 기준점 대비 변화로 가치를 판단합니다. 손실 구간의 기울기가 이득 구간보다 약 2.25배 가파릅니다. 만 원을 주울 때의 기쁨보다 만 원을 잃을 때의 고통이 훨씬 크다는 거예요.</p>
+      <p>행동으로 인한 후회(action regret)가 비행동으로 인한 후회(omission regret)보다 훨씬 크다는 것도 반복 실험으로 검증됐습니다. 이건 편향이 아닙니다. 인간이 불확실성 하에서 작동하는 방식입니다.</p>
+    </div>
+
+    <p>수학이 틀린 게 아닙니다. 인간의 시스템이 수학과 다르게 작동하는 겁니다. 현상 유지 편향(Status Quo Bias)도 단순한 게으름이 아니에요. 정보가 불완전할 때 현상 유지가 더 안전한 경우가 많았기 때문에 진화적으로 남은 전략입니다.</p>
+
+    <h2 class="section-head">효용 함수가 달라진다</h2>
+
+    <p>바꾸는 게 수학적으로는 최적입니다. 하지만 사람이 항상 승률만 최대화하는 것은 아닙니다. 후회, 감정 비용, 심리적 만족까지 포함한다면 효용 함수가 달라지고, 그때는 안 바꾸는 선택도 충분히 합리적일 수 있습니다.</p>
+
+    <p>반복 게임의 기대값을 최적화하는 게 목표라면 바꿔야 합니다. 단판에서 감정 비용을 최소화하는 게 목표라면 안 바꾸는 선택도 합리적입니다. 수학적 최적해와 현실적 최선은 다를 수 있어요.</p>
+
+    <div class="closing">
+      <p>몬티홀을 틀렸다고 웃는 사람들이 있습니다. 하지만 그들이 말하는 정답은 반복 게임의 정답입니다. 단판에서는 사람마다 최적화하는 대상이 다를 수 있습니다.</p>
+      <p>수학은 맞습니다. 근데 수학의 정답이 성립하는 조건이 있어요. 그 조건이 현실과 다를 때 — 정답도 달라집니다.</p>
+      <p class="final">바꾸는 게 맞다. 그래도 나는 안 바꾼다. 이게 틀린 게 아닙니다. 전제가 다른 겁니다.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="share-fab">
+  <button class="share-toggle" onclick="document.querySelector('.share-panel').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  </button>
+  <div class="share-panel">
+    <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='복사됨 ✓';setTimeout(()=>this.textContent='URL 복사',1500)">URL 복사</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title))">X에 공유</button>
+    <button onclick="if(window.Kakao){Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:'수학적 정답이 현실의 최선이 아닐 때.',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:window.location.href,webUrl:window.location.href}}})}">카카오톡 공유</button>
+  </div>
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 2026</span>
+  <div class="nav-links">
+    <a href="index.html">홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 맨 위로</a>
+  </div>
+</footer>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>
+  if(window.Kakao && !Kakao.isInitialized()){ Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); }
+</script>
+
+</body>
+</html>
