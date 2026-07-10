@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세 개의 시계 위에서 달리는 AI · F3YNM4N</title>
+<meta name="description" content="아무도 성숙하지 않았는데, 모두가 무뎌진 이유.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="세 개의 시계 위에서 달리는 AI · F3YNM4N">
+<meta property="og:description" content="아무도 성숙하지 않았는데, 모두가 무뎌진 이유.">
+<meta property="og:url" content="https://f3ynm4n.com/three-clocks.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700;900&family=Playfair+Display:ital@1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+  :root{
+    --bg:#0d0d0b; --cream:#f2ede6; --cream-dim:#cfc8bb;
+    --gold:#c8963e; --accent:#0f2e1e; --accent-light:#1d6e4a;
+    --text-dark:#0e1a15; --muted:#8a8f98;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'Noto Serif KR',serif; font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px; background:rgba(13,13,11,0.88);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  }
+  .nav-logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.1em;text-decoration:none;color:var(--cream);}
+  .nav-logo:hover{color:var(--gold);}
+  .nav-back{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-decoration:none;}
+  .nav-back:hover{color:var(--cream);}
+  .nav-back svg{width:14px;height:14px;}
+
+  .hero{
+    background:var(--bg); min-height:100vh; display:flex; flex-direction:column;
+    justify-content:flex-end; padding:120px 0 80px; position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 10%, rgba(29,110,74,0.14), transparent 60%),
+      radial-gradient(ellipse 50% 45% at 5% 88%, rgba(15,46,30,0.6), transparent 65%);
+    pointer-events:none;
+  }
+  /* 세 개의 시계 워터마크 */
+  .clocks-svg{position:absolute;right:4%;bottom:6%;width:clamp(200px,26vw,380px);height:auto;opacity:.5;pointer-events:none;}
+
+  .hero-inner{max-width:760px;margin:0 auto;padding:0 40px;position:relative;}
+  .eyebrow{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;
+    color:var(--gold);text-transform:uppercase;margin-bottom:20px;
+  }
+  .hero-title{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:clamp(32px,5.2vw,52px);line-height:1.35;color:var(--cream);
+    letter-spacing:-.01em; margin-bottom:24px;
+  }
+  .hero-subtitle{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:clamp(15px,1.9vw,19px);color:var(--cream-dim);line-height:1.7;max-width:540px;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:18px;margin-top:40px;
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em;
+  }
+  .hero-meta b{color:var(--cream-dim);}
+
+  .article-wrap{background:var(--cream);color:var(--text-dark);}
+  .article-inner{max-width:700px;margin:0 auto;padding:80px 40px 100px;}
+
+  .lede{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:21px;line-height:1.75;color:var(--text-dark);
+    margin-bottom:48px;
+  }
+  .lede strong{font-style:normal;font-weight:700;color:var(--accent-light);}
+
+  p{margin-bottom:24px;font-size:17px;line-height:1.95;}
+  p:last-child{margin-bottom:0;}
+
+  h2.section-head{
+    font-family:'Noto Serif KR',serif;font-weight:900;font-size:21px;
+    margin:56px 0 20px;color:var(--text-dark);letter-spacing:-.01em;
+    padding-top:8px;border-top:1px solid rgba(14,26,21,0.1);
+  }
+
+  .punch-block{
+    border-left:3px solid var(--gold);
+    padding:6px 0 6px 28px;margin:44px 0;
+  }
+  .punch-block p{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:20px;line-height:1.7;color:var(--text-dark);margin-bottom:0;
+  }
+
+  /* 세 시계 비교 그리드 */
+  .clocks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:40px 0;background:rgba(14,26,21,0.12);}
+  .clock-card{background:#e8e2d6;padding:24px 20px;}
+  .clock-num{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--accent-light);text-transform:uppercase;margin-bottom:10px;}
+  .clock-title{font-family:'Noto Serif KR',serif;font-weight:700;font-size:16px;color:var(--text-dark);margin-bottom:10px;line-height:1.4;}
+  .clock-status{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;padding:4px 10px;display:inline-block;margin-bottom:12px;background:rgba(15,46,30,0.08);color:var(--accent-light);}
+  .clock-desc{font-size:13px;line-height:1.75;color:#5a544a;}
+
+  .fact-box{
+    background:rgba(15,46,30,0.05); border:1px solid rgba(29,110,74,0.18);
+    padding:26px 30px; margin:36px 0;
+  }
+  .fact-box .fact-label{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;
+    color:var(--accent-light);text-transform:uppercase;margin-bottom:14px;
+  }
+  .fact-box p{font-size:15px;line-height:1.85;margin-bottom:12px;color:var(--text-dark);}
+  .fact-box p:last-child{margin-bottom:0;}
+
+  .closing{
+    margin-top:60px;padding-top:40px;
+    border-top:1px solid rgba(14,26,21,0.12);
+  }
+  .closing p{
+    font-size:17px;line-height:1.95;
+    margin-bottom:20px;color:var(--text-dark);
+  }
+  .closing p.final{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:20px;line-height:1.7;
+    color:var(--accent-light);margin-bottom:0;margin-top:28px;
+  }
+
+  .f3-share-btn{position:fixed;bottom:36px;right:36px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+  .f3-share-toggle{width:44px;height:44px;border-radius:50%;background:#c8963e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(200,150,62,.35);}
+  .f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+  .f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+  .f3-share-panel{display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;transition:opacity .18s ease,transform .18s ease;}
+  .f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+  .f3-share-item{display:flex;align-items:center;gap:10px;background:#0d0d0b;border:1px solid rgba(200,150,62,.3);padding:10px 16px;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;text-transform:uppercase;white-space:nowrap;transition:background .15s,border-color .15s;text-decoration:none;}
+  .f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+  .f3-share-item .f3-share-icon{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .f3-share-toast{position:fixed;bottom:100px;right:36px;z-index:1001;background:#0d0d0b;border:1px solid rgba(200,150,62,.4);padding:10px 18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;}
+  .f3-share-toast.show{opacity:1;transform:translateY(0);}
+
+  footer{
+    background:var(--bg);padding:36px 40px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  }
+  footer .pub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);}
+  footer .nav-links{display:flex;gap:24px;}
+  footer .nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;}
+  footer .nav-links a:hover{color:var(--gold);}
+
+  @media(max-width:640px){
+    header.site-nav{padding:16px 20px;}
+    .hero{min-height:92vh;padding:100px 0 60px;}
+    .hero-inner{padding:0 24px;}
+    .clocks-svg{width:130px;bottom:4%;right:3%;opacity:.35;}
+    .article-inner{padding:56px 24px 72px;}
+    .clocks-grid{grid-template-columns:1fr;}
+    .fact-box{padding:20px 22px;}
+    .f3-share-btn{bottom:24px;right:20px;}
+    .f3-share-toast{right:20px;bottom:90px;}
+    footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <a href="index.html" class="nav-logo">F3YNM4N</a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</header>
+
+<section class="hero">
+  <svg class="clocks-svg" viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="55" cy="70" r="42" fill="none" stroke="rgba(29,110,74,0.4)" stroke-width="1.5"/>
+    <line x1="55" y1="70" x2="55" y2="38" stroke="rgba(29,110,74,0.6)" stroke-width="2"/>
+    <line x1="55" y1="70" x2="78" y2="52" stroke="rgba(29,110,74,0.6)" stroke-width="2"/>
+    <circle cx="160" cy="70" r="42" fill="none" stroke="rgba(29,110,74,0.25)" stroke-width="1.5"/>
+    <line x1="160" y1="70" x2="160" y2="50" stroke="rgba(29,110,74,0.4)" stroke-width="2"/>
+    <line x1="160" y1="70" x2="172" y2="70" stroke="rgba(29,110,74,0.4)" stroke-width="2"/>
+    <circle cx="265" cy="70" r="42" fill="none" stroke="rgba(200,150,62,0.4)" stroke-width="1.5"/>
+    <line x1="265" y1="70" x2="285" y2="90" stroke="rgba(200,150,62,0.6)" stroke-width="2"/>
+    <line x1="265" y1="70" x2="240" y2="60" stroke="rgba(200,150,62,0.6)" stroke-width="2"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="eyebrow">Science · AI</div>
+    <h1 class="hero-title">세 개의 시계 위에서<br>달리는 AI</h1>
+    <p class="hero-subtitle">아무도 성숙하지 않았는데, 모두가 무뎌진 이유</p>
+    <div class="hero-meta">
+      <span>Category <b>Science</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-inner">
+
+    <p class="lede">얼마 전 미토스5(페이블5)가 정부 개입까지 불러올 정도의 파장을 일으켰다. 그리고 며칠 뒤, 벤치마크상 그와 비슷하거나 더 높은 성능을 주장하는 경쟁사의 Sol이 나왔다. 그런데 반응은 의외로 조용했다.</p>
+
+    <p>몇 달 전만 해도 같은 종류의 소식에 사람들은 조금 더 술렁였던 것 같은데.</p>
+
+    <p>이 잔잔함을 어떻게 해석해야 할까. 흔한 설명은 두 가지다. 하나는 "AI가 이제 성숙기에 접어들어서 큰 변화가 없다"는 것이고, 다른 하나는 "사람들이 신기술 피로에 빠졌다"는 것이다.</p>
+
+    <p>둘 다 그럴듯하지만, 조금만 더 들여다보면 이상한 지점이 나온다. 성숙기치고는 여전히 몇 달 단위로 프론티어 모델이 쏟아지고, 정부가 개입하는 초유의 사태까지 벌어지고 있다. 이게 "성숙한" 산업의 모습은 아니다. 그런데 왜 반응은 성숙기의 그것처럼 무뎌졌을까.</p>
+
+    <div class="punch-block">
+      <p>답은 "AI의 성숙도"라는 질문 자체가 잘못 설정되어 있다는 데 있다. 이건 하나의 숫자로 답할 수 있는 질문이 아니다.</p>
+    </div>
+
+    <p>최소 세 개의 서로 다른 시계가, 서로 다른 속도로, 서로 다른 위상에서 돌아가고 있기 때문이다.</p>
+
+    <div class="punch-block">
+      <p>물어야 할 것은 "AI가 성숙했는가"가 아니라 "어느 시계를 보고 있는가"다.</p>
+    </div>
+
+    <div class="clocks-grid">
+      <div class="clock-card">
+        <div class="clock-num">시계 01</div>
+        <div class="clock-title">최전선 알고리즘</div>
+        <div class="clock-status">격변기</div>
+        <div class="clock-desc">벤치마크는 소수점 단위로 엎치락뒤치락. 스케일링 법칙은 수확체감을 내장하고 있고, 정부 개입까지 겹치며 배포·거버넌스는 오히려 격동 중.</div>
+      </div>
+      <div class="clock-card">
+        <div class="clock-num">시계 02</div>
+        <div class="clock-title">일상 체감 성능</div>
+        <div class="clock-status">이미 성숙</div>
+        <div class="clock-desc">문서 요약, 이메일 초안 같은 일상 작업은 이미 포화선 아래로 진입. 중간 등급 모델로도 체감 차이가 없는 지점에 도달했다.</div>
+      </div>
+      <div class="clock-card">
+        <div class="clock-num">시계 03</div>
+        <div class="clock-title">가격</div>
+        <div class="clock-status">최대 변동성</div>
+        <div class="clock-desc">최상위 모델은 프리미엄화, 하위 모델은 커머디티화. 수렴이 아니라 양극으로 벌어지는 분화가 지금 진행 중이다.</div>
+      </div>
+    </div>
+
+    <h2 class="section-head">첫 번째 시계 — 최전선은 여전히 격변기다</h2>
+
+    <p>프론티어 모델들의 벤치마크 경쟁을 들여다보면 이야기는 명확하다. 최상위 모델들의 코딩 벤치마크 점수는 소수점 단위로 엎치락뒤치락한다. 88.0%와 88.8% 사이의 승부, 그 정도 차이를 두고 "역전됐다"는 헤드라인이 붙는다.</p>
+
+    <p>이건 이상한 게 아니라 예정된 결과에 가깝다. 스케일링 법칙 자체가 수확체감을 수식 안에 내장하고 있기 때문이다. 로그-로그 그래프로 그리면 곧게 뻗은 직선처럼 보이는 곡선도, 선형 그래프로 바꿔 그리면 초반의 급격한 상승 뒤로 완만하게 눕는 지수 곡선이 된다. 연산량을 두 배로 늘려도 얻는 개선폭은 항상 그 전보다 작다.</p>
+
+    <p>이 국면을 타개하려는 시도가 없는 건 아니다. 어텐션 기반 트랜스포머의 이차 복잡도를 우회하는 상태공간모델이 실험되고, 추론 시점에 더 오래 생각하게 하는 방식이 새로운 축으로 떠올랐다. 그런데 이 대안들은 아직 프론티어 랩의 최상위 모델을 완전히 갈아엎지 못했다. 검증된 인프라를 갈아엎는 리스크보다, 기존 것을 조금씩 개선하는 쪽이 여전히 더 안전한 선택인 탓이다.</p>
+
+    <p>여기에 최근 몇 달간 새로운 변수까지 등장했다. 국가안보를 이유로 정부가 최상위 모델의 배포 자체에 개입하기 시작한 것이다. 미토스5(페이블5)는 금융 당국이 긴급 브리핑을 소집할 만큼의 파장을 일으켰고, 결국 접근이 전면 차단됐다가 수출 통제 해제 이후에야 복귀했다. 뒤이어 등장한 Sol도 정부 승인과 단계적 확대라는 비슷한 절차를 밟았다. 알고리즘 축의 진보는 완만해졌는데, 배포와 거버넌스를 둘러싼 격변은 오히려 가속되고 있는 셈이다.</p>
+
+    <h2 class="section-head">두 번째 시계 — 일상은 이미 조용히 성숙했다</h2>
+
+    <p>그런데 이 격변은 대부분의 사용자에게 닿지 않는다. 최상위 모델의 우위가 실제로 벌어지는 영역은 자율적인 장기 해킹 작업, 극한의 다단계 에이전틱 코딩 체인처럼 일상적 사용 범위를 한참 벗어난 꼬리 영역이다. 반면 문서 요약, 이메일 초안, 스프레드시트 정리처럼 전 세계 AI 사용량의 절대다수를 차지하는 작업은 이미 오래전에 포화선 아래로 들어갔다.</p>
+
+    <p>이 포화가 만드는 지각 구조는 흥미롭게 비대칭적이다. 성능 향상은 몇 달에 걸쳐 소수점 단위로 스며들듯 온다. 사람의 지각은 이런 완만한 변화를 기준선으로 즉시 흡수해버린다 — 좋아진 걸 알아채는 순간 그것은 이미 "원래 이 정도는 되는 것"이 된다.</p>
+
+    <p>반면 성능 저하는 다르게 온다. 비용 절감을 위한 조용한 경량화, 안전 필터의 과민 반응, 라우팅 시스템의 저비용 모델 전환 같은 것들은 특정 시점에 뚜렷하게 발생한다. 손실은 이득보다 심리적으로 훨씬 크게 느껴진다는, 잘 알려진 인지 편향이 여기에 그대로 적용된다. 그 결과 사용자 대부분은 향상은 못 느끼고 저하만 예민하게 감지하는 구조에 갇힌다.</p>
+
+    <h2 class="section-head">같은 숫자, 두 개의 진실</h2>
+
+    <p>미토스5와 Sol의 격차, 0.8%p. 이 숫자를 커뮤니티는 "거기서 거기"로 읽었다. 그런데 그 판단이 틀린 게 아니다. 오히려 정확했다.</p>
+
+    <div class="fact-box">
+      <div class="fact-label">벤치마크 함정</div>
+      <p>0.8%p는 하나의 숫자인데 두 개의 완전히 다른 진실을 동시에 담고 있다.</p>
+      <p>단계당 성공률 88%와 92%의 모델이 열 단계짜리 작업을 완주할 확률은 각각 28%와 43%. 벤치마크상 4%포인트 차이가 실사용에서는 15%포인트 이상의 격차로 증폭된다. 이건 수학적으로 명백하다.</p>
+      <p>그런데 이 증폭은 다단계 작업을 자주 시키는 소수의 사용자에게만 일어난다. 나머지 대다수 — 문서 하나 요약시키고, 메일 하나 초안 잡는 사람들 — 에게 0.8%p는 애초에 체감할 수 없는 노이즈다.</p>
+      <p>숫자는 하나인데, 그 숫자가 가리키는 세계는 사용자에 따라 완전히 다르다.</p>
+    </div>
+
+    <p>커뮤니티가 시큰둥했던 건 무지가 아니었다. 자신이 어느 세계에 속하는지, 무의식적으로 정확히 판단한 결과였다.</p>
+
+    <h2 class="section-head">세 번째 시계 — 가격은 지금이 가장 흔들리는 순간이다</h2>
+
+    <p>보통 기술이 성숙기에 접어드는 신호 중 하나는 가격이 바닥까지 내려가 안정화되는 것이다. 그런데 지금 AI 모델 가격은 정반대의 흐름을 보인다. 한쪽에서는 최상위 모델이 구독 포함 방식에서 종량제로 전환되며 몸값을 올리고, 다른 한쪽에서는 중간·경량 등급 모델이 이전 세대 최상위 모델급 성능을 절반 이하 가격에 제공하겠다며 가격을 밀어내린다.</p>
+
+    <p>수렴이 아니라 양극으로 벌어지는 분화가 진행 중이다. 이건 아직 어느 회사도 "이 정도가 시장 균형가"라는 합의에 도달하지 못했다는 뜻이다.</p>
+
+    <h2 class="section-head">세 시계가 겹쳐진 결과</h2>
+
+    <p>정리하면 이렇다. 최전선의 알고리즘 경쟁은 미성숙하고 격변적이다. 일상 사용자의 체감 성능은 이미 조용히 성숙기에 진입했다. 그리고 가격은 지금이 오히려 가장 요동치는 구간이다.</p>
+
+    <p>이 세 개의 시계가 하나의 발표 이벤트, 하나의 모델명 아래 동시에 패키징되어 나오기 때문에 바깥에서는 마치 단일한 진보 곡선처럼 보인다. 그런데 실제로는 서로 다른 대상을 가리키는 서로 다른 곡선들이다.</p>
+
+    <p>"신모델이 나와도 시큰둥하다"는 반응은 그래서 무지의 증거가 아니다. 오히려 자신의 사용 범위가 이미 포화선 아래에 있다는 것을 무의식적으로 정확히 감지한, 매우 합리적인 반응에 가깝다. 반대로 매번 신모델 소식에 반응하는 소수는 실제로 벤치마크 상승이 의미를 갖는 극소수의 작업을 하고 있거나, 이 구조 자체에 흥미를 느끼는 관찰자일 뿐이다. 그리고 이건 회사가 향상은 홍보하고 저하는 조용히 처리하는 것과도 무관하지 않다 — 다만 그 얘기는 다른 자리에서 더 다룰 만하다.</p>
+
+    <div class="closing">
+      <p>결국 지금 벌어지고 있는 일은 "AI 발전이 느려졌다"가 아니다. 발전이 일어나는 층위 자체가 알고리즘에서 배포·거버넌스·가격 구조로 옮겨가고 있는데, 그 이동을 아직 아무도 명시적인 언어로 분리해서 말하지 않고 있을 뿐이다.</p>
+      <p class="final">AI는 하나의 속도로 발전하지 않는다. 알고리즘, 사용자 경험, 가격은 서로 다른 시계를 따라 움직인다. 우리가 혼란스러운 이유는 AI가 아니라, 세 개의 시계를 하나로 읽고 있기 때문이다.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+      URL 복사
+    </button>
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+      X 공유
+    </a>
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg></span>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 2026</span>
+  <div class="nav-links">
+    <a href="index.html">홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 맨 위로</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KAKAO_KEY='e0642d0a5c0ae01b8893422a148e9aba';
+  function loadKakaoSDK(cb){if(window.Kakao){cb();return;}var s=document.createElement('script');s.src='https://developers.kakao.com/sdk/js/kakao.min.js';s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};document.head.appendChild(s);}
+  var panelOpen=false;
+  window.f3ToggleShare=function(){panelOpen=!panelOpen;document.getElementById('f3SharePanel').classList.toggle('open',panelOpen);};
+  window.f3CopyUrl=function(){var url=location.href;navigator.clipboard.writeText(url).then(function(){showToast('URL 복사됨');}).catch(function(){var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('URL 복사됨');});panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');};
+  var xLink=document.getElementById('f3ShareX');if(xLink){xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href);}
+  window.f3ShareKakao=function(){if(!KAKAO_KEY){showToast('카카오 앱키 필요');return;}loadKakaoSDK(function(){var desc=document.querySelector('meta[name="description"]');Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:desc?desc.content:'',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:location.href,webUrl:location.href}},buttons:[{title:'읽기',link:{mobileWebUrl:location.href,webUrl:location.href}}]});});};
+  function showToast(msg){var t=document.getElementById('f3Toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+  document.addEventListener('click',function(e){if(!document.getElementById('f3ShareBtn').contains(e.target)){panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');}});
+})();
+</script>
+
+</body>
+</html>
