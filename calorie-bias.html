@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고장 난 계산기 — F3YNM4N</title>
+  <meta name="description" content="우리는 130년 된 백인 기준 계산기로 다이어트를 해왔다.">
+  <meta property="og:title" content="고장 난 계산기">
+  <meta property="og:description" content="우리는 130년 된 백인 기준 계산기로 다이어트를 해왔다.">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:url" content="https://f3ynm4n.com/calorie-bias.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T3YHJJJFTF');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0d0b;
+      --accent: #0e7490;
+      --accent-light: #22d3ee;
+      --cream: #f2ede6;
+      --cream-dim: #e8e2d9;
+      --text-dark: #1a1a17;
+      --muted: #888880;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(13,13,11,0.95), transparent); }
+    .nav-logo { font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 3px; color: var(--accent-light); text-decoration: none; }
+    .nav-back { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color .2s; }
+    .nav-back:hover { color: var(--accent-light); }
+
+    .hero {
+      background: #0d0d0b;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 0 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(14,116,144,0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 15% 75%, rgba(14,116,144,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 50%; right: -1%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(100px, 18vw, 260px);
+      font-weight: 700;
+      color: rgba(14,116,144,0.06);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 40px;
+      position: relative; z-index: 1; width: 100%;
+    }
+
+    .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+    .hero-category {
+      font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(14,116,144,0.2);
+      border: 1px solid rgba(34,211,238,0.25);
+      padding: 5px 12px; border-radius: 2px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 700; line-height: 1.2;
+      color: var(--cream); letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .hero-title em { font-style: normal; color: var(--accent-light); }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(15px, 2vw, 19px);
+      color: rgba(242,237,230,0.5); margin-bottom: 48px;
+    }
+
+    .hero-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--accent-light), transparent); }
+
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.3;
+    }
+    .scroll-hint span { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    .article-body { background: var(--cream); color: var(--text-dark); }
+    .article-inner { max-width: 720px; margin: 0 auto; padding: 80px 40px 100px; }
+
+    .section { margin-bottom: 64px; }
+    .section-header { margin-bottom: 28px; }
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px; font-weight: 700; color: var(--text-dark);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      width: 100%;
+    }
+
+    .article-inner p { margin-bottom: 24px; color: #2a2a27; word-break: keep-all; }
+    .article-inner p:last-child { margin-bottom: 0; }
+    .intro-graf { font-size: 18px; line-height: 1.9; color: #1a1a17 !important; margin-bottom: 32px !important; }
+
+    blockquote { border-left: 3px solid var(--accent); margin: 36px 0; padding: 4px 0 4px 28px; }
+    blockquote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.65; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .fact-box {
+      background: #1a1a17;
+      border-left: 3px solid var(--accent);
+      padding: 28px 32px;
+      margin: 36px 0;
+      border-radius: 2px;
+    }
+    .fact-box-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 14px;
+    }
+    .fact-box p {
+      color: rgba(242,237,230,0.8) !important;
+      font-size: 15px; line-height: 1.8;
+      margin-bottom: 10px !important;
+    }
+    .fact-box p:last-child { margin-bottom: 0 !important; }
+    .fact-box strong { color: var(--accent-light); font-weight: 600; }
+
+    .calorie-compare {
+      background: #f8f4ee;
+      border: 1px solid rgba(14,116,144,0.2);
+      padding: 24px 28px;
+      margin: 32px 0;
+      border-radius: 2px;
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+    }
+    .calorie-compare .label { font-size: 10px; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 10px; }
+    .calorie-compare .row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(14,116,144,0.1); }
+    .calorie-compare .row:last-child { border-bottom: none; }
+    .calorie-compare .row-label { color: #2a2a27; }
+    .calorie-compare .row-value { color: var(--accent); font-weight: 700; }
+    .calorie-compare .row-value.adjusted { color: #c2410c; }
+
+    .highlight { background: rgba(14,116,144,0.05); border: 1px solid rgba(14,116,144,0.15); padding: 20px 24px; margin: 28px 0; border-radius: 2px; }
+    .highlight p { font-size: 16px; color: #1a1a17 !important; margin-bottom: 0 !important; }
+
+    .closing { margin-top: 72px; padding-top: 40px; border-top: 1px solid rgba(26,26,23,0.15); }
+    .closing p { font-size: 17px; line-height: 1.9; color: #1a1a17 !important; }
+    .closing-punch { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.5vw, 22px) !important; line-height: 1.7 !important; color: #0d0d0b !important; margin-top: 32px !important; }
+
+    .f3-share-btn { position: fixed; bottom: 32px; right: 32px; z-index: 1000; }
+    .f3-share-toggle { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(14,116,144,0.4); transition: transform 0.2s, background 0.2s; }
+    .f3-share-toggle:hover { transform: scale(1.08); background: #0a5068; }
+    .f3-share-toggle svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .f3-share-panel { position: absolute; bottom: 64px; right: 0; display: flex; flex-direction: column; gap: 10px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 0.2s, transform 0.2s; }
+    .f3-share-panel.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .f3-share-action { display: flex; align-items: center; gap: 10px; background: #1e1e1b; border: 1px solid rgba(255,255,255,0.1); color: var(--cream); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.05em; padding: 10px 16px; border-radius: 24px; cursor: pointer; white-space: nowrap; transition: background 0.15s; text-decoration: none; }
+    .f3-share-action:hover { background: #2a2a27; }
+    .f3-share-action svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+    .article-footer { background: var(--bg); padding: 60px 40px; text-align: center; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: var(--cream); }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .hero { min-height: 90vh; padding-bottom: 60px; }
+      .hero-inner { padding: 0 24px; }
+      .article-inner { padding: 56px 24px 72px; }
+      .fact-box { padding: 20px; }
+      .calorie-compare { padding: 18px 20px; font-size: 13px; }
+      .f3-share-btn { bottom: 24px; right: 20px; }
+      .article-footer { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">F3YNM4N</a>
+  <a href="javascript:history.back()" class="nav-back">← Back</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-watermark">kcal</div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-category">Science</span>
+    </div>
+    <h1 class="hero-title">고장 난 <em>계산기</em></h1>
+    <p class="hero-subtitle">우리는 130년 된 백인 기준 계산기로 다이어트를 해왔다.</p>
+    <div class="hero-divider"></div>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<article class="article-body">
+  <div class="article-inner">
+
+    <p class="intro-graf">체중계 위에서 우리는 자주 죄인이 된다. 닭가슴살과 고구마를 그램 단위로 재어가며 식품 뒷면의 숫자를 완벽하게 통제했다고 믿었는데, 줄어들지 않는 숫자를 보면 결국 화살은 자신에게 향한다. 의지가 부족해서. 물만 먹어도 찌는 체질이라서.</p>
+
+    <p>그런데 만약 문제가 나에게 있는 게 아니라, 계산기 자체가 처음부터 잘못 만들어져 있었다면?</p>
+
+    <!-- 섹션 1 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">130년 전 백인 수십 명의 평균값</h2>
+      </div>
+
+      <p>탄수화물 4kcal, 단백질 4kcal, 지방 9kcal. 이른바 '4-4-9 법칙'이라 불리는 애트워터 계수는 1890년대 미국에서 백인 수십 명의 대사 효율을 측정해 만든 통계치다. 130년 전 서양인의 식단과 소화 기관을 기준으로 "대충 이 정도로 퉁치자"고 전 세계가 합의한 장부상의 숫자다.</p>
+
+      <p>인간의 몸은 화로가 아니다. 똑같은 100kg이라도 가만히 있어도 에너지를 낭비하는 보디빌더와 에너지를 악착같이 아끼는 비만인의 연비는 완전히 다르다. 같은 음식을 먹어도 몸이 실제로 흡수하는 에너지는 사람마다, 인종마다 다르다.</p>
+
+      <div class="fact-box">
+        <div class="fact-box-label">FACT — 애트워터 계수의 한계</div>
+        <p>하버드대 리처드 행엄(Richard Wrangham) 교수는 "조리법에 따라 실제 흡수되는 에너지가 수십 퍼센트씩 차이 나는데, 19세기의 단순 계산법으로 칼로리를 퉁치는 것은 대중에게 심각한 오류를 준다"고 공식 지적했다. 현대 영양학계에서도 애트워터 계수가 식품의 가공 상태나 개인의 장내 미생물 환경을 전혀 반영하지 못한다는 비판이 지속되고 있다.</p>
+        <p><strong>출처: American Journal of Clinical Nutrition</strong></p>
+      </div>
+    </div>
+
+    <!-- 섹션 2 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">한국인의 몸은 다르게 설계되어 있다</h2>
+      </div>
+
+      <p>한국인을 포함한 동양인은 채식 위주의 식문화 역사로 인해 장의 길이가 서양인보다 평균적으로 길다. 음식을 몸 안에 더 오래 품고, 그만큼 에너지를 더 효율적으로 쥐어짠다.</p>
+
+      <p>더 결정적인 차이가 있다. 서양인이 소화하지 못하고 0kcal로 배출하는 해조류 — 김, 미역 — 를 한국인은 칼로리로 전환한다. 수천 년의 식문화가 장내 미생물 자체를 바꿔놓은 것이다.</p>
+
+      <div class="fact-box">
+        <div class="fact-box-label">FACT — 해조류 소화와 장내 미생물 (Nature, 2010)</div>
+        <p>프랑스 로스코프 생물학 연구소와 일본 연구팀의 공동 연구에 따르면, 해양 박테리아에서 발견되는 해조류 탄수화물(포피란) 분해 효소 유전자가 일본인을 포함한 동양인의 장내 미생물(<em>Bacteroides plebeius</em>)에서만 발견되었다. 미국 백인들의 장에서는 이 유전자가 전혀 발견되지 않았다.</p>
+        <p>서양인에게 김은 소화되지 않는 식이섬유(0kcal)에 가깝지만, 일부 동양인에게는 장내 미생물이 이를 쪼개어 단쇄지방산 같은 에너지원으로 변환해 몸에 흡수시킨다.</p>
+        <p><strong>출처: Nature, 2010</strong></p>
+      </div>
+
+      <div class="fact-box">
+        <div class="fact-box-label">FACT — 췌장 체급과 탄수화물 대사 (Diabetes Care, 2018)</div>
+        <p>한국인을 포함한 동양인은 서양인과 BMI가 같더라도 췌장의 절대적인 크기가 약 20~30% 작고, 인슐린 분비 능력도 낮다. 반면 쌀 위주의 식습관에 적응하면서 탄수화물 분해 효소(아밀라아제)의 유전자 복제수는 서양인보다 높은 경향이 있다.</p>
+        <p>같은 칼로리의 탄수화물을 먹어도 한국인의 소화 기관은 이를 극도로 효율적으로 혈당으로 전환하는 반면, 이를 처리할 췌장 엔진은 작아 지방으로 쉽게 저장된다.</p>
+        <p><strong>출처: Diabetes Care, 2018</strong></p>
+      </div>
+    </div>
+
+    <!-- 섹션 3 -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">한 줄을 더 인쇄하자</h2>
+      </div>
+
+      <p>글로벌 표준을 당장 바꾸는 건 불가능하다. 무역과 행정의 문제가 걸려 있다. 그러나 그 옆에 한 줄을 더 인쇄하는 건 가능하다.</p>
+
+      <div class="calorie-compare">
+        <div class="label">병기 표기 제안 (예시)</div>
+        <div class="row">
+          <span class="row-label">국제 표준 (애트워터 계수)</span>
+          <span class="row-value">300 kcal</span>
+        </div>
+        <div class="row">
+          <span class="row-label">한국인 실질 흡수량 (보정 예시)</span>
+          <span class="row-value adjusted">~360 kcal</span>
+        </div>
+      </div>
+
+      <p>식약처가 축적한 한국인 대사 데이터를 기반으로 보정계수를 산출하고, 기존 표기 옆에 병기하는 것이다. 국제 통관의 법적 걸림돌은 피하면서, 한국인에게 실질적으로 의미 있는 숫자를 제공한다. 전 세계에서 아직 아무도 하지 않은 시도다.</p>
+
+      <blockquote>
+        <p>서양인 기준의 장부로는 한국인 몸속으로 들어오는 진짜 에너지를 계산할 수 없다. 우리는 처음부터 맞지 않는 계산기를 쓰고 있었다.</p>
+      </blockquote>
+    </div>
+
+    <!-- 클로징 -->
+    <div class="closing">
+      <p>칼로리 표기는 과학적 절대 진리가 아니라 130년 전의 행정적 타협점이다. "덜 먹는데 왜 안 빠지지"라는 억울함은 사실 억울함이 맞다. 계산기가 틀렸으니까.</p>
+
+      <p class="closing-punch">"물만 먹어도 찐다"던 말이 완전히 허언은 아니었다.</p>
+    </div>
+
+  </div>
+</article>
+
+<footer class="article-footer">
+  <a href="https://f3ynm4n.com" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    F3YNM4N
+  </a>
+</footer>
+
+<div class="f3-share-btn">
+  <div class="f3-share-panel" id="sharePanel">
+    <button class="f3-share-action" onclick="copyURL()">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      URL 복사
+    </button>
+    <a class="f3-share-action" id="xShareBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg>
+      X 공유
+    </a>
+    <button class="f3-share-action" onclick="shareKakao()">
+      <svg viewBox="0 0 24 24"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.4-1.7C9.5 19.7 10.7 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" onclick="toggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+
+<script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    s.onload = function() { if (window.Kakao && !Kakao.isInitialized()) Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); };
+    document.body.appendChild(s);
+  });
+
+  const PAGE_URL = 'https://f3ynm4n.com/calorie-bias.html';
+  const PAGE_TITLE = '고장 난 계산기';
+
+  document.getElementById('xShareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(PAGE_TITLE) + '&url=' + encodeURIComponent(PAGE_URL);
+
+  function toggleShare() { document.getElementById('sharePanel').classList.toggle('open'); }
+
+  function copyURL() {
+    navigator.clipboard.writeText(PAGE_URL).then(function() { alert('URL이 복사됐습니다.'); });
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  function shareKakao() {
+    if (window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: PAGE_TITLE,
+          description: '우리는 130년 된 백인 기준 계산기로 다이어트를 해왔다.',
+          imageUrl: 'https://f3ynm4n.com/og_default.png',
+          link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL }
+        }
+      });
+    }
+    document.getElementById('sharePanel').classList.remove('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
