@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>소부장은 잘해도 소부장이다 · F3YNM4N</title>
+<meta name="description" content="일본을 버릴 이유가 없다. 써먹으면 된다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="소부장은 잘해도 소부장이다 · F3YNM4N">
+<meta property="og:description" content="일본을 버릴 이유가 없다. 써먹으면 된다.">
+<meta property="og:url" content="https://f3ynm4n.com/japan-leverage.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://f3ynm4n.com/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Serif+KR:wght@400;500;700;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+<style>
+  :root{
+    --bg:#0d0d0b; --cream:#f2ede6; --cream-dim:#cfc8bb;
+    --gold:#c8963e; --accent:#7a1c1c; --accent-light:#c0392b;
+    --text-dark:#1a1510; --muted:#8a8275;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'Noto Serif KR',serif; font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  /* NAV */
+  nav.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px; background:rgba(13,13,11,0.88);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  }
+  .nav-logo{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.1em;text-decoration:none;color:var(--cream);}
+  .nav-logo:hover{color:var(--gold);}
+  .nav-back{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-decoration:none;}
+  .nav-back:hover{color:var(--cream);}
+  .nav-back svg{width:14px;height:14px;}
+
+  /* HERO */
+  .hero{
+    background:var(--bg); min-height:100vh; display:flex; flex-direction:column;
+    justify-content:flex-end; padding:120px 0 80px; position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 55% 45% at 75% 15%, rgba(192,57,43,0.1), transparent 60%),
+      radial-gradient(ellipse 45% 50% at 15% 85%, rgba(122,28,28,0.35), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;padding:0 40px;position:relative;}
+  .eyebrow{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;
+    color:var(--gold);text-transform:uppercase;margin-bottom:20px;
+  }
+  .hero-title{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:clamp(34px,5.5vw,54px);line-height:1.25;color:var(--cream);
+    letter-spacing:-.01em; margin-bottom:24px;
+  }
+  .hero-subtitle{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:clamp(16px,2vw,20px);color:var(--cream-dim);line-height:1.6;max-width:520px;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:18px;margin-top:40px;
+    font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em;
+  }
+  .hero-meta b{color:var(--cream-dim);}
+
+  /* ARTICLE */
+  .article-wrap{background:var(--cream);color:var(--text-dark);}
+  .article-inner{max-width:680px;margin:0 auto;padding:80px 40px 100px;}
+
+  .lede{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:23px;line-height:1.65;color:var(--text-dark);
+    margin-bottom:44px;
+  }
+  .lede strong{font-style:normal;font-weight:700;color:var(--accent);}
+
+  p{margin-bottom:24px;font-size:17px;line-height:1.95;}
+
+  /* BLOCK-STEP */
+  .block-step{
+    border-left:2px solid rgba(192,57,43,0.25);
+    padding:0 0 0 32px;
+    margin:52px 0;
+  }
+  .block-step-label{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;
+    color:var(--accent-light);text-transform:uppercase;
+    margin-bottom:12px;display:block;
+  }
+  .block-step h2{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:22px;line-height:1.4;color:var(--text-dark);
+    margin-bottom:20px;letter-spacing:-.01em;
+  }
+  .block-step p:last-child{margin-bottom:0;}
+
+  .divider{
+    display:flex;align-items:center;gap:16px;margin:52px 0;
+  }
+  .divider .line{flex:1;height:1px;background:rgba(26,21,16,0.12);}
+  .divider .mark{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;
+    color:var(--muted);white-space:nowrap;
+  }
+
+  .punch-block{
+    border-left:3px solid var(--accent-light);
+    padding:6px 0 6px 28px;margin:48px 0;
+  }
+  .punch-block p{
+    font-family:'Playfair Display',serif;font-style:italic;
+    font-size:20px;line-height:1.7;color:var(--text-dark);margin-bottom:0;
+  }
+
+  /* 클로징 — 두 줄 강조 */
+  .closing-lines{
+    margin:56px 0 0;
+    padding:36px 0 0;
+    border-top:1px solid rgba(26,21,16,0.12);
+  }
+  .closing-lines p{
+    font-family:'Noto Serif KR',serif;font-weight:900;
+    font-size:22px;line-height:1.7;color:var(--text-dark);
+    margin-bottom:0;
+    letter-spacing:-.01em;
+  }
+  .closing-lines p + p{
+    color:var(--accent);
+  }
+
+  /* SHARE */
+  .share-fab{position:fixed;bottom:32px;right:32px;z-index:90;}
+  .share-toggle{
+    width:52px;height:52px;border-radius:50%;background:var(--accent);
+    border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform .2s;
+  }
+  .share-toggle:hover{transform:scale(1.06);}
+  .share-toggle svg{width:20px;height:20px;stroke:var(--cream);}
+  .share-panel{
+    position:absolute;bottom:64px;right:0;background:var(--bg);
+    border:1px solid rgba(242,237,230,0.15);border-radius:8px;padding:10px;
+    display:none;flex-direction:column;gap:6px;min-width:140px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .share-panel.open{display:flex;}
+  .share-panel button{
+    background:none;border:none;color:var(--cream);font-family:'Space Mono',monospace;
+    font-size:12px;text-align:left;padding:8px 10px;cursor:pointer;border-radius:4px;
+  }
+  .share-panel button:hover{background:rgba(200,150,62,0.15);}
+
+  footer{
+    background:var(--bg);padding:36px 40px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  }
+  footer .pub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);}
+  footer .nav-links{display:flex;gap:24px;}
+  footer .nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;}
+  footer .nav-links a:hover{color:var(--gold);}
+
+  @media(max-width:640px){
+    nav.site-nav{padding:16px 20px;}
+    .hero{min-height:90vh;padding:100px 0 60px;}
+    .hero-inner{padding:0 24px;}
+    .article-inner{padding:56px 24px 72px;}
+    .block-step{padding-left:20px;}
+    .share-fab{bottom:24px;right:20px;}
+    footer{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="https://f3ynm4n.com" class="nav-logo">F3YNM4N</a>
+  <a href="https://f3ynm4n.com" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back
+  </a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Economy · 제조·공급망</div>
+    <h1 class="hero-title">소부장은<br>잘해도 소부장이다</h1>
+    <p class="hero-subtitle">일본을 버릴 이유가 없다. 써먹으면 된다.</p>
+    <div class="hero-meta">
+      <span>Category <b>Economy</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="article-wrap">
+  <div class="article-inner">
+
+    <p class="lede">일본 제조업을 얕보는 사람은 없다. 100년 넘게 쌓은 소재·부품·장비의 내공은 진짜다. 근데 <strong>그게 다다.</strong></p>
+
+    <p>소부장은 잘해도 소부장이다. 공급망의 상류에서 부품을 정밀하게 깎는 능력과, 그 공급망 전체를 쥐고 흔드는 능력은 다른 얘기다. 일본은 전자에서 세계 최고지만, 후자는 이미 오래전에 놓쳤다.</p>
+
+    <div class="block-step">
+      <span class="block-step-label">① 갑을이 뒤집힌 순간</span>
+      <h2>완제품이 공급망을 지배한다</h2>
+      <p>소니가 세계를 호령하던 시절, 도요타가 자동차 산업의 교과서였던 시절 — 일본 소부장은 그냥 강한 게 아니라 대체 불가능했다. 완제품 파워가 소부장의 가치를 증폭시켰다. 일본 기업이 쓰는 부품이니까 세계 표준이 됐다.</p>
+      <p>지금은 다르다. 소니 TV는 삼성에 밀렸고, 샤프 디스플레이는 역사가 됐고, 일본 스마트폰은 내수 시장 안에 갇혔다. 완제품이 힘을 잃으면 그걸 받쳐주던 소부장의 위상도 따라 내려간다.</p>
+      <p>그 자리를 한국이 채웠다. 반도체·배터리·디스플레이·자동차. 지금 글로벌 하이엔드 완제품 시장에서 삼성, SK, LG, 현대차가 없는 공급망을 그리기 어렵다. 이 네 곳이 고객인 순간, 일본 소부장은 을이 됐다. 한국은 대안을 찾을 수 있지만 일본은 이 고객을 잃으면 생존 기반이 흔들린다.</p>
+      <p>갑을은 힘이 세서 결정되는 게 아니다. 누가 더 필요한가로 결정된다.</p>
+    </div>
+
+    <div class="block-step">
+      <span class="block-step-label">② 중국이 뒤에서 오고 있다</span>
+      <h2>호랑이를 키워서 안방을 내준 꼴</h2>
+      <p>일본이 실수한 게 하나 있다. 중국 시장이 너무 커 보였다.</p>
+      <p>한국엔 기술 통제를 고수하면서, 중국엔 합작 공장을 짓고 기술을 넘겼다. 단기 매출이 장기 생존보다 커 보이는 순간 누구나 하는 실수다. 결과는 처참했다. 일본이 독점해온 정밀 감속기 시장, 중국 국산 업체들이 불과 몇 년 만에 안방 점유율을 두 자릿수로 끌어올렸다. 2018년 5% 미만이던 중국산 하모닉 감속기 비중이 2024년 35%를 넘어섰다.</p>
+      <p>한국도 안심할 처지가 아니다. 중국은 지금 압도적인 가격 공세로 밀고 들어오고 있고, 범용 영역에서는 이미 가격으로 이기기 어렵다. 초미세 공정의 격차는 아직 남아 있지만, 성숙 공정에서 좁혀지는 속도는 무시할 수준이 아니다.</p>
+    </div>
+
+    <div class="divider">
+      <div class="line"></div>
+      <div class="mark">한국의 선택</div>
+      <div class="line"></div>
+    </div>
+
+    <div class="block-step">
+      <span class="block-step-label">③ 그러니 일본을 써먹어야 한다</span>
+      <h2>버릴 이유가 없다. 이용하면 된다</h2>
+      <p>여기서 선택지가 둘이다. 일본을 밀어내거나, 이용하거나.</p>
+      <p>밀어내는 건 감정적으로는 통쾌하지만 실리가 없다. 일본이 100년간 쌓아놓은 원천 특허와 신뢰성 데이터는 중국이 아직 갖지 못한 것들이다. 그걸 버리면 중국의 추격을 막을 장벽 하나를 스스로 허무는 셈이다.</p>
+      <p>이용하는 건 다르다. 공식적으로는 파트너십을 연출하면서, 일본이 가진 특허 자산을 한국 양산 생태계 안으로 끌어들인다. 일본의 체면은 살려주되, 실속은 챙기는 구조. 갑이 할 수 있는 가장 영리한 방식이다.</p>
+      <p>중국은 일본 것을 카피해서 일본을 흔들고 있다. 한국은 일본 것을 흡수해서 중국을 막을 수 있다. 접근법이 다르고, 결과도 다르다.</p>
+    </div>
+
+    <div class="closing-lines">
+      <p>일본의 문제는 소부장이 약해진 게 아니다.</p>
+      <p>너무 강한 소부장에 머물렀다는 것이다.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="share-fab">
+  <button class="share-toggle" onclick="document.querySelector('.share-panel').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  </button>
+  <div class="share-panel">
+    <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='복사됨 ✓';setTimeout(()=>this.textContent='URL 복사',1500)">URL 복사</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title))">X에 공유</button>
+    <button onclick="if(window.Kakao){Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:'일본을 버릴 이유가 없다. 써먹으면 된다.',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:window.location.href,webUrl:window.location.href}}})}">카카오톡 공유</button>
+  </div>
+</div>
+
+<footer>
+  <span class="pub">F3YNM4N · 2026</span>
+  <div class="nav-links">
+    <a href="korea-japan-market.html">관련 글</a>
+    <a href="index.html">홈</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 맨 위로</a>
+  </div>
+</footer>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
+<script>
+  if(window.Kakao && !Kakao.isInitialized()){ Kakao.init('e0642d0a5c0ae01b8893422a148e9aba'); }
+</script>
+
+</body>
+</html>
