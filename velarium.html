@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+  <!-- OG / SEO -->
+  <meta name="description" content="콜로세움의 개폐식 차양막 벨라리움. 도구는 진화했지만, 인간은 얼마나 달라졌을까.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="F3YNM4N">
+  <meta property="og:title" content="도구는 진화했다, 인간은 얼마나 달라졌을까 · F3YNM4N">
+  <meta property="og:description" content="콜로세움의 개폐식 차양막 벨라리움. 도구는 진화했지만, 인간은 얼마나 달라졌을까.">
+  <meta property="og:url" content="https://f3ynm4n.com/velarium.html">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="도구는 진화했다, 인간은 얼마나 달라졌을까 · F3YNM4N">
+  <meta name="twitter:description" content="콜로세움의 개폐식 차양막 벨라리움. 도구는 진화했지만, 인간은 얼마나 달라졌을까.">
+  <meta name="twitter:image" content="https://f3ynm4n.com/og_default.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>도구는 진화했다, 인간은 얼마나 달라졌을까 — F3YNM4N</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --deep: #0d0906;
+  --navy: #1a1410;
+  --teal: #3a2a1a;
+  --ocean: #b5732e;
+  --foam: #ece5d8;
+  --parchment: #d4c0a0;
+  --gold: #c8963e;
+  --rust: #8b4020;
+  --mid: #7a726a;
+  --border: rgba(181,115,46,0.22);
+  --text: #cfc6ba;
+}
+
+body {
+  background: var(--deep);
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background: rgba(8,9,15,0.92);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+.logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+.logo span { color: rgba(200,200,200,0.3); }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.header-cat {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--ocean);
+  text-transform: uppercase;
+  border: 1px solid var(--ocean);
+  padding: 4px 10px;
+}
+.header-home {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--mid);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.header-home:hover { color: var(--gold); }
+
+/* HERO - full bleed dark oceanic */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 60px 80px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 30% 60%, rgba(181,115,46,0.4) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(58,42,26,0.3) 0%, transparent 50%),
+              var(--deep);
+}
+
+/* ancient map grid */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(200,150,62,0.08) 1px, transparent 0);
+  background-size: 48px 48px;
+}
+
+/* wave lines */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 300px;
+  background: linear-gradient(to top, var(--deep), transparent);
+  pointer-events: none;
+}
+
+.hero-number {
+  position: absolute;
+  top: 60px; right: 60px;
+  font-family: 'Playfair Display', serif;
+  font-size: 220px;
+  font-weight: 700;
+  color: rgba(181,115,46,0.12);
+  line-height: 1;
+  letter-spacing: -10px;
+  user-select: none;
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 680px; }
+
+.hero-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.hero-tag-cat {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--ocean);
+  text-transform: uppercase;
+  border: 1px solid rgba(181,115,46,0.6);
+  padding: 4px 10px;
+}
+.hero-tag-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(181,115,46,0.6), transparent);
+  max-width: 80px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--foam);
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--parchment);
+}
+
+.hero-subtitle {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(200,208,204,0.6);
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+
+.hero-lead {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.95;
+  color: rgba(212,201,168,0.85);
+  max-width: 560px;
+  border-left: 2px solid var(--ocean);
+  padding-left: 20px;
+}
+
+/* SNAKE SYMBOLS */
+.snake-row {
+  position: absolute;
+  top: 40px; left: 60px;
+  display: flex;
+  gap: 32px;
+  opacity: 0.4;
+}
+.snake-item {
+  text-align: center;
+}
+.snake-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+.snake-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* BODY */
+.body-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+/* SECTION */
+.chapter {
+  margin-bottom: 72px;
+  position: relative;
+}
+
+.chapter-header {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.chapter-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(181,115,46,0.5);
+  line-height: 1;
+  padding-top: 4px;
+}
+.chapter-title-wrap { }
+.chapter-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: var(--ocean);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.chapter-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--foam);
+  line-height: 1.3;
+}
+
+.chapter-body {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  line-height: 2;
+  color: rgba(200,208,204,0.8);
+  padding-left: 80px;
+}
+.chapter-body p {
+  margin-bottom: 20px;
+}
+.chapter-body p:last-child { margin-bottom: 0; }
+
+/* PULLQUOTE */
+.pullquote {
+  margin: 32px 0;
+  padding: 24px 28px;
+  border-left: 3px solid var(--ocean);
+  background: rgba(181,115,46,0.08);
+}
+.pullquote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--parchment);
+  margin: 0 !important;
+}
+
+/* REBUTTAL BOX */
+.rebuttal {
+  margin: 28px 0;
+  padding: 20px 24px;
+  background: rgba(139,64,32,0.1);
+  border: 1px solid rgba(139,64,32,0.3);
+  border-left: 3px solid var(--rust);
+}
+.rebuttal-q {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: rgba(200,140,100,0.8);
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+.rebuttal-a {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: rgba(200,208,204,0.7);
+  margin: 0 !important;
+}
+
+/* TIMELINE */
+.timeline-box {
+  margin: 32px 0;
+  border: 1px solid var(--border);
+  background: rgba(14,21,32,0.6);
+}
+.timeline-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-era {
+  padding: 16px 20px;
+  border-right: 1px solid var(--border);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--ocean);
+  letter-spacing: 1px;
+}
+.timeline-content {
+  padding: 16px 20px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: rgba(200,208,204,0.65);
+}
+.timeline-content strong { color: var(--parchment); font-weight: 600; }
+
+/* MAP LEGENDS */
+.myth-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin: 28px 0;
+}
+.myth-card {
+  background: rgba(14,21,32,0.8);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--ocean);
+  padding: 16px;
+}
+.myth-civ {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--ocean);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.myth-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--parchment);
+  margin-bottom: 6px;
+}
+.myth-desc {
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: rgba(200,208,204,0.5);
+}
+
+/* DIVIDER */
+.chapter-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 72px;
+  opacity: 0.3;
+}
+.chapter-divider::before, .chapter-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+}
+.chapter-divider-symbol { font-size: 12px; color: var(--gold); }
+
+/* CONCLUSION */
+.conclusion {
+  background: linear-gradient(135deg, rgba(181,115,46,0.15), rgba(14,21,32,0.8));
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+  padding: 48px;
+  margin-bottom: 60px;
+}
+.conclusion-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.conclusion-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--foam);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+.conclusion-body {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  line-height: 2;
+  color: rgba(212,201,168,0.8);
+}
+.conclusion-body p { margin-bottom: 16px; }
+.conclusion-body p:last-child { margin-bottom: 0; }
+
+/* CLOSING LINE */
+.closing-line {
+  text-align: center;
+  padding: 0 0 60px;
+}
+.closing-line p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(200,208,204,0.4);
+  letter-spacing: 1px;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+.footer-meta {
+  font-size: 10px;
+  color: var(--mid);
+  letter-spacing: 1px;
+}
+.footer-cat {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--ocean);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── RELATED ARTICLES ── */
+.related-section {
+  padding: 48px;
+  border-top: 1px solid var(--border);
+}
+.related-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.related-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  display: block;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.related-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+}
+.related-card:hover { background: rgba(200,150,62,.04); }
+.related-card-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.related-card-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--off-white);
+  margin-bottom: 16px;
+}
+.related-card-arrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .related-section { padding: 32px 20px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T3YHJJJFTF');
+</script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<style id="reading-progress-style">
+.reading-progress{position:fixed;top:0;left:0;width:0%;height:2px;background:#c8963e;z-index:9999;transition:width .1s linear;}
+</style>
+</head>
+<body>
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span>.mag</span></a>
+  <div class="header-right">
+    <span class="header-cat">History</span>
+    <a href="index.html" class="header-home">← 홈으로</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-number">80</div>
+
+  <div class="snake-row">
+    <div class="snake-item"><span class="snake-icon">🏛️</span><span class="snake-label">콜로세움</span></div>
+    <div class="snake-item"><span class="snake-icon">⚓</span><span class="snake-label">미세눔 함대</span></div>
+    <div class="snake-item"><span class="snake-icon">🪢</span><span class="snake-label">밧줄·도르래</span></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="hero-tag-cat">History · 고대 공학</span>
+      <div class="hero-tag-line"></div>
+    </div>
+    <h1 class="hero-title">도구는 진화했다,<br><em>인간은 얼마나 달라졌을까</em></h1>
+    <p class="hero-subtitle">벨라리움 · F3YNM4N</p>
+    <p class="hero-lead">콜로세움에는 개폐식 지붕이 있었다. 정확히 말하면, 5만 명이 넘는 관중석을 통째로 덮는 거대한 차양막이었다. 놀라운 건 그 규모가 아니다. 모터도, 전기도 없이 그것을 펼치고 접었다는 사실이다.</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- CH 1 -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <div class="chapter-num">1</div>
+      <div class="chapter-title-wrap">
+        <div class="chapter-label">Colosseum · AD 80</div>
+        <div class="chapter-title">벨라리움이라는 공학</div>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p>그 거대한 차양막의 이름은 벨라리움(Velarium)이다.</p>
+      <p>콜로세움 4층 꼭대기에 설치된 이 차양막은 수많은 밧줄과 도르래를 이용해 펼치고 접었다. 외벽에 박힌 돌 블록에 밧줄을 고정해 구조 전체를 지탱했는데, 그 흔적 일부는 지금도 남아 있다.</p>
+      <p>이 작업을 아무나 맡은 것도 아니었다. 콜로세움 인근에 주둔한 미세눔 함대의 로마 해군 선원들이 전담했다. 거대한 돛을 다루던 뱃사람들의 삭구 기술을 육상의 건축물에 그대로 적용한 것이다.</p>
+      <div class="pullquote">
+        <p>어떤 기술이 필요한지, 그리고 그 기술을 이미 가진 사람들이 누구인지. 로마인들은 그것을 정확히 알고 있었다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-divider"><span class="chapter-divider-symbol">✦</span></div>
+
+  <!-- CH 2 -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <div class="chapter-num">2</div>
+      <div class="chapter-title-wrap">
+        <div class="chapter-label">Interpretation</div>
+        <div class="chapter-title">이것은 무지의 증거가 아니다</div>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p>벨라리움을 보면 자연스럽게 이런 생각이 든다.</p>
+      <p>'모터도 없이 저걸 어떻게 움직였을까?'</p>
+      <p>하지만 조금만 생각해 보면 놀라운 건 모터의 부재가 아니다. 수십 개의 밧줄에 걸리는 장력을 계산하고, 바람에 차양막이 찢어지지 않도록 텐션을 조절하며, 수만 명을 덮는 구조물을 안전하게 유지하는 일. 지금 기준으로도 결코 쉬운 공학이 아니다.</p>
+      <p>로마인들은 그것을 해냈다. 그들의 과학적 사고나 공학적 지능이 현대인보다 크게 뒤처졌던 것은 아니다. 차이가 있었다면, 아이디어를 더 쉽고 크게 구현할 수 있는 동력과 재료, 그리고 생산 기술이었다.</p>
+      <p>흥미롭게도 오늘날 개폐식 돔 경기장의 원리도 크게 다르지 않다. 거대한 막을 케이블로 당겨 펼치고 접는다. 2천 년이 지나도 문제를 푸는 방식 자체는 크게 달라지지 않았다. 달라진 것은 사람의 손이 모터로 바뀌고, 밧줄이 고성능 케이블로 바뀌었으며, 재료와 제어 기술이 발전했다는 점이다.</p>
+      <div class="pullquote">
+        <p>지능의 격차와 도구의 격차는 서로 다른 이야기다. 벨라리움이 보여주는 것은 후자다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-divider"><span class="chapter-divider-symbol">✦</span></div>
+
+  <!-- CH 3 -->
+  <div class="chapter">
+    <div class="chapter-header">
+      <div class="chapter-num">3</div>
+      <div class="chapter-title-wrap">
+        <div class="chapter-label">Pattern</div>
+        <div class="chapter-title">반복되는 패턴</div>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p>벨라리움만의 이야기가 아니다.</p>
+      <p>로마 콘크리트는 화산재를 활용해 일부 환경에서는 현대 콘크리트보다 더 오래 버틴다. 안티키테라 기계는 2천 년 전 이미 복잡한 기어를 이용해 천체의 움직임을 계산했다. 피라미드는 현대 측량으로 확인해도 놀라울 만큼 정밀한 수평과 방위를 보여준다.</p>
+      <p>시대와 장소는 모두 다르다. 하지만 반복되는 패턴은 하나다. 이해가 부족했던 것이 아니라, 그 이해를 더 쉽고 정교하게 실현할 도구가 부족했던 것이다.</p>
+    </div>
+  </div>
+
+  <div class="chapter-divider"><span class="chapter-divider-symbol">✦</span></div>
+
+
+  <!-- CONCLUSION -->
+  <div class="conclusion">
+    <div class="conclusion-label">결론 · Conclusion</div>
+    <div class="conclusion-title">인간은 그때보다 지금 더 똑똑해진 것이 아닐지도 모른다</div>
+    <div class="conclusion-body">
+      <p>우리가 가진 것은 더 뛰어난 머리가 아니라, 수천 년 동안 축적되어 온 더 좋은 도구와 더 많은 기술인지도 모른다.</p>
+      <p>문명의 진보는 어쩌면 인간이 갑자기 똑똑해져서가 아니라, 좋은 아이디어를 현실로 바꾸는 능력이 조금씩 쌓여 왔기 때문에 가능했던 것 아닐까.</p>
+    </div>
+  </div>
+
+  <div class="closing-line">
+    <p>— F3YNM4N · History · Vol.01</p>
+  </div>
+
+</div>
+
+<!-- RELATED ARTICLES -->
+<section style="max-width:780px;margin:0 auto;padding:60px 48px 80px;border-top:1px solid rgba(181,115,46,0.15);">
+  <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--mid);text-transform:uppercase;margin-bottom:32px;">Related Reading</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <a href="civilization.html" style="text-decoration:none;border:1px solid rgba(181,115,46,0.18);padding:28px;display:block;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(181,115,46,0.5)'" onmouseout="this.style.borderColor='rgba(181,115,46,0.18)'">
+      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--mid);text-transform:uppercase;margin-bottom:12px;">문화 칼럼</div>
+      <div style="font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;color:var(--parchment);line-height:1.4;margin-bottom:10px;">연결이 사라질 때<br>문명도 사라진다</div>
+      <div style="font-size:12px;color:var(--mid);line-height:1.7;">전승이 끊기는 구조는 왜 반복되는가. 고대부터 AI 시대까지.</div>
+    </a>
+    <a href="persia.html" style="text-decoration:none;border:1px solid rgba(181,115,46,0.18);padding:28px;display:block;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(181,115,46,0.5)'" onmouseout="this.style.borderColor='rgba(181,115,46,0.18)'">
+      <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--mid);text-transform:uppercase;margin-bottom:12px;">문화 칼럼</div>
+      <div style="font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;color:var(--parchment);line-height:1.4;margin-bottom:10px;">잠든 거인,<br>페르시아</div>
+      <div style="font-size:12px;color:var(--mid);line-height:1.7;">이름이 사라지면 문명도 희미해진다. 스스로 지운 이름의 대가.</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">F3YNM4N</div>
+  <div class="footer-meta">도구는 진화했다, 인간은 얼마나 달라졌을까 · 벨라리움</div>
+  <div class="footer-cat">History</div>
+</footer>
+
+<!-- =============================================
+  F3YNM4N 공유 버튼 컴포넌트
+  위치: 
+<script id="reading-progress-script">
+window.addEventListener('scroll',function(){
+  var doc=document.documentElement;
+  var scrolled=doc.scrollTop||document.body.scrollTop;
+  var total=doc.scrollHeight-doc.clientHeight;
+  var pct=total>0?(scrolled/total)*100:0;
+  document.getElementById('readingProgress').style.width=pct+'%';
+});
+</script>
+</body> 태그 바로 앞에 붙여넣기
+  카카오 앱키: KAKAO_APP_KEY 부분을 실제 키로 교체
+  카카오 앱키 없으면 그냥 써도 됨 (URL복사 + X는 바로 동작)
+============================================= -->
+
+<!-- 카카오 SDK (앱키 없으면 이 줄 삭제해도 됨) -->
+
+
+<style>
+.f3-share-btn{
+  position:fixed;bottom:36px;right:36px;z-index:1000;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.f3-share-toggle{
+  width:44px;height:44px;border-radius:50%;
+  background:#c8963e;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s,background .2s;
+  box-shadow:0 2px 12px rgba(200,150,62,.35);
+}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{
+  display:flex;flex-direction:column;gap:6px;
+  opacity:0;transform:translateY(8px) scale(.96);
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+}
+.f3-share-panel.open{
+  opacity:1;transform:translateY(0) scale(1);pointer-events:all;
+}
+.f3-share-item{
+  display:flex;align-items:center;gap:10px;
+  background:#0d0d0b;border:1px solid rgba(200,150,62,.3);
+  padding:10px 16px;cursor:pointer;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;
+  color:#c8963e;text-transform:uppercase;white-space:nowrap;
+  transition:background .15s,border-color .15s;
+  text-decoration:none;
+}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{
+  width:16px;height:16px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.f3-share-toast{
+  position:fixed;bottom:100px;right:36px;z-index:1001;
+  background:#0d0d0b;border:1px solid rgba(200,150,62,.4);
+  padding:10px 18px;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;
+  opacity:0;transform:translateY(4px);
+  transition:opacity .2s,transform .2s;pointer-events:none;
+}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+
+@media(max-width:640px){
+  .f3-share-btn{bottom:24px;right:20px;}
+  .f3-share-toast{right:20px;bottom:90px;}
+}
+</style>
+
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+
+    <!-- URL 복사 -->
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+      </span>
+      URL 복사
+    </button>
+
+    <!-- X (Twitter) -->
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </span>
+      X 공유
+    </a>
+
+    <!-- 카카오톡 -->
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e">
+          <path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/>
+        </svg>
+      </span>
+      카카오톡
+    </button>
+
+  </div>
+
+  <!-- 토글 버튼 -->
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24">
+      <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+    </svg>
+  </button>
+</div>
+
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  // ── 카카오 앱키 ── 없으면 빈 문자열로 두면 됨
+  var KAKAO_KEY = 'e0642d0a5c0ae01b8893422a148e9aba';
+
+  function loadKakaoSDK(cb){
+    if(window.Kakao){cb();return;}
+    var s=document.createElement('script');
+    s.src='https://developers.kakao.com/sdk/js/kakao.min.js';
+    s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};
+    document.head.appendChild(s);
+  }
+
+  var panelOpen = false;
+
+  window.f3ToggleShare = function(){
+    panelOpen = !panelOpen;
+    document.getElementById('f3SharePanel').classList.toggle('open', panelOpen);
+  };
+
+  window.f3CopyUrl = function(){
+    var url = location.href;
+    navigator.clipboard.writeText(url).then(function(){
+      showToast('URL 복사됨');
+    }).catch(function(){
+      // 구형 브라우저 fallback
+      var ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+      showToast('URL 복사됨');
+    });
+    panelOpen = false;
+    document.getElementById('f3SharePanel').classList.remove('open');
+  };
+
+  // X 공유 링크 동적 생성
+  var xLink = document.getElementById('f3ShareX');
+  if(xLink){
+    var title = document.title || 'F3YNM4N';
+    var url = location.href;
+    xLink.href = 'https://twitter.com/intent/tweet?text=' +
+      encodeURIComponent(title) + '&url=' + encodeURIComponent(url);
+  }
+
+  window.f3ShareKakao = function(){
+    if(!KAKAO_KEY){ showToast('카카오 앱키 필요'); return; }
+    loadKakaoSDK(function(){
+    var title = document.title || 'F3YNM4N';
+    var desc  = document.querySelector('meta[name="description"]');
+    Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: title,
+        description: desc ? desc.content : '',
+        imageUrl: 'https://f3ynm4n.com/og_default.png',
+        link: { mobileWebUrl: location.href, webUrl: location.href }
+      },
+      buttons: [{
+        title: '읽기',
+        link: { mobileWebUrl: location.href, webUrl: location.href }
+      }]
+    });
+    });
+  };
+
+  function showToast(msg){
+    var t = document.getElementById('f3Toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2000);
+  }
+
+  // 바깥 클릭 시 닫기
+  document.addEventListener('click', function(e){
+    if(!document.getElementById('f3ShareBtn').contains(e.target)){
+      panelOpen = false;
+      document.getElementById('f3SharePanel').classList.remove('open');
+    }
+  });
+})();
+</script>
+
+
+<script id="reading-progress-script">
+window.addEventListener('scroll',function(){
+  var doc=document.documentElement;
+  var scrolled=doc.scrollTop||document.body.scrollTop;
+  var total=doc.scrollHeight-doc.clientHeight;
+  var pct=total>0?(scrolled/total)*100:0;
+  document.getElementById('readingProgress').style.width=pct+'%';
+});
+</script>
+</body>
+</html>
