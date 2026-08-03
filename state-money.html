@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사주는 손도 국가가 만들었다 · F3YNM4N</title>
+<meta name="description" content="궈차오는 정말 자발적인가.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="사주는 손도 국가가 만들었다 · F3YNM4N">
+<meta property="og:description" content="궈차오는 정말 자발적인가.">
+<meta property="og:url" content="https://f3ynm4n.com/state-money.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#c0392b;--accent2:#d9695c;--accent3:rgba(192,57,43,.12);
+  --border:rgba(192,57,43,0.18);--border2:rgba(192,57,43,0.28);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+.hero{min-height:88vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0c0a14;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 22% 70%, rgba(192,57,43,.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 15%, rgba(192,57,43,.10) 0%, transparent 45%),
+    linear-gradient(165deg,#0c0a14 0%,#0e0c18 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(192,57,43,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(192,57,43,.05) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse at 22% 70%, black 0%, transparent 60%);
+}
+
+/* 저울 SVG 워터마크 */
+.hero-scale{
+  position:absolute;right:5%;bottom:6%;width:clamp(160px,22vw,320px);height:auto;
+  opacity:0;animation:fadeUp .9s ease forwards 1s;
+  pointer-events:none;
+}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(192,57,43,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(192,57,43,.7);}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(30px,5vw,64px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .4s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(217,105,92,.9);}
+.hero-subtitle{font-family:'Noto Serif KR',serif;font-size:clamp(14px,1.8vw,19px);font-weight:300;color:rgba(217,105,92,.6);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .55s;line-height:1.7;}
+
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;color:var(--accent);}
+
+.section{margin-bottom:64px;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.section.visible{opacity:1;transform:translateY(0);}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-title{font-family:'Noto Serif KR',serif;font-size:22px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.pq.visible{opacity:1;transform:translateY(0);}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.12;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.compare-box{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:32px 0;background:var(--border);}
+.compare-item{background:var(--bg2);padding:24px;}
+.compare-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;}
+.compare-val{font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.5;}
+.compare-sub{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.75;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--accent);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(192,57,43,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(192,57,43,.35);}
+
+.verdict{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.verdict.visible{opacity:1;transform:translateY(0);}
+.verdict::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.verdict-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.verdict-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.verdict-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.verdict-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.verdict-close strong{font-style:normal;color:var(--accent);}
+
+.related-box{margin-top:56px;padding-top:40px;border-top:1px solid var(--border2);}
+.related-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase;margin-bottom:24px;}
+.related-item{display:block;padding:18px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:padding-left .15s ease;}
+.related-item:hover{padding-left:8px;}
+.related-title{display:block;font-family:'Noto Serif KR',serif;font-size:16px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.related-item:hover .related-title{color:var(--accent);}
+.related-desc{display:block;font-size:13px;font-weight:300;color:var(--text-muted);line-height:1.6;}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:26px;}
+  .hero-scale{width:120px;right:4%;bottom:4%;}
+  .body-wrap{padding:60px 20px 100px;}
+  .compare-box{grid-template-columns:1fr;}
+  .verdict{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+}
+
+/* f3-share-btn 컴포넌트 (misik-epilogue 정본) */
+.f3-share-btn{position:fixed;bottom:36px;right:36px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.f3-share-toggle{width:44px;height:44px;border-radius:50%;background:#c8963e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(200,150,62,.35);}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;transition:opacity .18s ease,transform .18s ease;}
+.f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.f3-share-item{display:flex;align-items:center;gap:10px;background:#0d0d0b;border:1px solid rgba(200,150,62,.3);padding:10px 16px;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;text-transform:uppercase;white-space:nowrap;transition:background .15s,border-color .15s;text-decoration:none;}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.f3-share-toast{position:fixed;bottom:100px;right:36px;z-index:1001;background:#0d0d0b;border:1px solid rgba(200,150,62,.4);padding:10px 18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+@media(max-width:640px){.f3-share-btn{bottom:24px;right:20px;}.f3-share-toast{right:20px;bottom:90px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <!-- 두 화살표가 하나의 중심으로 모이는 SVG: 자본(공급)과 소비정서(수요)가 한 설계로 수렴 -->
+  <svg class="hero-scale" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 70 Q120 90 150 130" fill="none" stroke="rgba(217,105,92,0.55)" stroke-width="2.5"/>
+    <path d="M250 70 Q180 90 150 130" fill="none" stroke="rgba(217,105,92,0.55)" stroke-width="2.5"/>
+    <circle cx="50" cy="70" r="7" fill="none" stroke="rgba(217,105,92,0.7)" stroke-width="2.5"/>
+    <circle cx="250" cy="70" r="7" fill="none" stroke="rgba(217,105,92,0.7)" stroke-width="2.5"/>
+    <text x="50" y="52" text-anchor="middle" font-family="Space Mono, monospace" font-size="10" fill="rgba(217,105,92,0.6)" letter-spacing="1">자본</text>
+    <text x="250" y="52" text-anchor="middle" font-family="Space Mono, monospace" font-size="10" fill="rgba(217,105,92,0.6)" letter-spacing="1">소비</text>
+    <circle cx="150" cy="130" r="14" fill="none" stroke="rgba(217,105,92,0.85)" stroke-width="2.5"/>
+    <text x="150" y="175" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="rgba(217,105,92,0.5)" letter-spacing="1">하나의 설계</text>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-tag">Economy · 국가자본주의 2부</div>
+    <h1 class="hero-title">사주는 손도<br><em>국가가 만들었다</em></h1>
+    <p class="hero-subtitle">궈차오는 정말 자발적인가</p>
+  </div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(192,57,43,.15);">
+    <p>안타는 나이키를 이겼다. 정정당당하게. 그런데 안타가 이길 수 있었던 건 실력만이 아니다. 안타 제품을 사줄 마음을 가진 소비자도 필요했다.</p>
+    <p>그 마음은 어디서 왔을까.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">표면: 자신감의 표현이라는 설명</h2>
+    </div>
+    <div class="article-body">
+      <p>궈차오(国潮)는 중국의 전통·트렌드가 합쳐진 신조어다. 지금 이 흐름을 이끄는 건 90후·00후, 이른바 Z세대다.</p>
+      <p>한 시각은 이렇게 설명한다. 해외 브랜드에 대한 열등감에서 자유로워진 젊은 세대가 자연스럽게 자국 브랜드를 선택하는 것뿐이라고. 국산품애용운동 같은 국수주의가 아니라, 한국 젊은 층이 레트로 인테리어를 즐기는 것과 비슷한 트렌드일 뿐이라고.</p>
+      <p>일리 있는 말이다. 국력이 오르면 자국 브랜드 선호가 자연히 따라오는 건 어느 나라에나 있는 현상이다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">그런데 이 정서엔 시작점이 있다</h2>
+    </div>
+    <div class="article-body">
+      <p>궈차오를 이끄는 세대의 배경을 보면 다른 그림이 보인다. 중국은 건국 이래 총 4단계에 걸쳐 애국주의 교육을 시행해왔다. 그중 3단계, 1994년부터 2011년까지는 청소년을 핵심 대상으로 삼았다.</p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">핵심 구조</div>
+      <p class="fact-text">지금 궈차오를 주도하는 세대는, 정확히 이 3단계 애국주의 교육을 집중적으로 받고 자란 세대다.</p>
+    </div>
+
+    <div class="article-body">
+      <p>미중 무역분쟁과 코로나19를 계기로 확산된 궈차오 열풍의 배경에는, 학술 연구 자체가 "중국 정부의 로컬 브랜드 강화정책"을 지목한다. 자발적으로 보이는 소비 트렌드의 뿌리에, 이미 정책이 있었다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">그리고 이건 이제 법이 됐다</h2>
+    </div>
+    <div class="article-body">
+      <p>2024년 1월 1일, 《중화인민공화국 애국주의교육법》이 시행됐다. 모든 학교가 교육과정 전반에 애국주의를 반영하고, 사상정치이론 수업을 개설해야 한다. 교육부는 "청소년은 애국주의교육의 핵심 대상"이라고 명시했다.</p>
+      <p>이 법은 국제학교와 사립학교에도 적용된다. 일부 영국계 국제학교는 이 때문에 중국 사업 자체를 접는 것을 검토하고 있다는 보도까지 나왔다.</p>
+    </div>
+
+    <div class="pq">
+      <p>2018~2022년의 궈차오가 "교육의 결과"라는 완곡한 표현으로 설명됐다면,<br>2024년의 궈차오는 법으로 명문화된 커리큘럼의 결과다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">자본과 마음, 한 설계 안에</h2>
+    </div>
+    <div class="article-body">
+      <p>1편에서 짚었던 안타의 자본과, 지금 이 소비 정서는 별개가 아니다.</p>
+      <p>중국제조2025가 로컬기업에 제공하는 재정지원은 해외기업 인수자금으로 쓰인다. 안타가 아크테릭스를 살 수 있었던 힘이 여기서 나온다. 그리고 그 안타 제품을 사줄 세대는, 같은 시기 국가가 설계한 교육을 받으며 자랐다.</p>
+    </div>
+
+    <div class="compare-box">
+      <div class="compare-item">
+        <div class="compare-label">공급을 만드는 손</div>
+        <div class="compare-val">중국제조2025 재정지원</div>
+        <div class="compare-sub">로컬 기업이 세계 브랜드를 인수할 자본을 지원한다.</div>
+      </div>
+      <div class="compare-item">
+        <div class="compare-label">수요를 만드는 손</div>
+        <div class="compare-val">애국주의교육법</div>
+        <div class="compare-sub">그 브랜드를 선택할 소비 정서를 교육한다.</div>
+      </div>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">핵심 구조</div>
+      <p class="fact-text">한쪽에서는 로컬 기업이 세계 브랜드를 인수할 자본을 지원하고, 다른 한쪽에서는 그 브랜드를 선택할 소비 정서를 교육한다. <strong>공급과 수요가 서로를 키우는 구조가 아니라, 하나의 전략 안에서 함께 설계된다.</strong></p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">그럼에도 남는 것</h2>
+    </div>
+    <div class="article-body">
+      <p>이걸 전부 국가의 설계로만 몰아붙이는 것도 정확하지 않다. 인구가 크니 시장 자체가 크고, 그 안에서 실제로 경쟁력을 키운 기업들이 존재한다. 국력이 오르면 자국 선호가 따라오는 것도 자연스러운 흐름이다. 한국도 K-라는 이름으로 비슷한 경험을 했다.</p>
+    </div>
+
+    <div class="pq">
+      <p>문제는 "자연 발생한 자신감"과 "법으로 설계된 정서"의 경계가,<br>지금 중국에서는 실제로 구분되지 않는다는 것이다.</p>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">결론 · Verdict</div>
+    <p class="verdict-body">자본은 국가가 만들었다. 그 자본으로 산 브랜드를 사줄 마음도, 국가가 법으로 만들었다.</p>
+    <p class="verdict-body">시장이라면 공급과 수요가 각자의 자리에서 만나야 한다. 그런데 지금 이 시장에서는, 공급을 밀어주는 손과 수요를 길러내는 손이 같은 곳에서 나온다.</p>
+    <p class="verdict-close"><strong>우리는 기업과 경쟁하는 걸까, 아니면 하나의 시스템과 경쟁하는 걸까.</strong></p>
+  </div>
+
+  <div class="related-box">
+    <div class="related-label">국가자본주의 3부작</div>
+    <a class="related-item" href="number-two-rules.html">
+      <span class="related-title">1부 · 넘버2의 방식</span>
+      <span class="related-desc">팍스 차이나는 이렇게 오지 않는다.</span>
+    </a>
+    <a class="related-item" href="apple-leash.html">
+      <span class="related-title">3부 · 목줄을 스스로 채운 손</span>
+      <span class="related-desc">애플은 왜 중국에서 빠져나오지 못하는가.</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Economy · 2026</span>
+</footer>
+
+
+
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});},{threshold:0.08});
+document.querySelectorAll('.section,.pq,.verdict').forEach(el=>obs.observe(el));
+</script>
+
+<!-- f3-share-btn 컴포넌트 (misik-epilogue 정본) -->
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+      URL 복사
+    </button>
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+      X 공유
+    </a>
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg></span>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  var KAKAO_KEY='e0642d0a5c0ae01b8893422a148e9aba';
+  function loadKakaoSDK(cb){if(window.Kakao){cb();return;}var s=document.createElement('script');s.src='https://developers.kakao.com/sdk/js/kakao.min.js';s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};document.head.appendChild(s);}
+  var panelOpen=false;
+  window.f3ToggleShare=function(){panelOpen=!panelOpen;document.getElementById('f3SharePanel').classList.toggle('open',panelOpen);};
+  window.f3CopyUrl=function(){var url=location.href;navigator.clipboard.writeText(url).then(function(){showToast('URL 복사됨');}).catch(function(){var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('URL 복사됨');});panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');};
+  var xLink=document.getElementById('f3ShareX');if(xLink){xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href);}
+  window.f3ShareKakao=function(){if(!KAKAO_KEY){showToast('카카오 앱키 필요');return;}loadKakaoSDK(function(){var desc=document.querySelector('meta[name="description"]');Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:desc?desc.content:'',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:location.href,webUrl:location.href}},buttons:[{title:'읽기',link:{mobileWebUrl:location.href,webUrl:location.href}}]});});};
+  function showToast(msg){var t=document.getElementById('f3Toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+  document.addEventListener('click',function(e){if(!document.getElementById('f3ShareBtn').contains(e.target)){panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');}});
+})();
+</script>
+
+</body>
+</html>
