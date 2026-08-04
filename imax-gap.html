@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>저해상도로도 얼굴은 알아본다 · F3YNM4N</title>
+<meta name="description" content="놀란의 IMAX 고집이 만드는 것.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="저해상도로도 얼굴은 알아본다 · F3YNM4N">
+<meta property="og:description" content="놀란의 IMAX 고집이 만드는 것.">
+<meta property="og:url" content="https://f3ynm4n.com/imax-gap.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#2c5aa0;--accent2:#5b83c4;--accent3:rgba(44,90,160,.12);
+  --border:rgba(44,90,160,0.18);--border2:rgba(44,90,160,0.28);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+.hero{min-height:88vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0c0a14;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 22% 70%, rgba(44,90,160,.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 15%, rgba(44,90,160,.10) 0%, transparent 45%),
+    linear-gradient(165deg,#0c0a14 0%,#0e0c18 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(44,90,160,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44,90,160,.05) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse at 22% 70%, black 0%, transparent 60%);
+}
+
+/* 저울 SVG 워터마크 */
+.hero-scale{
+  position:absolute;right:5%;bottom:6%;width:clamp(160px,22vw,320px);height:auto;
+  opacity:0;animation:fadeUp .9s ease forwards 1s;
+  pointer-events:none;
+}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(44,90,160,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(44,90,160,.7);}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(30px,5vw,64px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .4s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(91,131,196,.9);}
+.hero-subtitle{font-family:'Noto Serif KR',serif;font-size:clamp(14px,1.8vw,19px);font-weight:300;color:rgba(91,131,196,.6);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .55s;line-height:1.7;}
+
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;color:var(--accent);}
+
+.section{margin-bottom:64px;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.section.visible{opacity:1;transform:translateY(0);}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-title{font-family:'Noto Serif KR',serif;font-size:22px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.pq.visible{opacity:1;transform:translateY(0);}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.12;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.compare-box{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:32px 0;background:var(--border);}
+.compare-item{background:var(--bg2);padding:24px;}
+.compare-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;}
+.compare-val{font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.5;}
+.compare-sub{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.75;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--accent);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(44,90,160,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(44,90,160,.35);}
+
+.verdict{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.verdict.visible{opacity:1;transform:translateY(0);}
+.verdict::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.verdict-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.verdict-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.verdict-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.verdict-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.verdict-close strong{font-style:normal;color:var(--accent);}
+
+.related-box{margin-top:56px;padding-top:40px;border-top:1px solid var(--border2);}
+.related-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase;margin-bottom:24px;}
+.related-item{display:block;padding:18px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:padding-left .15s ease;}
+.related-item:hover{padding-left:8px;}
+.related-title{display:block;font-family:'Noto Serif KR',serif;font-size:16px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.related-item:hover .related-title{color:var(--accent);}
+.related-desc{display:block;font-size:13px;font-weight:300;color:var(--text-muted);line-height:1.6;}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:26px;}
+  .hero-scale{width:120px;right:4%;bottom:4%;}
+  .body-wrap{padding:60px 20px 100px;}
+  .compare-box{grid-template-columns:1fr;}
+  .verdict{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+}
+
+/* f3-share-btn 컴포넌트 (misik-epilogue 정본) */
+.f3-share-btn{position:fixed;bottom:36px;right:36px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.f3-share-toggle{width:44px;height:44px;border-radius:50%;background:#c8963e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(200,150,62,.35);}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;transition:opacity .18s ease,transform .18s ease;}
+.f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.f3-share-item{display:flex;align-items:center;gap:10px;background:#0d0d0b;border:1px solid rgba(200,150,62,.3);padding:10px 16px;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;text-transform:uppercase;white-space:nowrap;transition:background .15s,border-color .15s;text-decoration:none;}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.f3-share-toast{position:fixed;bottom:100px;right:36px;z-index:1001;background:#0d0d0b;border:1px solid rgba(200,150,62,.4);padding:10px 18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+@media(max-width:640px){.f3-share-btn{bottom:24px;right:20px;}.f3-share-toast{right:20px;bottom:90px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <!-- IMAX(1.43:1, 세로 긴 프레임)과 일반관(2.39:1, 가로 긴 프레임)이 겹쳐진 SVG. 겹치지 않는 위아래 영역이 잘려나가는 부분 -->
+  <svg class="hero-scale" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+    <rect x="70" y="40" width="160" height="180" fill="none" stroke="rgba(91,131,196,0.7)" stroke-width="2.5"/>
+    <text x="150" y="30" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="rgba(91,131,196,0.75)" letter-spacing="1">IMAX 1.43:1</text>
+    <rect x="40" y="95" width="220" height="70" fill="none" stroke="rgba(91,131,196,0.35)" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="150" y="240" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="rgba(91,131,196,0.4)" letter-spacing="1">일반관 2.39:1</text>
+    <rect x="70" y="40" width="160" height="55" fill="rgba(91,131,196,0.08)"/>
+    <rect x="70" y="165" width="160" height="55" fill="rgba(91,131,196,0.08)"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-tag">Film · IMAX</div>
+    <h1 class="hero-title">저해상도로도<br><em>얼굴은 알아본다</em></h1>
+    <p class="hero-subtitle">놀란의 IMAX 고집이 만드는 것</p>
+  </div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(44,90,160,.15);">
+    <p>크리스토퍼 놀란의 신작이 개봉하면 늘 같은 질문이 따라온다. IMAX 70mm로 볼 것인가, 일반관으로 볼 것인가.</p>
+    <p>전 세계에 IMAX 70mm 필름을 상영할 수 있는 극장은 30개다. 오펜하이머 기준 미국 19개, 캐나다 6개, 영국 3개, 호주와 체코에 각 1개. 이 30개관 밖에 있는 나머지 모든 관객은, 놀란이 원래 찍은 화면의 일부가 잘려나간 버전을 본다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">접근성이라는 문제</h2>
+    </div>
+    <div class="article-body">
+      <p>영화는 원래 이런 매체가 아니었다. 미술관의 원화는 한 점뿐이라 소수만 실물을 볼 수 있지만, 영화는 복제해서 배급하는 순간 어디서든 같은 걸 볼 수 있어야 하는 매체다. 그게 영화라는 형식이 가진 힘이었다.</p>
+      <p>그런데 놀란의 영화는 이 전제를 비튼다. 전 세계 극장 대부분이 30개 안에 들지 못하고, 그 30개 밖의 관객은 처음부터 다른 버전을 보게 설계되어 있다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">"서사엔 문제없다"는 반박</h2>
+    </div>
+    <div class="article-body">
+      <p>옹호론은 한결같다. 일반관에서 봐도 줄거리를 이해하는 데는 지장이 없다는 것이다.</p>
+      <p>저해상도 사진으로도 누구 얼굴인지는 알아본다. 그런데 그게 그 사진이 잘 나온 사진이라는 뜻은 아니다. 놀란이 IMAX 프레임을 고집하는 이유는 애초에 서사 전달이 아니다. 스케일감, 몰입감, 화면 구석구석까지 채우는 정보량 — 이게 목적이다.</p>
+    </div>
+
+    <div class="pq">
+      <p>"줄거리는 알아들었잖아"는<br>애초에 다른 질문에 답하는 것이다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">세 겹의 증폭</h2>
+    </div>
+    <div class="article-body">
+      <p>이 격차가 문제가 되는 건, 이게 한 사람의 고집에서 끝나지 않기 때문이다.</p>
+      <p>놀란 개인의 미학적 선택 — 필름 선호, CG 최소화, IMAX 프레임 — 은 취향의 영역이다. 여기까지는 비판할 이유가 없다.</p>
+      <p>문제는 그 다음이다. 제작사와 IMAX사는 이 고집을 "이게 진짜 버전"이라는 마케팅으로 상업화한다. 놀란 본인부터 "IMAX 필름 포맷은 영화 촬영의 골드 스탠다드이며 단 하나의 선택"이라고 말한다. 선택이라는 말을 쓰면서, 사실상 유일한 정답이라고 규정하는 화법이다.</p>
+      <p>그리고 팬덤이 이 화법을 완성한다. "IMAX로 안 보면 논할 자격 없다"는 구별짓기가 퍼지면서, 관객은 자연스럽게 계층화된다. 그 계층화가 다시 티켓 프리미엄을 정당화하는 근거가 된다.</p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">핵심 구조</div>
+      <p class="fact-text">개인의 취향 → 산업의 마케팅 → 팬덤의 위계화. <strong>이 세 단계를 거치며, 취향은 계층이 된다.</strong></p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">기술의 문제가 아니라 선택의 문제</h2>
+    </div>
+    <div class="article-body">
+      <p>여기서 정직하게 짚어야 할 게 있다. IMAX 필름 카메라는 실제로 무겁고 시끄럽다. 오펜하이머의 필름 길이는 17km, 무게는 272kg이었다. 오디세이 이전까지는 이 무게와 소음 때문에 영화 전체를 IMAX로 찍는 것조차 불가능했다. 촬영의 어려움은 진짜다.</p>
+      <p>하지만 일반관에서 상영되는 크롭된 화면은 다른 문제다. 화면비가 다른 상영관에 맞게 구도를 다시 짜는 기술 — 리프레이밍 — 은 이미 영화 업계에 존재한다. 장면마다 공을 들여야 하는 후반 작업일 뿐, 기술적으로 불가능한 일이 아니다.</p>
+      <p>그런데 일반관 버전을 이 방식으로 적극적으로 리프레이밍했다는 근거는 확인하기 어렵다. 결과적으로 일반관은 IMAX에 비해 불리한 구도로 남고, 이 차이는 IMAX의 희소성을 강화하는 효과를 낳는다.</p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">핵심 구조</div>
+      <p class="fact-text">그것이 의도인지 부산물인지는 별개 문제다. 하지만 관객 경험의 격차는 실제로 존재한다. <strong>이건 기술적 난제라기보다, 제작 철학과 후반 작업의 선택에 가까운 문제다.</strong></p>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">결론 · Verdict</div>
+    <p class="verdict-body">촬영의 어려움은 진짜다. 하지만 그 어려움이, 30개관 밖의 모든 관객이 불리한 버전을 봐야 하는 이유는 되지 못한다. 화면비를 조정하는 기술은 이미 있다. 그 기술에 얼마나 공을 들이느냐는 선택의 문제이고, 지금까지 그 선택은 일반관 쪽으로 향하지 않았다.</p>
+    <p class="verdict-body">미학적 고집은 취향이다. 그 취향을 "유일한 정답"으로 파는 건 마케팅이다. 그리고 그 마케팅을 "자격"의 문제로 바꾸는 건 팬덤이다. 세 겹이 쌓이는 동안, 정작 일반관 관객의 경험을 개선할 선택지가 있었다는 사실은 뒤로 밀린다.</p>
+    <p class="verdict-close"><strong>저해상도로도 얼굴은 알아본다. 하지만 그게, 더 나은 사진을 찍지 않아도 될 이유는 아니다.</strong></p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Film · 2026</span>
+</footer>
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});},{threshold:0.08});
+document.querySelectorAll('.section,.pq,.verdict').forEach(el=>obs.observe(el));
+</script>
+
+<!-- f3-share-btn 컴포넌트 (misik-epilogue 정본) -->
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+      URL 복사
+    </button>
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+      X 공유
+    </a>
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg></span>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  var KAKAO_KEY='e0642d0a5c0ae01b8893422a148e9aba';
+  function loadKakaoSDK(cb){if(window.Kakao){cb();return;}var s=document.createElement('script');s.src='https://developers.kakao.com/sdk/js/kakao.min.js';s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};document.head.appendChild(s);}
+  var panelOpen=false;
+  window.f3ToggleShare=function(){panelOpen=!panelOpen;document.getElementById('f3SharePanel').classList.toggle('open',panelOpen);};
+  window.f3CopyUrl=function(){var url=location.href;navigator.clipboard.writeText(url).then(function(){showToast('URL 복사됨');}).catch(function(){var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('URL 복사됨');});panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');};
+  var xLink=document.getElementById('f3ShareX');if(xLink){xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href);}
+  window.f3ShareKakao=function(){if(!KAKAO_KEY){showToast('카카오 앱키 필요');return;}loadKakaoSDK(function(){var desc=document.querySelector('meta[name="description"]');Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:desc?desc.content:'',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:location.href,webUrl:location.href}},buttons:[{title:'읽기',link:{mobileWebUrl:location.href,webUrl:location.href}}]});});};
+  function showToast(msg){var t=document.getElementById('f3Toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+  document.addEventListener('click',function(e){if(!document.getElementById('f3ShareBtn').contains(e.target)){panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');}});
+})();
+</script>
+
+</body>
+</html>
