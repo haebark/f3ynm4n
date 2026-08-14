@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>그 사람이 신인가 · F3YNM4N</title>
+<meta name="description" content="발라트로도 몰랐던 사람이, 다음엔 뉴스를 판정한다.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F3YNM4N">
+<meta property="og:title" content="그 사람이 신인가 · F3YNM4N">
+<meta property="og:description" content="발라트로도 몰랐던 사람이, 다음엔 뉴스를 판정한다.">
+<meta property="og:url" content="https://f3ynm4n.com/god-of-rating.html">
+<meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3YHJJJFTF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T3YHJJJFTF');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f5f0e8;--bg2:#ede8e0;--bg3:#e5e0d8;
+  --text:#1a1814;--text-mid:#4a4540;--text-muted:#7a7468;
+  --gold:#c8963e;
+  --accent:#6b5fd8;--accent2:#8a7fe8;--accent3:rgba(107,95,216,.12);
+  --border:rgba(107,95,216,0.18);--border2:rgba(107,95,216,0.28);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(200,150,62,.2);background:rgba(245,240,232,.95);backdrop-filter:blur(12px);}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.logo span{color:var(--text-muted);opacity:.6;}
+.header-home{font-size:11px;letter-spacing:2px;color:var(--text-muted);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.header-home:hover{color:var(--gold);}
+
+.hero{min-height:88vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#0c0a14;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 22% 70%, rgba(107,95,216,.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 15%, rgba(106,92,230,.10) 0%, transparent 45%),
+    linear-gradient(165deg,#0c0a14 0%,#0e0c18 100%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(106,92,230,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(106,92,230,.05) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse at 22% 70%, black 0%, transparent 60%);
+}
+
+/* 저울 SVG 워터마크 */
+.hero-scale{
+  position:absolute;right:5%;bottom:6%;width:clamp(160px,22vw,320px);height:auto;
+  opacity:0;animation:fadeUp .9s ease forwards 1s;
+  pointer-events:none;
+}
+
+.hero-inner{position:relative;z-index:2;padding:0 48px 100px;max-width:900px;}
+.hero-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(106,92,230,.85);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s ease forwards .2s;}
+.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:rgba(106,92,230,.7);}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:clamp(30px,5vw,64px);font-weight:700;line-height:1.3;letter-spacing:-0.025em;color:#f2ede6;margin-bottom:20px;opacity:0;animation:fadeUp .8s ease forwards .4s;}
+.hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:rgba(140,128,240,.9);}
+.hero-subtitle{font-family:'Noto Serif KR',serif;font-size:clamp(14px,1.8vw,19px);font-weight:300;color:rgba(140,128,240,.6);margin-bottom:32px;opacity:0;animation:fadeUp .8s ease forwards .55s;line-height:1.7;}
+
+.body-wrap{max-width:700px;margin:0 auto;padding:100px 48px 140px;}
+.article-body{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:400;line-height:2.15;color:var(--text);}
+.article-body p{margin-bottom:28px;}
+.article-body p:last-child{margin-bottom:0;}
+.article-body strong{font-weight:700;color:var(--accent);}
+
+.section{margin-bottom:64px;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.section.visible{opacity:1;transform:translateY(0);}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border2);}
+.section-title{font-family:'Noto Serif KR',serif;font-size:22px;font-weight:700;color:var(--text);line-height:1.4;}
+
+.pq{margin:36px 0;padding:28px 32px;background:var(--bg2);border-left:3px solid var(--accent);position:relative;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.pq.visible{opacity:1;transform:translateY(0);}
+.pq::before{content:'"';font-family:'Playfair Display',serif;font-size:72px;color:var(--accent);opacity:.12;position:absolute;top:-10px;left:18px;line-height:1;}
+.pq p{font-family:'Playfair Display',serif;font-style:italic;font-size:19px !important;line-height:1.8 !important;color:var(--text) !important;margin:0 !important;position:relative;z-index:1;}
+
+.compare-box{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:32px 0;background:var(--border);}
+.compare-item{background:var(--bg2);padding:24px;}
+.compare-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;}
+.compare-val{font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.5;}
+.compare-sub{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.75;}
+
+.fact-box{margin:32px 0;padding:28px 32px;background:var(--bg2);border:1px solid var(--border2);position:relative;}
+.fact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);}
+.fact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:14px;}
+.fact-text{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:400;color:var(--text-mid);line-height:2;}
+.fact-text strong{color:var(--accent);font-weight:600;}
+
+.sec-rule{border:none;border-top:1px solid rgba(107,95,216,.15);margin:60px 0;position:relative;}
+.sec-rule::after{content:'◆';position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 12px;font-size:9px;color:rgba(107,95,216,.35);}
+
+.verdict{margin-top:72px;padding:48px;background:var(--bg2);border:1px solid var(--border2);position:relative;overflow:hidden;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.verdict.visible{opacity:1;transform:translateY(0);}
+.verdict::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--gold),transparent);}
+.verdict-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent2);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.verdict-label::after{content:'';flex:1;height:1px;background:var(--border2);}
+.verdict-body{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:400;color:var(--text-mid);line-height:2.1;margin-bottom:24px;}
+.verdict-close{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.85;color:var(--text);}
+.verdict-close strong{font-style:normal;color:var(--accent);}
+
+footer{border-top:1px solid rgba(200,150,62,.2);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none;}
+.footer-meta{font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  header{padding:14px 20px;}
+  .hero-inner{padding:0 20px 80px;}
+  .hero-title{font-size:26px;}
+  .hero-scale{width:120px;right:4%;bottom:4%;}
+  .body-wrap{padding:60px 20px 100px;}
+  .compare-box{grid-template-columns:1fr;}
+  .verdict{padding:28px 20px;}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;}
+}
+
+/* f3-share-btn 컴포넌트 (misik-epilogue 정본) */
+.f3-share-btn{position:fixed;bottom:36px;right:36px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.f3-share-toggle{width:44px;height:44px;border-radius:50%;background:#c8963e;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(200,150,62,.35);}
+.f3-share-toggle:hover{background:#d4a44a;transform:scale(1.08);}
+.f3-share-toggle svg{width:18px;height:18px;fill:none;stroke:#0d0d0b;stroke-width:2;stroke-linecap:round;}
+.f3-share-panel{display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;transition:opacity .18s ease,transform .18s ease;}
+.f3-share-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.f3-share-item{display:flex;align-items:center;gap:10px;background:#0d0d0b;border:1px solid rgba(200,150,62,.3);padding:10px 16px;cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;text-transform:uppercase;white-space:nowrap;transition:background .15s,border-color .15s;text-decoration:none;}
+.f3-share-item:hover{background:#1a1814;border-color:rgba(200,150,62,.6);}
+.f3-share-item .f3-share-icon{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.f3-share-toast{position:fixed;bottom:100px;right:36px;z-index:1001;background:#0d0d0b;border:1px solid rgba(200,150,62,.4);padding:10px 18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#c8963e;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;}
+.f3-share-toast.show{opacity:1;transform:translateY(0);}
+@media(max-width:640px){.f3-share-btn{bottom:24px;right:20px;}.f3-share-toast{right:20px;bottom:90px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">F3YNM4N<span> /</span></a>
+  <a href="index.html" class="header-home">← Back</a>
+</header>
+
+<section class="hero">
+  <!-- 저울 SVG: 왼쪽 접시엔 게임 카드, 오른쪽 접시엔 신문 -->
+  <svg class="hero-scale" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+    <line x1="150" y1="20" x2="150" y2="220" stroke="rgba(140,128,240,0.35)" stroke-width="2"/>
+    <circle cx="150" cy="20" r="5" fill="rgba(140,128,240,0.5)"/>
+    <line x1="60" y1="60" x2="150" y2="30" stroke="rgba(140,128,240,0.35)" stroke-width="2"/>
+    <line x1="240" y1="90" x2="150" y2="30" stroke="rgba(140,128,240,0.35)" stroke-width="2"/>
+    <ellipse cx="60" cy="60" rx="42" ry="10" fill="none" stroke="rgba(140,128,240,0.4)" stroke-width="2"/>
+    <rect x="42" y="45" width="36" height="24" rx="3" fill="none" stroke="rgba(140,128,240,0.55)" stroke-width="1.5"/>
+    <ellipse cx="240" cy="90" rx="42" ry="10" fill="none" stroke="rgba(140,128,240,0.4)" stroke-width="2"/>
+    <line x1="216" y1="82" x2="264" y2="82" stroke="rgba(140,128,240,0.55)" stroke-width="1.5"/>
+    <line x1="216" y1="88" x2="264" y2="88" stroke="rgba(140,128,240,0.4)" stroke-width="1.2"/>
+    <line x1="216" y1="94" x2="264" y2="94" stroke="rgba(140,128,240,0.4)" stroke-width="1.2"/>
+    <path d="M110 220 L190 220 L175 235 L125 235 Z" fill="none" stroke="rgba(200,150,62,0.4)" stroke-width="2"/>
+    <line x1="150" y1="220" x2="150" y2="235" stroke="rgba(200,150,62,0.3)" stroke-width="1.5"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-tag">Culture · 플랫폼 · 표현의 자유</div>
+    <h1 class="hero-title">그 사람이<br><em>신인가</em></h1>
+    <p class="hero-subtitle">발라트로도 몰랐던 사람이, 다음엔 뉴스를 판정한다</p>
+  </div>
+</section>
+
+<div class="body-wrap">
+
+  <div class="article-body" style="margin-bottom:72px;padding-bottom:60px;border-bottom:1px solid rgba(107,95,216,.15);">
+    <p>2024년 최고의 인디게임. 더 게임 어워드 3관왕. 세계 대부분의 나라에서 전연령가에서 12세 등급을 받은 카드 게임, 발라트로.</p>
+    <p>한국 게임물관리위원회는 이 게임에 청소년이용불가 판정을 내렸다. 이유는 <strong>"포커 기반이라 사행행위를 모사한다"</strong>는 것이었다.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">몰랐던 사람이 정했다</h2>
+    </div>
+    <div class="article-body">
+      <p>비슷한 시기, 국내 인디 스튜디오 반지하게임즈의 이유원 대표도 자사 게임 심의 과정에서 담당자와 통화한 내용을 공개한 적 있다. 담당자는 카드게임 장르의 대표작 하스스톤의 존재조차 모르고 있었다.</p>
+      <p>장르를 모르는 사람이 그 장르의 위험성을 판정한다. 이게 한 번의 우연이라면 넘어갈 일이다. 그런데 이 위원회는 오래전부터 형평성 논란, 자의적 사행성 기준 적용으로 지적받아온 곳이다.</p>
+    </div>
+
+    <div class="compare-box">
+      <div class="compare-item">
+        <div class="compare-label">세계의 판정</div>
+        <div class="compare-val">전연령가 ~ 12세</div>
+        <div class="compare-sub">더 게임 어워드 2024 인디 신작·인디 게임·최고의 모바일 게임 3관왕. GOTY 후보.</div>
+      </div>
+      <div class="compare-item">
+        <div class="compare-label">한국의 판정</div>
+        <div class="compare-val">청소년이용불가</div>
+        <div class="compare-sub">"포커 기반, 직접적인 사행행위 모사"라는 이유로 게임산업법 제21조 적용.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">판정하는 자는 신이 아니다</h2>
+    </div>
+    <div class="article-body">
+      <p>게임위가 스스로 공표한 등급분류 기본원칙에는 "맥락성"(전체적인 게임물의 맥락과 상황을 보고 등급을 결정)과 "국제적 통용성"(범세계적인 일반성을 갖도록 결정)이 들어 있다. 종이 위에 좋은 말은 다 있다. 문제는 그 원칙을 지킬 사람이 그 게임을 몰라도, 그 판정은 그대로 힘을 갖는다는 거다.</p>
+    </div>
+
+    <div class="pq">
+      <p>신이라면 모든 걸 알고 공정하게 판단할 것이다.<br>그런데 이 자리에 앉은 건 신이 아니라, 하스스톤도 모르는 사람이다.</p>
+    </div>
+
+    <div class="article-body">
+      <p>그 사람의 무지가 한 게임의 운명을 결정했다. 등급 하나가 매출과 유통망, 그리고 그 작품이 누구에게 닿을 수 있는지를 갈랐다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">같은 구조가 다시 온다</h2>
+    </div>
+    <div class="article-body">
+      <p>지난 7월 7일, 허위조작정보 근절법이 시행됐다. 무엇이 허위이고 무엇이 조작인지, 무엇이 풍자이고 무엇이 명예훼손인지 — 결국 또 사람이 정한다.</p>
+      <p>게임 등급위원회가 카드게임 장르를 몰라도 판정할 권한을 가졌던 것처럼, 이 법의 판정자들도 정치적 맥락이나 언론의 관행을 완벽히 이해하지 못한 채로 판정할 수 있다. 다른 이름의 자리일 뿐, 구조는 같다.</p>
+    </div>
+
+    <div class="fact-box">
+      <div class="fact-label">핵심 구조</div>
+      <p class="fact-text">등급분류 기본원칙이 요구하는 건 <strong>맥락성과 국제적 통용성</strong>이지만, 그걸 실제로 지킬 수 있는지는 법이 보장하지 않는다. 법은 원칙을 적어둘 뿐, 그 원칙을 이해할 능력까지 함께 심어주지는 않는다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">귀걸이, 코걸이</h2>
+    </div>
+    <div class="article-body">
+      <p>이 법을 두고 정반대의 기대가 동시에 나온다. 한쪽은 "가짜뉴스꾼들이 된서리 맞을 것"이라 반기고, 다른 쪽은 "이건 입틀막"이라며 맞불을 놓는다.</p>
+      <p>발라트로가 사행성 게임으로 몰렸을 때도 비슷했다. 누군가는 "청소년 보호를 위해 당연하다"고 했고, 누군가는 "무지가 낳은 오판"이라고 했다.</p>
+    </div>
+
+    <div class="pq">
+      <p>같은 결정을 보고도 정반대로 해석할 수 있다는 것 자체가,<br>그 기준이 얼마나 물렁한지 보여준다.</p>
+    </div>
+  </div>
+
+  <hr class="sec-rule">
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">재갈의 이름은 늘 정의롭다</h2>
+    </div>
+    <div class="article-body">
+      <p>게임 등급 심의의 명분은 청소년 보호였다. 허위조작정보 근절법의 명분은 시민 보호다. 이름은 늘 선하다.</p>
+      <p>문제는 그 선한 이름 아래 실제로 무엇이 걸러지느냐다. 하스스톤도 모르는 사람이 GOTY 후보작에 사행성 딱지를 붙였듯, 언론 생태계를 이해하지 못하는 판정자가 불편한 보도에 허위조작 딱지를 붙일 수 있다.</p>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">결론 · Verdict</div>
+    <p class="verdict-body">발라트로는 결국 15세 이용가로 재분류됐다. 하지만 정식 이의신청 절차는 이미 막혀 있었다 — 이용자 단체와 유튜버가 별도로 재심의를 청원하고, 게임위가 자문회의를 두 차례 거친 끝에 나온 결과였다. 그사이 놓친 것은 되돌릴 수 없다. 청불 판정부터 재분류까지 걸린 약 9개월, 그 시간은 누구도 보상해주지 않는다.</p>
+    <p class="verdict-close">판정하는 자가 신이 아닌 이상, 그 판정은 언젠가 누군가의 무지나 입맛에 기운다.<br><strong>다음번에 그 자리에서 무언가를 모른 채로 도장을 찍는 사람이, 게임이 아니라 뉴스를 앞에 두고 있을 수도 있다.</strong></p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">F3YNM4N</a>
+  <span class="footer-meta">Culture · 2026</span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});},{threshold:0.08});
+document.querySelectorAll('.section,.pq,.verdict').forEach(el=>obs.observe(el));
+</script>
+
+<!-- f3-share-btn 컴포넌트 (misik-epilogue 정본) -->
+<div class="f3-share-btn" id="f3ShareBtn">
+  <div class="f3-share-panel" id="f3SharePanel">
+    <button class="f3-share-item" onclick="f3CopyUrl()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8963e" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+      URL 복사
+    </button>
+    <a class="f3-share-item" id="f3ShareX" href="#" target="_blank" rel="noopener">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+      X 공유
+    </a>
+    <button class="f3-share-item" onclick="f3ShareKakao()">
+      <span class="f3-share-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8963e"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.667 1.583 5.013 4 6.416V21l3.5-2.5c.823.166 1.666.25 2.5.25 5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg></span>
+      카카오톡
+    </button>
+  </div>
+  <button class="f3-share-toggle" id="f3ShareToggle" onclick="f3ToggleShare()" aria-label="공유">
+    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</div>
+<div class="f3-share-toast" id="f3Toast">URL 복사됨</div>
+
+<script>
+(function(){
+  var KAKAO_KEY='e0642d0a5c0ae01b8893422a148e9aba';
+  function loadKakaoSDK(cb){if(window.Kakao){cb();return;}var s=document.createElement('script');s.src='https://developers.kakao.com/sdk/js/kakao.min.js';s.onload=function(){if(KAKAO_KEY&&!Kakao.isInitialized())Kakao.init(KAKAO_KEY);cb();};document.head.appendChild(s);}
+  var panelOpen=false;
+  window.f3ToggleShare=function(){panelOpen=!panelOpen;document.getElementById('f3SharePanel').classList.toggle('open',panelOpen);};
+  window.f3CopyUrl=function(){var url=location.href;navigator.clipboard.writeText(url).then(function(){showToast('URL 복사됨');}).catch(function(){var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('URL 복사됨');});panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');};
+  var xLink=document.getElementById('f3ShareX');if(xLink){xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href);}
+  window.f3ShareKakao=function(){if(!KAKAO_KEY){showToast('카카오 앱키 필요');return;}loadKakaoSDK(function(){var desc=document.querySelector('meta[name="description"]');Kakao.Share.sendDefault({objectType:'feed',content:{title:document.title,description:desc?desc.content:'',imageUrl:'https://f3ynm4n.com/og_default.png',link:{mobileWebUrl:location.href,webUrl:location.href}},buttons:[{title:'읽기',link:{mobileWebUrl:location.href,webUrl:location.href}}]});});};
+  function showToast(msg){var t=document.getElementById('f3Toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
+  document.addEventListener('click',function(e){if(!document.getElementById('f3ShareBtn').contains(e.target)){panelOpen=false;document.getElementById('f3SharePanel').classList.remove('open');}});
+})();
+</script>
+
+</body>
+</html>
