@@ -22,7 +22,7 @@
       });
       const data = await response.json();
       if (!response.ok) {
-        const error = new Error(response.status === 429 ? '잠시 후 다시 시도해 주세요.' : '지금은 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.');
+        const error = new Error(response.status === 403 && data.error === 'invalid_credentials' ? '댓글과 비밀번호를 확인해 주세요.' : response.status === 503 && data.error === 'author_delete_disabled' ? '지금은 직접 삭제 기능을 사용할 수 없습니다.' : response.status === 429 ? '잠시 후 다시 시도해 주세요.' : '지금은 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.');
         error.status = response.status;
         throw error;
       }
@@ -49,7 +49,7 @@
     const root = host.attachShadow({mode: 'open'});
     const style = node('style', `
       :host{display:block!important;box-sizing:border-box!important;width:100%!important;max-width:800px!important;margin:56px auto!important;padding:0 24px!important;color:#292925;font-family:system-ui,-apple-system,sans-serif;line-height:1.8;cursor:auto;--ink:#292925;--muted:#666;--line:#c9c5be;--accent:var(--f3-engagement-accent,#2c5aa0)}
-      *,*::before,*::after{box-sizing:border-box}section{background:#f2ede6;border:1px solid var(--line);padding:30px}h2{font-size:22px;line-height:1.5;margin:0 0 10px;word-break:keep-all}h3{font-size:18px;margin:28px 0 14px}p{margin:10px 0}small,.hint{font-size:13px;color:var(--muted)}.stats{font-size:14px;border-bottom:1px solid var(--line);padding-bottom:20px}label{display:block;font-size:14px;font-weight:600;margin:16px 0 6px}input,textarea{display:block;width:100%;font:16px/1.7 system-ui,sans-serif;color:var(--ink);background:#fffefa;border:1px solid #aaa79f;border-radius:3px;padding:10px 12px}textarea{resize:vertical;min-height:140px}button{font:600 14px/1.6 system-ui,sans-serif;min-height:44px;cursor:pointer;border:1px solid var(--accent);border-radius:3px;padding:10px 18px;color:white;background:var(--accent)}button:disabled{opacity:.5;cursor:default}button.secondary{color:var(--accent);background:transparent}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #c8963e;outline-offset:3px}.status{font-size:14px;white-space:pre-wrap}.list{padding:0;list-style:none}.comment{border-top:1px solid var(--line);padding:20px 0;overflow-wrap:anywhere}.comment strong{font-size:14px}.comment time{font-size:12px;color:var(--muted);margin-left:10px}.comment p{font-size:15px;white-space:pre-wrap;margin-bottom:0}.trap{position:absolute;left:-10000px;opacity:0;pointer-events:none}.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}[hidden]{display:none!important}@media(max-width:480px){:host{padding:0 16px!important;margin:36px auto!important}section{padding:22px 18px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+      *,*::before,*::after{box-sizing:border-box}section{overflow-wrap:anywhere;background:#f2ede6;border:1px solid var(--line);padding:30px}h2{font-size:22px;line-height:1.5;margin:0 0 10px;word-break:keep-all}h3{font-size:18px;margin:28px 0 14px}p{margin:10px 0}small,.hint{font-size:13px;color:var(--muted)}.stats{font-size:14px;border-bottom:1px solid var(--line);padding-bottom:20px}label{display:block;font-size:14px;font-weight:600;margin:16px 0 6px}input,textarea{display:block;width:100%;font:16px/1.7 system-ui,sans-serif;color:var(--ink);background:#fffefa;border:1px solid #aaa79f;border-radius:3px;padding:10px 12px}textarea{resize:vertical;min-height:140px}button{font:600 14px/1.6 system-ui,sans-serif;min-height:44px;cursor:pointer;border:1px solid var(--accent);border-radius:3px;padding:10px 18px;color:white;background:var(--accent)}button:disabled{opacity:.5;cursor:default}button.secondary{color:var(--accent);background:transparent}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #c8963e;outline-offset:3px}.status{font-size:14px;white-space:pre-wrap}.list{padding:0;list-style:none}.comment{border-top:1px solid var(--line);padding:20px 0;overflow-wrap:anywhere}.comment strong{font-size:14px}.comment time{font-size:12px;color:var(--muted);margin-left:10px}.comment p{font-size:15px;white-space:pre-wrap;margin-bottom:0}.trap{position:absolute;left:-10000px;opacity:0;pointer-events:none}.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}[hidden]{display:none!important}@media(max-width:480px){:host{padding:0 16px!important;margin:36px auto!important}section{padding:22px 18px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
     `);
     root.append(style);
     const section = node('section');
@@ -66,14 +66,20 @@
     const bodyLabel = node('label', '댓글', {for: 'eg-body'});
     const body = node('textarea', undefined, {id: 'eg-body', name: 'comment', maxlength: '2000', required: '', 'aria-describedby': 'eg-privacy'});
     const privacy = node('p', '이메일·전화번호 등 개인정보는 남기지 마세요. 2,000자까지 쓸 수 있습니다.', {class: 'hint', id: 'eg-privacy'});
+    const passwordArea = node('div', undefined, {hidden: ''});
+    const password = node('input', undefined, {id: 'eg-password', type: 'password', name: 'delete-password', autocomplete: 'new-password', minlength: '8', maxlength: '128', 'aria-describedby': 'eg-password-hint'});
+    passwordArea.append(node('label', '삭제 비밀번호 (선택)', {for: 'eg-password'}), password,
+      node('p', '8자 이상으로 정해 주세요. 비밀번호를 입력한 댓글만 직접 삭제할 수 있습니다. 수정은 지원하지 않습니다. 다른 곳에서 쓰는 비밀번호는 피해주세요.', {class: 'hint', id: 'eg-password-hint'}));
+    const receipt = node('div');
+    const receiptTools = node('div',undefined,{hidden:''});
     const trap = node('input', undefined, {class: 'trap', name: 'website', tabindex: '-1', 'aria-hidden': 'true', autocomplete: 'off'});
     const submit = node('button', '댓글 보내기', {type: 'submit'});
     const retry = node('button', '다시 연결', {type: 'button', class: 'secondary', hidden: ''});
     const status = node('p', '', {class: 'status', role: 'status', 'aria-live': 'polite'});
     const actions = node('div', undefined, {class: 'actions'});
     actions.append(submit);
-    form.append(mode, nicknameLabel, nickname, bodyLabel, body, privacy, trap, actions);
-    section.append(heading, stats, count, empty, list, more, form, retry, status);
+    form.append(mode, nicknameLabel, nickname, bodyLabel, body, privacy, passwordArea, trap, actions);
+    section.append(heading, stats, count, empty, list, more, form, receipt, receiptTools, retry, status);
     root.append(section);
     const main = document.querySelector('main');
     if (main) main.insertAdjacentElement('afterend', host);
@@ -82,7 +88,36 @@
       if (footer) footer.before(host); else document.body.append(host);
     }
     let cursor = null, busy = false, requestId = null, previousPayload = null, viewStarted = false;
+    let ownerDeleteEnabled = false;
     const seen = new Set();
+    function deleteControl(id, container, onDeleted) {
+      const toggle=node('button',id?'댓글 삭제':'접수번호로 댓글 삭제',{type:'button',class:'secondary'});
+      const panel=node('form',undefined,{hidden:''});
+      const fieldId='eg-delete-'+(id||crypto.randomUUID());
+      const commentId=id?null:node('input',undefined,{id:fieldId+'-id',required:'',autocomplete:'off',placeholder:'댓글 접수번호 (UUID)'});
+      const secret=node('input',undefined,{id:fieldId,type:'password',autocomplete:'current-password',required:'',minlength:'8',maxlength:'128'});
+      const confirm=node('button','삭제 확인',{type:'submit'});
+      const cancel=node('button','취소',{type:'button',class:'secondary'});
+      const message=node('p','',{class:'status',role:'status'});
+      const buttons=node('div',undefined,{class:'actions'});buttons.append(confirm,cancel);
+      if(commentId)panel.append(node('label','댓글 접수번호',{for:fieldId+'-id'}),commentId);
+      panel.append(node('p','삭제하면 공개 본문이 사라지고 삭제 표시가 남습니다. 원문은 관리자에게 보관됩니다.',{class:'hint'}),node('label','작성할 때 정한 비밀번호',{for:fieldId}),secret,buttons,message);
+      toggle.addEventListener('click',()=>{panel.hidden=!panel.hidden;if(!panel.hidden)secret.focus();else secret.value='';});
+      cancel.addEventListener('click',()=>{secret.value='';panel.hidden=true;toggle.focus();});
+      panel.addEventListener('submit',async event=>{
+        event.preventDefault();if(confirm.disabled)return;
+        confirm.disabled=true;cancel.disabled=true;toggle.disabled=true;
+        try {
+          await call(null,{action:'comment_delete',slug,comment_id:id||(commentId.value||'').trim(),password:secret.value});
+          secret.value='';if(id){panel.remove();toggle.remove();}else{commentId.value='';panel.hidden=true;}onDeleted();
+          await load(false);status.textContent='댓글을 삭제했습니다. 공개됐던 댓글에는 삭제 표시가 남습니다.';
+        } catch(error) {
+          secret.value='';message.textContent=error.name==='AbortError'?'응답을 받지 못했습니다. 같은 비밀번호로 다시 확인해 주세요.':error.message;
+        } finally {confirm.disabled=false;cancel.disabled=false;toggle.disabled=false;}
+      });
+      container.append(toggle,panel);
+    }
+    deleteControl(null,receiptTools,()=>{});
     function comments(items, replace) {
       if (replace) { list.replaceChildren(); seen.clear(); }
       for (const item of items) {
@@ -90,6 +125,7 @@
         seen.add(item.id);
         const li = node('li', undefined, {class: 'comment'});
         li.append(node('strong', item.nickname), node('time', date(item.created_at)), node('p', item.body));
+        if(ownerDeleteEnabled && item.author_delete_available===true && item.deleted!==true)deleteControl(item.id,li,()=>{});
         list.append(li);
       }
       empty.hidden = list.children.length > 0;
@@ -112,6 +148,9 @@
         count.textContent = '댓글 ' + number(data.comment_count);
         form.hidden = data.comments_enabled !== true;
         mode.textContent = data.comment_mode === 'open' ? '댓글은 등록 후 공개됩니다.' : '댓글은 관리자가 확인한 뒤 공개됩니다.';
+        ownerDeleteEnabled=data.author_delete_enabled===true;
+        passwordArea.hidden=!ownerDeleteEnabled;receiptTools.hidden=!ownerDeleteEnabled;
+        if(!ownerDeleteEnabled)password.value='';
         comments(data.comments, !append);
         if (!data.comments_enabled) empty.textContent = '지금은 댓글 작성을 받지 않습니다.';
         cursor = typeof data.next_cursor === 'string' ? data.next_cursor : null;
@@ -130,12 +169,20 @@
       if (submit.disabled) return;
       const nick = nickname.value.normalize('NFC').trim(), content = body.value.normalize('NFC').trim();
       if (!nick || [...nick].length > 24 || !content || [...content].length > 2000) { status.textContent = '닉네임과 댓글 길이를 확인해 주세요.'; return; }
-      const fingerprint = JSON.stringify([nick, content]);
+      const chosenPassword=ownerDeleteEnabled?password.value:'';
+      if(chosenPassword && ([...chosenPassword].length<8 || new TextEncoder().encode(chosenPassword).length>256 || /[\u0000-\u001f\u007f]/u.test(chosenPassword))) {status.textContent='삭제 비밀번호는 8자 이상, 256바이트 이내로 입력해 주세요.';return;}
+      // Retain only a digest for retry identity; never persist the password.
+      const fingerprint = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify([nick,content,chosenPassword])))),x=>x.toString(16).padStart(2,'0')).join('');
       if (!requestId || previousPayload !== fingerprint) { requestId = crypto.randomUUID(); previousPayload = fingerprint; }
       submit.disabled = true;
       try {
-        const result = await call(null, {action: 'comment', slug, nickname: nick, body: content, website: trap.value, request_id: requestId});
-        body.value = ''; requestId = null; previousPayload = null;
+        const result = await call(null, {action: 'comment', slug, nickname: nick, body: content, website: trap.value, request_id: requestId,...(chosenPassword?{password:chosenPassword}:{})});
+        body.value = ''; password.value = ''; requestId = null; previousPayload = null;
+        receipt.replaceChildren();
+        if(result.status!=='approved' && result.author_delete_available===true) {
+          receipt.append(node('p','접수번호: '+result.id,{class:'hint'}),node('p','접수번호를 보관하면 새로 접속한 뒤에도 아래 ‘접수번호로 댓글 삭제’에서 삭제할 수 있습니다.',{class:'hint'}));
+          deleteControl(result.id,receipt,()=>receipt.replaceChildren());
+        }
         if (result.status === 'approved') { await load(false); status.textContent = '댓글을 등록했습니다.'; }
         else status.textContent = '댓글을 접수했습니다. 관리자가 확인한 뒤 공개됩니다.';
       } catch (error) { status.textContent = error.name === 'AbortError' ? '응답을 받지 못했습니다. 같은 내용으로 다시 보내면 중복 접수를 방지합니다.' : error.message; }

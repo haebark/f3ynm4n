@@ -40,6 +40,15 @@ async function hash(secret, domain, value) {
   const data=new TextEncoder().encode(domain+'\n'+value);
   return [...new Uint8Array(await crypto.subtle.sign('HMAC',key,data))].map(x=>x.toString(16).padStart(2,'0')).join('');
 }
+async function passwordKey(password, env) {
+  // Keep passwords byte-exact: do not trim, normalize, truncate or log them.
+  if (typeof password !== 'string' || [...password].length < 8 ||
+      new TextEncoder().encode(password).length > 256 || /[\u0000-\u001f\u007f]/u.test(password)) return null;
+  if (typeof env.COMMENT_PASSWORD_PEPPER !== 'string' || env.COMMENT_PASSWORD_PEPPER.length < 32) throw new Error('upstream');
+  const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(env.COMMENT_PASSWORD_PEPPER),{name:'HMAC',hash:'SHA-384'},false,['sign']);
+  const bytes=new Uint8Array(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode('f3-comment-password-v1\n'+password)));
+  return btoa(String.fromCharCode(...bytes));
+}
 function cursorDecode(text) {
   if(!text)return {p_before_time:null,p_before_id:null};
   if(text.length>240)throw new Error('invalid');
@@ -81,9 +90,11 @@ export async function handleRequest(request, env, fetcher=fetch) {
       if(!Array.isArray(data.comments))throw new Error('upstream');
       const hasMore=data.comments.length>20;const comments=data.comments.slice(0,20).map(c=>({
         id:c.id,nickname:String(c.nickname),body:String(c.body),created_at:c.created_at,
+        deleted:c.deleted===true,author_delete_available:c.author_delete_available===true && typeof env.COMMENT_PASSWORD_PEPPER==='string' && env.COMMENT_PASSWORD_PEPPER.length>=32,
       }));
       return reply({views:Number(data.views),started_at:data.started_at,comments_enabled:data.comments_enabled===true,
         comment_mode:data.comment_mode==='open'?'open':'moderated',comment_count:Number(data.comment_count),
+        author_delete_enabled:data.author_delete_enabled===true && typeof env.COMMENT_PASSWORD_PEPPER==='string' && env.COMMENT_PASSWORD_PEPPER.length>=32,author_edit_enabled:false,
         comments,next_cursor:hasMore?cursorEncode(comments.at(-1)):null});
     }
     const origin=env.SITE_ORIGIN||'https://f3ynm4n.com';
@@ -93,6 +104,8 @@ export async function handleRequest(request, env, fetcher=fetch) {
     if(!ip || ip.length>64)return bad(503,'edge_identity_unavailable');
     let body;try {body=await readJSON(request);}catch(e) {return bad(e.message==='too_large'?413:400,'invalid');}
     if(typeof body.slug!=='string' || !SLUG.test(body.slug))return bad(400,'invalid');
+    // Editing stays blocked regardless of client flags, environment values or DB settings.
+    if(body.action==='comment_edit' || body.action==='edit')return bad(503,'edit_disabled');
     const day=new Date().toISOString().slice(0,10);
     const ipHash=await hash(env.ENGAGEMENT_TOKEN,'ip-v1',day+'\n'+ip);
     if(body.action==='view') {
@@ -101,10 +114,34 @@ export async function handleRequest(request, env, fetcher=fetch) {
       const data=await rpc('f3_engagement_view',{p_slug:body.slug,p_ip_hash:ipHash,p_visitor_hash:visitor});
       return reply({views:Number(data.views)});
     }
+    async function authorAction(params) {
+      const data=await rpc('f3_engagement_author',params);
+      if(data.ok!==true) {
+        const errors={invalid:[400,'invalid'],invalid_credentials:[403,'invalid_credentials'],request_conflict:[409,'request_conflict'],rate_limited:[429,'too_many_requests'],author_delete_disabled:[503,'author_delete_disabled'],edit_disabled:[503,'edit_disabled']};
+        const [status,code]=errors[data.error]||[503,'temporarily_unavailable'];
+        return bad(status,code);
+      }
+      return data;
+    }
+    if(body.action==='comment_delete') {
+      if(!UUID.test(body.comment_id||''))return bad(400,'invalid');
+      const key=await passwordKey(body.password,env);
+      if(!key)return bad(400,'invalid');
+      const data=await authorAction({p_action:'delete',p_slug:body.slug,p_ip_hash:ipHash,p_comment_id:body.comment_id,p_password_key:key});
+      if(data instanceof Response)return data;
+      return reply({deleted:data.deleted===true});
+    }
     if(body.action==='comment') {
       if(body.website!==undefined && body.website!=='')return bad(400,'invalid');
       const nickname=normalized(body.nickname,24,true),content=normalized(body.body,2000);
       if(!nickname || !content || !UUID.test(body.request_id||''))return bad(400,'invalid');
+      if(Object.hasOwn(body,'password')) {
+        const key=await passwordKey(body.password,env);
+        if(!key)return bad(400,'invalid');
+        const data=await authorAction({p_action:'create',p_slug:body.slug,p_ip_hash:ipHash,p_request_id:body.request_id,p_nickname:nickname,p_body:content,p_password_key:key});
+        if(data instanceof Response)return data;
+        return reply({id:data.id,status:data.status==='approved'?'approved':'pending',author_delete_available:true},201);
+      }
       const data=await rpc('f3_engagement_comment',{
         p_slug:body.slug,p_ip_hash:ipHash,p_request_id:body.request_id,p_nickname:nickname,p_body:content,
       });
