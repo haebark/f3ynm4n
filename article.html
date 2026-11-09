@@ -652,6 +652,8 @@ async function init() {
   // 표시
   document.getElementById('loading').style.display = 'none';
   document.getElementById('article-wrap').style.display = 'block';
+  document.documentElement.dataset.f3ArticleSlug = article.slug;
+  document.dispatchEvent(new CustomEvent('f3:article-ready'));
 }
 
 function showNotFound() {
@@ -814,5 +816,8 @@ window.addEventListener('pageshow', (e) => {
 })();
 </script>
 
+
+<!-- F3-ENGAGEMENT-V1 -->
+<script defer src="/assets/f3-engagement.js"></script>
 </body>
 </html>

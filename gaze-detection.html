@@ -325,5 +325,8 @@
   function shareKakao() { if (window.Kakao && Kakao.isInitialized()) { Kakao.Share.sendDefault({ objectType: 'feed', content: { title: PAGE_TITLE, description: '신비가 아니라 생존이다', imageUrl: 'https://f3ynm4n.com/og_default.png', link: { mobileWebUrl: PAGE_URL, webUrl: PAGE_URL } } }); } document.getElementById('sharePanel').classList.remove('open'); }
   document.addEventListener('click', function(e) { if (!e.target.closest('.f3-share-btn')) document.getElementById('sharePanel').classList.remove('open'); });
 </script>
+
+<!-- F3-ENGAGEMENT-V1 -->
+<script defer src="/assets/f3-engagement.js" data-f3-article="gaze-detection"></script>
 </body>
 </html>
