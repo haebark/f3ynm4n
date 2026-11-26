@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="회사를 나오는 순간, 내 능력도 사라집니까?">
+  <title>능력주의의 허상 · F3YNM4N</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root {
+      --paper: #f5f0e8;
+      --panel: #ede6dc;
+      --ink: #211a15;
+      --muted: #65574b;
+      --accent: #8e4028;
+      --gold: #d5a75b;
+      --rule: #d7c4b0;
+      --serif: 'Noto Serif KR', 'AppleMyungjo', 'Nanum Myeongjo', Georgia, serif;
+      --sans: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      --mono: 'Space Mono', Menlo, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    a { color: var(--accent); text-underline-offset: .22em; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+    p { margin: 0; }
+    .skip { position: absolute; top: -8rem; left: 1rem; padding: .6rem 1rem; background: var(--paper); z-index: 2; }
+    .skip:focus { top: .5rem; }
+    .masthead, footer { padding: 18px clamp(22px, 4vw, 56px); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .masthead { background: #15110e; border-bottom: 1px solid #d5a75b38; }
+    .logo { color: var(--gold); text-decoration: none; font: bold 14px var(--mono); letter-spacing: .14em; }
+    .masthead .back { color: #d6c9b8; font-size: 12px; text-decoration: none; }
+    .hero { background: radial-gradient(ellipse at 82% 76%, #782f23 0%, transparent 52%), linear-gradient(155deg,#15110e,#231510); color: #f5eee4; }
+    .hero-inner { max-width: 1100px; margin-inline: auto; min-height: min(590px, 75svh); padding: clamp(64px, 12vw, 145px) clamp(24px, 6vw, 72px) clamp(56px, 9vw, 105px); display: flex; flex-direction: column; justify-content: end; }
+    .eyebrow { color: #e1ae78; font-size: 12px; letter-spacing: .18em; margin-bottom: 24px; }
+    h1 { margin: 0 0 24px; font: 700 clamp(35px, 7vw, 78px)/1.25 var(--serif); letter-spacing: -.055em; word-break: keep-all; }
+    h1 em { color: #efbe87; font-style: normal; }
+    .subtitle { font: 400 clamp(16px, 2.5vw, 21px)/1.75 var(--serif); color: #f2dfca; word-break: keep-all; }
+    main { max-width: 780px; margin-inline: auto; padding: clamp(44px, 8vw, 82px) clamp(24px, 6vw, 52px) 80px; }
+    article { font: 400 clamp(17px, 2.2vw, 19px)/2.05 var(--serif); word-break: keep-all; overflow-wrap: anywhere; }
+    article p + p { margin-top: 1.2em; }
+    .lede { font-size: clamp(19px, 2.6vw, 23px); line-height: 1.9; }
+    .section { margin-top: clamp(45px, 8vw, 68px); }
+    h2 { margin: 0 0 24px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); font: 700 clamp(22px, 3.6vw, 29px)/1.5 var(--serif); letter-spacing: -.035em; }
+    .pull { margin: 1.6em 0; padding: 20px clamp(18px, 4vw, 28px); border-left: 3px solid var(--accent); background: var(--panel); color: var(--accent); }
+    .source { font: 400 13px/1.75 var(--sans); }
+    .closing { margin-top: 38px; padding: clamp(20px, 5vw, 32px); background: var(--panel); border-top: 2px solid var(--accent); }
+    .related { margin-top: 48px; border-top: 1px solid var(--rule); padding-top: 20px; font-size: 15px; line-height: 1.7; }
+    .related-label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    footer { border-top: 1px solid var(--rule); font-size: 12px; }
+    footer .logo { color: var(--accent); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      .masthead, .skip, footer { display: none; }
+      .hero { background: white; color: black; }
+      .hero-inner { min-height: 0; padding: 12px 0 22px; }
+      .eyebrow, h1 em, .subtitle { color: #382d24; }
+      body, .closing, .pull { background: white; }
+      main { padding: 0; max-width: none; }
+      article { font-size: 12pt; }
+      h2 { break-after: avoid; }
+    }
+  </style>
+
+  <link rel="canonical" href="https://f3ynm4n.com/meritocracy-illusion">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="F3YNM4N">
+  <meta property="og:title" content="능력주의의 허상">
+  <meta property="og:description" content="회사를 나오는 순간, 내 능력도 사라집니까?">
+  <meta property="og:url" content="https://f3ynm4n.com/meritocracy-illusion">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body id="top">
+  <a class="skip" href="#article">본문 바로가기</a>
+  <header class="masthead">
+    <a class="logo" href="https://f3ynm4n.com/">F3YNM4N</a>
+    <a class="back" href="https://f3ynm4n.com/">← 매거진 홈</a>
+  </header>
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Society · 사회 비평</p>
+      <h1>능력주의의 <em>허상</em></h1>
+      <p class="subtitle">회사를 나오는 순간, 내 능력도 사라집니까?</p>
+    </div>
+  </div>
+  <main>
+    <article id="article">
+      <div class="lede">
+      <p>저는 한 회사에서 20년 넘게 일했습니다. 그동안 일을 배웠고, 경험을 쌓았고, 그에 따른 보상도 받고 있습니다. 그런데 가끔 생각합니다. 지금 회사를 나와 다른 곳에 취업한다면, 지금만큼 받을 수 있을까요?</p>
+      <p>어쩌면 최저임금에 가까운 일자리부터 알아봐야 할지도 모릅니다. 월급이 절반 이하로 떨어질 수도 있겠죠. 그런데 회사를 나오는 순간 제가 20년 동안 배운 것까지 같이 사라지는 건 아닙니다. 어제와 같은 사람이 오늘 다른 명함을 들고 있다는 이유로, 시장에서 받는 대우는 크게 달라질 수 있습니다.</p>
+      <p>회사마다 같은 숙련을 활용할 수 있는 일도 다르고, 사업에서 남기는 이익과 그 이익을 나누는 방식도 다릅니다. 오래 일한 사람에게 쌓이는 보상도 있습니다. 월급에는 그 모든 것이 들어갑니다. 그런데 우리는 월급을 보고 너무 쉽게 그 사람이 얼마나 유능한지까지 판단합니다.</p>
+      </div>
+      <section class="section"><h2>일을 잘한다는 건 무슨 뜻입니까?</h2>
+      <p>혼자서 100의 성과를 내는 직원과 90의 성과를 내는 직원이 있다고 해봅시다. 두 사람에게 각자 하던 일을 맡기면 100을 내는 직원이 앞섭니다. 이번에는 다섯 명씩 팀을 맡겨봅시다. 90을 내던 직원이 누구에게 어떤 일을 맡기면 좋을지 알아보고, 부서 사이에 막힌 일을 풀어 팀 전체의 성과를 더 끌어올릴 수도 있습니다.</p>
+      <p>그럼 둘 중 누가 더 유능합니까? 무슨 일을 맡기려는지부터 말해야 답할 수 있습니다.</p>
+      <p>설득하고 협상하고, 사이가 틀어진 두 사람을 다시 일하게 만드는 것도 실력입니다. 직장에서는 이런 일을 ‘사내 정치’라는 말로 쉽게 뭉뚱그립니다. 줄을 잘 서는 사람도 그 안에 있고, 누구도 맡기 싫어하는 일을 사람들에게 납득시키고 끝내 해내는 사람도 그 안에 있습니다. 개인 실적표만 놓고 보면 후자가 조직에서 해낸 일은 잘 보이지 않습니다.</p>
+      <p>시험도 비슷합니다. 점수는 그 시험에서 누가 문제를 더 잘 풀었는지 알려줍니다. 그런데 좋은 대학에 들어가고, 좋은 회사에 취직하고, 높은 연봉을 받는 과정이 한 줄로 이어지다 보면 그 줄이 사람의 능력 전체를 보여준다고 착각하기 쉽습니다. <strong>어떤 자리에서 발휘한 능력을 보고 사람 전체에 순위를 매기는 것. 제가 말하는 능력주의의 허상은 거기서 시작합니다.</strong></p>
+      </section>
+      <section class="section"><h2>더 받을 이유가 있다는 것과, 얼마나 더 받아야 하는가는 다릅니다</h2>
+      <p>태어난 집안보다 개인의 능력과 노력으로 기회를 얻을 수 있다는 믿음은 많은 사람에게 도전할 이유를 줬습니다. 저도 숙련과 책임의 차이가 보상에 반영되는 게 합리적이라고 생각합니다. 문제는 그 원칙을 적용하고 나면, 눈앞의 격차까지 전부 설명했다고 여기는 데 있습니다.</p>
+      <div class="pull"><p><strong>차이가 존재하는 것이 합리적이라는 사실과 그 차이가 얼마든지 벌어져도 정당하다는 주장은 전혀 다릅니다.</strong></p></div>
+      <p>타일을 반듯하게 붙이고, 벽을 고르게 바르고, 매일 새벽 거리를 치우는 데도 기술과 체력이 듭니다. 그 일이 제대로 되지 않으면 우리는 금방 알아차립니다. 그런데 막상 도배 견적을 받으면 저부터 싼 곳을 찾습니다. 필요한 일에 합당한 값을 줘야 한다고 생각하면서도, 그 값을 제가 내야 하는 순간에는 계산이 달라집니다.</p>
+      <p>그래서 보상 이야기를 하려면 임금표 밖까지 봐야 합니다. 고객이 낸 돈 가운데 실제로 일한 사람에게 얼마가 가는지, 장비와 기술에 투자해 같은 시간에 더 나은 일을 할 수 있는지, 사업에서 생긴 이익이 누구에게 돌아가는지까지 봐야 합니다. 월급의 차이를 전부 개인의 실력으로 받아들이면 이런 질문은 할 필요가 없어집니다.</p>
+      <p>그 격차는 한 세대에서 끝나지도 않습니다. 어제 경쟁에서 얻은 소득과 자산은 자녀가 선택할 수 있는 교육과 일자리의 폭을 바꿉니다. <strong>지난 경쟁의 결과가 다음 경쟁의 출발점에 들어갑니다.</strong> 그리고 우리는 다음 경쟁이 끝나면, 그 순서도 각자가 노력한 만큼 정해졌다고 말합니다.</p>
+      </section>
+      <section class="section"><h2>AI가 바꾸는 것은 시험 문제만이 아닙니다</h2>
+      <p>앞서 「시험의 종말, 지능의 재발견」에서 정답을 빨리 찾는 능력보다 질문을 만드는 능력이 더 중요해질 수 있다고 썼습니다. AI가 자료를 찾아 정리하고 여러 답안을 내놓을 수 있다면, 어떤 문제를 풀어야 할지 알아보고 나온 답을 현실에 대입해 판단하는 능력이 더 잘 드러날 수 있습니다. 시험 성적이나 자격증으로는 보여주기 어려웠던 능력입니다.</p>
+      <p>그런데 회사에서 다섯 명이 하던 일을 한 사람이 AI를 써서 해낼 수 있다면, 질문이 하나 더 생깁니다. 일이 빨라져서 생긴 이익은 누구에게 돌아갑니까? 그 도구로 성과를 낸 직원의 보수가 오를 수도 있고, 회사에 이익이 더 남을 수도 있습니다. 다른 네 사람에게는 새 일을 구해야 하는 문제가 생길 수도 있습니다. 같은 생산성 향상이 각자에게 전혀 다른 일이 되는 겁니다.</p>
+      <p>AI를 잘 쓰는 사람에게 더 많은 보상을 줄 이유는 생길 겁니다. 그러고 나면 예전과 같은 질문이 남습니다. <strong>새 기준에서 높은 점수를 받은 사람에게 얼마를 줄 것인가. 그 기준에서 밀린 사람에게는 어떤 삶이 남는가.</strong> 시험지를 바꾸는 것만으로는 이 질문에 답할 수 없습니다.</p>
+      </section>
+      <section class="section"><h2>얼마를 받느냐로 사람을 다 설명할 수는 없습니다</h2>
+      <p>제가 새 직장에서 지금보다 적은 월급을 받는다면, 그곳에서 맡은 일과 그 회사의 형편으로 그 액수를 설명할 수 있을 겁니다. 그 설명을 듣고도 저는 한 가지를 더 묻고 싶습니다. <strong>좋은 대학에 가지 못했거나 좋은 회사를 떠났다는 이유로, 자기 일을 성실하게 하는 사람이 안정적인 생활까지 포기해야 합니까?</strong></p>
+      <p>능력은 맡은 일에 맞춰 평가하고, 보상은 숙련과 책임에 따라 달리할 수 있습니다. 그 차이가 사람들의 생활을 어디까지 갈라놓아도 되는지는 우리가 따로 판단할 일입니다.</p>
+      <div class="closing"><p>회사를 나와 월급이 절반이 된 날, 제 능력도 절반이 됐다고 생각할 사람은 아마 저 자신부터 아닐 겁니다. 다른 사람의 월급을 볼 때도 같은 판단을 할 수 있어야 합니다.</p></div>
+      </section>
+    </article>
+  </main>
+  <footer>
+    <a class="logo" href="https://f3ynm4n.com/">F3YNM4N</a>
+    <a href="#top">맨 위로 ↑</a>
+  </footer>
+<script defer src="/assets/f3-engagement.js" data-f3-article="meritocracy-illusion"></script>
+</body>
+</html>
