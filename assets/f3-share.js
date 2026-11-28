@@ -43,6 +43,7 @@
 
   let toastTimer;
   let sdkLoading = false;
+  let sdkFailed = false;
 
   function notify(message) {
     clearTimeout(toastTimer);
@@ -53,11 +54,24 @@
   function loadKakao() {
     if (sdkLoading || window.Kakao?.Share) return;
     sdkLoading = true;
+    sdkFailed = false;
     const script = document.createElement('script');
     script.src = kakaoSdk;
+    script.integrity = 'sha384-BGX7Wb16GmRFagri4bLJV2DgipVZaU2AI812GZtHtHzzDQJnfHasDXN5houxv45w';
     script.crossOrigin = 'anonymous';
-    script.onload = () => { sdkLoading = false; };
+    script.onload = () => {
+      if (!window.Kakao?.isInitialized()) {
+        try {
+          window.Kakao.init(kakaoKey);
+        } catch {
+          script.onerror();
+          return;
+        }
+      }
+      sdkLoading = false;
+    };
     script.onerror = () => {
+      sdkFailed = true;
       sdkLoading = false;
       script.remove();
     };
@@ -101,18 +115,20 @@
   get('f3ShareKakao').addEventListener('click', () => {
     const kakao = window.Kakao;
     if (!kakao?.Share) {
+      notify(sdkFailed
+        ? '카카오톡에 연결하지 못했습니다. URL 복사를 이용해 주세요.'
+        : '카카오톡을 불러오는 중입니다. 잠시 후 다시 눌러 주세요.');
       loadKakao();
-      notify('카카오톡을 불러오는 중입니다. 잠시 후 다시 누르거나 URL을 복사해 주세요.');
       return;
     }
     try {
-      if (!kakao.isInitialized()) kakao.init(kakaoKey);
       const link = { mobileWebUrl: url, webUrl: url };
-      kakao.Share.sendDefault({
+      const result = kakao.Share.sendDefault({
         objectType: 'feed',
         content: { title, description, imageUrl, link },
         buttons: [{ title: '읽기', link }],
       });
+      result?.catch?.(() => notify('카카오톡 공유창을 열지 못했습니다. URL 복사를 이용해 주세요.'));
       close(true);
     } catch {
       notify('카카오톡 공유창을 열지 못했습니다. URL 복사를 이용해 주세요.');
