@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="새로운 시작은 왜 새로운 시작이 되지 못했는가">
+  <title>스파이더맨: 브랜드 뉴 데이 — 새로운 시작은 왜 새로운 시작이 되지 못했는가 · F3YNM4N</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root {
+      --paper: #f5f0e8;
+      --panel: #ede6dc;
+      --ink: #211a15;
+      --muted: #65574b;
+      --accent: #8e4028;
+      --gold: #d5a75b;
+      --rule: #d7c4b0;
+      --serif: 'Noto Serif KR', 'AppleMyungjo', 'Nanum Myeongjo', Georgia, serif;
+      --sans: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      --mono: 'Space Mono', Menlo, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    a { color: var(--accent); text-underline-offset: .22em; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+    p { margin: 0; }
+    .skip { position: absolute; top: -8rem; left: 1rem; padding: .6rem 1rem; background: var(--paper); z-index: 2; }
+    .skip:focus { top: .5rem; }
+    .masthead, footer { padding: 18px clamp(22px, 4vw, 56px); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .masthead { background: #15110e; border-bottom: 1px solid #d5a75b38; }
+    .logo { color: var(--gold); text-decoration: none; font: bold 14px var(--mono); letter-spacing: .14em; }
+    .masthead .back { color: #d6c9b8; font-size: 12px; text-decoration: none; }
+    .hero { background: radial-gradient(ellipse at 82% 76%, #782f23 0%, transparent 52%), linear-gradient(155deg,#15110e,#231510); color: #f5eee4; }
+    .hero-inner { max-width: 1100px; margin-inline: auto; min-height: min(590px, 75svh); padding: clamp(64px, 12vw, 145px) clamp(24px, 6vw, 72px) clamp(56px, 9vw, 105px); display: flex; flex-direction: column; justify-content: end; }
+    .eyebrow { color: #e1ae78; font-size: 12px; letter-spacing: .18em; margin-bottom: 24px; }
+    h1 { margin: 0 0 24px; font: 700 clamp(35px, 7vw, 78px)/1.25 var(--serif); letter-spacing: -.055em; word-break: keep-all; }
+    h1 em { color: #efbe87; font-style: normal; }
+    .subtitle { font: 400 clamp(16px, 2.5vw, 21px)/1.75 var(--serif); color: #f2dfca; word-break: keep-all; }
+    main { max-width: 780px; margin-inline: auto; padding: clamp(44px, 8vw, 82px) clamp(24px, 6vw, 52px) 80px; }
+    article { font: 400 clamp(17px, 2.2vw, 19px)/2.05 var(--serif); word-break: keep-all; overflow-wrap: anywhere; }
+    article p + p { margin-top: 1.2em; }
+    .lede { font-size: clamp(19px, 2.6vw, 23px); line-height: 1.9; }
+    .section { margin-top: clamp(45px, 8vw, 68px); }
+    h2 { margin: 0 0 24px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); font: 700 clamp(22px, 3.6vw, 29px)/1.5 var(--serif); letter-spacing: -.035em; }
+    .pull { margin: 1.6em 0; padding: 20px clamp(18px, 4vw, 28px); border-left: 3px solid var(--accent); background: var(--panel); color: var(--accent); }
+    .source { font: 400 13px/1.75 var(--sans); }
+    .closing { margin-top: 38px; padding: clamp(20px, 5vw, 32px); background: var(--panel); border-top: 2px solid var(--accent); }
+    .related { margin-top: 48px; border-top: 1px solid var(--rule); padding-top: 20px; font-size: 15px; line-height: 1.7; }
+    .related-label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    footer { border-top: 1px solid var(--rule); font-size: 12px; }
+    footer .logo { color: var(--accent); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      .masthead, .skip, footer { display: none; }
+      .hero { background: white; color: black; }
+      .hero-inner { min-height: 0; padding: 12px 0 22px; }
+      .eyebrow, h1 em, .subtitle { color: #382d24; }
+      body, .closing, .pull { background: white; }
+      main { padding: 0; max-width: none; }
+      article { font-size: 12pt; }
+      h2 { break-after: avoid; }
+    }
+  
+    :root { --paper:#f3f0ee; --panel:#eae4e2; --ink:#221c24; --muted:#594e59; --accent:#8b3546; --gold:#ead5ba; --rule:#d6c5c9; }
+    .masthead { background:#151420; }
+    .hero { background:radial-gradient(ellipse at 82% 70%,#703646 0%,transparent 55%),linear-gradient(155deg,#14131e,#22273a); }
+    h1 { font-size:clamp(36px,7vw,78px); }
+    h1 em { display:block; color:#f0acb3; }
+    .hero-inner { min-height:min(570px,70svh); }
+    .eyebrow { color:#f3c6c7; }
+    .subtitle { color:#eee0dc; }
+    .spoiler { margin:0 0 34px; border-left:2px solid var(--accent); padding:8px 14px; color:var(--muted); font:14px/1.65 var(--sans); }
+    article .section:first-child { margin-top:0; }
+    article p.pull { margin:1.5em 0 0; }
+    .references { margin-top:50px; border-top:1px solid var(--rule); padding-top:20px; font:14px/1.7 var(--sans); }
+    .references h2 { font:700 15px/1.5 var(--sans); border:0; padding:0; margin:0 0 8px; }
+    .references ul { padding-left:1.25rem; margin:0; }
+    @media print { .hero { background:white; } h1 em,.subtitle,.eyebrow { color:#382d34; } }
+</style>
+  <link rel="canonical" href="https://f3ynm4n.com/spider-man-brand-new-day">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="F3YNM4N">
+  <meta property="og:title" content="스파이더맨: 브랜드 뉴 데이 — 새로운 시작은 왜 새로운 시작이 되지 못했는가">
+  <meta property="og:description" content="홀로서기를 시작한 피터 파커에게 영화가 내어준 시간">
+  <meta property="og:url" content="https://f3ynm4n.com/spider-man-brand-new-day">
+  <meta property="og:image" content="https://f3ynm4n.com/og_default.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body id="top">
+  <a class="skip" href="#article">본문 바로가기</a>
+  <header class="masthead">
+    <a class="logo" href="https://f3ynm4n.com/">F3YNM4N</a>
+    <a class="back" href="https://f3ynm4n.com/">← 매거진 홈</a>
+  </header>
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">F3YNM4N MAGAZINE · 영화 비평</p>
+      <h1>스파이더맨: <em>브랜드 뉴 데이</em></h1>
+      <p class="subtitle">새로운 시작은 왜 새로운 시작이 되지 못했는가</p>
+    </div>
+  </div>
+  <main>
+    <p class="spoiler">이 글에는 영화의 주요 내용과 결말에 대한 스포일러가 있습니다.</p>
+    <article id="article">
+      <section class="section" aria-labelledby="part-1">
+        <h2 id="part-1">카페를 나선 피터에게 남은 것</h2>
+        <p>《노 웨이 홈》의 마지막에서 피터 파커는 MJ를 찾아갑니다. 자기가 누구인지 설명할 생각이었지만, 끝내 그 말을 꺼내지 않고 카페를 나옵니다. 피터는 두 사람의 일을 기억하고, MJ에게 그는 처음 보는 손님입니다. 스파이더맨이 도시를 구하고도 돌려받지 못한 건, 피터 파커로 함께 보낸 시간이었습니다.</p>
+        <p>나는 그 장면 때문에 《브랜드 뉴 데이》가 기대됐습니다. 톰 홀랜드의 홈 3부작을 보는 동안 피터는 자주 어벤져스의 막내처럼 보였습니다. 그래도 거대한 세계 안에서 한 소년이 스파이더맨이 되는 과정은 볼 만했습니다. 이제 그 소년에게는 자기를 알아보는 친구도, 돌아갈 연애도 없습니다. 뉴욕을 지키는 일은 계속됩니다. 그런데 집에 돌아오면 어떻게 살아야 할까요. 나는 그 질문이 다음 영화의 출발점이라고 봤습니다.</p>
+      </section>
+      <section class="section" aria-labelledby="part-2">
+        <h2 id="part-2">MJ에게는 피터와 별개의 삶이 있는가</h2>
+        <p>미셸 존스 왓슨에게서 메리 제인과 그웬 스테이시가 함께 보입니다. MJ라는 이름에는 메리 제인이 남아 있고, 피터와 머리를 맞대고 문제를 푸는 모습에는 그웬이 있습니다. 그런데 두 사람에게서 가져온 것만큼, 미셸 자신이 무엇을 원하고 어떤 선택을 하는지는 영화에 남지 않았습니다.</p>
+        <p>샘 레이미의 메리 제인은 피터가 나타나지 않는 장면에서도 할 일이 있었습니다. 집을 벗어나고 싶었고, 배우가 되고 싶었고, 일이 풀리지 않으면 좌절했습니다. 《어메이징 스파이더맨》의 그웬도 자기 판단으로 위험에 뛰어들었고, 피터와의 관계와 별개로 앞날을 생각했습니다. 둘의 선택을 따라가다 보면 피터가 왜 그들을 좋아하는지와 별개로, 내가 왜 그 인물이 궁금한지 알 수 있었습니다.</p>
+        <p>이번 영화의 MJ에게도 독립적인 삶을 보여줄 출발점이 있습니다. 그는 MIT를 졸업하고 뉴욕으로 돌아왔습니다. 피터를 기억하지 않으니, 처음 만난 사람으로서 그를 어떻게 대할지도 자기 몫입니다. 나는 그가 어떤 사람이 됐는지 더 알고 싶었습니다. 홈 3부작에서 MJ가 피터에게 얼마나 중요한 사람이었는지는 충분히 전해졌습니다. 이번 영화에서도 두 사람을 계속 함께 보고 싶은지는 내게 여전히 다른 문제였습니다.</p>
+      </section>
+      <section class="section" aria-labelledby="part-3">
+        <h2 id="part-3">첫사랑을 떠나보내는 일</h2>
+        <p>《가디언즈 오브 갤럭시 Vol. 3》를 보면서 좋았던 건 스타로드가 가모라를 되찾는 데 성공하지 않았다는 점입니다. 그가 사랑했던 가모라는 죽었고, 지금 눈앞에 있는 사람은 과거에서 온 가모라입니다. MJ는 과거의 일을 잊었으니 설정은 다릅니다. 그래도 한 사람에게는 함께한 시간이 있고 다른 사람에게는 그 시간이 없다는 점에서 두 관계는 닮았습니다.</p>
+        <p>스타로드가 자기 기억을 아무리 생생하게 말해도 가모라에게 그 추억이 생기지는 않습니다. 둘은 함께 싸우고 조금씩 서로를 이해한 뒤 각자의 삶으로 돌아갑니다. 그 결말을 보며 나는 스타로드가 가모라를 얼마나 사랑했는지보다, 그 사랑을 품은 채 어떻게 앞으로 갈 수 있는지를 생각했습니다.</p>
+        <p>피터에게도 그런 시간이 필요했습니다. 그런데 《브랜드 뉴 데이》는 둘이 다시 가까워질 가능성에 마음을 둡니다. 내가 기다린 건 피터가 자기 없이도 잘 살아온 MJ의 삶을 받아들이는 순간이었습니다. 한 번은 제대로 떠나보낼 수 있어야, 훗날 다시 만나는 일에도 무게가 생깁니다.</p>
+        <p class="pull"><strong>세상을 구할 수 있는 사람도 누군가에게 자신을 다시 사랑하라고 할 수는 없습니다. 그걸 받아들이고도 살아가는 피터를 보고 싶었습니다.</strong></p>
+      </section>
+      <section class="section" aria-labelledby="part-4">
+        <h2 id="part-4">스파이더맨은 시간을 내어주고, 헐크는 무대를 빌린다</h2>
+        <p>옐레나, 퍼니셔, 헐크, 진 그레이가 한 영화에 나온다는 건 마블 팬으로서 반가운 일입니다. 퍼니셔는 피터가 어떤 방식으로 싸우는지 드러내는 상대가 되고, 진 그레이에게는 사라진 언니를 찾는 이유가 있습니다. 그런데 피터의 몸이 변하고 옛 친구들이 돌아오는 와중에 배너와 헐크의 이야기, 진 그레이의 가족 이야기까지 따라가야 합니다. 옐레나까지 나왔을 때는 반가움보다 이 영화가 그 만남에 써야 할 시간이 먼저 생각났습니다.</p>
+        <p>헐크를 보면서는 비슷한 아쉬움이 들었습니다. 《토르: 라그나로크》는 《플래닛 헐크》의 소재를 가져갔고, 배너와 헐크의 갈등은 어벤져스 영화들에 걸쳐 진행됐습니다. 이번에는 스파이더맨 영화에서 배너와 헐크를 다시 만납니다. 오랜만에 헐크의 힘이 제대로 느껴져 좋았지만, 그 인물의 이야기를 한 자리에 앉아 처음부터 끝까지 보고 싶다는 생각도 같이 들었습니다.</p>
+        <p>스파이더맨은 자기 영화에서 다른 인물의 이야기에 시간을 내어주고, 헐크는 자기 이야기를 이어갈 자리를 남의 영화에서 빌립니다. 둘을 한 화면에서 보는 재미는 분명합니다. 다만 영화가 끝나면 각자의 다음 이야기가 궁금해지는 만큼, 이번 영화에서 충분히 들은 이야기가 무엇인지도 생각하게 됩니다.</p>
+      </section>
+      <section class="section" aria-labelledby="part-5">
+        <h2 id="part-5">가면을 벗은 뒤의 하루</h2>
+        <p>뉴욕 건물 사이를 웹스윙으로 가로지르다가 활강으로 넘어가는 장면은 좋았습니다. 그런 순간에는 스파이더맨이 왜 오랫동안 사랑받는지 새삼 설명할 필요가 없습니다. 여러 히어로가 한 장면에 모일 때의 재미도 있었습니다. 즐겁게 본 장면이 꽤 있었는데도 영화가 끝난 뒤 내가 떠올린 건 전편의 카페였습니다.</p>
+        <p>소년이 스파이더맨이 되는 이야기는 이미 세 편에 걸쳐 봤습니다. 그다음에는 스파이더맨이 된 소년이 어른이 되는 이야기를 보고 싶었습니다. 한때 나를 사랑했던 사람이 나 없이도 잘 살고 있다는 사실을 받아들이고, 그날 밤 자기 방으로 돌아가, 다음 날 다시 문을 열고 나서는 사람의 이야기입니다.</p>
+        <p class="closing">피터가 뉴욕을 지키러 나가는 모습은 이번에도 멋있었습니다. 나는 그가 돌아와 가면을 벗은 뒤의 하루를 조금 더 보고 싶었습니다.</p>
+      </section>
+    </article>
+    <aside class="references" aria-labelledby="references">
+      <h2 id="references">작품 자료</h2>
+      <ul>
+        <li><a href="https://www.sonypictures.com/movies/spidermanbrandnewday">소니 픽처스 · 《스파이더맨: 브랜드 뉴 데이》 작품 및 인물 소개</a></li>
+        <li><a href="https://www.marvel.com/articles/gear/shop-marvel-must-haves-save-the-galaxy-with-new-guardians-items">마블 · 《가디언즈 오브 갤럭시 Vol. 3》 작품 소개</a></li>
+      </ul>
+    </aside>
+  </main>
+  <footer>
+    <a class="logo" href="https://f3ynm4n.com/">F3YNM4N</a>
+    <a href="#top">맨 위로 ↑</a>
+  </footer>
+<script defer src="/assets/f3-engagement.js" data-f3-article="spider-man-brand-new-day"></script>
+</body>
+</html>
