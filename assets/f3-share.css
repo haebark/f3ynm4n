@@ -1,0 +1,102 @@
+.f3-share-btn {
+  position: fixed;
+  right: 28px;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.f3-share-btn .f3-share-toggle {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: #bd935c;
+  color: #21160c;
+  border: 1px solid #dfaf72;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 18px #22180f44;
+}
+.f3-share-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+.f3-share-btn .f3-share-panel {
+  box-sizing: border-box;
+  width: min(210px, calc(100vw - 44px));
+  padding: 7px;
+  background: #11100c;
+  border: 1px solid #b7956b;
+  border-radius: 4px;
+  box-shadow: 0 8px 32px #21170f33;
+}
+.f3-share-btn [hidden] { display: none !important; }
+.f3-share-panel .f3-share-item {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 0;
+  background: transparent;
+  color: #f3dfc7;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: none;
+  text-align: left;
+  font: 14px/1.6 system-ui, sans-serif;
+}
+.f3-share-panel .f3-share-item span {
+  width: 22px;
+  text-align: center;
+}
+.f3-share-panel .f3-share-item.kakao { color: #fee500; }
+.f3-share-panel .f3-share-item:hover { background: #32271c; }
+.f3-share-btn :focus-visible { outline: 2px solid #e2ac64; outline-offset: 2px; }
+
+.f3-share-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(88px + env(safe-area-inset-bottom));
+  z-index: 1003;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 36px);
+  padding: 10px 14px;
+  background: #11100c;
+  color: #f3dfc7;
+  border: 1px solid #b7956b;
+  font: 14px/1.6 system-ui, sans-serif;
+  pointer-events: none;
+}
+.f3-share-toast:empty { opacity: 0; }
+
+.f3-share-dialog {
+  box-sizing: border-box;
+  width: min(420px, calc(100vw - 36px));
+  padding: 20px;
+  background: #11100c;
+  color: #f3dfc7;
+  border: 1px solid #b7956b;
+  font: 14px/1.6 system-ui, sans-serif;
+}
+.f3-share-dialog::backdrop { background: #0b0908b8; }
+.f3-share-dialog input { box-sizing: border-box; width: 100%; font: inherit; }
+.f3-share-dialog button { margin-top: 12px; font: inherit; cursor: pointer; }
+
+@media (max-width: 720px) {
+  .f3-share-btn { right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); }
+}
+@media print {
+  .f3-share-btn, .f3-share-toast, .f3-share-dialog { display: none !important; }
+}
